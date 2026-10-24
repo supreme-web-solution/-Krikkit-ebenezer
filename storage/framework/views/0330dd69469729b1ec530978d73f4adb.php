@@ -1,0 +1,3 @@
+<svg aria-hidden="true" class="shrink-0 size-3.5 text-krikkit-subtle" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+</svg><?php /**PATH C:\laragon\www\supreme-web-solution\Krikkit\storage\framework\views/4aa88d844b13a35208a77b8d585c9f18.blade.php ENDPATH**/ ?>
