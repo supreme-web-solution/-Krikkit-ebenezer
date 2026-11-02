@@ -8,6 +8,7 @@ use App\Installer\EnsureInstallerAppKey;
 use App\Models\User;
 use App\Support\Seo\PageSeo;
 use App\Support\Site\SiteSettings;
+use App\Support\Storage\EnsureStoragePaths;
 use App\Support\Storage\PublicDiskLink;
 use App\Support\Vite\TunnelAwareVite;
 use Deep42\Hitchhiker\Contracts\InstallationStateManager;
@@ -26,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        EnsureStoragePaths::bootstrap();
+
         EnsureInstallerAppKey::hydrate();
 
         $this->app->singleton(SiteSettings::class);
