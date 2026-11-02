@@ -6,7 +6,7 @@ import { LAB_BTN_OUTLINE } from '../lib/labConstants'
 export function PreviewMissing({ path = '/', onHome }) {
     return (
         <div
-            className="absolute inset-0 flex items-center justify-center bg-krikkit-canvas px-6"
+            className="absolute inset-0 flex items-center justify-center bg-studio-canvas px-6"
             role="status"
             aria-label="Page not found"
         >
@@ -14,14 +14,14 @@ export function PreviewMissing({ path = '/', onHome }) {
                 <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent-content">
                     Not found
                 </p>
-                <p className="mt-3 text-4xl font-semibold tracking-tight text-krikkit-fg">
+                <p className="mt-3 text-4xl font-semibold tracking-tight text-studio-fg">
                     404
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-krikkit-muted">
+                <p className="mt-2 text-sm leading-relaxed text-studio-muted">
                     This page isn’t in the project.
                 </p>
                 <p
-                    className="mt-5 inline-flex h-7 max-w-full items-center rounded-lg border border-krikkit-line px-2.5 font-mono text-xs text-krikkit-subtle"
+                    className="mt-5 inline-flex h-7 max-w-full items-center rounded-lg border border-studio-line px-2.5 font-mono text-xs text-studio-subtle"
                     title={path}
                 >
                     <span className="truncate">{path}</span>

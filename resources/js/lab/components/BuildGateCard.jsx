@@ -99,7 +99,7 @@ export function BuildGateCard({
 
     return (
         <div
-            className="lab-crest-enter relative overflow-hidden rounded-2xl bg-krikkit-fg/[0.04] dark:bg-krikkit-fg/[0.10]"
+            className="lab-crest-enter relative overflow-hidden rounded-2xl bg-studio-fg/[0.04] dark:bg-studio-fg/[0.10]"
             role="region"
             aria-label={title}
         >
@@ -107,7 +107,7 @@ export function BuildGateCard({
                 <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent-content">
                     {title}
                 </p>
-                <p className="mt-2 max-w-md text-[15px] leading-snug tracking-tight text-krikkit-fg">
+                <p className="mt-2 max-w-md text-[15px] leading-snug tracking-tight text-studio-fg">
                     {body}
                 </p>
 
@@ -115,7 +115,7 @@ export function BuildGateCard({
                     <button
                         type="button"
                         onClick={skip}
-                        className="text-sm text-krikkit-subtle transition hover:text-krikkit-fg-soft"
+                        className="text-sm text-studio-subtle transition hover:text-studio-fg-soft"
                     >
                         Skip
                     </button>
@@ -130,7 +130,7 @@ export function BuildGateCard({
                 </div>
             </div>
 
-            <div className="h-1 w-full bg-krikkit-fg/[0.08]" aria-hidden>
+            <div className="h-1 w-full bg-studio-fg/[0.08]" aria-hidden>
                 <div
                     className={[
                         'h-full bg-gradient-to-r from-accent via-accent/70 to-transparent',

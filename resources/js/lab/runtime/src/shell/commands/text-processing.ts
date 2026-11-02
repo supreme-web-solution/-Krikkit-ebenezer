@@ -1,4 +1,4 @@
-// Krikkit Lab — echo/printf/sed/awk-style builtins.
+// Supreme Lab — echo/printf/sed/awk-style builtins.
 
 import type { BuiltinFn, ShellContext, ShellResult } from "../shell-types";
 import {

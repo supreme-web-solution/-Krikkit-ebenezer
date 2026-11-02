@@ -1,4 +1,4 @@
-// Krikkit Lab — inline esbuild worker bootstrap.
+// Supreme Lab — inline esbuild worker bootstrap.
 
 // creates offload workers from an embedded source string via Blob URL so no separate file needs serving
 // speaks Comlink's wire protocol directly so the message listener is synchronous on boot — avoids races with the first init() call

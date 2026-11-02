@@ -31,9 +31,9 @@ const id: BuiltinFn = (_args, ctx) => {
 const uname: BuiltinFn = (args) => {
   const fields: Record<string, string> = {
     s: "LabRuntime",
-    n: "krikkit-lab",
+    n: "studio-lab",
     r: "virtual",
-    v: "Krikkit Lab virtual kernel",
+    v: "Supreme Lab virtual kernel",
     m: "browser",
   };
   if (args.includes("-a")) return ok(Object.values(fields).join(" ") + "\n");

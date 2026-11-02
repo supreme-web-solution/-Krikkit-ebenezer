@@ -1,7 +1,7 @@
 /** Preview iframe runtime/console faults forwarded to Lab error store. */
-export const PREVIEW_GUEST_ERROR_EVENT = 'krikkit-lab-guest-console-error'
+export const PREVIEW_GUEST_ERROR_EVENT = 'studio-lab-guest-console-error'
 
-export const PREVIEW_GUEST_REPAIR_EVENT = 'krikkit-lab-request-repair'
+export const PREVIEW_GUEST_REPAIR_EVENT = 'studio-lab-request-repair'
 
 /** Masked cross-origin/runtime boot noise — not actionable in Lab preview. */
 export function isIgnorableGuestRuntimeError(message = '', stack = '') {

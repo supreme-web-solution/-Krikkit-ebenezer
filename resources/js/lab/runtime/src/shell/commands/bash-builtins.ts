@@ -61,7 +61,7 @@ const getoptsCmd: BuiltinFn = (args, ctx) => {
 };
 
 const helpCmd: BuiltinFn = () => ok(
-  "Krikkit Lab Bash builtins: : . alias bg bind break builtin caller case cd command compgen complete continue declare dirs disown echo enable eval exec exit export false fc fg getopts hash help history jobs kill let local logout mapfile popd printf pushd pwd read readarray readonly return set shift shopt source suspend test times trap true type typeset ulimit umask unalias unset wait\n",
+  "Supreme Lab Bash builtins: : . alias bg bind break builtin caller case cd command compgen complete continue declare dirs disown echo enable eval exec exit export false fc fg getopts hash help history jobs kill let local logout mapfile popd printf pushd pwd read readarray readonly return set shift shopt source suspend test times trap true type typeset ulimit umask unalias unset wait\n",
 );
 
 const hashCmd: BuiltinFn = () => ok();

@@ -58,14 +58,14 @@ export function DatastoreCard({
                 aria-expanded={isOpen}
                 aria-controls={hasBody && isOpen ? panelId : undefined}
                 onClick={() => hasBody && setIsOpen((open) => ! open)}
-                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-krikkit-muted transition-colors hover:text-krikkit-fg-soft"
+                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-studio-muted transition-colors hover:text-studio-fg-soft"
             >
                 <IconCylinder />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight">
                     <ToolStatusText text={label} pending={pending && status !== 'error'} />
                 </span>
                 {meta && status === 'done' ? (
-                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-krikkit-subtle">
+                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-studio-subtle">
                         {meta}
                         {destructive ? ' · destructive' : ''}
                     </span>
@@ -76,9 +76,9 @@ export function DatastoreCard({
             {hasBody && isOpen ? (
                 <div id={panelId} data-state="open" className="lab-tool-collapse">
                     <div className="lab-tool-collapse__clip">
-                        <div className="lab-tool-collapse__body bg-krikkit-soft border border-krikkit-line krikkit-scroll-hover max-h-52 overflow-auto rounded-xl py-1">
+                        <div className="lab-tool-collapse__body bg-studio-soft border border-studio-line studio-scroll-hover max-h-52 overflow-auto rounded-xl py-1">
                             {summary ? (
-                                <p className="px-3 py-1.5 text-[12px] text-krikkit-fg-soft">{summary}</p>
+                                <p className="px-3 py-1.5 text-[12px] text-studio-fg-soft">{summary}</p>
                             ) : null}
                             {rows.length ? (
                                 <ul className="list-none">
@@ -87,8 +87,8 @@ export function DatastoreCard({
                                         const cols = Array.isArray(table?.columns) ? table.columns : []
                                         return (
                                             <li key={name} className="flex min-w-0 items-center gap-2 px-3 py-1.5 text-[12px]">
-                                                <span className="truncate text-krikkit-fg">{name}</span>
-                                                <span className="ml-auto shrink-0 text-[10px] text-krikkit-subtle">
+                                                <span className="truncate text-studio-fg">{name}</span>
+                                                <span className="ml-auto shrink-0 text-[10px] text-studio-subtle">
                                                     {cols.length} col{cols.length === 1 ? '' : 's'}
                                                 </span>
                                             </li>

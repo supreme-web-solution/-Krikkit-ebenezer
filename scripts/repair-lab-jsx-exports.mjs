@@ -30,7 +30,7 @@ function walkJsx(dir, acc = []) {
 let patched = 0
 const targets = only ? [only] : readdirSync(projectsDir).filter((name) => {
     const dir = join(projectsDir, name)
-    return statSync(dir).isDirectory() && existsSync(join(dir, '.krikkit-kit'))
+    return statSync(dir).isDirectory() && existsSync(join(dir, '.studio-kit'))
 })
 
 for (const name of targets) {

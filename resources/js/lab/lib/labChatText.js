@@ -194,7 +194,7 @@ function scrubChatArtifacts(text = '') {
 
 /** Reveal `text` over time so the reply doesn’t pop in as one block. */
 export function streamReveal(text, onFrame, options = {}) {
-    // Meta-safe — never paints <<<KRIKKIT_META…, <suggestions>, or <todos> into chat.
+    // Meta-safe — never paints <<<STUDIO_META…, <suggestions>, or <todos> into chat.
     return streamRevealSafe(text, (partial) => {
         onFrame(scrubChatArtifacts(partial).text)
     }, options).then((result) => {

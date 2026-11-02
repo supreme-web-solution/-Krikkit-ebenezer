@@ -17,7 +17,7 @@ return [
     |--------------------------------------------------------------------------
     | The name displayed in the installer wizard.
     */
-    'name' => env('APP_NAME', 'Krikkit'),
+    'name' => env('APP_NAME', 'Supreme'),
 
     /*
     |--------------------------------------------------------------------------
@@ -151,7 +151,7 @@ return [
     |--------------------------------------------------------------------------
     | Theme
     |--------------------------------------------------------------------------
-    | Accent tracks Krikkit (black in light, white in dark). Override to
+    | Accent tracks Supreme (black in light, white in dark). Override to
     | match a host app's Settings → Themes accent. Mode: light|dark|system.
     */
     'theme' => [

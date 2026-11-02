@@ -1,6 +1,6 @@
 # Lab Overview
 
-The **Lab** is Krikkit’s full AI studio. Users describe a product in chat; the agent edits a real workspace; they preview, inspect, refine, connect backends, and publish.
+The **Lab** is Supreme’s full AI studio. Users describe a product in chat; the agent edits a real workspace; they preview, inspect, refine, connect backends, and publish.
 
 **URLs**
 

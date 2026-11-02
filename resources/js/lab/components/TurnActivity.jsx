@@ -302,7 +302,7 @@ export function TurnActivity({
 
                 {(turn.skipDivider || turn.buildGate === 'skipped') ? (
                     <div
-                        className="my-2 border-t border-krikkit-line"
+                        className="my-2 border-t border-studio-line"
                         role="separator"
                         aria-hidden="true"
                     />

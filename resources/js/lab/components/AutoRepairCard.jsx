@@ -43,12 +43,12 @@ export function AutoRepairCard({
             role="status"
             aria-label={title}
         >
-            <div className="lab-crest-enter ml-auto w-fit min-w-0 max-w-[85%] rounded-2xl bg-krikkit-fg/[0.04] px-3.5 py-3 dark:bg-krikkit-on-fill/[0.05]">
+            <div className="lab-crest-enter ml-auto w-fit min-w-0 max-w-[85%] rounded-2xl bg-studio-fg/[0.04] px-3.5 py-3 dark:bg-studio-on-fill/[0.05]">
                 <div className="flex items-start gap-2.5">
                     <div
                         className={[
                             'mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full',
-                            'bg-krikkit-soft/80 text-krikkit-muted',
+                            'bg-studio-soft/80 text-studio-muted',
                             pending ? 'lab-repair-pulse text-accent-content' : '',
                         ].join(' ')}
                     >
@@ -57,19 +57,19 @@ export function AutoRepairCard({
 
                     <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                            <p className="text-[13px] font-medium leading-snug text-krikkit-fg">
+                            <p className="text-[13px] font-medium leading-snug text-studio-fg">
                                 {title}
                             </p>
                             {badge ? (
                                 <span
-                                    className="truncate font-mono text-[11px] text-krikkit-subtle"
+                                    className="truncate font-mono text-[11px] text-studio-subtle"
                                     title={badge}
                                 >
                                     {badge}
                                 </span>
                             ) : null}
                         </div>
-                        <p className="mt-1 text-[12px] leading-snug text-krikkit-muted">
+                        <p className="mt-1 text-[12px] leading-snug text-studio-muted">
                             {subtitle}
                         </p>
                     </div>

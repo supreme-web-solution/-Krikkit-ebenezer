@@ -1,4 +1,4 @@
-// Krikkit Lab — Node-compatible import.meta for ScriptEngine wrappers.
+// Supreme Lab — Node-compatible import.meta for ScriptEngine wrappers.
 // Mirrors Node's host-defined import.meta fields (url/filename/dirname/resolve/main).
 // Vite-only APIs (glob/env/hot) are intentionally absent — those are compile-time.
 

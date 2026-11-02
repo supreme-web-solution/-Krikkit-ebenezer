@@ -1,4 +1,4 @@
-// Krikkit Lab monorepo workspace discovery.
+// Supreme Lab monorepo workspace discovery.
 
 import { MemoryVolume } from "../memory-volume";
 import * as path from "../polyfills/path";

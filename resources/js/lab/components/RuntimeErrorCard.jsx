@@ -68,7 +68,7 @@ export function RuntimeErrorCard({
 
     return (
         <div
-            className="lab-crest-enter overflow-hidden rounded-xl bg-krikkit-surface"
+            className="lab-crest-enter overflow-hidden rounded-xl bg-studio-surface"
             role="region"
             aria-label={presented.badge}
             onWheel={stopScrollChain}
@@ -82,7 +82,7 @@ export function RuntimeErrorCard({
                         </span>
                         {fileLabel ? (
                             <span
-                                className="inline-flex max-w-full items-center truncate rounded-md border border-krikkit-line bg-krikkit-soft px-1.5 py-0.5 font-mono text-[10px] text-krikkit-muted"
+                                className="inline-flex max-w-full items-center truncate rounded-md border border-studio-line bg-studio-soft px-1.5 py-0.5 font-mono text-[10px] text-studio-muted"
                                 title={fileLabel}
                             >
                                 {fileLabel}
@@ -90,7 +90,7 @@ export function RuntimeErrorCard({
                         ) : null}
                     </div>
 
-                    <p className="mt-1.5 line-clamp-2 text-[13px] leading-snug text-krikkit-fg">
+                    <p className="mt-1.5 line-clamp-2 text-[13px] leading-snug text-studio-fg">
                         {title}
                     </p>
 
@@ -99,14 +99,14 @@ export function RuntimeErrorCard({
                             {errors.map((row, index) => (
                                 <li
                                     key={`${row.file || 'x'}-${index}-${row.message}`}
-                                    className="rounded-lg border border-krikkit-line bg-krikkit-canvas px-2 py-1.5"
+                                    className="rounded-lg border border-studio-line bg-studio-canvas px-2 py-1.5"
                                 >
-                                    <p className="font-mono text-[10px] uppercase tracking-wide text-krikkit-subtle">
+                                    <p className="font-mono text-[10px] uppercase tracking-wide text-studio-subtle">
                                         {`Error ${index + 1}`}
                                         {row.component ? ` · ${row.component}` : ''}
                                         {row.file ? ` · ${row.file}` : ''}
                                     </p>
-                                    <p className="mt-0.5 line-clamp-2 text-[12px] leading-snug text-krikkit-fg-soft">
+                                    <p className="mt-0.5 line-clamp-2 text-[12px] leading-snug text-studio-fg-soft">
                                         {row.message}
                                     </p>
                                 </li>
@@ -120,7 +120,7 @@ export function RuntimeErrorCard({
                         type="button"
                         onClick={onDismiss}
                         disabled={disabled}
-                        className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-krikkit-subtle transition hover:bg-krikkit-soft hover:text-krikkit-fg disabled:pointer-events-none disabled:opacity-40"
+                        className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-studio-subtle transition hover:bg-studio-soft hover:text-studio-fg disabled:pointer-events-none disabled:opacity-40"
                         aria-label="Dismiss"
                     >
                         <span className="text-sm leading-none" aria-hidden>×</span>
@@ -136,7 +136,7 @@ export function RuntimeErrorCard({
                 >
                     <div className="lab-tool-collapse__clip">
                         <div className="lab-tool-collapse__body">
-                            <pre className="krikkit-scroll-hover max-h-44 overflow-auto rounded-lg border border-krikkit-line bg-krikkit-canvas px-3 py-2 font-mono text-[11px] leading-5 text-krikkit-fg-soft whitespace-pre-wrap break-words">
+                            <pre className="studio-scroll-hover max-h-44 overflow-auto rounded-lg border border-studio-line bg-studio-canvas px-3 py-2 font-mono text-[11px] leading-5 text-studio-fg-soft whitespace-pre-wrap break-words">
                                 {detail}
                             </pre>
                         </div>
@@ -151,7 +151,7 @@ export function RuntimeErrorCard({
                         aria-expanded={open}
                         aria-controls={panelId}
                         onClick={() => setOpen((value) => ! value)}
-                        className="inline-flex items-center gap-1 rounded-lg px-1.5 py-1 text-[11px] text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg"
+                        className="inline-flex items-center gap-1 rounded-lg px-1.5 py-1 text-[11px] text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg"
                     >
                         <IconChevron open={open} className="h-3.5 w-3.5 shrink-0" />
                         {detailsLabel}

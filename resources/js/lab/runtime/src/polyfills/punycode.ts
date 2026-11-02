@@ -1,4 +1,4 @@
-// Krikkit Lab — node:punycode polyfill.
+// Supreme Lab — node:punycode polyfill.
 
 
 const BASE = 36;

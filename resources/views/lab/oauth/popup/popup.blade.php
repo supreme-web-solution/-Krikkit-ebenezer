@@ -9,12 +9,12 @@
             body { margin: 0; }
         </style>
     </head>
-    <body class="flex min-h-dvh items-center justify-center bg-krikkit-canvas px-6 text-center text-sm text-krikkit-muted">
+    <body class="flex min-h-dvh items-center justify-center bg-studio-canvas px-6 text-center text-sm text-studio-muted">
         <p>{{ $ok ? __('dashboard.Supabase connected. You can close this window.') : $message }}</p>
         <script>
             (function () {
                 var payload = {
-                    source: 'krikkit-lab',
+                    source: 'studio-lab',
                     kind: 'datastore-oauth',
                     ok: @json((bool) $ok),
                     message: @json((string) $message),
@@ -22,13 +22,13 @@
                 }
                 try {
                     if (typeof BroadcastChannel === 'function') {
-                        var channel = new BroadcastChannel('krikkit-lab-datastore-oauth')
+                        var channel = new BroadcastChannel('studio-lab-datastore-oauth')
                         channel.postMessage(payload)
                         channel.close()
                     }
                 } catch (e) {}
                 try {
-                    window.localStorage.setItem('krikkit-lab-datastore-oauth', JSON.stringify(payload))
+                    window.localStorage.setItem('studio-lab-datastore-oauth', JSON.stringify(payload))
                 } catch (e) {}
                 try {
                     if (window.opener && ! window.opener.closed) {

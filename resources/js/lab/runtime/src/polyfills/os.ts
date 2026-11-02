@@ -1,4 +1,4 @@
-// Krikkit Lab — node:os polyfill.
+// Supreme Lab — node:os polyfill.
 
 
 import { MOCK_OS, MOCK_IDS, MOCK_CPU, MOCK_MEMORY, MOCK_LOADAVG } from "../constants/config";

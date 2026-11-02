@@ -1,11 +1,11 @@
 <x-studio.frame :user="$user" :site="$site" :plan-title="$planTitle" :pack-offer="$packOffer">
     <section class="px-4 pb-6 pt-8 sm:px-6 sm:pt-10 lg:px-10">
         <div class="flex flex-col gap-2">
-            <h1 class="text-2xl font-semibold tracking-tight text-krikkit-fg sm:text-3xl">
+            <h1 class="text-2xl font-semibold tracking-tight text-studio-fg sm:text-3xl">
                 {{ __('studio.Starred') }}
             </h1>
             @if ($starredProjects->isNotEmpty())
-                <p class="text-sm text-krikkit-muted">
+                <p class="text-sm text-studio-muted">
                     {{ __('studio.Projects you marked as favorites.') }}
                 </p>
             @endif
@@ -14,14 +14,14 @@
 
     @if ($starredProjects->isEmpty())
         <div class="flex min-h-[min(28rem,calc(100dvh-18rem))] flex-1 items-center justify-center px-4">
-            <krikkit:empty
+            <studio:empty
                 :title="__('studio.No starred projects')"
                 :copy="__('studio.Hover a project preview and tap the star to save it here.')"
             >
-                <krikkit:button href="{{ route('projects') }}" wire:navigate>
+                <studio:button href="{{ route('projects') }}" wire:navigate>
                     {{ __('studio.Browse projects') }}
-                </krikkit:button>
-            </krikkit:empty>
+                </studio:button>
+            </studio:empty>
         </div>
     @else
         <section class="px-4 pb-16 sm:px-6 lg:px-10">

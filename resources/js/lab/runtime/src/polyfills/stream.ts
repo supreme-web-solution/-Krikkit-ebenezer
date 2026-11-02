@@ -1,4 +1,4 @@
-// Krikkit Lab — node:stream polyfill.
+// Supreme Lab — node:stream polyfill.
 // Uses function constructors (not classes) so Readable.call(this) works for pre-ES6 inheritance.
 
 import { EventEmitter } from "./events";

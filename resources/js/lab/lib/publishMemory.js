@@ -1,4 +1,4 @@
-export const PUBLISH_MEMORY_EVENT = 'krikkit-publish-memory'
+export const PUBLISH_MEMORY_EVENT = 'studio-publish-memory'
 
 /**
  * Free browser memory before a production build (preview iframe, etc.).

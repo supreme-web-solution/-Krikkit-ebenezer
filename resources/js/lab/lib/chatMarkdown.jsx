@@ -1,5 +1,5 @@
 /**
- * Lab chat markdown via Streamdown — code + math (KaTeX) + Krikkit-themed mermaid.
+ * Lab chat markdown via Streamdown — code + math (KaTeX) + Supreme-themed mermaid.
  */
 
 import { useEffect, useMemo, useState } from 'react'
@@ -7,22 +7,22 @@ import { Streamdown } from 'streamdown'
 import { code } from '@streamdown/code'
 import { math } from '@streamdown/math'
 import { createMermaidPlugin } from '@streamdown/mermaid'
-import { buildKrikkitMermaidConfig, isDocumentDark } from './krikkitMermaid'
+import { buildStudioMermaidConfig, isDocumentDark } from './studioMermaid'
 import 'katex/dist/katex.min.css'
 import 'streamdown/styles.css'
 
 function MermaidError({ error, retry }) {
     return (
-        <div className="rounded-xl border border-krikkit-line bg-krikkit-soft px-3 py-3">
-            <p className="text-xs font-medium text-krikkit-fg">Couldn’t render diagram</p>
-            <p className="mt-1 text-[11px] leading-relaxed text-krikkit-muted">
+        <div className="rounded-xl border border-studio-line bg-studio-soft px-3 py-3">
+            <p className="text-xs font-medium text-studio-fg">Couldn’t render diagram</p>
+            <p className="mt-1 text-[11px] leading-relaxed text-studio-muted">
                 {error || 'Invalid Mermaid syntax.'}
             </p>
             {typeof retry === 'function' && (
                 <button
                     type="button"
                     onClick={retry}
-                    className="mt-2 text-[11px] text-krikkit-muted transition-colors hover:text-krikkit-fg"
+                    className="mt-2 text-[11px] text-studio-muted transition-colors hover:text-studio-fg"
                 >
                     Retry
                 </button>
@@ -52,7 +52,7 @@ export function ChatMarkdown({ content, isStreaming = false }) {
     const dark = useMemo(() => isDocumentDark(), [themeTick])
 
     const mermaidPlugin = useMemo(
-        () => createMermaidPlugin({ config: buildKrikkitMermaidConfig() }),
+        () => createMermaidPlugin({ config: buildStudioMermaidConfig() }),
         [themeTick],
     )
 
@@ -74,7 +74,7 @@ export function ChatMarkdown({ content, isStreaming = false }) {
             shikiTheme={['github-light', 'github-dark']}
             lineNumbers={false}
             mermaid={{
-                config: buildKrikkitMermaidConfig(),
+                config: buildStudioMermaidConfig(),
                 errorComponent: MermaidError,
             }}
             controls={{

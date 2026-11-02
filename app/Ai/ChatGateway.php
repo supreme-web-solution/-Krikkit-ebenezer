@@ -121,7 +121,7 @@ final class ChatGateway
                 // until HTTP close — the UI sat on "Waiting for model"
                 // while the model was already writing the Switch copy.
                 $now = microtime(true);
-                $closing = str_contains($delta, '</') || str_contains($delta, 'KRIKKIT_META');
+                $closing = str_contains($delta, '</') || str_contains($delta, 'STUDIO_META');
                 $parsed = $this->thoughtBlock->parse($acc);
                 $thought = $parsed['thought'];
                 $proposal = $this->workspaceProposal->parse((string) ($parsed['content'] ?? ''));

@@ -17,7 +17,7 @@ function MenuRow({ label, onClick }) {
             type="button"
             role="menuitem"
             onClick={onClick}
-            className="flex w-full items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-left text-[13px] text-krikkit-fg transition-colors hover:bg-krikkit-soft"
+            className="flex w-full items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-left text-[13px] text-studio-fg transition-colors hover:bg-studio-soft"
         >
             <span className="min-w-0 truncate">{label}</span>
         </button>
@@ -138,18 +138,18 @@ export function PreviewContextMenu({
     return createPortal(
         <div
             ref={rootRef}
-            className="fixed z-[80] w-[17.5rem] overflow-hidden rounded-xl border border-krikkit-line bg-krikkit-surface"
+            className="fixed z-[80] w-[17.5rem] overflow-hidden rounded-xl border border-studio-line bg-studio-surface"
             style={{ left: pos.left, top: pos.top }}
             role="presentation"
         >
-            <div className="border-b border-krikkit-line px-3 py-2">
+            <div className="border-b border-studio-line px-3 py-2">
                 <p className="truncate font-mono text-[11px] text-accent-content">{tag}{element.id ? `#${element.id}` : ''}</p>
-                <p className="mt-0.5 truncate text-[11px] text-krikkit-muted">{snippet}</p>
+                <p className="mt-0.5 truncate text-[11px] text-studio-muted">{snippet}</p>
             </div>
             <div className="p-1" role="menu">
                 {items.map((item) => {
                     if (item.sep) {
-                        return <div key={item.id} className="my-1 h-px bg-krikkit-line" role="separator" />
+                        return <div key={item.id} className="my-1 h-px bg-studio-line" role="separator" />
                     }
                     return (
                         <MenuRow

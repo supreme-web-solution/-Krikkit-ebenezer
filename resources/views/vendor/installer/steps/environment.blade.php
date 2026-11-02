@@ -102,7 +102,7 @@
         <button
             type="button"
             wire:click="testDatabase"
-            x-on:click="window.__krikkitInstallerPulseSig = null"
+            x-on:click="window.__studioInstallerPulseSig = null"
             wire:loading.attr="disabled"
             class="test-connection-btn"
         >

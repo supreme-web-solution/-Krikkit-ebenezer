@@ -25,14 +25,14 @@ export function GithubToolCard({
             aria-label={label}
             data-lab-chrome="github"
         >
-            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 items-center justify-start gap-1.5 text-[13px] font-normal leading-5 text-krikkit-muted">
+            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 items-center justify-start gap-1.5 text-[13px] font-normal leading-5 text-studio-muted">
                 <IconDiff />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight">
                     <ToolStatusText text={label} pending={pending && status !== 'error'} />
                 </span>
             </div>
             {summary ? (
-                <p className="mt-0.5 pl-5 text-[12px] leading-5 text-krikkit-subtle">{summary}</p>
+                <p className="mt-0.5 pl-5 text-[12px] leading-5 text-studio-subtle">{summary}</p>
             ) : null}
         </div>
     )

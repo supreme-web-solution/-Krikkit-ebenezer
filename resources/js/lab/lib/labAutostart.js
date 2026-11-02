@@ -35,7 +35,7 @@ let runningDevProc = null
 /** @type {{ write?: Function, writeln?: Function, showPrompt?: Function }|null} */
 let outputTerminal = null
 
-export const LAB_RUNTIME_PHASE = 'krikkit-lab-phase'
+export const LAB_RUNTIME_PHASE = 'studio-lab-phase'
 
 /** @deprecated Use LAB_RUNTIME_PHASE */
 export const DEEPTHOUGHT_PHASE = LAB_RUNTIME_PHASE

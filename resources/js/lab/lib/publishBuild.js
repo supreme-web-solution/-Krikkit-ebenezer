@@ -141,7 +141,7 @@ async function writeProgrammaticViteBuildScript(pod, plan) {
         '})',
         '',
     ].join('\n')
-    await pod.fs.writeFile('/.__krikkit_publish_build__.mjs', script)
+    await pod.fs.writeFile('/.__studio_publish_build__.mjs', script)
 }
 
 async function clearGuestBuildCaches(pod) {
@@ -420,7 +420,7 @@ export async function buildLabPublishArtifact(opts = {}) {
         let proc
         if (buildPlan.mode === 'esbuild') {
             await writeEsbuildPublishScript(pod, buildPlan)
-            proc = await pod.spawn('node', ['.__krikkit_esbuild_publish__.mjs'], {
+            proc = await pod.spawn('node', ['.__studio_esbuild_publish__.mjs'], {
                 cwd: '/',
                 signal: opts.signal,
                 env: {
@@ -431,7 +431,7 @@ export async function buildLabPublishArtifact(opts = {}) {
             })
         } else if (buildPlan.mode === 'programmatic') {
             await writeProgrammaticViteBuildScript(pod, buildPlan)
-            proc = await pod.spawn('node', ['.__krikkit_publish_build__.mjs'], {
+            proc = await pod.spawn('node', ['.__studio_publish_build__.mjs'], {
                 cwd: '/',
                 signal: opts.signal,
                 env: {
@@ -473,22 +473,22 @@ export async function buildLabPublishArtifact(opts = {}) {
         }
 
         try {
-            await pod.fs.rm('/.__krikkit_publish_build__.mjs', { force: true })
+            await pod.fs.rm('/.__studio_publish_build__.mjs', { force: true })
         } catch {
             /* ignore */
         }
         try {
-            await pod.fs.rm('/.__krikkit_esbuild_publish__.mjs', { force: true })
+            await pod.fs.rm('/.__studio_esbuild_publish__.mjs', { force: true })
         } catch {
             /* ignore */
         }
         try {
-            await pod.fs.rm('/.__krikkit_publish_entry__.jsx', { force: true })
+            await pod.fs.rm('/.__studio_publish_entry__.jsx', { force: true })
         } catch {
             /* ignore */
         }
         try {
-            await pod.fs.rm('/src/.__krikkit_publish_entry__.jsx', { force: true })
+            await pod.fs.rm('/src/.__studio_publish_entry__.jsx', { force: true })
         } catch {
             /* ignore */
         }

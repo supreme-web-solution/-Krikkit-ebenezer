@@ -12,8 +12,8 @@
     ]);
 @endphp
 <style>
-    html { background-color: var(--color-krikkit-canvas, #fff); color-scheme: light; }
-    html.dark { background-color: var(--color-krikkit-canvas, #0a0a0a); color-scheme: dark; }
+    html { background-color: var(--color-studio-canvas, #fff); color-scheme: light; }
+    html.dark { background-color: var(--color-studio-canvas, #0a0a0a); color-scheme: dark; }
 </style>
 <script type="text/javascript">
     (() => {
@@ -25,22 +25,22 @@
         var cookieKey = @js(ThemePalette::MODE_COOKIE);
 
         if (saved && !locked) {
-            localStorage.setItem('krikkit-theme', saved.mode)
-            localStorage.setItem('krikkit-theme-accent', saved.accent)
-            localStorage.setItem('krikkit-theme-base', saved.base)
+            localStorage.setItem('studio-theme', saved.mode)
+            localStorage.setItem('studio-theme-accent', saved.accent)
+            localStorage.setItem('studio-theme-base', saved.base)
         } else if (site) {
-            if (locked || !localStorage.getItem('krikkit-theme-accent')) {
-                localStorage.setItem('krikkit-theme-accent', site.accent)
-                localStorage.setItem('krikkit-theme-base', site.base)
+            if (locked || !localStorage.getItem('studio-theme-accent')) {
+                localStorage.setItem('studio-theme-accent', site.accent)
+                localStorage.setItem('studio-theme-base', site.base)
             }
-            if (locked || !localStorage.getItem('krikkit-theme')) {
+            if (locked || !localStorage.getItem('studio-theme')) {
                 if (siteMode === 'light' || siteMode === 'dark') {
-                    localStorage.setItem('krikkit-theme', siteMode)
+                    localStorage.setItem('studio-theme', siteMode)
                 }
             }
         }
 
-        var modeStored = localStorage.getItem('krikkit-theme')
+        var modeStored = localStorage.getItem('studio-theme')
         var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
         var mode = modeStored === 'dark' || modeStored === 'light'
             ? modeStored

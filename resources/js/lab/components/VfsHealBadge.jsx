@@ -26,7 +26,7 @@ export function VfsHealBadge({
     const row = (
         <>
             <span
-                className="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center font-mono text-[11px] leading-none text-krikkit-muted"
+                className="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center font-mono text-[11px] leading-none text-studio-muted"
                 aria-hidden
             >
                 {'>_'}
@@ -49,12 +49,12 @@ export function VfsHealBadge({
                     type="button"
                     onClick={onOpenTerminal}
                     aria-label={`${label} Open Terminal`}
-                    className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-krikkit-muted transition-colors hover:text-krikkit-fg-soft"
+                    className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-studio-muted transition-colors hover:text-studio-fg-soft"
                 >
                     {row}
                 </button>
             ) : (
-                <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-krikkit-muted">
+                <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-studio-muted">
                     {row}
                 </div>
             )}

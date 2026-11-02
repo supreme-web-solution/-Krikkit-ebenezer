@@ -1,4 +1,4 @@
-// Krikkit Lab — worker-side VFS clone and mutation applier.
+// Supreme Lab — worker-side VFS clone and mutation applier.
 
 // worker-side filesystem proxy
 // reads are instant from a local Map, writes go to both the local store and main thread

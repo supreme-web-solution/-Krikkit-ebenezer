@@ -1,4 +1,4 @@
-// Krikkit Lab virtual shell AST and command types.
+// Supreme Lab virtual shell AST and command types.
 
 import type { MemoryVolume } from "../memory-volume";
 import type { ShellLimits } from "./shell-options";

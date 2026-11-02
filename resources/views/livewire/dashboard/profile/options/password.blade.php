@@ -1,7 +1,7 @@
 <div class="space-y-8">
     <div>
-        <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.Password') }}</h1>
-        <p class="mt-0.5 text-xs text-krikkit-muted">{{ __('dashboard.Update password') }}</p>
+        <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.Password') }}</h1>
+        <p class="mt-0.5 text-xs text-studio-muted">{{ __('dashboard.Update password') }}</p>
     </div>
 
     @include('livewire.dashboard.profile.options.nav')
@@ -12,11 +12,11 @@
             <input type="password" name="prevent_autofill_pass" autocomplete="current-password" tabindex="-1" value="">
         </div>
 
-        <krikkit:card :padding="false" class="space-y-4 !border-0">
-            <p class="text-[11px] font-normal uppercase tracking-[0.16em] text-krikkit-subtle">{{ __('dashboard.Sign-in') }}</p>
+        <studio:card :padding="false" class="space-y-4 !border-0">
+            <p class="text-[11px] font-normal uppercase tracking-[0.16em] text-studio-subtle">{{ __('dashboard.Sign-in') }}</p>
 
-            <krikkit:field :label="__('dashboard.Current password')">
-                <krikkit:input
+            <studio:field :label="__('dashboard.Current password')">
+                <studio:input
                     size="md"
                     type="password"
                     wire:model="current_password"
@@ -25,13 +25,13 @@
                     :invalid="$errors->has('current_password')"
                 />
                 @error('current_password')
-                    <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                    <studio:field.error>{{ $message }}</studio:field.error>
                 @enderror
-            </krikkit:field>
+            </studio:field>
 
             <div class="grid gap-4 sm:grid-cols-2">
-                <krikkit:field :label="__('dashboard.New password')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.New password')">
+                    <studio:input
                         size="md"
                         type="password"
                         wire:model="password"
@@ -40,11 +40,11 @@
                         :invalid="$errors->has('password')"
                     />
                     @error('password')
-                        <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                        <studio:field.error>{{ $message }}</studio:field.error>
                     @enderror
-                </krikkit:field>
-                <krikkit:field :label="__('dashboard.Confirm password')">
-                    <krikkit:input
+                </studio:field>
+                <studio:field :label="__('dashboard.Confirm password')">
+                    <studio:input
                         size="md"
                         type="password"
                         wire:model="password_confirmation"
@@ -53,16 +53,16 @@
                         :invalid="$errors->has('password_confirmation')"
                     />
                     @error('password_confirmation')
-                        <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                        <studio:field.error>{{ $message }}</studio:field.error>
                     @enderror
-                </krikkit:field>
+                </studio:field>
             </div>
-        </krikkit:card>
+        </studio:card>
 
         <div class="flex justify-end">
-            <krikkit:button type="submit" wire:loading.attr="disabled">
+            <studio:button type="submit" wire:loading.attr="disabled">
                 {{ __('dashboard.Save changes') }}
-            </krikkit:button>
+            </studio:button>
         </div>
     </form>
 </div>

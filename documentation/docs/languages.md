@@ -1,6 +1,6 @@
 # Languages
 
-Krikkit supports multiple locales. Admins add languages and edit translation strings without deploying code.
+Supreme supports multiple locales. Admins add languages and edit translation strings without deploying code.
 
 **Location:** Dashboard → **Admin** → **Languages**  
 **URL:** `/dashboard/languages`  

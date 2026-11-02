@@ -1,4 +1,4 @@
-// Krikkit Lab — ESM-to-CJS transforms (acorn AST + regex fallback)
+// Supreme Lab — ESM-to-CJS transforms (acorn AST + regex fallback)
 
 import * as acorn from "acorn";
 

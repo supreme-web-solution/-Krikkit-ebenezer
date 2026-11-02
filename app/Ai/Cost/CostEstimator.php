@@ -5,7 +5,7 @@ namespace App\Ai\Cost;
 use App\Ai\ModelCatalog;
 
 /**
- * Rough USD estimates for Krikkit Lab / v0–Lovable style site-building sessions.
+ * Rough USD estimates for Supreme Lab / v0–Lovable style site-building sessions.
  * Pricing comes from config/ai.php → models.*.pricing (edit there as vendors change rates).
  */
 final class CostEstimator

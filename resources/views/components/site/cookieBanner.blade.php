@@ -12,14 +12,14 @@
     @endphp
     <div
         x-data="{
-            open: localStorage.getItem('krikkit-cookie-consent') !== 'all' && localStorage.getItem('krikkit-cookie-consent') !== 'essential',
+            open: localStorage.getItem('studio-cookie-consent') !== 'all' && localStorage.getItem('studio-cookie-consent') !== 'essential',
             accept() {
-                localStorage.setItem('krikkit-cookie-consent', 'all')
+                localStorage.setItem('studio-cookie-consent', 'all')
                 this.open = false
-                window.krikkitLoadAnalytics?.()
+                window.studioLoadAnalytics?.()
             },
             reject() {
-                localStorage.setItem('krikkit-cookie-consent', 'essential')
+                localStorage.setItem('studio-cookie-consent', 'essential')
                 this.open = false
             },
         }"
@@ -36,30 +36,30 @@
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-copy"
     >
-        <div class="rounded-xl border border-krikkit-line bg-krikkit-surface p-4">
+        <div class="rounded-xl border border-studio-line bg-studio-surface p-4">
             <div class="flex items-start gap-3">
-                <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-krikkit-soft text-accent-content">
-                    <krikkit:icon name="information-circle" class="size-4" />
+                <span class="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-studio-soft text-accent-content">
+                    <studio:icon name="information-circle" class="size-4" />
                 </span>
                 <div class="min-w-0 flex-1">
-                    <p id="cookie-banner-title" class="text-[13px] font-medium text-krikkit-fg">{{ $title }}</p>
-                    <p id="cookie-banner-copy" class="mt-1 text-xs leading-relaxed text-krikkit-muted">
+                    <p id="cookie-banner-title" class="text-[13px] font-medium text-studio-fg">{{ $title }}</p>
+                    <p id="cookie-banner-copy" class="mt-1 text-xs leading-relaxed text-studio-muted">
                         {{ $message }}
                         @if ($site->privacyPublished())
-                            <a href="{{ route('privacy') }}" class="text-krikkit-fg-soft underline decoration-krikkit-line underline-offset-2 transition hover:text-krikkit-fg">{{ __('messages.Privacy policy') }}</a>
+                            <a href="{{ route('privacy') }}" class="text-studio-fg-soft underline decoration-studio-line underline-offset-2 transition hover:text-studio-fg">{{ __('messages.Privacy policy') }}</a>
                         @endif
                     </p>
                 </div>
             </div>
             <div class="mt-4 flex items-center gap-2">
                 @if ($gdpr['show_reject'] ?? true)
-                    <krikkit:button type="button" variant="outline" size="sm" class="flex-1" x-on:click="reject()">
+                    <studio:button type="button" variant="outline" size="sm" class="flex-1" x-on:click="reject()">
                         {{ $reject }}
-                    </krikkit:button>
+                    </studio:button>
                 @endif
-                <krikkit:button type="button" size="sm" class="flex-1" x-on:click="accept()">
+                <studio:button type="button" size="sm" class="flex-1" x-on:click="accept()">
                     {{ $accept }}
-                </krikkit:button>
+                </studio:button>
             </div>
         </div>
     </div>

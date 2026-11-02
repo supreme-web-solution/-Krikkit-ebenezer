@@ -90,25 +90,25 @@ final class LandingCopy
                         'label' => 'Write the brief',
                         'title' => 'Say what the site is for',
                         'copy' => 'Lab turns the brief into pages, type, and layout you can keep editing.',
-                        'image' => 'https://picsum.photos/seed/krikkit-walk-01/1200/800',
+                        'image' => 'https://picsum.photos/seed/studio-walk-01/1200/800',
                     ],
                     [
                         'label' => 'Review the canvas',
                         'title' => 'Watch the preview update',
                         'copy' => 'Open a file when you want a precise change. The canvas is a preview of those files.',
-                        'image' => 'https://picsum.photos/seed/krikkit-walk-02/1200/800',
+                        'image' => 'https://picsum.photos/seed/studio-walk-02/1200/800',
                     ],
                     [
                         'label' => 'Edit the files',
                         'title' => 'Real markup you can open',
                         'copy' => 'Builders hide the markup. Lab writes files in the tree — not a separate document.',
-                        'image' => 'https://picsum.photos/seed/krikkit-walk-03/1200/800',
+                        'image' => 'https://picsum.photos/seed/studio-walk-03/1200/800',
                     ],
                     [
                         'label' => 'Publish when ready',
                         'title' => 'Ship with a clear view',
                         'copy' => 'Preview first. Attach a domain when you are ready. Roll back by editing the files.',
-                        'image' => 'https://picsum.photos/seed/krikkit-walk-04/1200/800',
+                        'image' => 'https://picsum.photos/seed/studio-walk-04/1200/800',
                     ],
                 ],
             ],
@@ -121,7 +121,7 @@ final class LandingCopy
             'faq' => [
                 'title' => 'Frequently asked questions',
                 'items' => [
-                    ['q' => 'What is Lab?', 'a' => 'Lab is the Krikkit workspace where a written brief becomes a working front-end — files, preview, and publish in one desk.'],
+                    ['q' => 'What is Lab?', 'a' => 'Lab is the Supreme workspace where a written brief becomes a working front-end — files, preview, and publish in one desk.'],
                     ['q' => 'How is Lab different from a page builder?', 'a' => 'Builders hide the markup. Lab writes files you can open. The canvas is a preview of those files, not a separate document.'],
                     ['q' => 'How long does a first page take?', 'a' => 'Most briefs show a clickable preview in one sitting. Fine edits happen in the file tree when you want them.'],
                     ['q' => 'How do packs work?', 'a' => 'Free, Pro, and Agency set project ceilings, monthly Lab credits, domains, export, and GitHub import.'],
@@ -164,9 +164,9 @@ final class LandingCopy
                     [
                         'heading' => 'Resources',
                         'links' => [
-                            ['label' => 'Documentation', 'href' => 'https://doc.krikkit.space'],
-                            ['label' => 'Help center', 'href' => 'https://doc.krikkit.space'],
-                            ['label' => 'Live demo', 'href' => 'https://krikkit.space'],
+                            ['label' => 'Documentation', 'href' => 'https://doc.studio.space'],
+                            ['label' => 'Help center', 'href' => 'https://doc.studio.space'],
+                            ['label' => 'Live demo', 'href' => 'https://studio.space'],
                             ['label' => 'FAQ', 'href' => '#questions'],
                         ],
                     ],
@@ -301,7 +301,7 @@ final class LandingCopy
                 'copy' => (string) ($tab['copy'] ?? ''),
                 'image' => $this->mediaUrl(
                     is_string($tab['image'] ?? null) ? $tab['image'] : null,
-                    'https://picsum.photos/seed/krikkit-walk/1200/800',
+                    'https://picsum.photos/seed/studio-walk/1200/800',
                 ),
             ];
         }

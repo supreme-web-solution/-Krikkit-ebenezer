@@ -1,4 +1,4 @@
-/** Krikkit Lab — in-memory cookie store for virtual dev-server origins. */
+/** Supreme Lab — in-memory cookie store for virtual dev-server origins. */
 
 import { splitCookiesString } from "set-cookie-parser";
 

@@ -7,6 +7,6 @@
         @csrf
         <x-form.input :label="__('messages.Password')" type="password" name="password" autocomplete="current-password" :value="''" :placeholder="__('messages.••••••••')" />
 
-        <krikkit:button type="submit" class="w-full">{{ __('messages.Confirm') }}</krikkit:button>
+        <studio:button type="submit" class="w-full">{{ __('messages.Confirm') }}</studio:button>
     </form>
 </x-layouts.guest>

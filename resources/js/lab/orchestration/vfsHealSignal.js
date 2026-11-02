@@ -3,9 +3,9 @@
  * Event names are stable for Lab layout listeners.
  */
 
-export const VFS_HEAL_START = 'krikkit:vfs-heal-start'
-export const VFS_HEAL_COMPLETE = 'krikkit:vfs-heal-complete'
-export const VFS_HEAL_LOG = 'krikkit:vfs-heal-log'
+export const VFS_HEAL_START = 'studio:vfs-heal-start'
+export const VFS_HEAL_COMPLETE = 'studio:vfs-heal-complete'
+export const VFS_HEAL_LOG = 'studio:vfs-heal-log'
 
 /** Once per heal cycle — skip duplicate resolving-modules scans. */
 let resolvingModulesLogged = false

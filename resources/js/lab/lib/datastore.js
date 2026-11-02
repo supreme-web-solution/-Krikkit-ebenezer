@@ -2,8 +2,8 @@ export const DATASTORE_AWAIT = 'lab-datastore-await'
 export const DATASTORE_READY = 'lab-datastore-ready'
 export const DATASTORE_CANCELLED = 'lab-datastore-cancelled'
 export const DATASTORE_OAUTH_MESSAGE = 'datastore-oauth'
-export const DATASTORE_OAUTH_CHANNEL = 'krikkit-lab-datastore-oauth'
-export const DATASTORE_OAUTH_STORAGE = 'krikkit-lab-datastore-oauth'
+export const DATASTORE_OAUTH_CHANNEL = 'studio-lab-datastore-oauth'
+export const DATASTORE_OAUTH_STORAGE = 'studio-lab-datastore-oauth'
 
 function csrfToken() {
     return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
@@ -49,11 +49,11 @@ export function redirectToSupabaseOauth(returnPath = '/lab') {
 
 export function openSupabaseOauthPopup(returnPath = '/lab') {
     const url = supabaseConnectUrl(returnPath, { popup: true })
-    return window.open(url, 'krikkit-supabase-oauth', 'popup=yes,width=520,height=720')
+    return window.open(url, 'studio-supabase-oauth', 'popup=yes,width=520,height=720')
 }
 
 export function isDatastoreOauthPayload(data) {
-    return data?.source === 'krikkit-lab' && data?.kind === DATASTORE_OAUTH_MESSAGE
+    return data?.source === 'studio-lab' && data?.kind === DATASTORE_OAUTH_MESSAGE
 }
 
 export function isDatastoreOauthMessage(event) {

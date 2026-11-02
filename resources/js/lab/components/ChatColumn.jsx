@@ -60,7 +60,7 @@ export function ChatColumn({
                 'lab-layout-pane relative flex min-h-0 min-w-0 flex-col overflow-hidden',
                 building
                     ? [
-                        'lab-chat-rail max-w-none border-r border-krikkit-line/80 bg-krikkit-canvas',
+                        'lab-chat-rail max-w-none border-r border-studio-line/80 bg-studio-canvas',
                         railW == null ? 'flex-[0_0_22rem] sm:flex-[0_0_24rem]' : '',
                     ].filter(Boolean).join(' ')
                     : 'w-full flex-[1_1_0%] bg-transparent',

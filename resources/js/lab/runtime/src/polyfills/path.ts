@@ -1,4 +1,4 @@
-// Krikkit Lab — node:path polyfill.
+// Supreme Lab — node:path polyfill.
 
 
 // Path separator and delimiter constants

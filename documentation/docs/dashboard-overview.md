@@ -17,7 +17,7 @@ Overview table lists each provider, default model, and whether keys are configur
 
 Per provider you typically set: API key (encrypted), model, temperature, max output tokens, timeout, summarization tokens, plus a cost estimator where available.
 
-**Env counterparts:** `OPENAI_*`, `ANTHROPIC_*`, `DEEPSEEK_*`, `GROK_*`, `ZHIPU_*`, `GOOGLE_AI_*`, `KRIKKIT_AI_DEFAULT`.
+**Env counterparts:** `OPENAI_*`, `ANTHROPIC_*`, `DEEPSEEK_*`, `GROK_*`, `ZHIPU_*`, `GOOGLE_AI_*`, `SUPREME_AI_DEFAULT`.
 
 Admin values override `.env` when saved.
 

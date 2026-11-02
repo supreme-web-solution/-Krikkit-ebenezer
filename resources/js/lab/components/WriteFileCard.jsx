@@ -61,14 +61,14 @@ export function WriteFileCard({
                 aria-expanded={isOpen}
                 aria-controls={hasBody && isOpen ? panelId : undefined}
                 onClick={toggle}
-                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-krikkit-muted transition-colors hover:text-krikkit-fg-soft"
+                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-studio-muted transition-colors hover:text-studio-fg-soft"
             >
                 <IconPen />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight" title={path || name}>
                     <ToolStatusText text={`${verb} ${name}`} pending={status === 'writing'} />
                 </span>
                 {status === 'error' && detail ? (
-                    <span className="max-w-[12rem] shrink-0 truncate text-[12px] text-krikkit-subtle" title={detail}>
+                    <span className="max-w-[12rem] shrink-0 truncate text-[12px] text-studio-subtle" title={detail}>
                         {detail}
                     </span>
                 ) : null}

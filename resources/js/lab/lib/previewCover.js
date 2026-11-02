@@ -530,7 +530,7 @@ async function snapshotLiveDocument(doc, win, frame) {
             backgroundColor: '#ffffff',
             imageTimeout: 2000,
             signal: ctrl.signal,
-            ignoreElements: (el) => Boolean(el?.getAttribute?.('data-krikkit-inspect')),
+            ignoreElements: (el) => Boolean(el?.getAttribute?.('data-studio-inspect')),
             onclone: (cloned) => {
                 cloned.querySelectorAll('*').forEach((node) => {
                     if (! node.style) return

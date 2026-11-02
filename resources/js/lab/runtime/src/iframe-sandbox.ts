@@ -1,4 +1,4 @@
-// Krikkit Lab — cross-origin iframe script sandbox
+// Supreme Lab — cross-origin iframe script sandbox
 
 import type { MemoryVolume } from "./memory-volume";
 import type { IScriptEngine, ExecutionOutcome, EngineConfig, VolumeSnapshot } from "./engine-types";

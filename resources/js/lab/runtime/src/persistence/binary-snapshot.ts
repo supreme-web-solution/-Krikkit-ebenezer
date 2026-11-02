@@ -1,4 +1,4 @@
-// Krikkit Lab — flat binary snapshots for persistence: one ArrayBuffer of file
+// Supreme Lab — flat binary snapshots for persistence: one ArrayBuffer of file
 // contents plus an offset manifest — no base64 inflation, IDB stores the
 // buffer natively. Same wire shape as the spawn snapshot (VFSBinarySnapshot)
 // but built/applied with a path filter so it can carry just node_modules.

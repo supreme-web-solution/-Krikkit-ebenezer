@@ -5,7 +5,7 @@ namespace App\Access;
 final class AbilityRegistry
 {
     /**
-     * Built-in ability catalog for Krikkit (not imported from any legacy app).
+     * Built-in ability catalog for Supreme (not imported from any legacy app).
      *
      * @return list<array{code: string, cluster: string, title: string}>
      */

@@ -2,10 +2,10 @@
 
 use App\Providers\AiServiceProvider;
 use App\Providers\AppServiceProvider;
-use App\Providers\KrikkitUiServiceProvider;
+use App\Providers\StudioUiServiceProvider;
 
 return [
     AppServiceProvider::class,
     AiServiceProvider::class,
-    KrikkitUiServiceProvider::class,
+    StudioUiServiceProvider::class,
 ];

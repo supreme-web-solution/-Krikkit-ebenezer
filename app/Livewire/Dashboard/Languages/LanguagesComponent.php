@@ -36,7 +36,7 @@ class LanguagesComponent extends Component
     {
         Gate::authorize('languages.retire');
         $this->confirmPublicId = $publicId;
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'retire-language' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'retire-language' }))");
     }
 
     public function confirmPending(SiteSettings $site): void
@@ -45,7 +45,7 @@ class LanguagesComponent extends Component
 
         $publicId = $this->confirmPublicId;
         $this->reset('confirmPublicId');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'retire-language' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'retire-language' }))");
 
         $language = Language::query()->where('public_id', $publicId)->firstOrFail();
 

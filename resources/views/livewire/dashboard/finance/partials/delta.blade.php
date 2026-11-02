@@ -1,5 +1,5 @@
 @if ($delta === null)
-    <span class="tabular-nums text-krikkit-subtle">—</span>
+    <span class="tabular-nums text-studio-subtle">—</span>
 @else
     <span @class([
         'tabular-nums font-medium',

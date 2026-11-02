@@ -8,7 +8,7 @@ Each **project** is a Lab workspace backed by a database record and on-disk file
 
 1. Open Studio (`/`) or go to `/lab`
 2. Enter a brief describing the site you want
-3. Krikkit creates the project, seeds the site kit, and opens the Lab IDE
+3. Supreme creates the project, seeds the site kit, and opens the Lab IDE
 
 ## Project title
 

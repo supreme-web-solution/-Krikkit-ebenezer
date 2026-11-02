@@ -198,7 +198,7 @@ export function ReadFileCard({
                 aria-expanded={isOpen}
                 aria-controls={hasBody && isOpen ? panelId : undefined}
                 onClick={toggle}
-                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-krikkit-muted transition-colors hover:text-krikkit-fg-soft"
+                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-studio-muted transition-colors hover:text-studio-fg-soft"
             >
                 <IconEye />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight" title={path || name}>
@@ -235,11 +235,11 @@ function UnreadGap({ count }) {
     if (n <= 0) return null
     return (
         <div className="flex items-center gap-3 px-2 py-2">
-            <span className="h-px flex-1 bg-krikkit-line" aria-hidden />
-            <span className="shrink-0 text-[11px] font-normal tabular-nums text-krikkit-subtle">
+            <span className="h-px flex-1 bg-studio-line" aria-hidden />
+            <span className="shrink-0 text-[11px] font-normal tabular-nums text-studio-subtle">
                 {`[... ${n} unread line${n === 1 ? '' : 's'} ...]`}
             </span>
-            <span className="h-px flex-1 bg-krikkit-line" aria-hidden />
+            <span className="h-px flex-1 bg-studio-line" aria-hidden />
         </div>
     )
 }
@@ -256,7 +256,7 @@ function ReadRow({ row, path }) {
                 'lab-write-row--read',
             ].join(' ')}
         >
-            <span className="select-none pr-1.5 text-right tabular-nums text-krikkit-subtle/80">
+            <span className="select-none pr-1.5 text-right tabular-nums text-studio-subtle/80">
                 {row.line != null ? String(row.line) : ''}
             </span>
             <span className="select-none text-center font-normal" aria-hidden />
@@ -272,7 +272,7 @@ function ReadRow({ row, path }) {
 function ReadPanel({ path = '', rows = [], label = 'Read' }) {
     return (
         <div
-            className="lab-write-diff bg-krikkit-soft border border-krikkit-line krikkit-scroll-hover max-h-64 overflow-auto rounded-xl py-1"
+            className="lab-write-diff bg-studio-soft border border-studio-line studio-scroll-hover max-h-64 overflow-auto rounded-xl py-1"
             role="table"
             aria-label={label}
         >

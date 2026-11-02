@@ -19,12 +19,12 @@ new class extends Component
 ?>
 
 <div class="flex flex-col items-center gap-6">
-    <p class="text-6xl font-semibold tabular-nums tracking-tight text-krikkit-fg">
+    <p class="text-6xl font-semibold tabular-nums tracking-tight text-studio-fg">
         {{ $count }}
     </p>
 
     <div class="flex items-center gap-3">
-        <krikkit:button type="button" variant="outline" wire:click="decrement">−</krikkit:button>
-        <krikkit:button type="button" wire:click="increment">+</krikkit:button>
+        <studio:button type="button" variant="outline" wire:click="decrement">−</studio:button>
+        <studio:button type="button" wire:click="increment">+</studio:button>
     </div>
 </div>

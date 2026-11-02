@@ -1,12 +1,12 @@
 /**
- * `@krikkit/deepthought/headless` — Node/Bun host adapter for isomorphic headless mode.
+ * `@studio/deepthought/headless` — Node/Bun host adapter for isomorphic headless mode.
  *
  * Installs a `worker_threads` RuntimeHost (plus local HTTP ingress) before
  * re-exporting the public SDK. Prefer this entry for agents, CI, and CLIs.
  *
  * @example
  * ```ts
- * import { LabRuntime } from "@krikkit/deepthought/headless";
+ * import { LabRuntime } from "@studio/deepthought/headless";
  * const runtime = await LabRuntime.boot();
  * await pod.fs.writeFile("/hello.txt", "hi");
  * const res = await pod.request(3000, { path: "/" });

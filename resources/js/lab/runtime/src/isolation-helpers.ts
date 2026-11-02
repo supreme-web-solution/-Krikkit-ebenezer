@@ -16,9 +16,9 @@ function readServiceWorkerSource(): string | null {
       dir = typeof __dirname !== 'undefined' ? __dirname : '.';
     }
 
-    let swFile = path.join(dir, '__krikkit_lab_sw__.js');
+    let swFile = path.join(dir, '__studio_lab_sw__.js');
     if (fs.existsSync(swFile)) return fs.readFileSync(swFile, 'utf-8');
-    swFile = path.join(dir, '../dist/__krikkit_lab_sw__.js');
+    swFile = path.join(dir, '../dist/__studio_lab_sw__.js');
     if (fs.existsSync(swFile)) return fs.readFileSync(swFile, 'utf-8');
     swFile = path.join(dir, '__deepthought_sw__.js');
     if (fs.existsSync(swFile)) return fs.readFileSync(swFile, 'utf-8');
@@ -55,7 +55,7 @@ export function getSandboxPageHtml(config: SandboxPageConfig | string): string {
 
   const swBlock = withSW ? `
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/__krikkit_lab_sw__.js', { scope: '/' })
+    navigator.serviceWorker.register('/__studio_lab_sw__.js', { scope: '/' })
       .then(() => console.log('[Sandbox] SW registered'))
       .catch(e => console.warn('[Sandbox] SW failed:', e));
   }
@@ -63,7 +63,7 @@ export function getSandboxPageHtml(config: SandboxPageConfig | string): string {
 
   return `<!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><title>Krikkit Lab Sandbox</title></head>
+<head><meta charset="UTF-8"><title>Supreme Lab Sandbox</title></head>
 <body>
 <script type="module">
   import { MemoryVolume, ScriptEngine } from '${runtimeUrl}';
@@ -151,7 +151,7 @@ export function generateSandboxDeployment(config: SandboxPageConfig | string): G
 }
 
 export const SANDBOX_DEPLOYMENT_GUIDE = `
-# Deploying a Krikkit Lab Sandbox
+# Deploying a Supreme Lab Sandbox
 
 ## 1. Generate sandbox files
    Use generateSandboxDeployment() to create the required files.

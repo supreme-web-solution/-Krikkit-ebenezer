@@ -1,4 +1,4 @@
-/* Krikkit Lab ambient module declarations for WASM/CDN peers. */
+/* Supreme Lab ambient module declarations for WASM/CDN peers. */
 
 interface EsbuildTransformConfig {
   loader?: string;

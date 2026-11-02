@@ -795,7 +795,7 @@ export function PreviewFrame({
     })
 
     return (
-        <div className="relative flex h-full min-h-0 flex-col bg-krikkit-canvas" aria-label={projectTitle}>
+        <div className="relative flex h-full min-h-0 flex-col bg-studio-canvas" aria-label={projectTitle}>
             <PreviewChrome
                 pages={pages}
                 currentPath={currentPath.split('?')[0].split('#')[0] || '/'}
@@ -817,9 +817,9 @@ export function PreviewFrame({
                 onHardReload={handleHardReload}
             />
 
-            <div className="relative min-h-0 flex-1 overflow-hidden bg-krikkit-canvas">
+            <div className="relative min-h-0 flex-1 overflow-hidden bg-studio-canvas">
                 <div
-                    className="relative mx-auto h-full overflow-hidden bg-krikkit-canvas transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                    className="relative mx-auto h-full overflow-hidden bg-studio-canvas transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                     style={{ maxWidth: width ? `${width}px` : '100%' }}
                 >
                     {showIframe ? (
@@ -828,7 +828,7 @@ export function PreviewFrame({
                             ref={iframeRef}
                             title={projectTitle}
                             className={[
-                                'h-full min-h-0 w-full border-0 bg-krikkit-surface',
+                                'h-full min-h-0 w-full border-0 bg-studio-surface',
                                 missingPath || coverPreview ? 'invisible' : '',
                             ].join(' ')}
                             sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"
@@ -837,11 +837,11 @@ export function PreviewFrame({
                             onLoad={onIframeLoad}
                         />
                     ) : (
-                        <div className="h-full min-h-0 bg-krikkit-canvas" aria-label="Preview" />
+                        <div className="h-full min-h-0 bg-studio-canvas" aria-label="Preview" />
                     )}
                     {showBucket ? (
                         <div
-                            className="absolute inset-0 flex items-center justify-center bg-krikkit-canvas"
+                            className="absolute inset-0 flex items-center justify-center bg-studio-canvas"
                             aria-label={bucketChip}
                         >
                             <PreviewBucket activity={bucketActivity} />
@@ -854,7 +854,7 @@ export function PreviewFrame({
 
                 {inspecting && ! picked ? (
                     <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex justify-center p-2">
-                        <span className="rounded-full border border-krikkit-line bg-krikkit-surface px-3 py-1 text-[11px] text-krikkit-muted">
+                        <span className="rounded-full border border-studio-line bg-studio-surface px-3 py-1 text-[11px] text-studio-muted">
                             Click an element
                         </span>
                     </div>

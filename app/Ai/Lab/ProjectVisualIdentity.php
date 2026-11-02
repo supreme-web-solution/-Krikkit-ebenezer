@@ -38,7 +38,7 @@ final class ProjectVisualIdentity
      */
     public static function fromUuid(string $uuid): array
     {
-        $hash = hash('sha256', 'krikkit.lab.visual.v2|'.strtolower(trim($uuid)));
+        $hash = hash('sha256', 'supreme.lab.visual.v2|'.strtolower(trim($uuid)));
 
         $mode = self::pick($hash, 0, [
             'daylight' => [
@@ -241,7 +241,7 @@ final class ProjectVisualIdentity
         // Independent scale personality: two projects sharing a font pairing
         // still read differently when their type systems behave differently.
         // Second hash — the primary one is fully consumed by the other axes.
-        $scaleHash = hash('sha256', 'krikkit.lab.visual.v2.scale|'.strtolower(trim($uuid)));
+        $scaleHash = hash('sha256', 'supreme.lab.visual.v2.scale|'.strtolower(trim($uuid)));
         $scale = self::pick($scaleHash, 0, [
             'monumental' => 'Push every display clamp to its ceiling; leading-[0.95], tracking-[-0.03em]; section H2s stay huge (text-5xl+). The page speaks in headlines; body copy is sparse and quiet.',
             'classic' => 'Middle of every clamp; leading-[1.02]; balanced hierarchy — deck and body copy carry meaning alongside display type.',
@@ -252,7 +252,7 @@ final class ProjectVisualIdentity
 
         // Page architecture — independent hash so two agency briefs do not
         // collapse onto Work / Services / Process / About / Contact.
-        $shapeHash = hash('sha256', 'krikkit.lab.visual.v3.shape|'.strtolower(trim($uuid)));
+        $shapeHash = hash('sha256', 'supreme.lab.visual.v3.shape|'.strtolower(trim($uuid)));
         $shape = self::pick($shapeHash, 0, [
             'index-film' => 'After the hero, the page is a typographic film strip. Each case is a full-width chapter (title, year, one artifact). Name sections for the content (Reels, Chapters, Selected, Visit).',
             'masonry-studio' => 'Irregular masonry of 7–9 uniquely sized frames after the hero. A short manifesto split replaces any service list. Name sections Frames, Manifesto, Visit.',

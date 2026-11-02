@@ -1,4 +1,4 @@
-// Krikkit Lab — cp/mv/rm/cat/head/tail builtins.
+// Supreme Lab — cp/mv/rm/cat/head/tail builtins.
 
 import type { BuiltinFn, ShellContext } from "../shell-types";
 import {

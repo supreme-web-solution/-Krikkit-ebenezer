@@ -1,4 +1,4 @@
-// Krikkit Lab — shell tab-completion sources.
+// Supreme Lab — shell tab-completion sources.
 
 // tab completion for the shell. takes a partial line + cwd + vfs, gives
 // back a list of possible replacements. first word can match a command

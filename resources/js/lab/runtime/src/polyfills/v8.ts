@@ -1,4 +1,4 @@
-// Krikkit Lab — node:v8 polyfill (stub - not available in browser).
+// Supreme Lab — node:v8 polyfill (stub - not available in browser).
 
 export function getHeapStatistics() {
   return {

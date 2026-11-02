@@ -1,4 +1,4 @@
-// Krikkit Lab — npm CLI integration for the virtual shell.
+// Supreme Lab — npm CLI integration for the virtual shell.
 
 import type { ShellCommand } from "../shell-types";
 import type { PmDeps } from "./pm-types";

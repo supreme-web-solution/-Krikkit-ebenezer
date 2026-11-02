@@ -1,4 +1,4 @@
-// Krikkit Lab — node:http2 polyfill (stub - not available in browser).
+// Supreme Lab — node:http2 polyfill (stub - not available in browser).
 
 
 import { EventEmitter } from "./events";

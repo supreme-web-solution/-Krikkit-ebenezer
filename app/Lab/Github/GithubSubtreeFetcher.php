@@ -117,7 +117,7 @@ final class GithubSubtreeFetcher
                         ->accept('application/vnd.github+json')
                         ->withHeaders([
                             'X-GitHub-Api-Version' => '2022-11-28',
-                            'User-Agent' => config('lab.github.user_agent', 'Krikkit-Lab'),
+                            'User-Agent' => config('lab.github.user_agent', 'Supreme-Lab'),
                         ])
                         ->timeout($timeout);
 

@@ -15,7 +15,7 @@ function IconChevronDown({ className = 'size-4' }) {
 }
 
 /**
- * Lab select — matches Krikkit kit select (rounded-full surface trigger + surface panel).
+ * Lab select — matches Supreme kit select (rounded-full surface trigger + surface panel).
  *
  * @param {{
  *   id?: string,
@@ -97,15 +97,15 @@ export function LabSelect({
                 onClick={toggle}
                 className={[
                     'flex h-10 w-full items-center justify-between gap-2 rounded-full border border-transparent',
-                    'bg-krikkit-surface px-4 text-left text-sm leading-5 text-krikkit-fg outline-none transition',
-                    'focus-visible:border-krikkit-muted/40',
+                    'bg-studio-surface px-4 text-left text-sm leading-5 text-studio-fg outline-none transition',
+                    'focus-visible:border-studio-muted/40',
                     'disabled:cursor-not-allowed disabled:opacity-50',
                 ].join(' ')}
             >
-                <span className={`min-w-0 flex-1 truncate ${selected ? '' : 'text-krikkit-subtle'}`}>
+                <span className={`min-w-0 flex-1 truncate ${selected ? '' : 'text-studio-subtle'}`}>
                     {selected?.label || placeholder}
                 </span>
-                <span className={`shrink-0 text-krikkit-subtle transition ${open ? 'rotate-180' : ''}`}>
+                <span className={`shrink-0 text-studio-subtle transition ${open ? 'rotate-180' : ''}`}>
                     <IconChevronDown className="size-4" />
                 </span>
             </button>
@@ -115,11 +115,11 @@ export function LabSelect({
                     id={listId}
                     role="listbox"
                     className={[
-                        'absolute z-50 flex w-full flex-col overflow-hidden rounded-lg bg-krikkit-surface',
+                        'absolute z-50 flex w-full flex-col overflow-hidden rounded-lg bg-studio-surface',
                         placement === 'top' ? 'bottom-full mb-1.5' : 'top-full mt-1.5',
                     ].join(' ')}
                 >
-                    <div className="krikkit-scroll-hover flex max-h-52 flex-col gap-0.5 overflow-auto p-1.5">
+                    <div className="studio-scroll-hover flex max-h-52 flex-col gap-0.5 overflow-auto p-1.5">
                         {items.map((item) => {
                             const active = item.value === value
                             return (
@@ -135,8 +135,8 @@ export function LabSelect({
                                     className={[
                                         'flex w-full items-center rounded-lg px-2.5 py-2 text-left text-sm transition',
                                         active
-                                            ? 'bg-krikkit-soft font-medium text-krikkit-fg'
-                                            : 'text-krikkit-fg-soft hover:bg-krikkit-soft',
+                                            ? 'bg-studio-soft font-medium text-studio-fg'
+                                            : 'text-studio-fg-soft hover:bg-studio-soft',
                                     ].join(' ')}
                                 >
                                     {item.label}

@@ -22,8 +22,8 @@
             --theme-accent-dark: {{ $accentDark }};
             --theme-accent-dark-foreground: {{ $accentDarkForeground }};
         }
-        html { background-color: var(--color-krikkit-canvas, #fff); color-scheme: light; }
-        html.dark { background-color: var(--color-krikkit-canvas, #0a0a0a); color-scheme: dark; }
+        html { background-color: var(--color-studio-canvas, #fff); color-scheme: light; }
+        html.dark { background-color: var(--color-studio-canvas, #0a0a0a); color-scheme: dark; }
         [x-cloak] { display: none !important; }
         .installer-sidebar {
             justify-content: flex-start;
@@ -114,7 +114,7 @@
 </head>
 <body class="font-sans antialiased">
     {{ $slot }}
-    <krikkit:toast />
+    <studio:toast />
     @livewireScripts
 </body>
 </html>

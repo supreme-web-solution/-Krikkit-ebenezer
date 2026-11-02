@@ -19,10 +19,10 @@
     ], fn ($value) => $value !== null && $value !== false));
 @endphp
 
-<krikkit:field :label="$label">
-    <krikkit:input :size="$size" :invalid="$errors->has($name)" {{ $attributes }} />
+<studio:field :label="$label">
+    <studio:input :size="$size" :invalid="$errors->has($name)" {{ $attributes }} />
 
     @error($name)
-        <krikkit:field.error>{{ $message }}</krikkit:field.error>
+        <studio:field.error>{{ $message }}</studio:field.error>
     @enderror
-</krikkit:field>
+</studio:field>

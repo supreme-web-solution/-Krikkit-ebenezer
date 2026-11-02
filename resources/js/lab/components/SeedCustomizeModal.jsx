@@ -8,15 +8,15 @@ import {
 import { LabSelect } from './LabSelect'
 
 const fieldClass = [
-    'h-10 w-full rounded-full border border-transparent bg-krikkit-surface',
-    'px-4 text-sm font-normal text-krikkit-fg placeholder:text-krikkit-subtle',
-    'outline-none transition focus:border-krikkit-muted/40',
+    'h-10 w-full rounded-full border border-transparent bg-studio-surface',
+    'px-4 text-sm font-normal text-studio-fg placeholder:text-studio-subtle',
+    'outline-none transition focus:border-studio-muted/40',
 ].join(' ')
 
 const areaClass = [
-    'min-h-[5.5rem] w-full resize-y rounded-2xl border border-transparent bg-krikkit-surface',
-    'px-4 py-3 text-sm font-normal text-krikkit-fg placeholder:text-krikkit-subtle',
-    'outline-none transition focus:border-krikkit-muted/40',
+    'min-h-[5.5rem] w-full resize-y rounded-2xl border border-transparent bg-studio-surface',
+    'px-4 py-3 text-sm font-normal text-studio-fg placeholder:text-studio-subtle',
+    'outline-none transition focus:border-studio-muted/40',
 ].join(' ')
 
 /**
@@ -59,7 +59,7 @@ export function SeedCustomizeModal({ seed = null, open = false, onClose, onApply
     }
 
     return (
-        <div className="krikkit-scroll-hover fixed inset-0 z-[85] flex items-start justify-center overflow-y-auto px-4 py-10 sm:py-[12vh]">
+        <div className="studio-scroll-hover fixed inset-0 z-[85] flex items-start justify-center overflow-y-auto px-4 py-10 sm:py-[12vh]">
             <button
                 type="button"
                 className="absolute inset-0 bg-black/40"
@@ -70,17 +70,17 @@ export function SeedCustomizeModal({ seed = null, open = false, onClose, onApply
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={titleId}
-                className="relative w-full max-w-md rounded-2xl border border-krikkit-line bg-krikkit-canvas p-5"
+                className="relative w-full max-w-md rounded-2xl border border-studio-line bg-studio-canvas p-5"
                 onSubmit={(event) => {
                     event.preventDefault()
                     submit()
                 }}
             >
-                <h2 id={titleId} className="text-base font-semibold text-krikkit-fg">
+                <h2 id={titleId} className="text-base font-semibold text-studio-fg">
                     {seed.title}
                 </h2>
                 {seed.customize?.copy ? (
-                    <p className="mt-1 text-sm text-krikkit-muted">{seed.customize.copy}</p>
+                    <p className="mt-1 text-sm text-studio-muted">{seed.customize.copy}</p>
                 ) : null}
 
                 <div className="mt-4 space-y-3">
@@ -88,7 +88,7 @@ export function SeedCustomizeModal({ seed = null, open = false, onClose, onApply
                         <div key={field.key}>
                             <label
                                 htmlFor={`seed-field-${field.key}`}
-                                className="mb-1.5 block text-[11px] font-medium text-krikkit-muted"
+                                className="mb-1.5 block text-[11px] font-medium text-studio-muted"
                             >
                                 {field.label}
                             </label>

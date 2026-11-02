@@ -1,4 +1,4 @@
-// Krikkit Lab — node:constants polyfill.
+// Supreme Lab — node:constants polyfill.
 
 
 export const SIGKILL = 9;

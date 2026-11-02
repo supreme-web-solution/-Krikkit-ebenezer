@@ -3,4 +3,4 @@
 
     $savedTheme = ThemePalette::normalize(auth()->user()?->appearance);
 @endphp
-<style id="krikkit-theme">{!! ThemePalette::runtimeCss($savedTheme['accent'] ?? 'base', $savedTheme['base'] ?? 'neutral') !!}</style>
+<style id="studio-theme">{!! ThemePalette::runtimeCss($savedTheme['accent'] ?? 'base', $savedTheme['base'] ?? 'neutral') !!}</style>

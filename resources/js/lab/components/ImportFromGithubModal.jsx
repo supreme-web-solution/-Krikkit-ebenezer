@@ -59,33 +59,33 @@ function IconGithubMark({ className = 'size-3.5' }) {
 function Pulse({ className = '' }) {
     return (
         <div
-            className={`animate-pulse rounded-md bg-krikkit-soft ${className}`}
+            className={`animate-pulse rounded-md bg-studio-soft ${className}`}
             aria-hidden="true"
         />
     )
 }
 
 const fieldClass = [
-    'h-10 w-full rounded-full border border-transparent bg-krikkit-surface',
-    'px-4 text-sm font-normal text-krikkit-fg placeholder:text-krikkit-subtle',
-    'outline-none transition focus:border-krikkit-muted/40',
+    'h-10 w-full rounded-full border border-transparent bg-studio-surface',
+    'px-4 text-sm font-normal text-studio-fg placeholder:text-studio-subtle',
+    'outline-none transition focus:border-studio-muted/40',
     'disabled:cursor-not-allowed disabled:opacity-50',
 ].join(' ')
 
 const pillCardClass = [
-    'h-10 rounded-full border border-transparent bg-krikkit-surface',
-    'text-sm font-normal text-krikkit-fg',
+    'h-10 rounded-full border border-transparent bg-studio-surface',
+    'text-sm font-normal text-studio-fg',
 ].join(' ')
 
 const areaClass = [
-    'min-h-[4.5rem] w-full rounded-2xl border border-transparent bg-krikkit-surface',
-    'px-4 py-2.5 text-sm font-normal text-krikkit-fg placeholder:text-krikkit-subtle',
-    'outline-none transition focus:border-krikkit-muted/40',
+    'min-h-[4.5rem] w-full rounded-2xl border border-transparent bg-studio-surface',
+    'px-4 py-2.5 text-sm font-normal text-studio-fg placeholder:text-studio-subtle',
+    'outline-none transition focus:border-studio-muted/40',
     'disabled:cursor-not-allowed disabled:opacity-50 resize-none',
 ].join(' ')
 
 const primaryBtn = `inline-flex h-10 shrink-0 items-center justify-center rounded-full px-4 text-sm font-medium ${LAB_BTN_PRIMARY}`
-const labelClass = 'text-[11px] font-medium uppercase tracking-[0.14em] text-krikkit-subtle'
+const labelClass = 'text-[11px] font-medium uppercase tracking-[0.14em] text-studio-subtle'
 
 function AccountSkeleton() {
     return (
@@ -395,10 +395,10 @@ export function ImportFromGithubModal({
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={titleId}
-                className="relative flex max-h-[min(42rem,calc(100dvh-2rem))] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-krikkit-canvas"
+                className="relative flex max-h-[min(42rem,calc(100dvh-2rem))] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-studio-canvas"
             >
-                <div className="flex items-center justify-between gap-3 border-b border-krikkit-line px-5 py-4">
-                    <h2 id={titleId} className="text-base font-semibold tracking-tight text-krikkit-fg">
+                <div className="flex items-center justify-between gap-3 border-b border-studio-line px-5 py-4">
+                    <h2 id={titleId} className="text-base font-semibold tracking-tight text-studio-fg">
                         {t.importFromGithub}
                     </h2>
                     <button
@@ -412,7 +412,7 @@ export function ImportFromGithubModal({
                     </button>
                 </div>
 
-                <div className="krikkit-scroll-hover min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-5">
+                <div className="studio-scroll-hover min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-5">
                     <section className="space-y-2">
                         <h3 className={labelClass}>{t.importFromAUrl}</h3>
                         <input
@@ -448,8 +448,8 @@ export function ImportFromGithubModal({
                                 <div
                                     className={`${pillCardClass} flex min-w-0 items-center gap-2 overflow-hidden pl-2 pr-3`}
                                 >
-                                    <IconGithubMark className="size-[1.125rem] shrink-0 text-krikkit-fg" />
-                                    <span className="min-w-0 flex-1 truncate text-sm font-light text-krikkit-fg">
+                                    <IconGithubMark className="size-[1.125rem] shrink-0 text-studio-fg" />
+                                    <span className="min-w-0 flex-1 truncate text-sm font-light text-studio-fg">
                                         {selectedAccount.login || selectedAccount.name}
                                     </span>
                                     <button
@@ -458,7 +458,7 @@ export function ImportFromGithubModal({
                                         tabIndex={searchOpen ? -1 : 0}
                                         onClick={() => void onDisconnect()}
                                         className={[
-                                            'shrink-0 overflow-hidden whitespace-nowrap text-xs font-medium text-krikkit-muted transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-krikkit-fg disabled:opacity-40',
+                                            'shrink-0 overflow-hidden whitespace-nowrap text-xs font-medium text-studio-muted transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-studio-fg disabled:opacity-40',
                                             searchOpen
                                                 ? 'pointer-events-none max-w-0 translate-x-1 opacity-0'
                                                 : 'max-w-[5.5rem] translate-x-0 opacity-100',
@@ -480,7 +480,7 @@ export function ImportFromGithubModal({
                                         tabIndex={searchOpen ? -1 : 0}
                                         onClick={() => setSearchOpen(true)}
                                         className={[
-                                            'absolute inset-0 z-10 inline-flex items-center justify-center text-krikkit-muted transition-opacity duration-200 hover:text-krikkit-fg disabled:opacity-40',
+                                            'absolute inset-0 z-10 inline-flex items-center justify-center text-studio-muted transition-opacity duration-200 hover:text-studio-fg disabled:opacity-40',
                                             searchOpen ? 'pointer-events-none opacity-0' : 'opacity-100',
                                         ].join(' ')}
                                     >
@@ -492,7 +492,7 @@ export function ImportFromGithubModal({
                                             searchOpen ? 'opacity-100 delay-75' : 'pointer-events-none opacity-0',
                                         ].join(' ')}
                                     >
-                                        <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 size-3.5 -translate-y-1/2 text-krikkit-subtle" />
+                                        <IconSearch className="pointer-events-none absolute left-3.5 top-1/2 size-3.5 -translate-y-1/2 text-studio-subtle" />
                                         <input
                                             ref={searchInputRef}
                                             type="search"
@@ -501,15 +501,15 @@ export function ImportFromGithubModal({
                                             placeholder={t.searchRepositories}
                                             disabled={busy || ! searchOpen}
                                             tabIndex={searchOpen ? 0 : -1}
-                                            className="h-full w-full bg-transparent py-0 pl-6 pr-1 text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                                            className="h-full w-full bg-transparent py-0 pl-6 pr-1 text-sm text-studio-fg outline-none placeholder:text-studio-subtle"
                                             autoComplete="off"
                                         />
                                     </div>
                                 </div>
                             </div>
                         ) : (
-                            <div className="rounded-2xl bg-krikkit-surface px-4 py-6 text-center">
-                                <p className="text-sm font-normal text-krikkit-muted">
+                            <div className="rounded-2xl bg-studio-surface px-4 py-6 text-center">
+                                <p className="text-sm font-normal text-studio-muted">
                                     {t.connectGithubHint}
                                 </p>
                                 <button
@@ -524,11 +524,11 @@ export function ImportFromGithubModal({
                         )}
 
                         {linked ? (
-                            <div className="krikkit-scroll-hover max-h-52 overflow-y-auto">
+                            <div className="studio-scroll-hover max-h-52 overflow-y-auto">
                                 {loadingRepos ? (
                                     <RepoListSkeleton />
                                 ) : repos.length === 0 ? (
-                                    <p className="px-2 py-8 text-center text-sm font-normal text-krikkit-muted">
+                                    <p className="px-2 py-8 text-center text-sm font-normal text-studio-muted">
                                         {t.noRepositoriesFound}
                                     </p>
                                 ) : (
@@ -550,22 +550,22 @@ export function ImportFromGithubModal({
                                                         className={[
                                                             'flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-left transition',
                                                             active
-                                                                ? 'bg-krikkit-soft'
-                                                                : 'hover:bg-krikkit-soft/70',
+                                                                ? 'bg-studio-soft'
+                                                                : 'hover:bg-studio-soft/70',
                                                             'disabled:opacity-40',
                                                         ].join(' ')}
                                                     >
                                                         <RepoGlyph kind={repo.glyph || 'web'} className="size-4 shrink-0" />
                                                         <span
                                                             className={[
-                                                                'min-w-0 flex-1 truncate text-sm text-krikkit-fg',
+                                                                'min-w-0 flex-1 truncate text-sm text-studio-fg',
                                                                 active ? 'font-medium' : 'font-normal',
                                                             ].join(' ')}
                                                         >
                                                             {repo.name || repo.full_name}
                                                         </span>
                                                         {updated ? (
-                                                            <span className="shrink-0 text-right text-[11px] font-normal leading-none text-krikkit-muted">
+                                                            <span className="shrink-0 text-right text-[11px] font-normal leading-none text-studio-muted">
                                                                 {updated}
                                                             </span>
                                                         ) : null}
@@ -580,7 +580,7 @@ export function ImportFromGithubModal({
                     </section>
 
                     {showOptions ? (
-                        <section className="space-y-3 border-t border-krikkit-line pt-5">
+                        <section className="space-y-3 border-t border-studio-line pt-5">
                             <div className="space-y-2">
                                 <label className={labelClass} htmlFor="lab-gh-branch">
                                     {t.branch}
@@ -602,7 +602,7 @@ export function ImportFromGithubModal({
                             <div className="space-y-2">
                                 <label className={labelClass} htmlFor="lab-gh-root">
                                     {t.rootDirectory}
-                                    <span className="ml-1 font-normal normal-case tracking-normal text-krikkit-muted">
+                                    <span className="ml-1 font-normal normal-case tracking-normal text-studio-muted">
                                         ({t.optional})
                                     </span>
                                 </label>
@@ -622,7 +622,7 @@ export function ImportFromGithubModal({
                             <div className="space-y-2">
                                 <label className={labelClass} htmlFor="lab-gh-prompt">
                                     {t.firstPrompt}
-                                    <span className="ml-1 font-normal normal-case tracking-normal text-krikkit-muted">
+                                    <span className="ml-1 font-normal normal-case tracking-normal text-studio-muted">
                                         ({t.optional})
                                     </span>
                                 </label>
@@ -640,7 +640,7 @@ export function ImportFromGithubModal({
                     ) : null}
                 </div>
 
-                <div className="flex items-center justify-end gap-2 border-t border-krikkit-line px-5 py-4">
+                <div className="flex items-center justify-end gap-2 border-t border-studio-line px-5 py-4">
                     <button
                         type="button"
                         disabled={busy}

@@ -52,13 +52,13 @@ function UnlinkedScreen({
 
     return (
         <div className="flex flex-col items-center px-6 py-10 text-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-krikkit-line bg-krikkit-surface">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-studio-line bg-studio-surface">
                 <IconSupabaseMark className="h-8 w-8" />
             </div>
-            <h3 className="mt-5 text-base font-semibold tracking-tight text-krikkit-fg">
+            <h3 className="mt-5 text-base font-semibold tracking-tight text-studio-fg">
                 {title}
             </h3>
-            <p className="mt-2 max-w-[22rem] text-sm leading-relaxed text-krikkit-muted">
+            <p className="mt-2 max-w-[22rem] text-sm leading-relaxed text-studio-muted">
                 {copy}
             </p>
             {oauthReady && ! checking ? (
@@ -325,15 +325,15 @@ export function ConnectDatastoreModal({
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={titleId}
-                className="relative flex max-h-[min(36rem,calc(100dvh-2rem))] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-krikkit-line bg-krikkit-canvas"
+                className="relative flex max-h-[min(36rem,calc(100dvh-2rem))] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-studio-line bg-studio-canvas"
             >
-                <div className="flex shrink-0 items-center justify-between gap-3 border-b border-krikkit-line px-5 py-4">
+                <div className="flex shrink-0 items-center justify-between gap-3 border-b border-studio-line px-5 py-4">
                     <div className="min-w-0">
-                        <h2 id={titleId} className="text-base font-semibold text-krikkit-fg">
+                        <h2 id={titleId} className="text-base font-semibold text-studio-fg">
                             Supabase
                         </h2>
                         {status?.linked ? (
-                            <p className="mt-0.5 text-xs text-krikkit-muted">
+                            <p className="mt-0.5 text-xs text-studio-muted">
                                 {loading ? 'Checking connection…' : statusCopy(status, waitMode)}
                             </p>
                         ) : null}
@@ -341,7 +341,7 @@ export function ConnectDatastoreModal({
                     <button
                         type="button"
                         onClick={dismiss}
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg"
                         aria-label="Close"
                     >
                         <IconClose className="h-4 w-4" />
@@ -358,10 +358,10 @@ export function ConnectDatastoreModal({
                             ) : null}
 
                             {status.login ? (
-                                <p className="shrink-0 px-5 pt-4 text-sm font-medium text-krikkit-fg">
+                                <p className="shrink-0 px-5 pt-4 text-sm font-medium text-studio-fg">
                                     {status.login}
                                     {status.host ? (
-                                        <span className="mt-0.5 block text-xs font-normal text-krikkit-muted">{status.host}</span>
+                                        <span className="mt-0.5 block text-xs font-normal text-studio-muted">{status.host}</span>
                                     ) : null}
                                 </p>
                             ) : null}
@@ -374,17 +374,17 @@ export function ConnectDatastoreModal({
                                         onChange={(event) => setQuery(event.target.value)}
                                         placeholder="Search projects"
                                         disabled={loading || saving}
-                                        className="h-10 w-full rounded-full border border-krikkit-line bg-transparent px-4 text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                                        className="h-10 w-full rounded-full border border-studio-line bg-transparent px-4 text-sm text-studio-fg outline-none placeholder:text-studio-subtle"
                                         autoComplete="off"
                                     />
                                 </div>
                             ) : null}
 
-                            <div className="krikkit-scroll-hover min-h-[14rem] flex-1 overflow-y-auto px-3 py-3">
+                            <div className="studio-scroll-hover min-h-[14rem] flex-1 overflow-y-auto px-3 py-3">
                                 {loading && projects.length === 0 ? (
-                                    <p className="px-2 py-8 text-center text-sm text-krikkit-muted">Loading projects…</p>
+                                    <p className="px-2 py-8 text-center text-sm text-studio-muted">Loading projects…</p>
                                 ) : visibleProjects.length === 0 ? (
-                                    <p className="px-2 py-8 text-center text-sm text-krikkit-muted">
+                                    <p className="px-2 py-8 text-center text-sm text-studio-muted">
                                         {projects.length === 0
                                             ? 'No projects came back for this organization. In the Supabase OAuth app, enable Projects read, then disconnect and connect again.'
                                             : 'No matching projects.'}
@@ -403,16 +403,16 @@ export function ConnectDatastoreModal({
                                                         onClick={() => setProjectRef(row.ref)}
                                                         className={[
                                                             'flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-left transition',
-                                                            active ? 'bg-krikkit-soft' : 'hover:bg-krikkit-soft/70',
+                                                            active ? 'bg-studio-soft' : 'hover:bg-studio-soft/70',
                                                             'disabled:opacity-40',
                                                         ].join(' ')}
                                                     >
                                                         <IconSupabaseMark className="h-4 w-4 shrink-0" />
                                                         <span className="min-w-0 flex-1">
-                                                            <span className={`block truncate text-sm ${active ? 'font-medium text-krikkit-fg' : 'font-normal text-krikkit-fg'}`}>
+                                                            <span className={`block truncate text-sm ${active ? 'font-medium text-studio-fg' : 'font-normal text-studio-fg'}`}>
                                                                 {row.name || row.ref}
                                                             </span>
-                                                            <span className="mt-0.5 block truncate text-[11px] text-krikkit-muted">
+                                                            <span className="mt-0.5 block truncate text-[11px] text-studio-muted">
                                                                 {[row.region, attached ? 'Attached' : null].filter(Boolean).join(' · ')}
                                                             </span>
                                                         </span>
@@ -425,7 +425,7 @@ export function ConnectDatastoreModal({
                             </div>
                         </div>
 
-                        <div className="flex shrink-0 items-center justify-end gap-2 border-t border-krikkit-line px-5 py-3">
+                        <div className="flex shrink-0 items-center justify-end gap-2 border-t border-studio-line px-5 py-3">
                             <button
                                 type="button"
                                 disabled={saving || loading || projectRef === '' || projectRef === status.project_ref}

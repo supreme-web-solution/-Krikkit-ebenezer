@@ -1,4 +1,4 @@
-// Krikkit Lab — shell builtin helpers (colors, paths, results).
+// Supreme Lab — shell builtin helpers (colors, paths, results).
 
 import type { ShellResult } from "./shell-types";
 import * as pathModule from "../polyfills/path";

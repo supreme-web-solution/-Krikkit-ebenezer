@@ -1,6 +1,6 @@
 # Build Assets
 
-Krikkit ships a Laravel backend plus a Vite bundle for the public site, dashboard, auth screens, and the Lab React app.
+Supreme ships a Laravel backend plus a Vite bundle for the public site, dashboard, auth screens, and the Lab React app.
 
 ## Production build
 

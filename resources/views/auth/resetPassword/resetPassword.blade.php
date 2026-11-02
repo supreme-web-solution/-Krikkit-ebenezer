@@ -10,6 +10,6 @@
         <x-form.input :label="__('messages.Password')" type="password" name="password" autocomplete="new-password" :value="''" :placeholder="__('messages.••••••••')" />
         <x-form.input :label="__('messages.Confirm password')" type="password" name="password_confirmation" autocomplete="new-password" :value="''" :placeholder="__('messages.••••••••')" />
 
-        <krikkit:button type="submit" class="w-full">{{ __('messages.Reset password') }}</krikkit:button>
+        <studio:button type="submit" class="w-full">{{ __('messages.Reset password') }}</studio:button>
     </form>
 </x-layouts.guest>

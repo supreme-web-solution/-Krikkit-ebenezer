@@ -120,12 +120,12 @@ class PacksComponent extends Component
     {
         $this->confirmAction = $action;
         $this->confirmPublicId = $publicId;
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'pack-confirm' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'pack-confirm' }))");
     }
 
     private function closeConfirm(): void
     {
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'pack-confirm' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'pack-confirm' }))");
     }
 
     public function render(): View

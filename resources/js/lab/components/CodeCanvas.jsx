@@ -52,10 +52,10 @@ function useLabThemeSignal() {
         const classObserver = new MutationObserver(bump)
         classObserver.observe(root, { attributes: true, attributeFilter: ['class'] })
 
-        // Theme Customizer writes <style id="krikkit-theme"> — re-read accent when it changes.
+        // Theme Customizer writes <style id="studio-theme"> — re-read accent when it changes.
         const styleObserver = new MutationObserver(bump)
         const watchThemeStyle = () => {
-            const el = document.getElementById('krikkit-theme')
+            const el = document.getElementById('studio-theme')
             if (el) styleObserver.observe(el, { characterData: true, childList: true, subtree: true })
         }
         watchThemeStyle()
@@ -75,7 +75,7 @@ function useLabThemeSignal() {
 }
 
 /**
- * Krikkit syntax — IDE-like contrast, intentionally not MagicFlow’s hex/layout.
+ * Supreme syntax — IDE-like contrast, intentionally not MagicFlow’s hex/layout.
  * (Similar role mapping only: keyword / string / tag / number / comment.)
  */
 const highlightLight = HighlightStyle.define([
@@ -145,15 +145,15 @@ function buildLabMirrorTheme(dark) {
     return EditorView.theme(
         {
             '&': {
-                backgroundColor: 'var(--color-krikkit-canvas)',
-                color: 'var(--color-krikkit-fg)',
+                backgroundColor: 'var(--color-studio-canvas)',
+                color: 'var(--color-studio-fg)',
                 height: '100%',
                 fontSize: '13px',
             },
             '.cm-scroller': {
                 fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
                 lineHeight: '1.55',
-                backgroundColor: 'var(--color-krikkit-canvas)',
+                backgroundColor: 'var(--color-studio-canvas)',
                 overflow: 'auto',
             },
             '.cm-content': {
@@ -184,13 +184,13 @@ function buildLabMirrorTheme(dark) {
                 backgroundColor: hover,
             },
             '.cm-gutters': {
-                backgroundColor: 'var(--color-krikkit-canvas)',
-                color: 'var(--color-krikkit-subtle)',
+                backgroundColor: 'var(--color-studio-canvas)',
+                color: 'var(--color-studio-subtle)',
                 border: 'none',
-                borderRight: '1px solid var(--color-krikkit-line)',
+                borderRight: '1px solid var(--color-studio-line)',
             },
             '.cm-gutter': {
-                backgroundColor: 'var(--color-krikkit-canvas)',
+                backgroundColor: 'var(--color-studio-canvas)',
             },
             '.cm-activeLineGutter': {
                 backgroundColor: hover,
@@ -198,7 +198,7 @@ function buildLabMirrorTheme(dark) {
             },
             '.cm-lineNumbers .cm-gutterElement': {
                 paddingInline: '12px 10px',
-                color: 'var(--color-krikkit-subtle)',
+                color: 'var(--color-studio-subtle)',
             },
             '&.cm-focused .cm-matchingBracket, &.cm-focused .cm-nonmatchingBracket': {
                 backgroundColor: selectionBlur,
@@ -236,23 +236,23 @@ export function CodeCanvas({
 
     return (
         <div className={[
-            'lab-code-canvas flex h-full min-h-0 flex-col bg-krikkit-canvas',
+            'lab-code-canvas flex h-full min-h-0 flex-col bg-studio-canvas',
             active ? '' : 'hidden',
         ].join(' ')}
         >
-            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-krikkit-line bg-krikkit-canvas px-3">
-                <p className="min-w-0 truncate text-xs font-medium text-krikkit-fg" title={path || fileName}>
+            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-studio-line bg-studio-canvas px-3">
+                <p className="min-w-0 truncate text-xs font-medium text-studio-fg" title={path || fileName}>
                     {fileName}
                 </p>
-                <span className="min-w-0 max-w-[50%] truncate text-[11px] text-krikkit-subtle" title={path || undefined}>
+                <span className="min-w-0 max-w-[50%] truncate text-[11px] text-studio-subtle" title={path || undefined}>
                     {readOnly || isBinaryPreview ? 'preview' : (path || 'editing')}
                 </span>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-hidden bg-krikkit-canvas">
+            <div className="min-h-0 flex-1 overflow-hidden bg-studio-canvas">
                 {isBinaryPreview ? (
                     <div className="flex h-full items-center justify-center px-6 text-center">
-                        <p className="max-w-sm text-sm text-krikkit-muted">
+                        <p className="max-w-sm text-sm text-studio-muted">
                             Binary image preview is not available in the demo canvas.
                         </p>
                     </div>

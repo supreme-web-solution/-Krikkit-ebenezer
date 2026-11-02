@@ -1,4 +1,4 @@
-// Krikkit Lab — node:dgram polyfill (stub - not available in browser).
+// Supreme Lab — node:dgram polyfill (stub - not available in browser).
 
 import { EventEmitter } from "./events";
 import { getRegistry, type Handle } from "../helpers/event-loop";

@@ -12,14 +12,14 @@
     ];
 @endphp
 
-<div class="relative border-t border-krikkit-line">
-    <div class="krikkit-home-pinstripe h-7" aria-hidden="true"></div>
-    <div class="krikkit-home-dots relative overflow-hidden border-y border-krikkit-line">
-        <div class="krikkit-home-marquee flex w-max select-none items-center">
+<div class="relative border-t border-studio-line">
+    <div class="studio-home-pinstripe h-7" aria-hidden="true"></div>
+    <div class="studio-home-dots relative overflow-hidden border-y border-studio-line">
+        <div class="studio-home-marquee flex w-max select-none items-center">
             @foreach ([0, 1] as $copy)
                 <ul class="flex items-center" @if ($copy === 1) aria-hidden="true" @endif>
                     @foreach ($brands as $brand)
-                        <li class="flex h-[4.75rem] items-center gap-2.5 px-8 text-krikkit-muted">
+                        <li class="flex h-[4.75rem] items-center gap-2.5 px-8 text-studio-muted">
                             @include('home.partials.brand', ['name' => $brand['id']])
                             <span class="text-sm font-medium tracking-wide">{{ $brand['label'] }}</span>
                         </li>
@@ -28,5 +28,5 @@
             @endforeach
         </div>
     </div>
-    <div class="krikkit-home-pinstripe h-7" aria-hidden="true"></div>
+    <div class="studio-home-pinstripe h-7" aria-hidden="true"></div>
 </div>

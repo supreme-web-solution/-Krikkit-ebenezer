@@ -94,12 +94,12 @@ function IconImage({ className = 'h-4 w-4' }) {
 
 function FileKindIcon({ kind }) {
     if (kind === 'markdown') {
-        return <IconMarkdown className="h-4 w-4 shrink-0 text-krikkit-fg" />
+        return <IconMarkdown className="h-4 w-4 shrink-0 text-studio-fg" />
     }
     if (kind === 'image') {
         return <IconImage className="h-4 w-4 shrink-0 text-accent-content" />
     }
-    return <IconCode className="h-4 w-4 shrink-0 text-krikkit-fg" />
+    return <IconCode className="h-4 w-4 shrink-0 text-studio-fg" />
 }
 
 function countTreeItems(nodes = []) {
@@ -165,13 +165,13 @@ function TreeNode({
                     <button
                         type="button"
                         onClick={() => onToggleFolder(node.path)}
-                        className="flex w-full items-center gap-1.5 rounded-lg px-2.5 py-2 text-left transition hover:bg-krikkit-soft/70"
+                        className="flex w-full items-center gap-1.5 rounded-lg px-2.5 py-2 text-left transition hover:bg-studio-soft/70"
                         aria-expanded={open}
                     >
                         <span className="flex min-w-0 flex-1 items-center gap-1.5">
-                            <IconChevron open={open} className="lab-tree-twist h-3.5 w-3.5 shrink-0 text-krikkit-subtle" />
+                            <IconChevron open={open} className="lab-tree-twist h-3.5 w-3.5 shrink-0 text-studio-subtle" />
                             <IconFolder open={open} className="h-4 w-4 shrink-0 text-accent-content" />
-                            <span className="min-w-0 truncate text-[13px] font-medium text-krikkit-fg">
+                            <span className="min-w-0 truncate text-[13px] font-medium text-studio-fg">
                                 {node.name}
                             </span>
                         </span>
@@ -190,22 +190,22 @@ function TreeNode({
                 <button
                     type="button"
                     onClick={() => onToggleFolder(node.path)}
-                    className="grid w-full grid-cols-[minmax(0,1fr)_5.5rem_6.5rem] items-center gap-2 rounded-lg px-3 py-2.5 text-left transition hover:bg-krikkit-soft"
+                    className="grid w-full grid-cols-[minmax(0,1fr)_5.5rem_6.5rem] items-center gap-2 rounded-lg px-3 py-2.5 text-left transition hover:bg-studio-soft"
                     aria-expanded={open}
                 >
                     <span className="flex min-w-0 items-center gap-1.5">
-                        <IconChevron open={open} className="lab-tree-twist h-3.5 w-3.5 shrink-0 text-krikkit-subtle" />
+                        <IconChevron open={open} className="lab-tree-twist h-3.5 w-3.5 shrink-0 text-studio-subtle" />
                         <IconFolder open={open} className="h-4 w-4 shrink-0 text-accent-content" />
-                        <span className="min-w-0 truncate text-sm font-medium text-krikkit-fg">
+                        <span className="min-w-0 truncate text-sm font-medium text-studio-fg">
                             {node.name}
                         </span>
                     </span>
                     <span className="justify-self-start">
-                        <span className="inline-flex rounded-md bg-krikkit-soft px-2 py-0.5 text-[11px] tabular-nums text-krikkit-muted">
+                        <span className="inline-flex rounded-md bg-studio-soft px-2 py-0.5 text-[11px] tabular-nums text-studio-muted">
                             {childCount}
                         </span>
                     </span>
-                    <span className="truncate text-right text-[12px] text-krikkit-muted">
+                    <span className="truncate text-right text-[12px] text-studio-muted">
                         {node.modifiedLabel}
                     </span>
                 </button>
@@ -229,8 +229,8 @@ function TreeNode({
                     className={[
                         'flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left transition',
                         active
-                            ? 'bg-krikkit-soft text-krikkit-fg'
-                            : 'text-krikkit-fg hover:bg-krikkit-soft/70',
+                            ? 'bg-studio-soft text-studio-fg'
+                            : 'text-studio-fg hover:bg-studio-soft/70',
                     ].join(' ')}
                 >
                     <span className="flex min-w-0 flex-1 items-center gap-1.5">
@@ -240,7 +240,7 @@ function TreeNode({
                             {node.name}
                         </span>
                     </span>
-                    <span className="shrink-0 text-[10px] tabular-nums text-krikkit-subtle">
+                    <span className="shrink-0 text-[10px] tabular-nums text-studio-subtle">
                         {node.sizeLabel}
                     </span>
                 </button>
@@ -255,27 +255,27 @@ function TreeNode({
                 onClick={() => onOpenFile?.(node)}
                 className={[
                     'grid w-full grid-cols-[minmax(0,1fr)_5.5rem_6.5rem] items-center gap-2 rounded-lg px-3 py-2.5 text-left transition',
-                    active ? 'bg-krikkit-soft' : 'hover:bg-krikkit-soft',
+                    active ? 'bg-studio-soft' : 'hover:bg-studio-soft',
                 ].join(' ')}
             >
                 <span className="flex min-w-0 items-center gap-1.5">
                     <TwistSpacer />
                     <FileKindIcon kind={node.kind} />
-                    <span className="truncate text-sm font-medium text-krikkit-fg">
+                    <span className="truncate text-sm font-medium text-studio-fg">
                         {node.name}
                     </span>
                     {node.yours && (
-                        <span className="shrink-0 rounded-md bg-krikkit-soft px-1.5 py-0.5 text-[10px] text-krikkit-subtle">
+                        <span className="shrink-0 rounded-md bg-studio-soft px-1.5 py-0.5 text-[10px] text-studio-subtle">
                             you
                         </span>
                     )}
                 </span>
                 <span className="justify-self-start">
-                    <span className="inline-flex rounded-md bg-krikkit-soft px-2 py-0.5 text-[11px] tabular-nums text-krikkit-muted">
+                    <span className="inline-flex rounded-md bg-studio-soft px-2 py-0.5 text-[11px] tabular-nums text-studio-muted">
                         {node.sizeLabel}
                     </span>
                 </span>
-                <span className="truncate text-right text-[12px] text-krikkit-muted">
+                <span className="truncate text-right text-[12px] text-studio-muted">
                     {node.modifiedLabel}
                 </span>
             </button>
@@ -322,33 +322,33 @@ export function FilesBrowser({
     }
 
     return (
-        <div className="flex h-full min-h-0 flex-col bg-krikkit-canvas">
-            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-krikkit-line bg-krikkit-canvas px-3">
-                <p className="min-w-0 truncate text-xs font-medium text-krikkit-fg">
+        <div className="flex h-full min-h-0 flex-col bg-studio-canvas">
+            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-studio-line bg-studio-canvas px-3">
+                <p className="min-w-0 truncate text-xs font-medium text-studio-fg">
                     Files
                 </p>
-                <span className="shrink-0 text-[11px] tabular-nums text-krikkit-subtle">
+                <span className="shrink-0 text-[11px] tabular-nums text-studio-subtle">
                     {loading ? '…' : `${itemCount}${compact ? '' : ' items'}`}
                 </span>
             </div>
 
             <div className={[
-                'krikkit-scroll-hover min-h-0 flex-1 overflow-y-auto py-2',
+                'studio-scroll-hover min-h-0 flex-1 overflow-y-auto py-2',
                 compact ? 'px-2' : 'px-3',
             ].join(' ')}
             >
                 {error && (
-                    <p className="px-3 py-6 text-center text-sm text-krikkit-muted">{error}</p>
+                    <p className="px-3 py-6 text-center text-sm text-studio-muted">{error}</p>
                 )}
 
                 {! error && ! loading && entries.length === 0 && (
-                    <p className="px-3 py-6 text-center text-sm text-krikkit-muted">{emptyHint}</p>
+                    <p className="px-3 py-6 text-center text-sm text-studio-muted">{emptyHint}</p>
                 )}
 
                 {! error && entries.length > 0 && (
                     <>
                         {! compact && (
-                            <div className="grid grid-cols-[minmax(0,1fr)_5.5rem_6.5rem] gap-2 px-3 pb-2 text-[10px] font-medium tracking-[0.14em] text-krikkit-subtle uppercase">
+                            <div className="grid grid-cols-[minmax(0,1fr)_5.5rem_6.5rem] gap-2 px-3 pb-2 text-[10px] font-medium tracking-[0.14em] text-studio-subtle uppercase">
                                 <span>Name</span>
                                 <span>Size</span>
                                 <span className="text-right">Modified</span>

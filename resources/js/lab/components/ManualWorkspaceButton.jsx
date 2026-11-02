@@ -17,7 +17,7 @@ export function ManualWorkspaceButton({
                 type="button"
                 onClick={onClick}
                 disabled={disabled}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-krikkit-subtle transition hover:bg-krikkit-soft hover:text-krikkit-fg disabled:pointer-events-none disabled:opacity-40"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-studio-subtle transition hover:bg-studio-soft hover:text-studio-fg disabled:pointer-events-none disabled:opacity-40"
                 aria-label="Open workspace (manual override)"
             >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden>

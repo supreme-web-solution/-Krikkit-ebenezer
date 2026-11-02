@@ -28,7 +28,7 @@ describe("default RuntimeHost registration", () => {
   it("getRuntimeHost() falls back to globalThis factory hook", () => {
     // Simulate minify dropping registerDefaultHostFactory() but keeping the
     // globalThis assignment from the browser entry / browser-host module.
-    (globalThis as Record<string, unknown>).__KRIKKIT_LAB_CREATE_BROWSER_HOST__ =
+    (globalThis as Record<string, unknown>).__SUPREME_LAB_CREATE_BROWSER_HOST__ =
       createBrowserHost;
     const host = getRuntimeHost();
     expect(host.kind).toBe("browser");

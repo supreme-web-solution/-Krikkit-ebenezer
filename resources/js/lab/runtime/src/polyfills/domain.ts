@@ -1,4 +1,4 @@
-// Krikkit Lab — node:domain polyfill (stub - deprecated in Node.js, minimal pass-through implementation).
+// Supreme Lab — node:domain polyfill (stub - deprecated in Node.js, minimal pass-through implementation).
 
 
 import { EventEmitter } from "./events";

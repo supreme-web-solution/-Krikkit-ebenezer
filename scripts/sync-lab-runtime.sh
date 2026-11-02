@@ -53,12 +53,12 @@ echo "→ Publishing static assets to public/…"
 publish_sw() {
   local src="$1"
   if [[ -f "$src" ]]; then
-    cp -f "$src" "$ROOT/public/__krikkit_lab_sw__.js"
+    cp -f "$src" "$ROOT/public/__studio_lab_sw__.js"
     cp -f "$src" "$ROOT/public/__deepthought_sw__.js"
   fi
 }
-if [[ -f "$TARGET/dist/__krikkit_lab_sw__.js" ]]; then
-  publish_sw "$TARGET/dist/__krikkit_lab_sw__.js"
+if [[ -f "$TARGET/dist/__studio_lab_sw__.js" ]]; then
+  publish_sw "$TARGET/dist/__studio_lab_sw__.js"
 elif [[ -f "$TARGET/dist/__deepthought_sw__.js" ]]; then
   publish_sw "$TARGET/dist/__deepthought_sw__.js"
 elif [[ -f "$TARGET/static/__deepthought_sw__.js" ]]; then

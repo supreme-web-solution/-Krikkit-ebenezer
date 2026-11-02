@@ -18,9 +18,9 @@ import { failDeskPulse } from '../lib/deskPulse'
 import { IconClose } from './Icons'
 
 const fieldClass = [
-    'h-10 w-full rounded-full border border-transparent bg-krikkit-surface',
-    'px-4 text-sm font-normal text-krikkit-fg placeholder:text-krikkit-subtle',
-    'outline-none transition focus:border-krikkit-muted/40',
+    'h-10 w-full rounded-full border border-transparent bg-studio-surface',
+    'px-4 text-sm font-normal text-studio-fg placeholder:text-studio-subtle',
+    'outline-none transition focus:border-studio-muted/40',
     'disabled:cursor-not-allowed disabled:opacity-50',
 ].join(' ')
 
@@ -36,10 +36,10 @@ function PathList({ title, paths }) {
     if (! paths?.length) return null
     return (
         <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-krikkit-subtle">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-studio-subtle">
                 {title} ({paths.length})
             </p>
-            <ul className="krikkit-scroll-hover mt-1 max-h-28 space-y-0.5 overflow-y-auto font-mono text-[11px] text-krikkit-muted">
+            <ul className="studio-scroll-hover mt-1 max-h-28 space-y-0.5 overflow-y-auto font-mono text-[11px] text-studio-muted">
                 {paths.slice(0, 40).map((path) => (
                     <li key={path} className="truncate">{path}</li>
                 ))}
@@ -83,7 +83,7 @@ export function GithubDeskModal({
     const [url, setUrl] = useState('')
     const [branch, setBranch] = useState('main')
     const [repoName, setRepoName] = useState('')
-    const [commitMessage, setCommitMessage] = useState('Update from Krikkit Lab')
+    const [commitMessage, setCommitMessage] = useState('Update from Supreme Lab')
     const [force, setForce] = useState(false)
 
     const close = (cancelled = true) => {
@@ -144,10 +144,10 @@ export function GithubDeskModal({
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={titleId}
-                className="relative flex max-h-[min(44rem,calc(100dvh-2rem))] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-krikkit-canvas"
+                className="relative flex max-h-[min(44rem,calc(100dvh-2rem))] w-full max-w-lg flex-col overflow-hidden rounded-2xl bg-studio-canvas"
             >
-                <div className="flex items-center justify-between gap-3 border-b border-krikkit-line px-5 py-4">
-                    <h2 id={titleId} className="text-base font-semibold tracking-tight text-krikkit-fg">
+                <div className="flex items-center justify-between gap-3 border-b border-studio-line px-5 py-4">
+                    <h2 id={titleId} className="text-base font-semibold tracking-tight text-studio-fg">
                         {t.githubDesk || 'GitHub'}
                     </h2>
                     <button
@@ -161,9 +161,9 @@ export function GithubDeskModal({
                     </button>
                 </div>
 
-                <div className="krikkit-scroll-hover min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-5">
+                <div className="studio-scroll-hover min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-5">
                     {waitMode ? (
-                        <p className="text-sm text-krikkit-muted">
+                        <p className="text-sm text-studio-muted">
                             {needRemote
                                 ? (t.githubWaitRemote || 'Chat is waiting for a GitHub repository on this project.')
                                 : (t.githubWaitConnect || 'Chat is waiting for GitHub to be connected.')}
@@ -172,8 +172,8 @@ export function GithubDeskModal({
 
                     {! projectUuid ? (
                         <div className="flex flex-col items-center px-4 py-8 text-center">
-                            <IconGithubMark className="size-10 text-krikkit-fg" />
-                            <p className="mt-4 text-sm text-krikkit-muted">{t.connectGithubHint}</p>
+                            <IconGithubMark className="size-10 text-studio-fg" />
+                            <p className="mt-4 text-sm text-studio-muted">{t.connectGithubHint}</p>
                             <button
                                 type="button"
                                 className={`mt-6 inline-flex h-10 items-center justify-center rounded-full px-5 text-sm font-medium ${LAB_BTN_PRIMARY}`}
@@ -193,8 +193,8 @@ export function GithubDeskModal({
                         </div>
                     ) : ! linked ? (
                         <div className="flex flex-col items-center px-4 py-8 text-center">
-                            <IconGithubMark className="size-10 text-krikkit-fg" />
-                            <p className="mt-4 text-sm text-krikkit-muted">{t.connectGithubHint}</p>
+                            <IconGithubMark className="size-10 text-studio-fg" />
+                            <p className="mt-4 text-sm text-studio-muted">{t.connectGithubHint}</p>
                             <a
                                 href={githubConnectUrl(labReturnPath())}
                                 className={`mt-6 inline-flex h-10 items-center justify-center rounded-full px-5 text-sm font-medium ${LAB_BTN_PRIMARY}`}
@@ -204,23 +204,23 @@ export function GithubDeskModal({
                         </div>
                     ) : (
                         <>
-                            <p className="text-sm text-krikkit-muted">
+                            <p className="text-sm text-studio-muted">
                                 {status.account?.login
                                     ? `${t.githubAccount}: ${status.account.login}`
                                     : t.githubAccount}
                             </p>
 
                             {remote ? (
-                                <div className="space-y-3 rounded-xl border border-krikkit-line p-4">
-                                    <p className="text-sm font-medium text-krikkit-fg">
+                                <div className="space-y-3 rounded-xl border border-studio-line p-4">
+                                    <p className="text-sm font-medium text-studio-fg">
                                         {remote.full_name}
-                                        <span className="ml-2 font-normal text-krikkit-muted">@{remote.branch}</span>
+                                        <span className="ml-2 font-normal text-studio-muted">@{remote.branch}</span>
                                     </p>
                                     {remote.forked_from ? (
-                                        <p className="text-xs text-krikkit-muted">Forked from {remote.forked_from}</p>
+                                        <p className="text-xs text-studio-muted">Forked from {remote.forked_from}</p>
                                     ) : null}
                                     {compare ? (
-                                        <p className="text-xs text-krikkit-muted">
+                                        <p className="text-xs text-studio-muted">
                                             {compare.clean
                                                 ? (t.githubClean || 'Local matches GitHub.')
                                                 : `${compare.ahead} local change${compare.ahead === 1 ? '' : 's'}, ${compare.behind} only on GitHub.`}
@@ -236,7 +236,7 @@ export function GithubDeskModal({
                                         onChange={(e) => setCommitMessage(e.target.value)}
                                         placeholder={t.githubCommitMessage || 'Commit message'}
                                     />
-                                    <label className="flex items-center gap-2 text-xs text-krikkit-muted">
+                                    <label className="flex items-center gap-2 text-xs text-studio-muted">
                                         <input
                                             type="checkbox"
                                             checked={force}
@@ -289,14 +289,14 @@ export function GithubDeskModal({
                                 </div>
                             ) : (
                                 <div className="space-y-3">
-                                    <div className="flex gap-1 rounded-full bg-krikkit-soft p-1 text-xs">
+                                    <div className="flex gap-1 rounded-full bg-studio-soft p-1 text-xs">
                                         {['link', 'create', 'fork'].map((id) => (
                                             <button
                                                 key={id}
                                                 type="button"
                                                 className={[
                                                     'flex-1 rounded-full px-3 py-1.5 font-medium',
-                                                    mode === id ? 'bg-krikkit-canvas text-krikkit-fg' : 'text-krikkit-muted',
+                                                    mode === id ? 'bg-studio-canvas text-studio-fg' : 'text-studio-muted',
                                                 ].join(' ')}
                                                 onClick={() => setMode(id)}
                                             >

@@ -9,11 +9,11 @@
         <link href="https://fonts.bunny.net/css?family=sora:400,500,600,700&display=swap" rel="stylesheet" />
         <x-layouts.partials.brand />
         <x-layouts.partials.seo />
-        {{-- Register SW only. Do not send krikkit-host-active — that clears guest pathClaims in the workspace tab. --}}
+        {{-- Register SW only. Do not send studio-host-active — that clears guest pathClaims in the workspace tab. --}}
         <script type="text/javascript">
             (function () {
                 if (!('serviceWorker' in navigator)) return;
-                var SW = '/__krikkit_lab_sw__.js?v=host-vite-5173-29';
+                var SW = '/__studio_lab_sw__.js?v=host-vite-5173-29';
                 navigator.serviceWorker.register(SW, { scope: '/' }).catch(function () {});
             })();
         </script>
@@ -28,7 +28,7 @@
                 } catch (e) {}
                 var post = function (sw) {
                     try {
-                        if (origin) sw.postMessage({ type: 'krikkit-host-vite', origin: origin })
+                        if (origin) sw.postMessage({ type: 'studio-host-vite', origin: origin })
                     } catch (e) {}
                 }
                 if (navigator.serviceWorker.controller) post(navigator.serviceWorker.controller)
@@ -39,7 +39,7 @@
         </script>
         <x-layouts.partials.themeStyle />
     </head>
-    <body class="min-h-screen bg-krikkit-canvas font-sans text-krikkit-fg antialiased">
+    <body class="min-h-screen bg-studio-canvas font-sans text-studio-fg antialiased">
         @php
             $previewBootstrap = [
                 'uuid' => $project['uuid'] ?? null,
@@ -49,17 +49,17 @@
             ];
         @endphp
         <script type="application/json" id="lab-preview-bootstrap">@json($previewBootstrap)</script>
-        <div id="lab-preview-root" class="min-h-dvh bg-krikkit-canvas">
+        <div id="lab-preview-root" class="min-h-dvh bg-studio-canvas">
             <div class="flex h-dvh flex-col" role="status" aria-label="{{ __('dashboard.Loading…') }}">
-                <header class="flex h-12 shrink-0 items-center gap-2 border-b border-krikkit-line px-4">
-                    <span class="truncate text-sm font-semibold tracking-tight text-krikkit-fg">Krikkit</span>
-                    <span class="text-krikkit-subtle" aria-hidden>/</span>
-                    <span class="text-sm font-medium text-krikkit-fg">Lab</span>
-                    <span class="text-krikkit-subtle" aria-hidden>/</span>
-                    <span class="text-sm text-krikkit-muted">Preview</span>
+                <header class="flex h-12 shrink-0 items-center gap-2 border-b border-studio-line px-4">
+                    <span class="truncate text-sm font-semibold tracking-tight text-studio-fg">Supreme</span>
+                    <span class="text-studio-subtle" aria-hidden>/</span>
+                    <span class="text-sm font-medium text-studio-fg">Lab</span>
+                    <span class="text-studio-subtle" aria-hidden>/</span>
+                    <span class="text-sm text-studio-muted">Preview</span>
                 </header>
                 <div class="flex min-h-0 flex-1 items-center justify-center">
-                    <span class="h-8 w-40 animate-pulse rounded-lg bg-krikkit-soft" aria-hidden></span>
+                    <span class="h-8 w-40 animate-pulse rounded-lg bg-studio-soft" aria-hidden></span>
                 </div>
             </div>
         </div>

@@ -114,11 +114,11 @@ class ShowComponent extends Component
     private function queueConfirm(string $action): void
     {
         $this->confirmAction = $action;
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'lab-project-confirm' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'lab-project-confirm' }))");
     }
 
     private function closeConfirm(): void
     {
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'lab-project-confirm' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'lab-project-confirm' }))");
     }
 }

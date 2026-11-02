@@ -1,4 +1,4 @@
-// Krikkit Lab — node:string_decoder polyfill.
+// Supreme Lab — node:string_decoder polyfill.
 
 
 export interface StringDecoder {

@@ -1,4 +1,4 @@
-// Krikkit Lab — node:dns polyfill.
+// Supreme Lab — node:dns polyfill.
 
 type SingleResult = (err: Error | null, addr?: string, fam?: number) => void;
 type MultiResult = (

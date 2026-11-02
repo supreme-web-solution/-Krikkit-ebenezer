@@ -1,4 +1,4 @@
-// Krikkit Lab — virtual shell builtin command registry.
+// Supreme Lab — virtual shell builtin command registry.
 
 import type { BuiltinFn } from "./shell-types";
 import { fileOpsCommands } from "./commands/file-ops";

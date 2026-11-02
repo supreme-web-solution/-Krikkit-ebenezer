@@ -16,10 +16,10 @@ final class WorkspaceProposalParser
         $propose = false;
         $clean = $content;
 
-        // <<<KRIKKIT_META ... KRIKKIT_META  OR  <<<KRIKKIT_META ... >>>
-        if (preg_match('/<<<KRIKKIT_META\s*(.*?)\s*(?:KRIKKIT_META|>>>)/siu', $clean, $match)) {
+        // <<<STUDIO_META ... STUDIO_META  OR  <<<STUDIO_META ... >>>
+        if (preg_match('/<<<STUDIO_META\s*(.*?)\s*(?:STUDIO_META|>>>)/siu', $clean, $match)) {
             $propose = $this->flagFromPayload($match[1]) || $propose;
-            $clean = preg_replace('/\s*<<<KRIKKIT_META\s*.*?\s*(?:KRIKKIT_META|>>>)/siu', '', $clean) ?? $clean;
+            $clean = preg_replace('/\s*<<<STUDIO_META\s*.*?\s*(?:STUDIO_META|>>>)/siu', '', $clean) ?? $clean;
         }
 
         // Any fenced json/code block containing propose_workspace (not only trailing)
@@ -47,7 +47,7 @@ final class WorkspaceProposalParser
         }
 
         // HTML comment fallback
-        if (preg_match_all('/<!--\s*krikkit:propose_workspace\s*=\s*(true|false|1|0|"true"|"false")\s*-->/iu', $clean, $comments, PREG_SET_ORDER)) {
+        if (preg_match_all('/<!--\s*studio:propose_workspace\s*=\s*(true|false|1|0|"true"|"false")\s*-->/iu', $clean, $comments, PREG_SET_ORDER)) {
             foreach ($comments as $comment) {
                 $propose = $this->normalizeBool($comment[1]) || $propose;
                 $clean = str_replace($comment[0], '', $clean);
@@ -55,9 +55,9 @@ final class WorkspaceProposalParser
         }
 
         // Truncated / unclosed meta at end — drop, never leak.
-        if (preg_match('/<<<KRIKKIT_META\b[\s\S]*$/siu', $clean, $openMatch)) {
-            $propose = $this->flagFromPayload((string) preg_replace('/^<<<KRIKKIT_META/iu', '', $openMatch[0])) || $propose;
-            $clean = preg_replace('/<<<KRIKKIT_META\b[\s\S]*$/siu', '', $clean) ?? $clean;
+        if (preg_match('/<<<STUDIO_META\b[\s\S]*$/siu', $clean, $openMatch)) {
+            $propose = $this->flagFromPayload((string) preg_replace('/^<<<STUDIO_META/iu', '', $openMatch[0])) || $propose;
+            $clean = preg_replace('/<<<STUDIO_META\b[\s\S]*$/siu', '', $clean) ?? $clean;
         }
 
         // Orphan meta closers (e.g. "…bloat.>>>") after a stripped / missing open tag.

@@ -69,7 +69,7 @@ class ThemesComponent extends Component
 
         if ($applied !== null) {
             $this->js(
-                'window.krikkitTheme?.apply('.json_encode([
+                'window.studioTheme?.apply('.json_encode([
                     ...$applied,
                     'persist' => true,
                 ]).');'

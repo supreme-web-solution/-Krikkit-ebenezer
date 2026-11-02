@@ -14,7 +14,7 @@ import { LAB_SW_FILENAME, LEGACY_SW_FILENAME } from "../internal/lab-keys";
 const WORKER_ASSET_PATH = "/__worker__.js";
 
 export interface DeepThoughtVitePluginOptions {
-  /** Path to serve the SW from. Same origin as the page, must end in .js. Defaults to /__krikkit_lab_sw__.js. */
+  /** Path to serve the SW from. Same origin as the page, must end in .js. Defaults to /__studio_lab_sw__.js. */
   path?: string;
 }
 

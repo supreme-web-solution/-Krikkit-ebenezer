@@ -1,13 +1,13 @@
-<section id="stories" class="scroll-mt-20 border-b border-krikkit-line">
-    <div class="relative mx-auto max-w-7xl overflow-hidden border-x border-krikkit-line">
-        <div class="pointer-events-none absolute inset-0 krikkit-home-dots" aria-hidden="true"></div>
+<section id="stories" class="scroll-mt-20 border-b border-studio-line">
+    <div class="relative mx-auto max-w-7xl overflow-hidden border-x border-studio-line">
+        <div class="pointer-events-none absolute inset-0 studio-home-dots" aria-hidden="true"></div>
         <div class="relative px-6 pt-20 md:px-12 md:pt-28">
             @include('home.partials.badge', ['label' => __('home.Stories')])
-            <h2 class="mt-6 max-w-3xl text-3xl font-medium leading-[1.15] tracking-tight text-krikkit-fg md:text-5xl">
+            <h2 class="mt-6 max-w-3xl text-3xl font-medium leading-[1.15] tracking-tight text-studio-fg md:text-5xl">
                 {{ __('home.Ship the pages teams actually need') }}
             </h2>
         </div>
-        <div class="relative mt-12 grid gap-px border-t border-krikkit-line bg-krikkit-line lg:grid-cols-3">
+        <div class="relative mt-12 grid gap-px border-t border-studio-line bg-studio-line lg:grid-cols-3">
             @foreach ([
                 [
                     'title' => __('home.Studio'),
@@ -37,17 +37,17 @@
                     ],
                 ],
             ] as $column)
-                <div class="flex flex-col gap-px bg-krikkit-line">
-                    <div class="bg-krikkit-canvas px-6 py-8">
-                        <h3 class="text-lg font-medium text-krikkit-fg">{{ $column['title'] }}</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-krikkit-muted">{{ $column['copy'] }}</p>
+                <div class="flex flex-col gap-px bg-studio-line">
+                    <div class="bg-studio-canvas px-6 py-8">
+                        <h3 class="text-lg font-medium text-studio-fg">{{ $column['title'] }}</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-studio-muted">{{ $column['copy'] }}</p>
                     </div>
                     @foreach ($column['tasks'] as $task)
-                        <div class="flex items-center gap-3 bg-krikkit-canvas px-6 py-4">
-                            <span class="inline-flex size-8 items-center justify-center border border-krikkit-line bg-krikkit-surface">
-                                <krikkit:icon name="check" class="size-4 text-accent-content" />
+                        <div class="flex items-center gap-3 bg-studio-canvas px-6 py-4">
+                            <span class="inline-flex size-8 items-center justify-center border border-studio-line bg-studio-surface">
+                                <studio:icon name="check" class="size-4 text-accent-content" />
                             </span>
-                            <p class="text-sm text-krikkit-fg">{{ $task }}</p>
+                            <p class="text-sm text-studio-fg">{{ $task }}</p>
                         </div>
                     @endforeach
                 </div>

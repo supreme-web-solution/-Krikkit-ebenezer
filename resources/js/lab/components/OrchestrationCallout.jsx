@@ -14,13 +14,13 @@ export function OrchestrationCallout({ items = [] }) {
                     ? 'border-red-500/40 text-red-600 dark:text-red-300'
                     : tone === 'warning'
                         ? 'border-amber-500/40 text-amber-700 dark:text-amber-300'
-                        : 'border-krikkit-line text-krikkit-muted'
+                        : 'border-studio-line text-studio-muted'
 
                 return (
                     <div
                         key={`${index}:${String(item.text).slice(0, 24)}`}
                         className={[
-                            'rounded-lg border bg-krikkit-soft/60 px-3 py-2 text-[12px] leading-relaxed',
+                            'rounded-lg border bg-studio-soft/60 px-3 py-2 text-[12px] leading-relaxed',
                             toneClass,
                         ].join(' ')}
                         role="status"

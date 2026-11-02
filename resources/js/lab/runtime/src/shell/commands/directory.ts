@@ -1,4 +1,4 @@
-// Krikkit Lab — cd/pwd/mkdir/rmdir builtins.
+// Supreme Lab — cd/pwd/mkdir/rmdir builtins.
 
 import type { BuiltinFn } from "../shell-types";
 import {

@@ -6,7 +6,7 @@ Open **Publish** from the builder top bar (`PublishProjectModal`).
 
 | Mode | Behavior |
 |------|----------|
-| **Subdomain** | Deploy to `{sub}.{publish_root}` — root from Application URL / `KRIKKIT_PUBLISH_SUBDOMAIN_ROOT` |
+| **Subdomain** | Deploy to `{sub}.{publish_root}` — root from Application URL / `SUPREME_PUBLISH_SUBDOMAIN_ROOT` |
 | **Custom domain** | Plan-gated; show CNAME instructions; verify DNS; attach host |
 
 **API:** `GET …/workspace/publish/options`, `POST …/workspace/publish`  
@@ -32,11 +32,11 @@ Download a successful build:
 GET /projects/{projectUuid}/builds/{buildUuid}/export
 ```
 
-Artifacts under `storage/app/exports` (retention: `KRIKKIT_EXPORT_RETENTION_DAYS`).
+Artifacts under `storage/app/exports` (retention: `SUPREME_EXPORT_RETENTION_DAYS`).
 
 ## Thumbnails
 
-Preview capture uploads to `POST …/workspace/thumbnail` for project cards (`KRIKKIT_THUMBNAILS_*`).
+Preview capture uploads to `POST …/workspace/thumbnail` for project cards (`SUPREME_THUMBNAILS_*`).
 
 ## Operator checklist
 

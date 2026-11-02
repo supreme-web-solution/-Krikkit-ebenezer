@@ -1,7 +1,7 @@
 const MAX_RECENTS = 24
 
 function storageKey(projectUuid) {
-    return `krikkit.lab.recents.${projectUuid}`
+    return `studio.lab.recents.${projectUuid}`
 }
 
 /**

@@ -1,4 +1,4 @@
-/** Krikkit Lab package.json manifest shape. */
+/** Supreme Lab package.json manifest shape. */
 
 export interface PackageManifest {
   name?: string;

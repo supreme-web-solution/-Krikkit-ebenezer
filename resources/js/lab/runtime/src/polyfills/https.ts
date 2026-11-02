@@ -1,4 +1,4 @@
-// Krikkit Lab — node:https polyfill.
+// Supreme Lab — node:https polyfill.
 
 
 import {

@@ -1,4 +1,4 @@
-// Krikkit Lab — node:rollup polyfill.
+// Supreme Lab — node:rollup polyfill.
 
 import * as acorn from "acorn";
 import acornJsx from "acorn-jsx";

@@ -1,4 +1,4 @@
-// Krikkit Lab — cross-worker module transform cache.
+// Supreme Lab — cross-worker module transform cache.
 
 // Bounded LRU for transformed module source, shared by every ScriptEngine
 // created in the same realm (worker or main). Without this, engines created

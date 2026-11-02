@@ -36,10 +36,10 @@ export interface LabRuntimeOptions {
   /**
    * Headless mode: no terminal/preview UI required. Defaults `serviceWorker`
    * and `watermark` to false (can still be overridden). Implied when importing
-   * from `@krikkit/deepthought/headless` or the Lab headless entry.
+   * from `@studio/deepthought/headless` or the Lab headless entry.
    */
   headless?: boolean;
-  /** URL of the Lab service worker. Defaults to `/__krikkit_lab_sw__.js`. */
+  /** URL of the Lab service worker. Defaults to `/__studio_lab_sw__.js`. */
   swUrl?: string;
   /**
    * Set to `false` to skip SW registration (SSR, Node tests, or hosts
@@ -53,7 +53,7 @@ export interface LabRuntimeOptions {
    */
   skipSWPreflight?: boolean;
   onServerReady?: (port: number, url: string) => void;
-  /** Show a small "Krikkit Lab" watermark link in preview iframes. Defaults to false. */
+  /** Show a small "Supreme Lab" watermark link in preview iframes. Defaults to false. */
   watermark?: boolean;
   /** Memory optimization settings. Omit to use defaults. */
   memory?: MemoryHandlerOptions;

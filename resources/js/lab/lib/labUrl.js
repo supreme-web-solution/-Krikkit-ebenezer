@@ -15,7 +15,7 @@ export function parseLabPath(pathname = typeof window !== 'undefined' ? window.l
 /** Named browsing context so a preview tab can focus the existing workspace. */
 export function workspaceWindowName(uuid) {
     const id = String(uuid || '').trim()
-    return id ? `krikkit-lab-ws-${id}` : ''
+    return id ? `studio-lab-ws-${id}` : ''
 }
 
 export function readLabHandoffMode(search = typeof window !== 'undefined' ? window.location.search : '') {
@@ -70,5 +70,5 @@ export function adoptLabUrl(uuid, workspace = false, { replace = true } = {}) {
 
 export function setDocumentTitle(title) {
     if (typeof document === 'undefined') return
-    document.title = title ? `${title} · Lab` : 'Krikkit · Lab'
+    document.title = title ? `${title} · Lab` : 'Supreme · Lab'
 }

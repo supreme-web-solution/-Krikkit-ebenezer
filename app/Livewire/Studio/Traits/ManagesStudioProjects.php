@@ -28,7 +28,7 @@ trait ManagesStudioProjects
         $project = $this->desk()->owned($this->studioUser(), $uuid);
         $this->pendingProject = $project->uuid;
         $this->renameTitle = (string) ($project->title ?: '');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'rename-project' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'rename-project' }))");
     }
 
     public function saveRename(): void
@@ -50,7 +50,7 @@ trait ManagesStudioProjects
         $this->desk()->rename($this->studioUser(), $this->pendingProject, $title);
         $this->pendingProject = '';
         $this->renameTitle = '';
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'rename-project' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'rename-project' }))");
         $this->pulseStudio(__('studio.Project renamed.'));
     }
 
@@ -71,14 +71,14 @@ trait ManagesStudioProjects
     {
         $project = $this->desk()->owned($this->studioUser(), $uuid);
         $this->pendingProject = $project->uuid;
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'delete-project' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'delete-project' }))");
     }
 
     public function confirmDelete(): void
     {
         $uuid = $this->pendingProject;
         $this->pendingProject = '';
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'delete-project' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'delete-project' }))");
 
         if ($uuid === '') {
             return;

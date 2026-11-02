@@ -1,6 +1,6 @@
 /**
  * One-shot repair: re-pin the managed build toolchain across all site-kit
- * Lab projects (marker: .krikkit-kit) whose package.json / vite.config.js
+ * Lab projects (marker: .studio-kit) whose package.json / vite.config.js
  * were overwritten by the model with drifted versions (vite ^5/^6/^8 —
  * rolldown breaks the in-browser WASM dev server).
  *
@@ -25,7 +25,7 @@ for (const entry of readdirSync(projectsDir, { withFileTypes: true })) {
     const dir = join(projectsDir, entry.name)
 
     // Only kit-seeded projects — legacy stacks (vite 5 + tailwind 3) stay as-is.
-    if (! existsSync(join(dir, '.krikkit-kit'))) {
+    if (! existsSync(join(dir, '.studio-kit'))) {
         skipped += 1
         continue
     }

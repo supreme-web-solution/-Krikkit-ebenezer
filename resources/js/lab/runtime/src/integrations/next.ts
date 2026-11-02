@@ -3,13 +3,13 @@
 //   1. App Router route handler (works Next 13 through 16):
 //
 //        // app/__deepthought_sw__.js/route.ts
-//        export { GET } from '@krikkit/deepthought/next';
+//        export { GET } from '@studio/deepthought/next';
 //
 //   2. Composable for users who already have a proxy.ts / middleware.ts:
 //
 //        // Next 16+ (proxy.ts)                  // Next <=15 (middleware.ts)
 //        import { deepThoughtProxy } from            import { deepThoughtMiddleware } from
-//          '@krikkit/deepthought/next';                 '@krikkit/deepthought/next';
+//          '@studio/deepthought/next';                 '@studio/deepthought/next';
 //
 // `deepThoughtProxy` and `deepThoughtMiddleware` are the same function under two
 // names. Next 16 renamed `middleware.ts` to `proxy.ts`
@@ -39,7 +39,7 @@ async function buildResponse(): Promise<NextResponseType> {
  * Route handler for `app/__deepthought_sw__.js/route.ts`.
  *
  * ```ts
- * export { GET } from '@krikkit/deepthought/next';
+ * export { GET } from '@studio/deepthought/next';
  * ```
  */
 export async function GET(): Promise<NextResponseType> {

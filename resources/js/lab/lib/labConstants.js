@@ -415,16 +415,16 @@ export const RAIL_MIN_W = 280
 export const RAIL_MAX_W = 560
 
 /**
- * Primary CTA — Theme Customizer accent (same as dashboard krikkit:button default).
- * Icon / square actions should pair with `rounded-full` like krikkit square buttons.
+ * Primary CTA — Theme Customizer accent (same as dashboard studio:button default).
+ * Icon / square actions should pair with `rounded-full` like studio square buttons.
  */
 export const LAB_BTN_PRIMARY =
     'bg-accent text-accent-foreground transition hover:opacity-90 disabled:pointer-events-none disabled:opacity-40'
 
 /** Inverse fill — not accent; rare (e.g. stop chrome). Prefer LAB_BTN_PRIMARY for actions. */
 export const LAB_BTN_FILL =
-    'bg-krikkit-fill text-krikkit-on-fill transition hover:opacity-90 disabled:pointer-events-none disabled:opacity-40'
+    'bg-studio-fill text-studio-on-fill transition hover:opacity-90 disabled:pointer-events-none disabled:opacity-40'
 
-/** Matches krikkit:button outline / ghost chip chrome. */
+/** Matches studio:button outline / ghost chip chrome. */
 export const LAB_BTN_OUTLINE =
-    'border border-krikkit-line bg-transparent text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg disabled:pointer-events-none disabled:opacity-40'
+    'border border-studio-line bg-transparent text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg disabled:pointer-events-none disabled:opacity-40'

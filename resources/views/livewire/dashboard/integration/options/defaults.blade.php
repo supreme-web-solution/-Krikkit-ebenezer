@@ -1,14 +1,14 @@
 <section class="space-y-4">
     <div>
-        <p class="text-[11px] font-normal uppercase tracking-[0.16em] text-krikkit-subtle">{{ __('dashboard.Default model') }}</p>
-        <p class="mt-1 text-xs text-krikkit-muted">
+        <p class="text-[11px] font-normal uppercase tracking-[0.16em] text-studio-subtle">{{ __('dashboard.Default model') }}</p>
+        <p class="mt-1 text-xs text-studio-muted">
             {{ __('dashboard.Used by Lab when the chat picker hasn’t chosen a model yet.') }}
         </p>
     </div>
 
     <form wire:submit="saveDefaults" class="flex flex-col gap-3 sm:flex-row sm:items-end">
-        <krikkit:field :label="__('dashboard.Model')" class="min-w-0 flex-1">
-            <krikkit:select
+        <studio:field :label="__('dashboard.Model')" class="min-w-0 flex-1">
+            <studio:select
                 size="md"
                 wire:model="defaultModel"
                 :value="$defaultModel"
@@ -16,21 +16,21 @@
                 :invalid="$errors->has('defaultModel')"
             >
                 @foreach ($models as $model)
-                    <krikkit:select.option
+                    <studio:select.option
                         :value="$model->id"
                         :selected="$defaultModel === $model->id"
                     >
                         {{ $model->label }}{{ $model->available ? '' : __('dashboard. — key missing') }}
-                    </krikkit:select.option>
+                    </studio:select.option>
                 @endforeach
-            </krikkit:select>
+            </studio:select>
             @error('defaultModel')
-                <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                <studio:field.error>{{ $message }}</studio:field.error>
             @enderror
-        </krikkit:field>
+        </studio:field>
 
-        <krikkit:button type="submit" size="md" wire:loading.attr="disabled">
+        <studio:button type="submit" size="md" wire:loading.attr="disabled">
             {{ __('dashboard.Save default') }}
-        </krikkit:button>
+        </studio:button>
     </form>
 </section>

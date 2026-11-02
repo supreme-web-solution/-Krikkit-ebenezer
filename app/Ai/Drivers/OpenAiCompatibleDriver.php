@@ -169,7 +169,7 @@ final class OpenAiCompatibleDriver implements StreamableChatDriver
         if ($dynamic !== '') {
             $messages[] = [
                 'role' => ChatRole::User->value,
-                'content' => "[Krikkit turn context — not visible chat]\n{$dynamic}",
+                'content' => "[Supreme turn context — not visible chat]\n{$dynamic}",
             ];
             $messages[] = [
                 'role' => ChatRole::Assistant->value,

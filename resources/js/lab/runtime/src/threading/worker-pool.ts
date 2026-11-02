@@ -1,4 +1,4 @@
-// Krikkit Lab — reusable worker pool for offload tasks.
+// Supreme Lab — reusable worker pool for offload tasks.
 
 // WorkerPool — on-demand Web Worker pool for offload tasks.
 // Workers are pre-warmed, reused, and reaped after idle timeout.

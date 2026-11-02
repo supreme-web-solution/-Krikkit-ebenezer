@@ -9,45 +9,45 @@
 
 <div class="space-y-8">
     <div>
-        <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.Settings') }}</h1>
-        <p class="mt-0.5 text-xs text-krikkit-muted">{{ $copy }}</p>
+        <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.Settings') }}</h1>
+        <p class="mt-0.5 text-xs text-studio-muted">{{ $copy }}</p>
     </div>
 
     @include('livewire.dashboard.settings.options.nav', ['section' => $section, 'nav' => $nav])
 
     <form wire:submit="save" class="space-y-8">
-        <krikkit:switch align="right" class="w-full justify-between" :label="__('dashboard.Publish this page')" wire:model="published" />
+        <studio:switch align="right" class="w-full justify-between" :label="__('dashboard.Publish this page')" wire:model="published" />
 
         @if ($publicRoute && $published)
-            <p class="text-xs text-krikkit-muted">
+            <p class="text-xs text-studio-muted">
                 {{ __('dashboard.Public URL') }}:
-                <a href="{{ route($publicRoute) }}" class="break-all text-krikkit-fg underline" target="_blank" rel="noreferrer">
+                <a href="{{ route($publicRoute) }}" class="break-all text-studio-fg underline" target="_blank" rel="noreferrer">
                     {{ route($publicRoute) }}
                 </a>
             </p>
         @endif
 
-        <krikkit:field :label="__('dashboard.Title')">
-            <krikkit:input size="md" wire:model="title" :placeholder="$heading" :invalid="$errors->has('title')" />
+        <studio:field :label="__('dashboard.Title')">
+            <studio:input size="md" wire:model="title" :placeholder="$heading" :invalid="$errors->has('title')" />
             @error('title')
-                <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                <studio:field.error>{{ $message }}</studio:field.error>
             @enderror
-        </krikkit:field>
+        </studio:field>
 
-        <krikkit:field :label="__('dashboard.Last updated')">
-            <krikkit:datePicker
+        <studio:field :label="__('dashboard.Last updated')">
+            <studio:datePicker
                 :value="$updatedOn"
                 wire:model="updatedOn"
                 :placeholder="__('dashboard.Pick a date')"
                 :invalid="$errors->has('updatedOn')"
             />
             @error('updatedOn')
-                <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                <studio:field.error>{{ $message }}</studio:field.error>
             @enderror
-        </krikkit:field>
+        </studio:field>
 
-        <krikkit:field :label="__('dashboard.Body')">
-            <krikkit:editor
+        <studio:field :label="__('dashboard.Body')">
+            <studio:editor
                 :value="$body"
                 wire:model="body"
                 :placeholder="__('dashboard.Write the public page…')"
@@ -55,14 +55,14 @@
             />
             <x-slot:description>{{ __('dashboard.Type # then a heading. Shortcuts become formatted text. Leave empty to keep the page unpublished.') }}</x-slot:description>
             @error('body')
-                <krikkit:field.error>{{ $message }}</krikkit:field.error>
+                <studio:field.error>{{ $message }}</studio:field.error>
             @enderror
-        </krikkit:field>
+        </studio:field>
 
         <div class="flex justify-end">
-            <krikkit:button type="submit" wire:loading.attr="disabled">
+            <studio:button type="submit" wire:loading.attr="disabled">
                 {{ __('dashboard.Save changes') }}
-            </krikkit:button>
+            </studio:button>
         </div>
     </form>
 </div>

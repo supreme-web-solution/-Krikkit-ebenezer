@@ -5,7 +5,7 @@ Copy `.env.example` to `.env` and set values for your host. The web installer wr
 ## Core
 
 ```env
-APP_NAME=Krikkit
+APP_NAME=Supreme
 APP_URL=https://yourdomain.com
 APP_ENV=production
 APP_DEBUG=false
@@ -16,7 +16,7 @@ APP_DEBUG=false
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_DATABASE=krikkit
+DB_DATABASE=studio
 DB_USERNAME=
 DB_PASSWORD=
 

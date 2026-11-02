@@ -1,4 +1,4 @@
-// Krikkit Lab — pinned CDN versions and dynamic import helper
+// Supreme Lab — pinned CDN versions and dynamic import helper
 
 export const LAB_PINNED_ESBUILD_WASM = "0.20.0";
 export const LAB_PINNED_ROLLUP_BROWSER = "4.44.0";

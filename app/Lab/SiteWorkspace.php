@@ -35,11 +35,11 @@ final class SiteWorkspace
         '.turbo',
         '.vercel',
         '.cache',
-        '.krikkit-tx',
-        '.krikkit',
+        '.studio-tx',
+        '.studio',
     ];
 
-    public const COVER_DIR = '.krikkit';
+    public const COVER_DIR = '.studio';
 
     /** @var list<string> */
     private const COVER_NAMES = [
@@ -87,7 +87,7 @@ final class SiteWorkspace
     {
         $root = $this->root($project);
 
-        if (is_dir($root) && is_file($root.'/.krikkit-kit')) {
+        if (is_dir($root) && is_file($root.'/.studio-kit')) {
             if ($project->workspace_status !== 'ready') {
                 $project->forceFill([
                     'workspace_status' => 'ready',
@@ -116,7 +116,7 @@ final class SiteWorkspace
 
             File::copyDirectory($kit, $root);
 
-            File::put($root.'/.krikkit-kit', json_encode([
+            File::put($root.'/.studio-kit', json_encode([
                 'version' => self::KIT_VERSION,
                 'stack' => self::STACK,
             ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)."\n");
@@ -150,7 +150,7 @@ final class SiteWorkspace
         }
 
         File::ensureDirectoryExists($root);
-        File::put($root.'/.krikkit-kit', json_encode([
+        File::put($root.'/.studio-kit', json_encode([
             'version' => self::KIT_VERSION,
             'stack' => self::STACK,
             'origin' => 'github-import',
@@ -301,8 +301,8 @@ final class SiteWorkspace
         }
 
         $txn = bin2hex(random_bytes(8));
-        $stagingRoot = $root.DIRECTORY_SEPARATOR.'.krikkit-tx'.DIRECTORY_SEPARATOR.$txn;
-        $backupRoot = $root.DIRECTORY_SEPARATOR.'.krikkit-tx'.DIRECTORY_SEPARATOR.$txn.'.bak';
+        $stagingRoot = $root.DIRECTORY_SEPARATOR.'.studio-tx'.DIRECTORY_SEPARATOR.$txn;
+        $backupRoot = $root.DIRECTORY_SEPARATOR.'.studio-tx'.DIRECTORY_SEPARATOR.$txn.'.bak';
 
         File::ensureDirectoryExists($stagingRoot);
         File::ensureDirectoryExists($backupRoot);
@@ -646,7 +646,7 @@ final class SiteWorkspace
 
         File::ensureDirectoryExists(dirname($marker));
         File::put($marker, <<<'TS'
-/** @krikkit-preview-stub — fumadocs `.source` is generated at Next build time. */
+/** @studio-preview-stub — fumadocs `.source` is generated at Next build time. */
 const empty = {
   toFumadocsSource() {
     return { files: [] as { type: string; path: string; data: Record<string, unknown> }[] }
@@ -738,7 +738,7 @@ TS);
     {
         $relative = $this->normalizeRelative($relative);
 
-        if ($relative === '' || $relative === '.krikkit-kit') {
+        if ($relative === '' || $relative === '.studio-kit') {
             return false;
         }
 
@@ -812,7 +812,7 @@ TS);
         foreach ($finder as $item) {
             $name = $item->getFilename();
 
-            if ($name === '.krikkit-kit') {
+            if ($name === '.studio-kit') {
                 continue;
             }
 

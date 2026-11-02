@@ -10,11 +10,11 @@
         <x-form.input :label="__('messages.Password')" type="password" name="password" autocomplete="new-password" :value="''" :placeholder="__('messages.••••••••')" />
         <x-form.input :label="__('messages.Confirm password')" type="password" name="password_confirmation" autocomplete="new-password" :value="''" :placeholder="__('messages.••••••••')" />
 
-        <krikkit:button type="submit" class="w-full">{{ __('messages.Register') }}</krikkit:button>
+        <studio:button type="submit" class="w-full">{{ __('messages.Register') }}</studio:button>
     </form>
 
-    <p class="mt-8 border-t border-krikkit-line pt-5 text-sm text-krikkit-muted">
+    <p class="mt-8 border-t border-studio-line pt-5 text-sm text-studio-muted">
         {{ __('messages.Already registered?') }}
-        <a href="{{ route('login') }}" class="font-medium text-krikkit-fg transition hover:text-accent-content">{{ __('messages.Log in') }}</a>
+        <a href="{{ route('login') }}" class="font-medium text-studio-fg transition hover:text-accent-content">{{ __('messages.Log in') }}</a>
     </p>
 </x-layouts.guest>

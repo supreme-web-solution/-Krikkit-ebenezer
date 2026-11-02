@@ -1,64 +1,64 @@
 <div class="space-y-8">
     <div>
-        <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.Contacts') }}</h1>
-        <p class="mt-0.5 text-xs text-krikkit-muted">{{ __('dashboard.Notes from the public contact page.') }}</p>
+        <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.Contacts') }}</h1>
+        <p class="mt-0.5 text-xs text-studio-muted">{{ __('dashboard.Notes from the public contact page.') }}</p>
     </div>
 
     <div class="flex flex-wrap items-end gap-3">
         <div class="min-w-56 flex-1">
-            <krikkit:input size="sm" wire:model.live.debounce.300ms="search" :placeholder="__('dashboard.Search…')" />
+            <studio:input size="sm" wire:model.live.debounce.300ms="search" :placeholder="__('dashboard.Search…')" />
         </div>
         <div class="w-44">
-            <krikkit:select size="sm" wire:model.live="status" :value="$status" placeholder="{{ __('dashboard.Status') }}">
-                <krikkit:select.option value="" :selected="$status === ''">{{ __('dashboard.All') }}</krikkit:select.option>
-                <krikkit:select.option value="unread" :selected="$status === 'unread'">{{ __('dashboard.Unread') }}</krikkit:select.option>
-                <krikkit:select.option value="open" :selected="$status === 'open'">{{ __('dashboard.Open') }}</krikkit:select.option>
-                <krikkit:select.option value="replied" :selected="$status === 'replied'">{{ __('dashboard.Replied') }}</krikkit:select.option>
-            </krikkit:select>
+            <studio:select size="sm" wire:model.live="status" :value="$status" placeholder="{{ __('dashboard.Status') }}">
+                <studio:select.option value="" :selected="$status === ''">{{ __('dashboard.All') }}</studio:select.option>
+                <studio:select.option value="unread" :selected="$status === 'unread'">{{ __('dashboard.Unread') }}</studio:select.option>
+                <studio:select.option value="open" :selected="$status === 'open'">{{ __('dashboard.Open') }}</studio:select.option>
+                <studio:select.option value="replied" :selected="$status === 'replied'">{{ __('dashboard.Replied') }}</studio:select.option>
+            </studio:select>
         </div>
     </div>
 
     @if ($rows->isEmpty())
-        <p class="text-sm text-krikkit-muted">{{ __('dashboard.No contacts yet.') }}</p>
+        <p class="text-sm text-studio-muted">{{ __('dashboard.No contacts yet.') }}</p>
     @else
-        <krikkit:table>
-            <krikkit:table.columns>
-                <krikkit:table.column>{{ __('dashboard.Name') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Email') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Pack') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Status') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Received') }}</krikkit:table.column>
-                <krikkit:table.column align="right"></krikkit:table.column>
-            </krikkit:table.columns>
-            <krikkit:table.rows>
+        <studio:table>
+            <studio:table.columns>
+                <studio:table.column>{{ __('dashboard.Name') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Email') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Pack') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Status') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Received') }}</studio:table.column>
+                <studio:table.column align="right"></studio:table.column>
+            </studio:table.columns>
+            <studio:table.rows>
                 @foreach ($rows as $row)
-                    <krikkit:table.row :key="$row->public_id">
-                        <krikkit:table.cell>
-                            <a href="{{ route('dashboard.contacts.show', $row) }}" wire:navigate class="text-sm font-medium text-krikkit-fg hover:underline">
+                    <studio:table.row :key="$row->public_id">
+                        <studio:table.cell>
+                            <a href="{{ route('dashboard.contacts.show', $row) }}" wire:navigate class="text-sm font-medium text-studio-fg hover:underline">
                                 {{ $row->name }}
                             </a>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>{{ $row->email }}</krikkit:table.cell>
-                        <krikkit:table.cell>{{ $row->plan?->title ?: '—' }}</krikkit:table.cell>
-                        <krikkit:table.cell>
+                        </studio:table.cell>
+                        <studio:table.cell>{{ $row->email }}</studio:table.cell>
+                        <studio:table.cell>{{ $row->plan?->title ?: '—' }}</studio:table.cell>
+                        <studio:table.cell>
                             @if ($row->isReplied())
-                                <krikkit:badge color="green" size="xs">{{ __('dashboard.Replied') }}</krikkit:badge>
+                                <studio:badge color="green" size="xs">{{ __('dashboard.Replied') }}</studio:badge>
                             @elseif ($row->isUnread())
-                                <krikkit:badge color="amber" size="xs">{{ __('dashboard.Unread') }}</krikkit:badge>
+                                <studio:badge color="amber" size="xs">{{ __('dashboard.Unread') }}</studio:badge>
                             @else
-                                <krikkit:badge size="xs">{{ __('dashboard.Open') }}</krikkit:badge>
+                                <studio:badge size="xs">{{ __('dashboard.Open') }}</studio:badge>
                             @endif
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>{{ $row->created_at?->timezone(config('app.timezone'))->format('Y-m-d H:i') }}</krikkit:table.cell>
-                        <krikkit:table.cell align="right">
-                            <krikkit:button size="sm" variant="ghost" :href="route('dashboard.contacts.show', $row)" :navigate="true">
+                        </studio:table.cell>
+                        <studio:table.cell>{{ $row->created_at?->timezone(config('app.timezone'))->format('Y-m-d H:i') }}</studio:table.cell>
+                        <studio:table.cell align="right">
+                            <studio:button size="sm" variant="ghost" :href="route('dashboard.contacts.show', $row)" :navigate="true">
                                 {{ __('dashboard.Open') }}
-                            </krikkit:button>
-                        </krikkit:table.cell>
-                    </krikkit:table.row>
+                            </studio:button>
+                        </studio:table.cell>
+                    </studio:table.row>
                 @endforeach
-            </krikkit:table.rows>
-        </krikkit:table>
+            </studio:table.rows>
+        </studio:table>
         <div class="mt-4">
             {{ $rows->links() }}
         </div>

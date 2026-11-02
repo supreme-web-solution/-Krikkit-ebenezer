@@ -1,7 +1,7 @@
 <div class="space-y-8">
     <div>
-        <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.API Integration') }}</h1>
-        <p class="mt-0.5 text-xs text-krikkit-muted">
+        <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.API Integration') }}</h1>
+        <p class="mt-0.5 text-xs text-studio-muted">
             {{ __('dashboard.Default model, provider keys, GitHub OAuth, photograph catalogs, and the Lab datastore.') }}
         </p>
     </div>
@@ -9,29 +9,29 @@
     @include('livewire.dashboard.integration.options.defaults')
 
     @if (count($providers) === 0)
-        <p class="text-sm text-krikkit-muted">{{ __('dashboard.No providers configured.') }}</p>
+        <p class="text-sm text-studio-muted">{{ __('dashboard.No providers configured.') }}</p>
     @else
-        <krikkit:table>
-            <krikkit:table.columns>
-                <krikkit:table.column>{{ __('dashboard.Provider') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Models') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.API key') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Status') }}</krikkit:table.column>
-                <krikkit:table.column align="right"></krikkit:table.column>
-            </krikkit:table.columns>
-            <krikkit:table.rows>
+        <studio:table>
+            <studio:table.columns>
+                <studio:table.column>{{ __('dashboard.Provider') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Models') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.API key') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Status') }}</studio:table.column>
+                <studio:table.column align="right"></studio:table.column>
+            </studio:table.columns>
+            <studio:table.rows>
                 @foreach ($providers as $provider)
-                    <krikkit:table.row>
-                        <krikkit:table.cell>
-                            <p class="text-xs font-medium text-krikkit-fg">{{ $provider['label'] }}</p>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-muted">
+                    <studio:table.row>
+                        <studio:table.cell>
+                            <p class="text-xs font-medium text-studio-fg">{{ $provider['label'] }}</p>
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-muted">
                                 {{ $provider['models_label'] ?? count($provider['models']) }}
                             </span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-fg-soft">
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-fg-soft">
                                 @if (in_array($provider['id'], ['github', 'supabase'], true))
                                     @if ($provider['source'] === 'workspace')
                                         {{ __('dashboard.Configured') }}
@@ -48,23 +48,23 @@
                                     {{ __('dashboard.no key') }}
                                 @endif
                             </span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
+                        </studio:table.cell>
+                        <studio:table.cell>
                             <div class="flex flex-wrap items-center gap-1">
                                 @if ($provider['enabled'])
-                                    <krikkit:badge color="teal" size="xs">{{ __('dashboard.On') }}</krikkit:badge>
+                                    <studio:badge color="teal" size="xs">{{ __('dashboard.On') }}</studio:badge>
                                 @else
-                                    <krikkit:badge size="xs">{{ __('dashboard.Off') }}</krikkit:badge>
+                                    <studio:badge size="xs">{{ __('dashboard.Off') }}</studio:badge>
                                 @endif
                                 @if ($provider['source'] === 'missing')
-                                    <krikkit:badge color="amber" size="xs">
+                                    <studio:badge color="amber" size="xs">
                                         {{ in_array($provider['id'], ['github', 'supabase'], true) ? __('dashboard.Not configured') : __('dashboard.Needs key') }}
-                                    </krikkit:badge>
+                                    </studio:badge>
                                 @endif
                             </div>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell align="right">
-                            <krikkit:button
+                        </studio:table.cell>
+                        <studio:table.cell align="right">
+                            <studio:button
                                 href="{{ route('dashboard.integration.edit', $provider['id']) }}"
                                 variant="ghost"
                                 square
@@ -72,12 +72,12 @@
                                 aria-label="{{ __('dashboard.Edit') }}"
                                 title="{{ __('dashboard.Edit') }}"
                             >
-                                <krikkit:icon name="pencil" class="size-4" />
-                            </krikkit:button>
-                        </krikkit:table.cell>
-                    </krikkit:table.row>
+                                <studio:icon name="pencil" class="size-4" />
+                            </studio:button>
+                        </studio:table.cell>
+                    </studio:table.row>
                 @endforeach
-            </krikkit:table.rows>
-        </krikkit:table>
+            </studio:table.rows>
+        </studio:table>
     @endif
 </div>

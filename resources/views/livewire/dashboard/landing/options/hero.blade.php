@@ -1,36 +1,36 @@
-<krikkit:card :padding="false" class="space-y-4 !border-0">
-    <krikkit:field :label="__('dashboard.Eyebrow')">
-        <krikkit:input size="md" wire:model="hero.eyebrow" />
-    </krikkit:field>
-    <krikkit:field :label="__('dashboard.Title')">
-        <krikkit:input size="md" wire:model="hero.title" :invalid="$errors->has('hero.title')" />
+<studio:card :padding="false" class="space-y-4 !border-0">
+    <studio:field :label="__('dashboard.Eyebrow')">
+        <studio:input size="md" wire:model="hero.eyebrow" />
+    </studio:field>
+    <studio:field :label="__('dashboard.Title')">
+        <studio:input size="md" wire:model="hero.title" :invalid="$errors->has('hero.title')" />
         @error('hero.title')
-            <krikkit:field.error>{{ $message }}</krikkit:field.error>
+            <studio:field.error>{{ $message }}</studio:field.error>
         @enderror
-    </krikkit:field>
-    <krikkit:field :label="__('dashboard.Copy')">
-        <krikkit:textarea rows="3" wire:model="hero.copy" />
-    </krikkit:field>
-    <krikkit:field :label="__('dashboard.Footnote')">
-        <krikkit:input size="md" wire:model="hero.footnote" />
-    </krikkit:field>
-</krikkit:card>
+    </studio:field>
+    <studio:field :label="__('dashboard.Copy')">
+        <studio:textarea rows="3" wire:model="hero.copy" />
+    </studio:field>
+    <studio:field :label="__('dashboard.Footnote')">
+        <studio:input size="md" wire:model="hero.footnote" />
+    </studio:field>
+</studio:card>
 
-<krikkit:card :padding="false" class="space-y-4 !border-0">
-    <p class="text-[11px] font-normal uppercase tracking-[0.16em] text-krikkit-subtle">{{ __('dashboard.Buttons') }}</p>
-    <p class="text-xs text-krikkit-muted">{{ $hrefHint }}</p>
+<studio:card :padding="false" class="space-y-4 !border-0">
+    <p class="text-[11px] font-normal uppercase tracking-[0.16em] text-studio-subtle">{{ __('dashboard.Buttons') }}</p>
+    <p class="text-xs text-studio-muted">{{ $hrefHint }}</p>
     <div class="grid gap-4 sm:grid-cols-2">
-        <krikkit:field :label="__('dashboard.Primary button')">
-            <krikkit:input size="md" wire:model="hero.primary_label" />
-        </krikkit:field>
-        <krikkit:field :label="__('dashboard.Link')">
-            <krikkit:input size="md" wire:model="hero.primary_href" />
-        </krikkit:field>
-        <krikkit:field :label="__('dashboard.Secondary button')">
-            <krikkit:input size="md" wire:model="hero.secondary_label" />
-        </krikkit:field>
-        <krikkit:field :label="__('dashboard.Link')">
-            <krikkit:input size="md" wire:model="hero.secondary_href" />
-        </krikkit:field>
+        <studio:field :label="__('dashboard.Primary button')">
+            <studio:input size="md" wire:model="hero.primary_label" />
+        </studio:field>
+        <studio:field :label="__('dashboard.Link')">
+            <studio:input size="md" wire:model="hero.primary_href" />
+        </studio:field>
+        <studio:field :label="__('dashboard.Secondary button')">
+            <studio:input size="md" wire:model="hero.secondary_label" />
+        </studio:field>
+        <studio:field :label="__('dashboard.Link')">
+            <studio:input size="md" wire:model="hero.secondary_href" />
+        </studio:field>
     </div>
-</krikkit:card>
+</studio:card>

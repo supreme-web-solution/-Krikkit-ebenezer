@@ -1,31 +1,31 @@
 <div class="space-y-8">
     <div>
-        <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.Payment Methods') }}</h1>
-        <p class="mt-0.5 text-xs text-krikkit-muted">{{ __('dashboard.Connect Stripe and PayPal. Keys stay on this workspace.') }}</p>
+        <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.Payment Methods') }}</h1>
+        <p class="mt-0.5 text-xs text-studio-muted">{{ __('dashboard.Connect Stripe and PayPal. Keys stay on this workspace.') }}</p>
     </div>
 
-    <krikkit:table>
-        <krikkit:table.columns>
-            <krikkit:table.column>{{ __('dashboard.Method') }}</krikkit:table.column>
-            <krikkit:table.column>{{ __('dashboard.Mode') }}</krikkit:table.column>
-            <krikkit:table.column>{{ __('dashboard.Keys') }}</krikkit:table.column>
-            <krikkit:table.column>{{ __('dashboard.Status') }}</krikkit:table.column>
-            <krikkit:table.column align="right"></krikkit:table.column>
-        </krikkit:table.columns>
-        <krikkit:table.rows>
+    <studio:table>
+        <studio:table.columns>
+            <studio:table.column>{{ __('dashboard.Method') }}</studio:table.column>
+            <studio:table.column>{{ __('dashboard.Mode') }}</studio:table.column>
+            <studio:table.column>{{ __('dashboard.Keys') }}</studio:table.column>
+            <studio:table.column>{{ __('dashboard.Status') }}</studio:table.column>
+            <studio:table.column align="right"></studio:table.column>
+        </studio:table.columns>
+        <studio:table.rows>
             @foreach ($gateways as $gateway)
-                <krikkit:table.row>
-                    <krikkit:table.cell>
-                        <p class="text-xs font-medium text-krikkit-fg">{{ $gateway['title'] }}</p>
-                        <p class="mt-0.5 text-[11px] text-krikkit-muted">{{ __("dashboard.{$gateway['summary']}") }}</p>
-                    </krikkit:table.cell>
-                    <krikkit:table.cell>
-                        <span class="text-krikkit-muted">
+                <studio:table.row>
+                    <studio:table.cell>
+                        <p class="text-xs font-medium text-studio-fg">{{ $gateway['title'] }}</p>
+                        <p class="mt-0.5 text-[11px] text-studio-muted">{{ __("dashboard.{$gateway['summary']}") }}</p>
+                    </studio:table.cell>
+                    <studio:table.cell>
+                        <span class="text-studio-muted">
                             {{ $gateway['mode'] === 'live' ? __('dashboard.Live') : __('dashboard.Test') }}
                         </span>
-                    </krikkit:table.cell>
-                    <krikkit:table.cell>
-                        <span class="text-krikkit-fg-soft">
+                    </studio:table.cell>
+                    <studio:table.cell>
+                        <span class="text-studio-fg-soft">
                             @if ($gateway['source'] === 'workspace')
                                 {{ __('dashboard.Configured') }}
                             @elseif ($gateway['source'] === 'env')
@@ -34,20 +34,20 @@
                                 {{ __('dashboard.Not configured') }}
                             @endif
                         </span>
-                    </krikkit:table.cell>
-                    <krikkit:table.cell>
+                    </studio:table.cell>
+                    <studio:table.cell>
                         <div class="flex flex-wrap items-center gap-1">
                             @if ($gateway['ready'])
-                                <krikkit:badge color="teal" size="xs">{{ __('dashboard.Ready') }}</krikkit:badge>
+                                <studio:badge color="teal" size="xs">{{ __('dashboard.Ready') }}</studio:badge>
                             @elseif ($gateway['enabled'])
-                                <krikkit:badge color="amber" size="xs">{{ __('dashboard.Needs keys') }}</krikkit:badge>
+                                <studio:badge color="amber" size="xs">{{ __('dashboard.Needs keys') }}</studio:badge>
                             @else
-                                <krikkit:badge size="xs">{{ __('dashboard.Off') }}</krikkit:badge>
+                                <studio:badge size="xs">{{ __('dashboard.Off') }}</studio:badge>
                             @endif
                         </div>
-                    </krikkit:table.cell>
-                    <krikkit:table.cell align="right">
-                        <krikkit:button
+                    </studio:table.cell>
+                    <studio:table.cell align="right">
+                        <studio:button
                             href="{{ route('dashboard.payments.edit', $gateway['driver']) }}"
                             variant="ghost"
                             square
@@ -55,11 +55,11 @@
                             aria-label="{{ __('dashboard.Edit') }}"
                             title="{{ __('dashboard.Edit') }}"
                         >
-                            <krikkit:icon name="pencil" class="size-4" />
-                        </krikkit:button>
-                    </krikkit:table.cell>
-                </krikkit:table.row>
+                            <studio:icon name="pencil" class="size-4" />
+                        </studio:button>
+                    </studio:table.cell>
+                </studio:table.row>
             @endforeach
-        </krikkit:table.rows>
-    </krikkit:table>
+        </studio:table.rows>
+    </studio:table>
 </div>

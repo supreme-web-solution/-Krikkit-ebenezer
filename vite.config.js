@@ -27,8 +27,8 @@ export default defineConfig({
             ],
         }),
         tailwindcss(),
-        // Serves /__krikkit_lab_sw__.js (+ legacy alias + worker) during Vite/Lab dev.
-        deepthought({ path: '/__krikkit_lab_sw__.js' }),
+        // Serves /__studio_lab_sw__.js (+ legacy alias + worker) during Vite/Lab dev.
+        deepthought({ path: '/__studio_lab_sw__.js' }),
     ],
     esbuild: {
         jsx: 'automatic',

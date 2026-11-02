@@ -1,4 +1,4 @@
-/** Krikkit Lab boot/runtime performance counters. */
+/** Supreme Lab boot/runtime performance counters. */
 
 export interface PerformanceTiming {
   count: number;

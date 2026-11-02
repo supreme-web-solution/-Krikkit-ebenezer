@@ -163,8 +163,8 @@ function wrapMainWithRouter(main, tag) {
 
 function upgradeMemoryRouterMain(main) {
     let out = String(main || '')
-    out = out.replace(/__krikkitGuestEntry\s*\(\)/g, '(() => { try { let p = window.location.pathname || \'/\'; if (p.length > 1 && p.endsWith(\'/\')) p = p.slice(0, -1); return p || \'/\'; } catch (e) { return \'/\'; } })()')
-    out = out.replace(/function __krikkitGuestEntry\(\)\s*\{[\s\S]*?\}\s*/g, '')
+    out = out.replace(/__studioGuestEntry\s*\(\)/g, '(() => { try { let p = window.location.pathname || \'/\'; if (p.length > 1 && p.endsWith(\'/\')) p = p.slice(0, -1); return p || \'/\'; } catch (e) { return \'/\'; } })()')
+    out = out.replace(/function __studioGuestEntry\(\)\s*\{[\s\S]*?\}\s*/g, '')
     if (out.includes('initialEntries') && out.includes('window.location.pathname')) {
         return out
     }
@@ -203,7 +203,7 @@ export function normalizeGuestRouter(files = {}) {
             mainTag === 'MemoryRouter'
             && (
                 ! main.includes('initialEntries')
-                || main.includes('__krikkitGuestEntry')
+                || main.includes('__studioGuestEntry')
             )
         ) {
             main = upgradeMemoryRouterMain(main)

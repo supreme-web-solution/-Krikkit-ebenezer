@@ -97,7 +97,7 @@ class GeneralComponent extends Component
         auth()->user()->forceFill(['appearance' => $current])->save();
 
         $this->js(
-            'window.krikkitTheme && window.krikkitTheme.apply({ mode: '.json_encode($mode).', persist: true })'
+            'window.studioTheme && window.studioTheme.apply({ mode: '.json_encode($mode).', persist: true })'
         );
     }
 

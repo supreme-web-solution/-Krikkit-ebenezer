@@ -1,4 +1,4 @@
-// Krikkit Lab — node:sync-digest polyfill.
+// Supreme Lab — node:sync-digest polyfill.
 
 import { sha384 as nobleSha384, sha512 as nobleSha512 } from "@noble/hashes/sha512";
 

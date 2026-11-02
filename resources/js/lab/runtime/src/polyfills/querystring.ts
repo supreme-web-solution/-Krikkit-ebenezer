@@ -1,4 +1,4 @@
-// Krikkit Lab — node:querystring polyfill.
+// Supreme Lab — node:querystring polyfill.
 
 
 export type ParsedQuery = Record<string, string | string[]>;

@@ -1,4 +1,4 @@
-// Krikkit Lab — streaming shell command runner.
+// Supreme Lab — streaming shell command runner.
 
 /** Small dependency-free async byte stream used by shell pipelines. */
 

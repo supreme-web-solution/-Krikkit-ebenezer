@@ -22,14 +22,14 @@ export function EmptyLabHero({ live }) {
             aria-hidden={live}
         >
             <div className="text-center">
-                <p className="mb-3 inline-flex h-5 items-center justify-center gap-1.5 text-xs font-medium uppercase leading-none tracking-[0.18em] text-krikkit-accent">
+                <p className="mb-3 inline-flex h-5 items-center justify-center gap-1.5 text-xs font-medium uppercase leading-none tracking-[0.18em] text-studio-accent">
                     <LabGlyph />
                     Lab
                 </p>
-                <h1 className="mb-3 text-3xl font-semibold tracking-tight text-krikkit-fg sm:text-4xl">
+                <h1 className="mb-3 text-3xl font-semibold tracking-tight text-studio-fg sm:text-4xl">
                     What should we build?
                 </h1>
-                <p className="mx-auto max-w-md text-sm leading-relaxed text-krikkit-muted">
+                <p className="mx-auto max-w-md text-sm leading-relaxed text-studio-muted">
                     Describe the site or product. We’ll shape the idea here first — the build workspace opens when you’re ready.
                 </p>
             </div>

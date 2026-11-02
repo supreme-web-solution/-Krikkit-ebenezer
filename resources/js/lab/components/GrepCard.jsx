@@ -63,13 +63,13 @@ export function GrepCard({
                 if (! event.currentTarget.contains(event.relatedTarget)) setPeek(false)
             }}
         >
-            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit text-krikkit-muted">
+            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit text-studio-muted">
                 <IconGrep />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight" title={q || undefined}>
                     <ToolStatusText text={label} pending={status === 'searching'} />
                 </span>
                 {status === 'done' && (
-                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-krikkit-subtle">{count}</span>
+                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-studio-subtle">{count}</span>
                 )}
             </div>
 
@@ -82,21 +82,21 @@ export function GrepCard({
                     ].join(' ')}
                     aria-hidden={! open}
                 >
-                    <ul className="bg-krikkit-soft border border-krikkit-line krikkit-scroll-hover max-h-52 list-none overflow-auto rounded-xl py-1">
+                    <ul className="bg-studio-soft border border-studio-line studio-scroll-hover max-h-52 list-none overflow-auto rounded-xl py-1">
                         {status === 'searching' && count === 0 ? (
-                            <li className="px-3 py-2 text-[12px] text-krikkit-subtle">Scanning contents…</li>
+                            <li className="px-3 py-2 text-[12px] text-studio-subtle">Scanning contents…</li>
                         ) : (
                             rows.map((hit) => {
                                 const openable = typeof onOpenPath === 'function'
                                 const key = `${hit.path}:${hit.line}`
                                 const inner = (
                                     <>
-                                        <IconFile className="h-3.5 w-3.5 shrink-0 text-krikkit-subtle" />
+                                        <IconFile className="h-3.5 w-3.5 shrink-0 text-studio-subtle" />
                                         <span className="min-w-0 flex-1 truncate">
-                                            <span className="text-krikkit-fg">{fileName(hit.path)}</span>
-                                            <span className="text-krikkit-subtle">:{hit.line}</span>
+                                            <span className="text-studio-fg">{fileName(hit.path)}</span>
+                                            <span className="text-studio-subtle">:{hit.line}</span>
                                             {hit.text ? (
-                                                <span className="text-krikkit-muted"> — {hit.text}</span>
+                                                <span className="text-studio-muted"> — {hit.text}</span>
                                             ) : null}
                                         </span>
                                     </>
@@ -107,7 +107,7 @@ export function GrepCard({
                                             <button
                                                 type="button"
                                                 onClick={() => onOpenPath(hit.path, hit.line)}
-                                                className="flex w-full min-w-0 items-center gap-2 px-3 py-1.5 text-left text-[12px] leading-5 transition-colors hover:bg-krikkit-canvas/70"
+                                                className="flex w-full min-w-0 items-center gap-2 px-3 py-1.5 text-left text-[12px] leading-5 transition-colors hover:bg-studio-canvas/70"
                                             >
                                                 {inner}
                                             </button>

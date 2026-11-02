@@ -1,4 +1,4 @@
-// Krikkit Lab — node:process polyfill.
+// Supreme Lab — node:process polyfill.
 
 import { EventEmitter, EventHandler } from "./events";
 import {

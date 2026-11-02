@@ -1,4 +1,4 @@
-// Krikkit Lab — node:timers polyfill.
+// Supreme Lab — node:timers polyfill.
 // setImmediate registers a typed Handle in the active HandleRegistry so the
 // event loop knows about it. handles auto-close when a one-shot fires or
 // the timer is cleared. script-engine's globalThis patch routes through

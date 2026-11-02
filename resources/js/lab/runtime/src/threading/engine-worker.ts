@@ -1,4 +1,4 @@
-// Krikkit Lab — script engine worker entry (Comlink host).
+// Supreme Lab — script engine worker entry (Comlink host).
 
 // Web Worker entry point for ScriptEngine.
 // Receives execution requests via Comlink, runs them in an isolated thread.

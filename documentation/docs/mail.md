@@ -1,6 +1,6 @@
 # Email (SMTP)
 
-Krikkit does not include an admin UI for SMTP. Configure mail in your **`.env`** file (or hosting panel environment variables).
+Supreme does not include an admin UI for SMTP. Configure mail in your **`.env`** file (or hosting panel environment variables).
 
 ## Required variables
 

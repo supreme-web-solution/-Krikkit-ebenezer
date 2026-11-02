@@ -33,7 +33,7 @@ class BlogComponent extends Component
     {
         Gate::authorize('blog.retire');
         $this->confirmPublicId = $publicId;
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'retire-post' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'retire-post' }))");
     }
 
     public function confirmPending(): void
@@ -42,7 +42,7 @@ class BlogComponent extends Component
 
         $publicId = $this->confirmPublicId;
         $this->reset('confirmPublicId');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'retire-post' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'retire-post' }))");
 
         $post = BlogPost::query()->where('public_id', $publicId)->firstOrFail();
         $post->delete();

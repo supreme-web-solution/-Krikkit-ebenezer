@@ -132,10 +132,10 @@ export function FileJumpOverlay({
                 role="dialog"
                 aria-modal="true"
                 aria-label={title}
-                className="relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-krikkit-line bg-krikkit-canvas"
+                className="relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-studio-line bg-studio-canvas"
             >
-                <div className="border-b border-krikkit-line px-3 py-2.5">
-                    <p className="px-1 pb-1.5 text-[11px] font-medium tracking-[0.14em] text-krikkit-subtle uppercase">
+                <div className="border-b border-studio-line px-3 py-2.5">
+                    <p className="px-1 pb-1.5 text-[11px] font-medium tracking-[0.14em] text-studio-subtle uppercase">
                         {title}
                     </p>
                     <input
@@ -144,13 +144,13 @@ export function FileJumpOverlay({
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
                         placeholder={placeholder}
-                        className="h-10 w-full rounded-full border border-transparent bg-krikkit-surface px-4 text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle focus:border-krikkit-muted/40"
+                        className="h-10 w-full rounded-full border border-transparent bg-studio-surface px-4 text-sm text-studio-fg outline-none placeholder:text-studio-subtle focus:border-studio-muted/40"
                     />
                 </div>
 
-                <ul className="krikkit-scroll-hover max-h-80 overflow-y-auto p-1.5">
+                <ul className="studio-scroll-hover max-h-80 overflow-y-auto p-1.5">
                     {ranked.length === 0 ? (
-                        <li className="px-3 py-8 text-center text-sm text-krikkit-muted">
+                        <li className="px-3 py-8 text-center text-sm text-studio-muted">
                             {emptyHint}
                         </li>
                     ) : ranked.map((row, index) => {
@@ -166,17 +166,17 @@ export function FileJumpOverlay({
                                     className={[
                                         'flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left transition',
                                         selected
-                                            ? 'bg-krikkit-soft text-krikkit-fg'
-                                            : 'text-krikkit-fg hover:bg-krikkit-soft/70',
+                                            ? 'bg-studio-soft text-studio-fg'
+                                            : 'text-studio-fg hover:bg-studio-soft/70',
                                     ].join(' ')}
                                 >
-                                    <IconFile className="h-4 w-4 shrink-0 text-krikkit-muted" />
+                                    <IconFile className="h-4 w-4 shrink-0 text-studio-muted" />
                                     <span className="min-w-0 flex-1">
                                         <span className="block truncate text-[13px] font-medium">
                                             {name}
                                         </span>
                                         {dir ? (
-                                            <span className="block truncate text-[11px] text-krikkit-subtle">
+                                            <span className="block truncate text-[11px] text-studio-subtle">
                                                 {dir}
                                             </span>
                                         ) : null}

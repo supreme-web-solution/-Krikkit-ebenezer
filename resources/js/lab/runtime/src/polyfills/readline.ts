@@ -1,4 +1,4 @@
-// Krikkit Lab — node:readline polyfill.
+// Supreme Lab — node:readline polyfill.
 // we track line/cursor on every keystroke because @clack reads rl.line directly
 
 import { EventEmitter } from "./events";

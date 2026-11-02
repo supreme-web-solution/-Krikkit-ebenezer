@@ -36,7 +36,7 @@ export function ShellCard({
                 aria-expanded={isOpen}
                 aria-controls={hasBody && isOpen ? panelId : undefined}
                 onClick={toggle}
-                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-krikkit-muted transition-colors hover:text-krikkit-fg-soft"
+                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-studio-muted transition-colors hover:text-studio-fg-soft"
             >
                 <IconTerminal />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight" title={command}>
@@ -58,22 +58,22 @@ export function ShellCard({
             {hasBody && isOpen ? (
                 <div id={panelId} data-state="open" className="lab-tool-collapse">
                     <div className="lab-tool-collapse__clip">
-                        <div className="lab-tool-collapse__body bg-krikkit-soft border border-krikkit-line overflow-hidden rounded-xl">
-                            <pre className="krikkit-scroll-hover max-h-40 overflow-auto px-3 py-2 font-mono text-[11px] leading-5 text-krikkit-fg">
+                        <div className="lab-tool-collapse__body bg-studio-soft border border-studio-line overflow-hidden rounded-xl">
+                            <pre className="studio-scroll-hover max-h-40 overflow-auto px-3 py-2 font-mono text-[11px] leading-5 text-studio-fg">
                                 {pending && ! lines.length
                                     ? '…'
                                     : lines.join('\n')}
                                 {truncated ? '\n…' : ''}
                             </pre>
                             {typeof onOpenConsole === 'function' && (
-                                <div className="border-t border-krikkit-line px-3 py-1.5">
+                                <div className="border-t border-studio-line px-3 py-1.5">
                                     <button
                                         type="button"
                                         onClick={(event) => {
                                             event.stopPropagation()
                                             onOpenConsole()
                                         }}
-                                        className="text-[11px] text-krikkit-muted transition-colors hover:text-krikkit-fg"
+                                        className="text-[11px] text-studio-muted transition-colors hover:text-studio-fg"
                                     >
                                         Open Console
                                     </button>

@@ -50,7 +50,7 @@
             },
         }"
         x-on:keydown.escape.window="menu = false"
-        class="min-h-screen bg-krikkit-canvas text-krikkit-fg"
+        class="min-h-screen bg-studio-canvas text-studio-fg"
     >
         @include('home.partials.header')
         <main>

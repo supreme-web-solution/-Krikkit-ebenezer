@@ -385,7 +385,7 @@ final class GithubRepoKindScout
     {
         return [
             'X-GitHub-Api-Version' => '2022-11-28',
-            'User-Agent' => config('lab.github.user_agent', 'Krikkit-Lab'),
+            'User-Agent' => config('lab.github.user_agent', 'Supreme-Lab'),
         ];
     }
 

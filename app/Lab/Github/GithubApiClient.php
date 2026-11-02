@@ -416,7 +416,7 @@ final class GithubApiClient
             throw new RuntimeException(__('dashboard.Repository archive is too large to import. Raise the max archive size under API Integration → GitHub.'));
         }
 
-        $tmp = tempnam(sys_get_temp_dir(), 'krikkit-gh-');
+        $tmp = tempnam(sys_get_temp_dir(), 'studio-gh-');
         if ($tmp === false) {
             throw new RuntimeException(__('dashboard.Could not import repository.'));
         }

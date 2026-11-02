@@ -21,10 +21,10 @@
         <x-layouts.partials.themeStyle />
         @livewireStyles
     </head>
-    <body class="min-h-screen bg-krikkit-canvas font-sans text-krikkit-fg antialiased">
+    <body class="min-h-screen bg-studio-canvas font-sans text-studio-fg antialiased">
         {{ $slot }}
         <x-site.cookieBanner />
-        <krikkit:toast />
+        <studio:toast />
         @livewireScripts
     </body>
 </html>

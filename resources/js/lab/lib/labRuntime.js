@@ -17,11 +17,11 @@ import { normalizeVfsPath } from './vfs'
 
 export { guestWriteNeedsReload, guestWriteRestartsDev, looksLikeVitePageReload, PREVIEW_RESYNC_EVENT } from './previewReload'
 
-const SW_URL = '/__krikkit_lab_sw__.js?v=host-vite-5173-29'
-const SW_MIGRATION_KEY = 'krikkit-lab-sw-migration-v1'
+const SW_URL = '/__studio_lab_sw__.js?v=host-vite-5173-29'
+const SW_MIGRATION_KEY = 'studio-lab-sw-migration-v1'
 // Bump when public/__worker__.js polyfills change (avoids sticky Worker caches).
 const WORKER_URL = '/__worker__.js?v=histfile-dev-null-1'
-const LEGACY_IDB_RESET_KEY = 'krikkit-deepthought-legacy-cache-v1'
+const LEGACY_IDB_RESET_KEY = 'studio-deepthought-legacy-cache-v1'
 
 /** @type {import('../runtime/dist/index').LabRuntime|null} */
 let engine = null
@@ -185,17 +185,17 @@ function maybePatchNextConfigForLab(path, source) {
     // Guest-only webpack: disable pack.gz cache, and inject CSS via
     // next-style-loader (same model as Vite) so Preview does not depend on
     // cross-origin <link href="http://localhost:3000/_next/static/css/...">.
-    if (!/__krikkitLabWebpack/.test(out)) {
+    if (!/__studioLabWebpack/.test(out)) {
         out = out.replace(
             /webpack:\s*\(config\)\s*=>\s*\{\s*config\.cache\s*=\s*false;\s*return config\s*\}/,
             `webpack: ${LAB_WEBPACK_FN}`,
         )
     }
-    if (!/__krikkitLabWebpack/.test(out)) {
+    if (!/__studioLabWebpack/.test(out)) {
         const exported = out.match(/export\s+default\s+([A-Za-z_$][\w$]*)/)
         const name = exported && exported[1]
         if (name && name !== 'function') {
-            out += `\n;(() => { const __c = ${name}; if (!__c || typeof __c !== 'object' || (__c.webpack && __c.webpack.__krikkitLab)) return; const __prev = __c.webpack; const __lab = ${LAB_WEBPACK_FN}; const __wrap = function __krikkitLabWebpack(config, ctx) { if (typeof __prev === 'function') { const n = __prev(config, ctx); if (n) config = n; } return __lab(config, ctx); }; __wrap.__krikkitLab = true; __c.webpack = __wrap; })();\n`
+            out += `\n;(() => { const __c = ${name}; if (!__c || typeof __c !== 'object' || (__c.webpack && __c.webpack.__studioLab)) return; const __prev = __c.webpack; const __lab = ${LAB_WEBPACK_FN}; const __wrap = function __studioLabWebpack(config, ctx) { if (typeof __prev === 'function') { const n = __prev(config, ctx); if (n) config = n; } return __lab(config, ctx); }; __wrap.__studioLab = true; __c.webpack = __wrap; })();\n`
         } else if (/export\s+default\s*\{/.test(out)) {
             out = out.replace(
                 /export\s+default\s*\{/,
@@ -220,34 +220,34 @@ function maybePatchNextConfigForLab(path, source) {
  */
 function maybePatchViteConfigForLab(path, source) {
     if (!/\/vite\.config\.(js|mjs|cjs|ts)$/i.test(path)) return source
-    if (/__krikkitLabWatch/.test(source)) return source
+    if (/__studioLabWatch/.test(source)) return source
 
-    const wrap = `function __krikkitLabWatch(config) {
+    const wrap = `function __studioLabWatch(config) {
   if (!config || typeof config !== 'object') return config;
   var server = Object.assign({}, config.server || {});
   var watch = Object.assign({}, server.watch || {});
-  var extra = ['**/tmp/**', '**/home/**', '**/.krikkit_history', '**/.deepthought_history'];
+  var extra = ['**/tmp/**', '**/home/**', '**/.studio_history', '**/.deepthought_history'];
   var prev = watch.ignored;
   watch.ignored = !prev ? extra : Array.isArray(prev) ? prev.concat(extra) : [prev].concat(extra);
   server.watch = watch;
   return Object.assign({}, config, { server: server });
 }
-function __krikkitLabWatchWrap(raw) {
+function __studioLabWatchWrap(raw) {
   if (typeof raw === 'function') {
     return function (env) {
       var out = raw(env);
-      return out && typeof out.then === 'function' ? out.then(__krikkitLabWatch) : __krikkitLabWatch(out);
+      return out && typeof out.then === 'function' ? out.then(__studioLabWatch) : __studioLabWatch(out);
     };
   }
-  return __krikkitLabWatch(raw);
+  return __studioLabWatch(raw);
 }
 `
 
     if (/export\s+default\s+/.test(source)) {
-        return wrap + source.replace(/export\s+default\s+/, 'export default __krikkitLabWatchWrap(') + '\n)\n'
+        return wrap + source.replace(/export\s+default\s+/, 'export default __studioLabWatchWrap(') + '\n)\n'
     }
     if (/module\.exports\s*=/.test(source)) {
-        return wrap + source.replace(/module\.exports\s*=/, 'module.exports = __krikkitLabWatchWrap(') + '\n)\n'
+        return wrap + source.replace(/module\.exports\s*=/, 'module.exports = __studioLabWatchWrap(') + '\n)\n'
     }
 
     return source
@@ -258,7 +258,7 @@ function maybePatchGuestConfig(path, source) {
 }
 
 /** Guest webpack hook — cache off + CSS as <style> tags (not extracted files). */
-const LAB_WEBPACK_FN = `function __krikkitLabWebpack(config, ctx) {
+const LAB_WEBPACK_FN = `function __studioLabWebpack(config, ctx) {
   if (!config || typeof config !== 'object') return config;
   config.cache = false;
   if (ctx && ctx.isServer) return config;
@@ -311,7 +311,7 @@ function shouldSkipGuestSyncPath(path) {
     return SKIP_SYNC_RE.test(path)
 }
 
-/** Unregister legacy DeepThought SW scripts once so Lab uses the Krikkit path. */
+/** Unregister legacy DeepThought SW scripts once so Lab uses the Supreme path. */
 async function migrateLabServiceWorkerRegistration() {
     if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return
     try {
@@ -359,10 +359,10 @@ export async function resetLegacyLabRuntimeCaches() {
 
     const idbNames = [
         'deepthought-asset-cache',
-        'krikkit-deepthought',
-        'krikkit-deepthought-assets',
-        'krikkit-deepthought-v1',
-        'krikkit-deepthought-v2',
+        'studio-deepthought',
+        'studio-deepthought-assets',
+        'studio-deepthought-v1',
+        'studio-deepthought-v2',
         // Legacy runtime DB names are migrated via openLabIdb — do not delete here.
     ]
 
@@ -389,7 +389,7 @@ export async function resetLegacyLabRuntimeCaches() {
             const keys = await caches.keys()
             await Promise.all(
                 keys
-                    .filter((k) => /deepthought|krikkit-deepthought|machine\.wasm|node\.gz/i.test(k))
+                    .filter((k) => /deepthought|studio-deepthought|machine\.wasm|node\.gz/i.test(k))
                     .map((k) => caches.delete(k)),
             )
         } catch {
@@ -495,7 +495,7 @@ export function signalGuestListening(port, url) {
     }
     try {
         window.dispatchEvent(
-            new CustomEvent('krikkit-lab-runtime-listen', {
+            new CustomEvent('studio-lab-runtime-listen', {
                 detail: { port: p, url: previewUrl },
             }),
         )
@@ -553,10 +553,10 @@ export function ensureLabSession(opts = {}) {
 
         engine = pod
         for (const stale of [
-            '/tmp/.krikkit_history',
-            '/.krikkit-lab_history',
+            '/tmp/.studio_history',
+            '/.studio-lab_history',
             '/.deepthought_history',
-            '/home/user/.krikkit-lab_history',
+            '/home/user/.studio-lab_history',
             '/home/user/.deepthought_history',
         ]) {
             try {

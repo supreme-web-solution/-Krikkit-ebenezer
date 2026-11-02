@@ -134,7 +134,7 @@ export function FileSearchCard({
                 }
             }}
         >
-            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit text-krikkit-muted">
+            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit text-studio-muted">
                 <IconSearch />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight" title={q || undefined}>
                     <ToolStatusText
@@ -143,7 +143,7 @@ export function FileSearchCard({
                     />
                 </span>
                 {status === 'done' && fileCount > 0 && (
-                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-krikkit-subtle" aria-label={`${fileCount} files`}>
+                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-studio-subtle" aria-label={`${fileCount} files`}>
                         {fileCount}
                     </span>
                 )}
@@ -161,11 +161,11 @@ export function FileSearchCard({
                 >
                     {/* pt-1.5 is a hover bridge — no gap that kills mouseenter */}
                     <ul
-                        className="bg-krikkit-soft border border-krikkit-line krikkit-scroll-hover max-h-52 list-none overflow-auto rounded-xl py-1"
+                        className="bg-studio-soft border border-studio-line studio-scroll-hover max-h-52 list-none overflow-auto rounded-xl py-1"
                         aria-label="Search results"
                     >
                         {status === 'searching' && fileCount === 0 ? (
-                            <li className="px-3 py-2 text-[12px] text-krikkit-subtle">
+                            <li className="px-3 py-2 text-[12px] text-studio-subtle">
                                 Scanning workspace…
                             </li>
                         ) : (
@@ -179,23 +179,23 @@ export function FileSearchCard({
                                             <button
                                                 type="button"
                                                 onClick={() => onOpenPath(path)}
-                                                className="flex w-full min-w-0 items-center gap-2 px-3 py-1.5 text-left text-[12px] leading-5 transition-colors hover:bg-krikkit-canvas/70"
+                                                className="flex w-full min-w-0 items-center gap-2 px-3 py-1.5 text-left text-[12px] leading-5 transition-colors hover:bg-studio-canvas/70"
                                             >
-                                                <IconFile className="h-3.5 w-3.5 shrink-0 text-krikkit-subtle" />
+                                                <IconFile className="h-3.5 w-3.5 shrink-0 text-studio-subtle" />
                                                 <span className="min-w-0 truncate">
-                                                    <span className="font-normal text-krikkit-fg">{name}</span>
+                                                    <span className="font-normal text-studio-fg">{name}</span>
                                                     {dir ? (
-                                                        <span className="text-krikkit-subtle"> {dir}</span>
+                                                        <span className="text-studio-subtle"> {dir}</span>
                                                     ) : null}
                                                 </span>
                                             </button>
                                         ) : (
                                             <div className="flex min-w-0 items-center gap-2 px-3 py-1.5 text-[12px] leading-5">
-                                                <IconFile className="h-3.5 w-3.5 shrink-0 text-krikkit-subtle" />
+                                                <IconFile className="h-3.5 w-3.5 shrink-0 text-studio-subtle" />
                                                 <span className="min-w-0 truncate">
-                                                    <span className="font-normal text-krikkit-fg">{name}</span>
+                                                    <span className="font-normal text-studio-fg">{name}</span>
                                                     {dir ? (
-                                                        <span className="text-krikkit-subtle"> {dir}</span>
+                                                        <span className="text-studio-subtle"> {dir}</span>
                                                     ) : null}
                                                 </span>
                                             </div>

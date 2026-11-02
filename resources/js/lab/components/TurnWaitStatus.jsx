@@ -28,7 +28,7 @@ function DriveGrid({ frozen = false }) {
             {DRIVE_DELAYS.map((delay, index) => (
                 <span
                     key={index}
-                    className="lab-pixel-cell size-[4px] rounded-[1px] bg-krikkit-fg"
+                    className="lab-pixel-cell size-[4px] rounded-[1px] bg-studio-fg"
                     style={frozen
                         ? undefined
                         : { animation: `lab-pixel-on ${DRIVE_MS}ms ease-in-out ${delay}ms infinite` }}
@@ -62,13 +62,13 @@ export function TurnWaitStatus({
         <div
             role="status"
             aria-live="polite"
-            className="inline-flex h-5 min-w-0 items-center justify-start gap-2.5 text-[13px] leading-5 text-krikkit-muted"
+            className="inline-flex h-5 min-w-0 items-center justify-start gap-2.5 text-[13px] leading-5 text-studio-muted"
         >
             <DriveGrid frozen={frozen} />
             <span className="inline-flex h-5 min-w-0 flex-none items-center overflow-hidden text-ellipsis whitespace-nowrap leading-5">
                 <ToolStatusText text={label} pending={running && ! reduced} />
             </span>
-            <span className="font-mono text-[12px] text-krikkit-subtle tabular-nums">
+            <span className="font-mono text-[12px] text-studio-subtle tabular-nums">
                 {formatLabElapsed(now - start)}
             </span>
         </div>

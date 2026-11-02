@@ -1,5 +1,5 @@
 // regression tests for issue #56
-// https://github.com/krikkit/deepthought/issues/56
+// https://github.com/studio/deepthought/issues/56
 //
 // covers three layered bugs that surfaced from one issue:
 //   1. TDZ on `Object.defineProperty(exports, ...)` when user code shadows

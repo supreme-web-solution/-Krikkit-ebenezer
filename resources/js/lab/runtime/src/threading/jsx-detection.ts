@@ -1,4 +1,4 @@
-// Krikkit Lab — JSX/TSX heuristic for bundler paths.
+// Supreme Lab — JSX/TSX heuristic for bundler paths.
 
 // Keep main-thread and module-worker loader selection identical. The inline
 // worker mirrors these expressions because it is emitted as a self-contained

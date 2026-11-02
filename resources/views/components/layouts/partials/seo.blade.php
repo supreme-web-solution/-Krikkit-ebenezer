@@ -8,23 +8,23 @@
 {!! app(\App\Support\Seo\PageSeo::class)->markup() !!}
 @if ($analytics !== '')
     <script>
-        window.krikkitAnalyticsId = @js($analytics)
-        window.krikkitWaitConsent = @js($waitConsent)
-        window.krikkitLoadAnalytics = function () {
-            if (!window.krikkitAnalyticsId || window.krikkitAnalyticsReady) return
-            window.krikkitAnalyticsReady = true
+        window.studioAnalyticsId = @js($analytics)
+        window.studioWaitConsent = @js($waitConsent)
+        window.studioLoadAnalytics = function () {
+            if (!window.studioAnalyticsId || window.studioAnalyticsReady) return
+            window.studioAnalyticsReady = true
             var s = document.createElement('script')
             s.async = true
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.krikkitAnalyticsId)
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.studioAnalyticsId)
             document.head.appendChild(s)
             window.dataLayer = window.dataLayer || []
             function gtag(){ dataLayer.push(arguments) }
             window.gtag = gtag
             gtag('js', new Date())
-            gtag('config', window.krikkitAnalyticsId)
+            gtag('config', window.studioAnalyticsId)
         }
-        if (!window.krikkitWaitConsent || localStorage.getItem('krikkit-cookie-consent') === 'all') {
-            window.krikkitLoadAnalytics()
+        if (!window.studioWaitConsent || localStorage.getItem('studio-cookie-consent') === 'all') {
+            window.studioLoadAnalytics()
         }
     </script>
 @endif

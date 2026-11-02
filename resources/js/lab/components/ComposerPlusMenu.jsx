@@ -73,11 +73,11 @@ function IconUpload({ className = 'size-3.5' }) {
 
 /** Between page canvas and composer surface — elevated, not the same as the composer. */
 const menuPanelClass =
-    'rounded-xl border border-krikkit-line bg-[color-mix(in_oklab,var(--color-krikkit-canvas)_55%,var(--color-krikkit-surface)_45%)] p-1'
+    'rounded-xl border border-studio-line bg-[color-mix(in_oklab,var(--color-studio-canvas)_55%,var(--color-studio-surface)_45%)] p-1'
 
 const itemClass = [
     'flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-xs',
-    'text-krikkit-fg-soft transition hover:bg-krikkit-soft hover:text-krikkit-fg',
+    'text-studio-fg-soft transition hover:bg-studio-soft hover:text-studio-fg',
     'disabled:pointer-events-none disabled:opacity-40',
 ].join(' ')
 
@@ -209,11 +209,11 @@ export function ComposerPlusMenu({
                             <span>Import from…</span>
                             <span className="ml-auto flex items-center gap-1.5 pl-3">
                                 {subSide === 'left' ? (
-                                    <IconChevronLeft className="size-3.5 shrink-0 text-krikkit-subtle" />
+                                    <IconChevronLeft className="size-3.5 shrink-0 text-studio-subtle" />
                                 ) : null}
                                 <IconGithub className="size-3.5 shrink-0" />
                                 {subSide === 'right' ? (
-                                    <IconChevronRight className="size-3.5 shrink-0 text-krikkit-subtle" />
+                                    <IconChevronRight className="size-3.5 shrink-0 text-studio-subtle" />
                                 ) : null}
                             </span>
                         </button>
@@ -245,7 +245,7 @@ export function ComposerPlusMenu({
                 ) : null}
 
                 {githubImport ? (
-                    <div className="my-1 border-t border-krikkit-line/60" role="separator" />
+                    <div className="my-1 border-t border-studio-line/60" role="separator" />
                 ) : null}
 
                 <button
@@ -279,7 +279,7 @@ export function ComposerPlusMenu({
                         return next
                     })
                 }}
-                className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full p-0 text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg disabled:pointer-events-none disabled:opacity-40"
+                className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full p-0 text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg disabled:pointer-events-none disabled:opacity-40"
                 aria-label="Add"
                 aria-haspopup="menu"
                 aria-expanded={open}

@@ -1,15 +1,15 @@
 /**
- * Lab toast host. Settings/Studio use Alpine <krikkit:toast />; Lab does not load Alpine.
+ * Lab toast host. Settings/Studio use Alpine <studio:toast />; Lab does not load Alpine.
  */
 
 function host() {
-    let root = document.getElementById('krikkit-lab-toasts')
+    let root = document.getElementById('studio-lab-toasts')
     if (root) {
         return root
     }
 
     root = document.createElement('div')
-    root.id = 'krikkit-lab-toasts'
+    root.id = 'studio-lab-toasts'
     root.className = 'pointer-events-none fixed bottom-4 right-4 z-[80] flex max-w-md flex-col items-end gap-2'
     root.setAttribute('aria-live', 'polite')
     document.body.appendChild(root)
@@ -35,7 +35,7 @@ export function emitDeskPulse(raw) {
         return
     }
 
-    window.dispatchEvent(new CustomEvent('krikkit-pulse', {
+    window.dispatchEvent(new CustomEvent('studio-pulse', {
         detail: {
             uid: packet.uid || `${Date.now()}-${Math.random().toString(16).slice(2)}`,
             copy,
@@ -69,7 +69,7 @@ function paint(packet) {
 
     const row = document.createElement('div')
     row.dataset.uid = uid
-    row.className = 'pointer-events-auto flex w-80 max-w-[calc(100vw-2rem)] items-center gap-3 rounded-xl border border-krikkit-line bg-krikkit-surface p-3'
+    row.className = 'pointer-events-auto flex w-80 max-w-[calc(100vw-2rem)] items-center gap-3 rounded-xl border border-studio-line bg-studio-surface p-3'
     row.setAttribute('role', 'status')
     row.innerHTML = `
         <span class="flex size-5 shrink-0 items-center justify-center ${color}">
@@ -79,7 +79,7 @@ function paint(packet) {
                     : '<path d="M12 9v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />'}
             </svg>
         </span>
-        <p class="min-w-0 flex-1 break-words text-xs font-normal leading-snug text-krikkit-fg-soft"></p>
+        <p class="min-w-0 flex-1 break-words text-xs font-normal leading-snug text-studio-fg-soft"></p>
     `
     row.querySelector('p').textContent = String(copy)
     host().appendChild(row)
@@ -90,7 +90,7 @@ function paint(packet) {
 }
 
 export function bootDeskPulse(seed) {
-    window.addEventListener('krikkit-pulse', (event) => paint(event.detail))
+    window.addEventListener('studio-pulse', (event) => paint(event.detail))
     if (seed) {
         paint(seed)
     }

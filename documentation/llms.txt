@@ -1,53 +1,53 @@
-# Krikkit
+# Supreme
 
-> Krikkit documentation by deep42.
+> Supreme documentation by deep42.
 
 ## Documentation
 
-- [Introduction](https://doc.krikkit.space): Krikkit — AI-assisted web project builder SaaS by deep42 (Laravel 13 + Livewire)
-- [Installation](https://doc.krikkit.space/installation): Step-by-step guide to install Krikkit from CodeCanyon on your server.
-- [Overview](https://doc.krikkit.space/studio-overview): Authenticated home for Krikkit users — projects, starred work, and quick entry to the Lab.
-- [Projects](https://doc.krikkit.space/projects): Create, title, browse, star, and export Krikkit Lab projects from Studio.
-- [Billing](https://doc.krikkit.space/billing): User plans, usage, upgrades, and checkout in Krikkit.
-- [Overview](https://doc.krikkit.space/lab-overview): Complete tour of the Krikkit AI studio — chat, preview, inspect, code, database, and publish.
-- [AI Chat](https://doc.krikkit.space/chat): Streaming chat, photograph lookup, file writes, titles, and agent tools in Krikkit Lab.
-- [Workspace](https://doc.krikkit.space/workspace): Preview, code editor, inspect mode, design inspector, terminal, and database panel in Krikkit.
-- [Integrations](https://doc.krikkit.space/lab-integrations): Supabase, GitHub, stock photographs, and how the agent requests integrations in Krikkit.
-- [Publish & Export](https://doc.krikkit.space/publish-export): Subdomain and custom-domain publish, share links, ZIP export, and thumbnails in Krikkit.
-- [Overview](https://doc.krikkit.space/dashboard-overview): Configure OpenAI, Anthropic, DeepSeek, Grok, Zhipu, Google, Supabase, GitHub, and stock images.
-- [Users](https://doc.krikkit.space/users): Create and manage Krikkit user accounts.
-- [Roles & Permissions](https://doc.krikkit.space/roles): Configure access roles and permissions for Krikkit staff and users.
-- [Packs](https://doc.krikkit.space/packs): Create and manage Krikkit subscription plans and limits.
-- [Credits](https://doc.krikkit.space/credits): View and adjust Krikkit credit balances.
-- [Subscriptions](https://doc.krikkit.space/subscriptions): Monitor Krikkit customer subscriptions.
-- [Invoices](https://doc.krikkit.space/invoices): View orders and send invoice emails in Krikkit admin.
-- [Payment Gateways](https://doc.krikkit.space/payment-gateways): Configure Stripe and PayPal for Krikkit billing.
-- [Blog](https://doc.krikkit.space/blog): Publish blog posts on your Krikkit marketing site.
-- [Pages](https://doc.krikkit.space/pages): Manage static CMS pages in Krikkit.
-- [Contact Submissions](https://doc.krikkit.space/contacts): Inbox for the public contact form in Krikkit.
-- [Newsletter](https://doc.krikkit.space/newsletter): Manage newsletter subscribers from the Krikkit dashboard.
-- [Landing Page](https://doc.krikkit.space/landing): Edit the Krikkit marketing landing — hero mesh, nav, bento, builder landing, footer.
-- [Lab Administration](https://doc.krikkit.space/lab-admin): Monitor Lab projects, usage, and failed AI turns from the dashboard.
-- [Sessions](https://doc.krikkit.space/sessions): Review active and historical user sessions.
-- [Languages](https://doc.krikkit.space/languages): Add locales and edit translation files in Krikkit.
-- [SEO](https://doc.krikkit.space/seo): Default meta tags, Open Graph image, and search verification in Krikkit.
-- [General & Branding](https://doc.krikkit.space/general-settings): Site name, Application URL, logos, theme defaults, and currency locale.
-- [Themes](https://doc.krikkit.space/themes): Admin UI theme, accent, density, sidebar, and radius in Krikkit.
-- [Email (SMTP)](https://doc.krikkit.space/mail): Configure outbound email for Krikkit via environment variables.
-- [Publish Settings](https://doc.krikkit.space/publish-settings): Enable publishing and show DNS guidance to operators.
-- [Lab Console](https://doc.krikkit.space/lab-console): Default AI model, user model selection, and notification sounds.
-- [Privacy & Legal](https://doc.krikkit.space/privacy-legal): Publish privacy, terms, refund, and license pages in Krikkit.
-- [API Integration](https://doc.krikkit.space/integration): Configure AI providers, GitHub, Supabase, and Unsplash / Pixabay keys from the dashboard.
-- [GitHub](https://doc.krikkit.space/github): Configure GitHub OAuth for Lab import, push, and pull workflows.
-- [Supabase](https://doc.krikkit.space/supabase): Configure Supabase OAuth for Lab datastore workflows.
-- [Stock Images](https://doc.krikkit.space/stock-images): Unsplash Application ID, Access Key, and Secret — plus Pixabay — for Lab photograph lookup.
-- [Build Assets](https://doc.krikkit.space/build-assets): Compile Krikkit frontend assets with npm and Vite.
-- [Environment](https://doc.krikkit.space/environment): Key .env variables for Krikkit after installation.
-- [Updating](https://doc.krikkit.space/updating): Upgrade Krikkit safely after a new CodeCanyon release.
-- [Common Issues](https://doc.krikkit.space/common-issues): Installation, permissions, and general Krikkit troubleshooting.
-- [AI & Lab](https://doc.krikkit.space/troubleshooting-ai): Fix provider errors, blank previews, Untitled titles, and missing photographs.
-- [Publish](https://doc.krikkit.space/troubleshooting-publish): DNS, custom domains, and artifact upload troubleshooting.
+- [Introduction](https://doc.studio.space): Supreme — AI-assisted web project builder SaaS by deep42 (Laravel 13 + Livewire)
+- [Installation](https://doc.studio.space/installation): Step-by-step guide to install Supreme from CodeCanyon on your server.
+- [Overview](https://doc.studio.space/studio-overview): Authenticated home for Supreme users — projects, starred work, and quick entry to the Lab.
+- [Projects](https://doc.studio.space/projects): Create, title, browse, star, and export Supreme Lab projects from Studio.
+- [Billing](https://doc.studio.space/billing): User plans, usage, upgrades, and checkout in Supreme.
+- [Overview](https://doc.studio.space/lab-overview): Complete tour of the Supreme AI studio — chat, preview, inspect, code, database, and publish.
+- [AI Chat](https://doc.studio.space/chat): Streaming chat, photograph lookup, file writes, titles, and agent tools in Supreme Lab.
+- [Workspace](https://doc.studio.space/workspace): Preview, code editor, inspect mode, design inspector, terminal, and database panel in Supreme.
+- [Integrations](https://doc.studio.space/lab-integrations): Supabase, GitHub, stock photographs, and how the agent requests integrations in Supreme.
+- [Publish & Export](https://doc.studio.space/publish-export): Subdomain and custom-domain publish, share links, ZIP export, and thumbnails in Supreme.
+- [Overview](https://doc.studio.space/dashboard-overview): Configure OpenAI, Anthropic, DeepSeek, Grok, Zhipu, Google, Supabase, GitHub, and stock images.
+- [Users](https://doc.studio.space/users): Create and manage Supreme user accounts.
+- [Roles & Permissions](https://doc.studio.space/roles): Configure access roles and permissions for Supreme staff and users.
+- [Packs](https://doc.studio.space/packs): Create and manage Supreme subscription plans and limits.
+- [Credits](https://doc.studio.space/credits): View and adjust Supreme credit balances.
+- [Subscriptions](https://doc.studio.space/subscriptions): Monitor Supreme customer subscriptions.
+- [Invoices](https://doc.studio.space/invoices): View orders and send invoice emails in Supreme admin.
+- [Payment Gateways](https://doc.studio.space/payment-gateways): Configure Stripe and PayPal for Supreme billing.
+- [Blog](https://doc.studio.space/blog): Publish blog posts on your Supreme marketing site.
+- [Pages](https://doc.studio.space/pages): Manage static CMS pages in Supreme.
+- [Contact Submissions](https://doc.studio.space/contacts): Inbox for the public contact form in Supreme.
+- [Newsletter](https://doc.studio.space/newsletter): Manage newsletter subscribers from the Supreme dashboard.
+- [Landing Page](https://doc.studio.space/landing): Edit the Supreme marketing landing — hero mesh, nav, bento, builder landing, footer.
+- [Lab Administration](https://doc.studio.space/lab-admin): Monitor Lab projects, usage, and failed AI turns from the dashboard.
+- [Sessions](https://doc.studio.space/sessions): Review active and historical user sessions.
+- [Languages](https://doc.studio.space/languages): Add locales and edit translation files in Supreme.
+- [SEO](https://doc.studio.space/seo): Default meta tags, Open Graph image, and search verification in Supreme.
+- [General & Branding](https://doc.studio.space/general-settings): Site name, Application URL, logos, theme defaults, and currency locale.
+- [Themes](https://doc.studio.space/themes): Admin UI theme, accent, density, sidebar, and radius in Supreme.
+- [Email (SMTP)](https://doc.studio.space/mail): Configure outbound email for Supreme via environment variables.
+- [Publish Settings](https://doc.studio.space/publish-settings): Enable publishing and show DNS guidance to operators.
+- [Lab Console](https://doc.studio.space/lab-console): Default AI model, user model selection, and notification sounds.
+- [Privacy & Legal](https://doc.studio.space/privacy-legal): Publish privacy, terms, refund, and license pages in Supreme.
+- [API Integration](https://doc.studio.space/integration): Configure AI providers, GitHub, Supabase, and Unsplash / Pixabay keys from the dashboard.
+- [GitHub](https://doc.studio.space/github): Configure GitHub OAuth for Lab import, push, and pull workflows.
+- [Supabase](https://doc.studio.space/supabase): Configure Supabase OAuth for Lab datastore workflows.
+- [Stock Images](https://doc.studio.space/stock-images): Unsplash Application ID, Access Key, and Secret — plus Pixabay — for Lab photograph lookup.
+- [Build Assets](https://doc.studio.space/build-assets): Compile Supreme frontend assets with npm and Vite.
+- [Environment](https://doc.studio.space/environment): Key .env variables for Supreme after installation.
+- [Updating](https://doc.studio.space/updating): Upgrade Supreme safely after a new CodeCanyon release.
+- [Common Issues](https://doc.studio.space/common-issues): Installation, permissions, and general Supreme troubleshooting.
+- [AI & Lab](https://doc.studio.space/troubleshooting-ai): Fix provider errors, blank previews, Untitled titles, and missing photographs.
+- [Publish](https://doc.studio.space/troubleshooting-publish): DNS, custom domains, and artifact upload troubleshooting.
 
 ## Markdown Export
 
-Append `.md` to any docs page URL to fetch raw markdown, e.g. `https://doc.krikkit.space/installation.md`.
+Append `.md` to any docs page URL to fetch raw markdown, e.g. `https://doc.studio.space/installation.md`.

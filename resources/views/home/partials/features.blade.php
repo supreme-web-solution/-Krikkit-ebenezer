@@ -53,23 +53,23 @@
     ];
 @endphp
 
-<section id="platform" class="scroll-mt-20 border-b border-krikkit-line" x-data="krikkitHomePlatform">
-    <div class="relative mx-auto max-w-7xl overflow-hidden border-x border-krikkit-line">
-        <div class="pointer-events-none absolute inset-0 krikkit-home-dots" aria-hidden="true"></div>
+<section id="platform" class="scroll-mt-20 border-b border-studio-line" x-data="studioHomePlatform">
+    <div class="relative mx-auto max-w-7xl overflow-hidden border-x border-studio-line">
+        <div class="pointer-events-none absolute inset-0 studio-home-dots" aria-hidden="true"></div>
         <div class="relative px-6 pt-20 md:px-12 md:pt-28">
             @include('home.partials.badge', ['label' => __('home.Introducing Lab')])
-            <h2 class="mt-6 max-w-3xl text-3xl font-medium leading-[1.15] tracking-tight text-krikkit-fg md:text-5xl">
+            <h2 class="mt-6 max-w-3xl text-3xl font-medium leading-[1.15] tracking-tight text-studio-fg md:text-5xl">
                 {{ __('home.The workshop sites need to run from a single brief') }}
             </h2>
         </div>
 
-        <div class="relative mt-12 grid items-start gap-10 border-t border-krikkit-line px-6 py-12 md:px-12 md:py-16 lg:grid-cols-12 lg:gap-14">
+        <div class="relative mt-12 grid items-start gap-10 border-t border-studio-line px-6 py-12 md:px-12 md:py-16 lg:grid-cols-12 lg:gap-14">
             <aside class="hidden lg:sticky lg:top-24 lg:col-span-4 lg:block lg:self-start">
-                <ul class="divide-y divide-krikkit-line border border-krikkit-line">
+                <ul class="divide-y divide-studio-line border border-studio-line">
                     @foreach ($stats as $stat)
                         <li class="px-5 py-5">
-                            <p class="text-2xl font-medium tracking-tight text-krikkit-fg">{{ $stat['value'] }}</p>
-                            <p class="mt-1 text-sm text-krikkit-muted">{{ $stat['hint'] }}</p>
+                            <p class="text-2xl font-medium tracking-tight text-studio-fg">{{ $stat['value'] }}</p>
+                            <p class="mt-1 text-sm text-studio-muted">{{ $stat['hint'] }}</p>
                         </li>
                     @endforeach
                 </ul>
@@ -80,40 +80,40 @@
                     <article
                         id="platform-{{ $pillar['id'] }}"
                         data-platform-panel="{{ $index }}"
-                        class="scroll-mt-28 border-t border-krikkit-line py-10 first:border-t-0 first:pt-0 md:py-14"
+                        class="scroll-mt-28 border-t border-studio-line py-10 first:border-t-0 first:pt-0 md:py-14"
                     >
                         <span class="inline-flex items-center border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] {{ $toneClass[$pillar['tone']] }}">
                             {{ $pillar['kicker'] }}
                         </span>
-                        <h3 class="mt-4 text-2xl font-medium leading-tight tracking-tight text-krikkit-fg md:text-3xl">
+                        <h3 class="mt-4 text-2xl font-medium leading-tight tracking-tight text-studio-fg md:text-3xl">
                             {{ $pillar['title'] }}
                         </h3>
-                        <p class="mt-3 max-w-xl text-sm leading-relaxed text-krikkit-muted md:text-base">
+                        <p class="mt-3 max-w-xl text-sm leading-relaxed text-studio-muted md:text-base">
                             {{ $pillar['copy'] }}
                         </p>
                         <div class="mt-6">
-                            <krikkit:button href="#capabilities" :navigate="false" variant="fill" size="sm" class="!rounded-none">
+                            <studio:button href="#capabilities" :navigate="false" variant="fill" size="sm" class="!rounded-none">
                                 {{ __('home.Learn more') }}
-                                <krikkit:icon name="arrow-right" class="size-4" />
-                            </krikkit:button>
+                                <studio:icon name="arrow-right" class="size-4" />
+                            </studio:button>
                         </div>
                         @if (in_array($pillar['mock'], ['brief', 'files'], true))
-                            <div class="mt-8 overflow-hidden border border-krikkit-line">
+                            <div class="mt-8 overflow-hidden border border-studio-line">
                                 @include('home.partials.desk', ['tone' => $pillar['mock']])
                             </div>
                         @elseif ($pillar['mock'] === 'page')
-                            <div class="mt-8 overflow-hidden border border-krikkit-line bg-krikkit-canvas">
+                            <div class="mt-8 overflow-hidden border border-studio-line bg-studio-canvas">
                                 @include('home.partials.site')
                             </div>
                         @else
-                            <ul class="mt-8 divide-y divide-krikkit-line border border-krikkit-line">
+                            <ul class="mt-8 divide-y divide-studio-line border border-studio-line">
                                 <li class="flex items-center justify-between px-3 py-2.5">
-                                    <span class="text-sm text-krikkit-muted">{{ __('home.Domain') }}</span>
-                                    <span class="font-mono text-xs text-krikkit-fg">studio.lab</span>
+                                    <span class="text-sm text-studio-muted">{{ __('home.Domain') }}</span>
+                                    <span class="font-mono text-xs text-studio-fg">studio.lab</span>
                                 </li>
                                 <li class="flex items-center justify-between px-3 py-2.5">
-                                    <span class="text-sm text-krikkit-muted">{{ __('home.GitHub') }}</span>
-                                    <span class="text-xs text-krikkit-subtle">{{ __('home.Ready') }}</span>
+                                    <span class="text-sm text-studio-muted">{{ __('home.GitHub') }}</span>
+                                    <span class="text-xs text-studio-subtle">{{ __('home.Ready') }}</span>
                                 </li>
                                 <li class="flex h-10 items-center justify-center bg-accent text-sm font-medium text-accent-foreground">
                                     {{ __('messages.Publish') }}

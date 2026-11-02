@@ -3,7 +3,7 @@
 namespace App\Entitlement;
 
 /**
- * Built-in entitlement keys for Krikkit packs (features + quotas).
+ * Built-in entitlement keys for Supreme packs (features + quotas).
  */
 final class EntitlementCatalog
 {

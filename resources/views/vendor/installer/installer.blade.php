@@ -104,7 +104,7 @@
                 <form
                     class="installer-form"
                     x-show="!isSuccess"
-                    wire:submit.prevent="window.__krikkitInstallerPulseSig = null; $wire.next()"
+                    wire:submit.prevent="window.__studioInstallerPulseSig = null; $wire.next()"
                 >
                     <div
                         class="installer-form-body"

@@ -13,12 +13,12 @@
 
 <div class="space-y-8">
     <div>
-        <krikkit:breadcrumbs class="mb-3">
-            <krikkit:breadcrumbs.item href="{{ route('dashboard.integration.index') }}">{{ __('dashboard.API Integration') }}</krikkit:breadcrumbs.item>
-            <krikkit:breadcrumbs.item current>{{ $providerLabel }}</krikkit:breadcrumbs.item>
-        </krikkit:breadcrumbs>
-        <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ $providerLabel }}</h1>
-        <p class="mt-0.5 text-xs text-krikkit-muted">
+        <studio:breadcrumbs class="mb-3">
+            <studio:breadcrumbs.item href="{{ route('dashboard.integration.index') }}">{{ __('dashboard.API Integration') }}</studio:breadcrumbs.item>
+            <studio:breadcrumbs.item current>{{ $providerLabel }}</studio:breadcrumbs.item>
+        </studio:breadcrumbs>
+        <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ $providerLabel }}</h1>
+        <p class="mt-0.5 text-xs text-studio-muted">
             @if ($isGithub)
                 {{ __('dashboard.OAuth credentials for Lab imports.') }}
             @elseif ($isVisualCatalog)
@@ -34,8 +34,8 @@
     <form wire:submit="save" class="space-y-5" autocomplete="off">
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                    <p class="text-sm font-semibold text-krikkit-fg">{{ __('dashboard.Credentials') }}</p>
-                    <p class="mt-0.5 text-xs text-krikkit-muted">
+                    <p class="text-sm font-semibold text-studio-fg">{{ __('dashboard.Credentials') }}</p>
+                    <p class="mt-0.5 text-xs text-studio-muted">
                         @if ($isOauthApp)
                             @if ($keySource === 'workspace')
                                 {{ __('dashboard.Configured') }}
@@ -53,14 +53,14 @@
                         @endif
                     </p>
                 </div>
-                <krikkit:switch :label="__('dashboard.Enabled')" wire:model="enabled" />
+                <studio:switch :label="__('dashboard.Enabled')" wire:model="enabled" />
             </div>
 
             @if ($unreadableStoredKey)
-                <krikkit:callout tone="warning">
-                    <krikkit:callout.heading>{{ __('dashboard.Saved key cannot be read') }}</krikkit:callout.heading>
-                    <krikkit:callout.text>{{ __('dashboard.The saved secret can no longer be read. Paste it again to restore this provider.') }}</krikkit:callout.text>
-                </krikkit:callout>
+                <studio:callout tone="warning">
+                    <studio:callout.heading>{{ __('dashboard.Saved key cannot be read') }}</studio:callout.heading>
+                    <studio:callout.text>{{ __('dashboard.The saved secret can no longer be read. Paste it again to restore this provider.') }}</studio:callout.text>
+                </studio:callout>
             @endif
 
             @if ($isGithub)
@@ -70,8 +70,8 @@
                     <input type="password" name="prevent_autofill_pass" autocomplete="current-password" tabindex="-1" value="">
                 </div>
 
-                <krikkit:field :label="__('dashboard.Client ID')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Client ID')">
+                    <studio:input
                         type="text"
                         wire:model="clientId"
                         name="github_oauth_client_id"
@@ -86,10 +86,10 @@
                         x-on:focus="$el.removeAttribute('readonly')"
                         :placeholder="__('dashboard.Client ID')"
                     />
-                </krikkit:field>
+                </studio:field>
 
-                <krikkit:field :label="__('dashboard.Client secret')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Client secret')">
+                    <studio:input
                         type="password"
                         wire:model="clientSecret"
                         name="github_oauth_client_secret"
@@ -104,14 +104,14 @@
                         x-on:focus="$el.removeAttribute('readonly')"
                         :placeholder="$githubHasStoredSecret ? __('dashboard.•••• keep current') : __('dashboard.Client secret')"
                     />
-                </krikkit:field>
+                </studio:field>
 
                 @if ($githubHasStoredSecret)
-                    <krikkit:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
+                    <studio:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
                 @endif
 
-                <krikkit:field :label="__('dashboard.Callback URL')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Callback URL')">
+                    <studio:input
                         type="text"
                         copyable
                         readonly
@@ -120,19 +120,19 @@
                         name="github_oauth_callback"
                         tabindex="-1"
                     />
-                </krikkit:field>
+                </studio:field>
 
-                <krikkit:separator />
+                <studio:separator />
 
                 <div>
-                    <p class="text-sm font-semibold text-krikkit-fg">{{ __('dashboard.Import limits') }}</p>
-                    <p class="mt-0.5 text-xs text-krikkit-muted">
+                    <p class="text-sm font-semibold text-studio-fg">{{ __('dashboard.Import limits') }}</p>
+                    <p class="mt-0.5 text-xs text-studio-muted">
                         {{ __('dashboard.Limits applied when Lab imports a GitHub repository archive.') }}
                     </p>
                 </div>
 
-                <krikkit:field :label="__('dashboard.Max archive size (MB)')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Max archive size (MB)')">
+                    <studio:input
                         type="number"
                         wire:model="maxZipMb"
                         min="{{ $maxZipMbMin }}"
@@ -150,10 +150,10 @@
                             'default' => \App\Lab\Github\LabGithubImportLimits::MAX_ZIP_MB_DEFAULT,
                         ]) }}
                     </x-slot:description>
-                </krikkit:field>
+                </studio:field>
 
-                <krikkit:field :label="__('dashboard.Max files')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Max files')">
+                    <studio:input
                         type="number"
                         wire:model="maxFiles"
                         min="{{ $maxFilesMin }}"
@@ -171,15 +171,15 @@
                             'default' => number_format(\App\Lab\Github\LabGithubImportLimits::MAX_FILES_DEFAULT),
                         ]) }}
                     </x-slot:description>
-                </krikkit:field>
+                </studio:field>
             @elseif ($isDatastore)
                 <div class="sr-only" aria-hidden="true">
                     <input type="text" name="prevent_autofill_user" autocomplete="username" tabindex="-1" value="">
                     <input type="password" name="prevent_autofill_pass" autocomplete="current-password" tabindex="-1" value="">
                 </div>
 
-                <krikkit:field :label="__('dashboard.OAuth client ID')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.OAuth client ID')">
+                    <studio:input
                         type="text"
                         wire:model="clientId"
                         name="supabase_oauth_client_id"
@@ -194,10 +194,10 @@
                         x-on:focus="$el.removeAttribute('readonly')"
                         :placeholder="__('dashboard.OAuth client ID')"
                     />
-                </krikkit:field>
+                </studio:field>
 
-                <krikkit:field :label="__('dashboard.OAuth client secret')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.OAuth client secret')">
+                    <studio:input
                         type="password"
                         wire:model="clientSecret"
                         name="supabase_oauth_client_secret"
@@ -212,15 +212,15 @@
                         x-on:focus="$el.removeAttribute('readonly')"
                         :placeholder="$supabaseHasStoredSecret ? __('dashboard.•••• keep current') : __('dashboard.OAuth client secret')"
                     />
-                </krikkit:field>
+                </studio:field>
 
                 @if ($supabaseHasStoredSecret)
-                    <krikkit:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
+                    <studio:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
                 @endif
 
                 @if (str_starts_with(strtolower((string) $supabaseCallbackUrl), 'https://'))
-                    <krikkit:field :label="__('dashboard.Callback URL')">
-                        <krikkit:input
+                    <studio:field :label="__('dashboard.Callback URL')">
+                        <studio:input
                             type="text"
                             copyable
                             readonly
@@ -232,16 +232,16 @@
                         <x-slot:description>
                             {{ __('dashboard.Add this callback URL in Supabase Dashboard → Organization → OAuth Apps. Enable Organizations and Projects read (and write if chat should apply SQL).') }}
                         </x-slot:description>
-                    </krikkit:field>
+                    </studio:field>
                 @else
-                    <krikkit:callout tone="warning">
-                        <krikkit:callout.heading>{{ __('dashboard.Supabase requires HTTPS') }}</krikkit:callout.heading>
-                        <krikkit:callout.text>{{ __('dashboard.Do not paste http://127.0.0.1 into Supabase. Use your Cloudflare tunnel callback, then save it as the redirect override.') }}</krikkit:callout.text>
-                    </krikkit:callout>
+                    <studio:callout tone="warning">
+                        <studio:callout.heading>{{ __('dashboard.Supabase requires HTTPS') }}</studio:callout.heading>
+                        <studio:callout.text>{{ __('dashboard.Do not paste http://127.0.0.1 into Supabase. Use your Cloudflare tunnel callback, then save it as the redirect override.') }}</studio:callout.text>
+                    </studio:callout>
                 @endif
 
-                <krikkit:field :label="__('dashboard.OAuth redirect URI (optional override)')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.OAuth redirect URI (optional override)')">
+                    <studio:input
                         type="url"
                         wire:model="redirectUri"
                         name="supabase_oauth_redirect"
@@ -254,15 +254,15 @@
                         data-form-type="other"
                         :placeholder="$supabaseCallbackUrl"
                     />
-                </krikkit:field>
+                </studio:field>
             @elseif ($isUnsplash)
                 <div class="sr-only" aria-hidden="true">
                     <input type="text" name="prevent_autofill_user" autocomplete="username" tabindex="-1" value="">
                     <input type="password" name="prevent_autofill_pass" autocomplete="current-password" tabindex="-1" value="">
                 </div>
 
-                <krikkit:field :label="__('dashboard.Application ID')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Application ID')">
+                    <studio:input
                         type="text"
                         wire:model="applicationId"
                         name="unsplash_application_id"
@@ -276,10 +276,10 @@
                         :placeholder="__('dashboard.Application ID')"
                     />
                     <x-slot:description>{{ __('dashboard.Unsplash Application ID. From your Unsplash developers page. Lab does not send it with photograph searches.') }}</x-slot:description>
-                </krikkit:field>
+                </studio:field>
 
-                <krikkit:field :label="__('dashboard.Access Key')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Access Key')">
+                    <studio:input
                         type="password"
                         wire:model="apiKey"
                         name="unsplash_access_key"
@@ -295,14 +295,14 @@
                         :placeholder="$maskedKey ? __('dashboard.•••• keep current') : __('dashboard.Paste Access Key')"
                     />
                     <x-slot:description>{{ __('dashboard.Unsplash Access Key (Client-ID). Lab uses this to search photographs on the server.') }}</x-slot:description>
-                </krikkit:field>
+                </studio:field>
 
                 @if ($maskedKey)
-                    <krikkit:checkbox :label="__('dashboard.Clear stored key')" wire:model="clearKey" />
+                    <studio:checkbox :label="__('dashboard.Clear stored key')" wire:model="clearKey" />
                 @endif
 
-                <krikkit:field :label="__('dashboard.Secret key')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.Secret key')">
+                    <studio:input
                         type="password"
                         wire:model="apiSecret"
                         name="unsplash_secret_key"
@@ -318,14 +318,14 @@
                         :placeholder="($visualHasStoredSecret ?? false) ? __('dashboard.•••• keep current') : __('dashboard.Paste Secret key')"
                     />
                     <x-slot:description>{{ __('dashboard.Unsplash Secret key. Stored encrypted. Photograph search uses the Access Key, not this secret.') }}</x-slot:description>
-                </krikkit:field>
+                </studio:field>
 
                 @if ($visualHasStoredSecret ?? false)
-                    <krikkit:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
+                    <studio:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
                 @endif
             @else
-                <krikkit:field :label="__('dashboard.API key')">
-                    <krikkit:input
+                <studio:field :label="__('dashboard.API key')">
+                    <studio:input
                         type="password"
                         wire:model="apiKey"
                         autocomplete="off"
@@ -334,44 +334,44 @@
                     @if ($isVisualCatalog && filled($visualKeyHint ?? null))
                         <x-slot:description>{{ $visualKeyHint }}</x-slot:description>
                     @endif
-                </krikkit:field>
+                </studio:field>
 
                 @if ($maskedKey)
-                    <krikkit:checkbox :label="__('dashboard.Clear stored key')" wire:model="clearKey" />
+                    <studio:checkbox :label="__('dashboard.Clear stored key')" wire:model="clearKey" />
                 @endif
             @endif
 
-            <krikkit:button type="submit" wire:loading.attr="disabled">{{ __('dashboard.Save provider') }}</krikkit:button>
+            <studio:button type="submit" wire:loading.attr="disabled">{{ __('dashboard.Save provider') }}</studio:button>
         </form>
 
     @unless ($isGithub || $isVisualCatalog || $isDatastore)
-        <krikkit:separator />
+        <studio:separator />
 
         <section class="space-y-4">
             <div>
                 <h2 class="text-lg font-semibold tracking-tight">{{ __('dashboard.Models') }}</h2>
-                <p class="mt-1 text-sm text-krikkit-muted">
+                <p class="mt-1 text-sm text-studio-muted">
                     {{ __('dashboard.Only one model can be the Lab default. Turning a switch on replaces the current default.') }}
                 </p>
                 @if ($workspaceDefault && $workspaceDefault->provider !== $provider)
-                    <p class="mt-1 text-sm text-krikkit-muted">
+                    <p class="mt-1 text-sm text-studio-muted">
                         {{ __('dashboard.Current default: :model.', ['model' => $workspaceDefault->label]) }}
                     </p>
                 @endif
             </div>
 
             @if (count($models) > 0)
-                <div class="divide-y divide-krikkit-line rounded-xl border border-krikkit-line">
+                <div class="divide-y divide-studio-line rounded-xl border border-studio-line">
                     @foreach ($models as $model)
                         @php $isDefault = $defaultModelId === $model->id; @endphp
                         <div class="flex items-center justify-between gap-4 px-4 py-3">
                             <div class="min-w-0">
-                                <p class="truncate text-sm font-medium text-krikkit-fg">{{ $model->label }}</p>
+                                <p class="truncate text-sm font-medium text-studio-fg">{{ $model->label }}</p>
                                 @if ($isDefault)
-                                    <p class="mt-0.5 text-xs text-krikkit-muted">{{ __('dashboard.Used by Lab until the chat picker chooses another.') }}</p>
+                                    <p class="mt-0.5 text-xs text-studio-muted">{{ __('dashboard.Used by Lab until the chat picker chooses another.') }}</p>
                                 @endif
                             </div>
-                            <krikkit:switch
+                            <studio:switch
                                 :label="__('dashboard.Default')"
                                 align="right"
                                 wire:click="setAsDefault('{{ $model->id }}')"
@@ -382,18 +382,18 @@
                     @endforeach
                 </div>
             @else
-                <krikkit:callout tone="warning">
-                    <krikkit:callout.text>{{ __('dashboard.No models registered for this provider in :file.', ['file' => 'config/ai.php']) }}</krikkit:callout.text>
-                </krikkit:callout>
+                <studio:callout tone="warning">
+                    <studio:callout.text>{{ __('dashboard.No models registered for this provider in :file.', ['file' => 'config/ai.php']) }}</studio:callout.text>
+                </studio:callout>
             @endif
         </section>
 
-        <krikkit:separator />
+        <studio:separator />
 
         <section class="space-y-4">
             <div>
                 <h2 class="text-lg font-semibold tracking-tight">{{ __('dashboard.Project cost') }}</h2>
-                <p class="mt-1 text-sm text-krikkit-muted">
+                <p class="mt-1 text-sm text-studio-muted">
                     {{ __('dashboard.Pick a project type, then set how many projects (1–:max).', ['max' => number_format($projectCountMax)]) }}
                 </p>
             </div>
@@ -401,25 +401,25 @@
             <div class="space-y-5">
                 @if (count($models) > 0)
                     <div class="grid gap-4 sm:grid-cols-2">
-                        <krikkit:field :label="__('dashboard.Model')">
-                            <krikkit:select wire:model.live="modelId" :value="$modelId" placeholder="{{ __('dashboard.Choose a model…') }}">
+                        <studio:field :label="__('dashboard.Model')">
+                            <studio:select wire:model.live="modelId" :value="$modelId" placeholder="{{ __('dashboard.Choose a model…') }}">
                                 @foreach ($models as $model)
-                                    <krikkit:select.option :value="$model->id" :selected="$modelId === $model->id">
+                                    <studio:select.option :value="$model->id" :selected="$modelId === $model->id">
                                         {{ $model->label }}
-                                    </krikkit:select.option>
+                                    </studio:select.option>
                                 @endforeach
-                            </krikkit:select>
-                        </krikkit:field>
+                            </studio:select>
+                        </studio:field>
 
-                        <krikkit:field :label="__('dashboard.Project type')">
-                            <krikkit:select wire:model.live="scenarioId" :value="$scenarioId" placeholder="{{ __('dashboard.Choose a type…') }}">
+                        <studio:field :label="__('dashboard.Project type')">
+                            <studio:select wire:model.live="scenarioId" :value="$scenarioId" placeholder="{{ __('dashboard.Choose a type…') }}">
                                 @foreach ($scenarios as $scenario)
-                                    <krikkit:select.option :value="$scenario['id']" :selected="$scenarioId === $scenario['id']">
+                                    <studio:select.option :value="$scenario['id']" :selected="$scenarioId === $scenario['id']">
                                         {{ $scenario['label'] }}
-                                    </krikkit:select.option>
+                                    </studio:select.option>
                                 @endforeach
-                            </krikkit:select>
-                        </krikkit:field>
+                            </studio:select>
+                        </studio:field>
                     </div>
 
                     @if ($project && $activeScenario)
@@ -467,15 +467,15 @@
                             }"
                         >
                             <div>
-                                <p class="text-xs uppercase tracking-wide text-krikkit-muted">{{ __('dashboard.Estimated API cost') }}</p>
+                                <p class="text-xs uppercase tracking-wide text-studio-muted">{{ __('dashboard.Estimated API cost') }}</p>
                                 <p
-                                    class="mt-1 text-3xl font-semibold tracking-tight tabular-nums text-krikkit-fg"
+                                    class="mt-1 text-3xl font-semibold tracking-tight tabular-nums text-studio-fg"
                                     x-text="costLabel()"
                                 ></p>
                             </div>
 
-                            <krikkit:field :label="__('dashboard.Projects')">
-                                <krikkit:slider
+                            <studio:field :label="__('dashboard.Projects')">
+                                <studio:slider
                                     :min="$projectCountMin"
                                     :max="$projectCountMax"
                                     step="1"
@@ -486,9 +486,9 @@
                                 <x-slot:description>
                                     <span x-text="countLabel()"></span>
                                 </x-slot:description>
-                            </krikkit:field>
+                            </studio:field>
 
-                            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-krikkit-muted">
+                            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-studio-muted">
                                 <span x-text="inputTokensLabel()"></span>
                                 <span x-text="outputTokensLabel()"></span>
                                 @if ($pricing)
@@ -499,15 +499,15 @@
                                 @endif
                             </div>
 
-                            <p class="text-xs leading-relaxed text-krikkit-muted">
+                            <p class="text-xs leading-relaxed text-studio-muted">
                                 {{ $activeScenario['blurb'] }}
                             </p>
                         </div>
                     @endif
                 @else
-                    <krikkit:callout tone="warning">
-                        <krikkit:callout.text>{{ __('dashboard.No models registered for this provider in :file.', ['file' => 'config/ai.php']) }}</krikkit:callout.text>
-                    </krikkit:callout>
+                    <studio:callout tone="warning">
+                        <studio:callout.text>{{ __('dashboard.No models registered for this provider in :file.', ['file' => 'config/ai.php']) }}</studio:callout.text>
+                    </studio:callout>
                 @endif
             </div>
         </section>

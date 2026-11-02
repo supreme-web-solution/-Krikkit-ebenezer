@@ -1,4 +1,4 @@
-// Krikkit Lab — node CLI shim for the virtual shell.
+// Supreme Lab — node CLI shim for the virtual shell.
 
 import type { ShellCommand } from "../shell-types";
 import type { PmDeps } from "./pm-types";

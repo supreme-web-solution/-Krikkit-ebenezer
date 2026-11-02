@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from 'react'
 
-export const SESSION_TOKEN_CHANGE = 'krikkit:session-token-change'
+export const SESSION_TOKEN_CHANGE = 'studio:session-token-change'
 
 /** @typedef {{ input: number, output: number, cached: number, cacheCreation: number }} TokenTotals */
 
@@ -182,24 +182,24 @@ export function SessionTokenBadge({ projectUuid = null }) {
 
     return (
         <div
-            className="flex shrink-0 items-center gap-2 font-mono text-[11px] tabular-nums text-krikkit-muted"
+            className="flex shrink-0 items-center gap-2 font-mono text-[11px] tabular-nums text-studio-muted"
             title="Session tokens — input / output / cached (prompt-cache hits). Console: tokens"
             data-token-metrics="session"
         >
             <span>
                 in
                 {' '}
-                <span className="text-krikkit-fg">{inTokens.toLocaleString()}</span>
+                <span className="text-studio-fg">{inTokens.toLocaleString()}</span>
             </span>
-            <span className="text-krikkit-subtle" aria-hidden>·</span>
+            <span className="text-studio-subtle" aria-hidden>·</span>
             <span>
                 out
                 {' '}
-                <span className="text-krikkit-fg">{outTokens.toLocaleString()}</span>
+                <span className="text-studio-fg">{outTokens.toLocaleString()}</span>
             </span>
             {cachedTokens > 0 && (
                 <>
-                    <span className="text-krikkit-subtle" aria-hidden>·</span>
+                    <span className="text-studio-subtle" aria-hidden>·</span>
                     <span>
                         cache
                         {' '}

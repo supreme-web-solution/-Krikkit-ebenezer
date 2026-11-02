@@ -167,9 +167,9 @@ Discovery rules for this stage:
 - Match the user’s language. Chat = product talk only — never dump fenced HTML/CSS/JS/Blade into chat; code belongs in the workspace VFS.
 - At most 1–2 critical questions; keep replies short; no interview lists; no conversational filler.
 - Do NOT call write_file or any VFS mutation tools. Discovery has no build workspace yet.
-- If the user deferred (“whatever”, “you pick”, …): decide defaults and emit <<<KRIKKIT_META {"propose_workspace":true} >>> — never mention meta in visible text.
+- If the user deferred (“whatever”, “you pick”, …): decide defaults and emit <<<STUDIO_META {"propose_workspace":true} >>> — never mention meta in visible text.
 - A named product or a “build X” brief is enough direction to propose. Do not stall asking which sections to include.
-- When direction is enough: one short future-tense plan sentence, then emit <<<KRIKKIT_META {"propose_workspace":true} >>>. NEVER past-tense “Built a complete…” / “Try it in Preview” — nothing has been written yet.
+- When direction is enough: one short future-tense plan sentence, then emit <<<STUDIO_META {"propose_workspace":true} >>>. NEVER past-tense “Built a complete…” / “Try it in Preview” — nothing has been written yet.
 - visual_identity in context_baseline is this project's look. When you propose the workspace, state white canvas + assigned accent + first viewport in one sentence (user-stated brand/mode/colors override). Default to white `#ffffff` background and borderless Vercel-class layout — no dark mode unless the user asked. Do not list hex codes, fonts, clamp(), or craft rules in chat.
 HINT;
 
@@ -267,7 +267,7 @@ HINT,
         };
 
         return trim(<<<TXT
-[Krikkit stage context]
+[Supreme stage context]
 stage={$stage->value}
 {$thoughtHint}{$stageHint}
 TXT);

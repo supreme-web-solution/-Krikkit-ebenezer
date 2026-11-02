@@ -10,7 +10,7 @@ return [
     | Uses PHP ZipArchive only — no git CLI (shared hosting friendly).
     */
     'github' => [
-        'user_agent' => env('GITHUB_USER_AGENT', 'Krikkit-Lab'),
+        'user_agent' => env('GITHUB_USER_AGENT', 'Supreme-Lab'),
         'timeout' => (int) env('LAB_GITHUB_TIMEOUT', 60),
         'connect_timeout' => (int) env('LAB_GITHUB_CONNECT_TIMEOUT', 15),
         'disable_proxy' => filter_var(env('LAB_GITHUB_DISABLE_PROXY', true), FILTER_VALIDATE_BOOL),

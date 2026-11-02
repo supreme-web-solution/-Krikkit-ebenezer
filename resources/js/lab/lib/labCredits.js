@@ -4,8 +4,8 @@
 
 import { readLabEntitlement } from './entitlement'
 
-export const LAB_CREDITS_CHANGE = 'krikkit:lab-credits'
-export const LAB_CREDITS_EXHAUSTED = 'krikkit:lab-credits-exhausted'
+export const LAB_CREDITS_CHANGE = 'studio:lab-credits'
+export const LAB_CREDITS_EXHAUSTED = 'studio:lab-credits-exhausted'
 
 export function readLabCredits() {
     const snapshot = readLabEntitlement()

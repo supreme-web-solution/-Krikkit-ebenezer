@@ -32,10 +32,10 @@ function ChromeIconButton({
             disabled={disabled}
             onClick={onClick}
             className={[
-                'inline-flex h-6 w-6 shrink-0 items-center justify-center text-krikkit-muted transition-colors',
-                'hover:text-krikkit-fg',
+                'inline-flex h-6 w-6 shrink-0 items-center justify-center text-studio-muted transition-colors',
+                'hover:text-studio-fg',
                 'disabled:pointer-events-none disabled:opacity-30',
-                active ? 'text-krikkit-fg' : '',
+                active ? 'text-studio-fg' : '',
             ].join(' ')}
         >
             {children}
@@ -86,7 +86,7 @@ function PillPath({ path, label, reveal = false }) {
         <span className="inline-flex min-w-0 items-center text-xs">
             <span
                 className={[
-                    'inline-block overflow-hidden whitespace-nowrap text-krikkit-subtle transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                    'inline-block overflow-hidden whitespace-nowrap text-studio-subtle transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
                     reveal
                         ? 'max-w-4 translate-x-0 opacity-100'
                         : 'max-w-0 -translate-x-1.5 opacity-0',
@@ -98,7 +98,7 @@ function PillPath({ path, label, reveal = false }) {
             </span>
             <span
                 className={[
-                    'min-w-0 truncate text-krikkit-fg transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                    'min-w-0 truncate text-studio-fg transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
                     isHome
                         ? (reveal
                             ? 'max-w-0 opacity-0'
@@ -113,7 +113,7 @@ function PillPath({ path, label, reveal = false }) {
 }
 
 /**
- * Compact pill chrome for the Lab site preview — Krikkit tokens, no shadows.
+ * Compact pill chrome for the Lab site preview — Supreme tokens, no shadows.
  */
 export function PreviewChrome({
     pages = [],
@@ -239,7 +239,7 @@ export function PreviewChrome({
     }
 
     return (
-        <div className="relative flex h-10 shrink-0 items-center gap-1.5 border-b border-krikkit-line bg-krikkit-canvas px-3">
+        <div className="relative flex h-10 shrink-0 items-center gap-1.5 border-b border-studio-line bg-studio-canvas px-3">
             {(menuOpen || toolsOpen) && (
                 <button
                     type="button"
@@ -275,8 +275,8 @@ export function PreviewChrome({
                         className={[
                             'group/path flex h-7 w-full items-center gap-2 rounded-lg border px-2.5 text-left transition-colors',
                             menuOpen
-                                ? 'border-krikkit-fg text-krikkit-fg'
-                                : 'border-krikkit-line text-krikkit-muted hover:border-krikkit-fg/40 hover:text-krikkit-fg',
+                                ? 'border-studio-fg text-studio-fg'
+                                : 'border-studio-line text-studio-muted hover:border-studio-fg/40 hover:text-studio-fg',
                         ].join(' ')}
                     >
                         <PillPath path={currentPath} label={activePage.label} reveal={menuOpen} />
@@ -288,7 +288,7 @@ export function PreviewChrome({
                             >
                                 <span
                                     className={[
-                                        'lab-status-label overflow-hidden whitespace-nowrap text-[10px] tabular-nums text-krikkit-subtle',
+                                        'lab-status-label overflow-hidden whitespace-nowrap text-[10px] tabular-nums text-studio-subtle',
                                         statusExpanded
                                             ? 'lab-status-label--open'
                                             : 'lab-status-label--closed',
@@ -306,16 +306,16 @@ export function PreviewChrome({
                                             live: 'bg-emerald-500',
                                             busy: 'bg-amber-500',
                                             error: 'bg-red-500',
-                                            paused: 'bg-krikkit-subtle',
-                                            idle: 'bg-krikkit-subtle',
-                                        }[statusKind] || 'bg-krikkit-subtle',
+                                            paused: 'bg-studio-subtle',
+                                            idle: 'bg-studio-subtle',
+                                        }[statusKind] || 'bg-studio-subtle',
                                     ].join(' ')}
                                     aria-hidden
                                 />
                             </span>
                             <ChevronDown
                                 className={[
-                                    'size-3.5 text-krikkit-subtle transition-transform',
+                                    'size-3.5 text-studio-subtle transition-transform',
                                     menuOpen ? 'rotate-180' : '',
                                 ].join(' ')}
                                 strokeWidth={1.75}
@@ -326,10 +326,10 @@ export function PreviewChrome({
                     {menuOpen && (
                         <div
                             role="menu"
-                            className="absolute left-0 top-full z-50 mt-1.5 w-full overflow-hidden rounded-xl border border-krikkit-line bg-krikkit-surface"
+                            className="absolute left-0 top-full z-50 mt-1.5 w-full overflow-hidden rounded-xl border border-studio-line bg-studio-surface"
                         >
                             <form onSubmit={submitSearch} className="flex items-center gap-2 px-3 py-2">
-                                <Search className="size-3.5 shrink-0 text-krikkit-subtle" strokeWidth={1.75} />
+                                <Search className="size-3.5 shrink-0 text-studio-subtle" strokeWidth={1.75} />
                                 <input
                                     ref={searchRef}
                                     value={query}
@@ -337,10 +337,10 @@ export function PreviewChrome({
                                     spellCheck={false}
                                     aria-label="Find page or enter path"
                                     placeholder="Find page or enter path"
-                                    className="min-w-0 flex-1 bg-transparent text-xs text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                                    className="min-w-0 flex-1 bg-transparent text-xs text-studio-fg outline-none placeholder:text-studio-subtle"
                                 />
                             </form>
-                            <div className="border-t border-krikkit-line p-1">
+                            <div className="border-t border-studio-line p-1">
                                 {visiblePages.map((page) => {
                                     const active = page.path === currentPath
                                     return (
@@ -352,8 +352,8 @@ export function PreviewChrome({
                                             className={[
                                                 'flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-xs transition',
                                                 active
-                                                    ? 'bg-krikkit-soft text-krikkit-fg'
-                                                    : 'text-krikkit-muted hover:bg-krikkit-soft hover:text-krikkit-fg',
+                                                    ? 'bg-studio-soft text-studio-fg'
+                                                    : 'text-studio-muted hover:bg-studio-soft hover:text-studio-fg',
                                             ].join(' ')}
                                         >
                                             <span className="inline-flex w-3.5 shrink-0 justify-center">
@@ -368,17 +368,17 @@ export function PreviewChrome({
                                         type="button"
                                         role="menuitem"
                                         onClick={() => go(goToPath)}
-                                        className="flex w-full items-center gap-2 rounded-lg bg-krikkit-soft px-2 py-1.5 text-left text-xs text-krikkit-fg"
+                                        className="flex w-full items-center gap-2 rounded-lg bg-studio-soft px-2 py-1.5 text-left text-xs text-studio-fg"
                                     >
-                                        <ArrowRight className="size-3.5 shrink-0 text-krikkit-subtle" strokeWidth={1.75} />
+                                        <ArrowRight className="size-3.5 shrink-0 text-studio-subtle" strokeWidth={1.75} />
                                         <span className="min-w-0 truncate">
-                                            <span className="text-krikkit-subtle">Go to </span>
+                                            <span className="text-studio-subtle">Go to </span>
                                             <span className="font-medium">{query.trim()}</span>
                                         </span>
                                     </button>
                                 )}
                                 {! visiblePages.length && ! showGoTo && (
-                                    <p className="px-2 py-1.5 text-xs text-krikkit-subtle">No pages</p>
+                                    <p className="px-2 py-1.5 text-xs text-studio-subtle">No pages</p>
                                 )}
                             </div>
                         </div>
@@ -403,7 +403,7 @@ export function PreviewChrome({
                             rel="noopener noreferrer"
                             title="Open in new tab"
                             aria-label="Open in new tab"
-                            className="inline-flex h-6 w-6 shrink-0 items-center justify-center text-krikkit-muted transition-colors hover:text-krikkit-fg"
+                            className="inline-flex h-6 w-6 shrink-0 items-center justify-center text-studio-muted transition-colors hover:text-studio-fg"
                         >
                             <ExternalLink className="size-3.5" strokeWidth={1.75} />
                         </a>
@@ -428,12 +428,12 @@ export function PreviewChrome({
                     {toolsOpen && (
                         <div
                             role="menu"
-                            className="absolute right-0 top-full z-50 mt-1.5 w-44 overflow-hidden rounded-xl border border-krikkit-line bg-krikkit-surface p-1.5"
+                            className="absolute right-0 top-full z-50 mt-1.5 w-44 overflow-hidden rounded-xl border border-studio-line bg-studio-surface p-1.5"
                         >
                             <button
                                 type="button"
                                 role="menuitem"
-                                className="block w-full rounded-lg px-2 py-1.5 text-left text-[13px] text-krikkit-fg transition hover:bg-krikkit-soft"
+                                className="block w-full rounded-lg px-2 py-1.5 text-left text-[13px] text-studio-fg transition hover:bg-studio-soft"
                                 onClick={() => {
                                     setToolsOpen(false)
                                     onCopyAddress?.()
@@ -444,7 +444,7 @@ export function PreviewChrome({
                             <button
                                 type="button"
                                 role="menuitem"
-                                className="block w-full rounded-lg px-2 py-1.5 text-left text-[13px] text-krikkit-fg transition hover:bg-krikkit-soft"
+                                className="block w-full rounded-lg px-2 py-1.5 text-left text-[13px] text-studio-fg transition hover:bg-studio-soft"
                                 onClick={() => {
                                     setToolsOpen(false)
                                     onHardReload?.()
@@ -452,7 +452,7 @@ export function PreviewChrome({
                             >
                                 Hard reload
                             </button>
-                            <p className="mx-1.5 mt-1 border-t border-krikkit-line px-0.5 pt-1.5 text-[10px] text-krikkit-subtle">
+                            <p className="mx-1.5 mt-1 border-t border-studio-line px-0.5 pt-1.5 text-[10px] text-studio-subtle">
                                 {viewport.label}
                                 {viewport.width ? ` · ${viewport.width}px` : ' · fluid'}
                             </p>

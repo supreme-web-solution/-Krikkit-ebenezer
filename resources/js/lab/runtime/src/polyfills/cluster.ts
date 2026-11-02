@@ -1,4 +1,4 @@
-// Krikkit Lab — node:cluster polyfill (stub - not available in browser, always reports as primary).
+// Supreme Lab — node:cluster polyfill (stub - not available in browser, always reports as primary).
 
 import { EventEmitter } from "./events";
 

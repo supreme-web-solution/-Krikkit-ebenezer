@@ -1,4 +1,4 @@
-// Krikkit Lab — node:util polyfill.
+// Supreme Lab — node:util polyfill.
 
 import { Buffer } from "./buffer";
 

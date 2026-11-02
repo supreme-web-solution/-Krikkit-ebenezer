@@ -30,7 +30,7 @@ class ApplicationsComponent extends Component
     {
         $this->authorizeDesk();
         $broker->unlink(auth()->user());
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'unlink-github' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'unlink-github' }))");
         $this->pulseOk(__('settings.GitHub disconnected.'));
     }
 
@@ -38,7 +38,7 @@ class ApplicationsComponent extends Component
     {
         $this->authorizeDesk();
         $broker->unlink(auth()->user());
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'unlink-supabase' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'unlink-supabase' }))");
         $this->pulseOk(__('settings.Supabase disconnected.'));
     }
 

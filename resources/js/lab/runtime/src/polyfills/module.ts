@@ -1,4 +1,4 @@
-// Krikkit Lab — node:module polyfill.
+// Supreme Lab — node:module polyfill.
 
 export const builtinModules: string[] = [
   "assert",

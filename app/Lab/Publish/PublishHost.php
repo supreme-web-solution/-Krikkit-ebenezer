@@ -101,10 +101,10 @@ final class PublishHost
         $parent = $this->config->parentDomain();
 
         if ($host === $appHost || $host === $parent) {
-            throw new InvalidArgumentException(__('dashboard.That host is used by Krikkit itself.'));
+            throw new InvalidArgumentException(__('dashboard.That host is used by Supreme itself.'));
         }
         if ($appHost !== '' && (str_ends_with($host, '.'.$appHost) || $host === $appHost)) {
-            throw new InvalidArgumentException(__('dashboard.That host is used by Krikkit itself.'));
+            throw new InvalidArgumentException(__('dashboard.That host is used by Supreme itself.'));
         }
         if (str_ends_with($host, '.'.$parent) || $host === $parent) {
             throw new InvalidArgumentException(__('dashboard.Use the subdomain option for hosts under :domain.', [

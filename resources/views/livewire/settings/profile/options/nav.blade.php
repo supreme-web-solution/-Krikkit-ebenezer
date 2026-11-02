@@ -3,7 +3,7 @@
     $nav = $nav ?? [];
 @endphp
 
-<nav class="-mx-1 flex gap-1 overflow-x-auto border-b border-krikkit-line pb-px" aria-label="{{ __('settings.Profile') }}">
+<nav class="-mx-1 flex gap-1 overflow-x-auto border-b border-studio-line pb-px" aria-label="{{ __('settings.Profile') }}">
     @foreach ($nav as $item)
         @php $active = $section === $item['key']; @endphp
         <a
@@ -11,8 +11,8 @@
             wire:navigate
             @class([
                 '-mb-px shrink-0 border-b px-3 py-2 text-sm font-medium transition',
-                'border-krikkit-fg text-krikkit-fg' => $active,
-                'border-transparent text-krikkit-muted hover:text-krikkit-fg' => ! $active,
+                'border-studio-fg text-studio-fg' => $active,
+                'border-transparent text-studio-muted hover:text-studio-fg' => ! $active,
             ])
         >
             {{ $item['label'] }}

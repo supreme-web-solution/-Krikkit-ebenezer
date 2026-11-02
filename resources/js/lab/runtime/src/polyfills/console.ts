@@ -1,4 +1,4 @@
-// Krikkit Lab — node:console polyfill.
+// Supreme Lab — node:console polyfill.
 
 import { inspect } from "./util";
 

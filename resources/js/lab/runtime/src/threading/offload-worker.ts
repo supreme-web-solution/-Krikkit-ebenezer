@@ -1,4 +1,4 @@
-// Krikkit Lab — dedicated offload worker entry.
+// Supreme Lab — dedicated offload worker entry.
 
 // offload worker entry — runs transform/extract/build tasks on a dedicated thread
 // tar parser and base64 helpers are duplicated since workers can't share module state

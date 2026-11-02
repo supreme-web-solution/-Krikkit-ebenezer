@@ -70,7 +70,7 @@ export function LabTooltip({
                     role="tooltip"
                     className={[
                         'pointer-events-none absolute z-50 whitespace-nowrap rounded-md',
-                        'bg-krikkit-fill px-2 py-1 text-xs text-krikkit-on-fill',
+                        'bg-studio-fill px-2 py-1 text-xs text-studio-on-fill',
                         POS[position] || POS.top,
                     ].join(' ')}
                 >

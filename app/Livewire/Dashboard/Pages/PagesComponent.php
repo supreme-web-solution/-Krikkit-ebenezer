@@ -33,7 +33,7 @@ class PagesComponent extends Component
     {
         Gate::authorize('pages.retire');
         $this->confirmPublicId = $publicId;
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'retire-page' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'retire-page' }))");
     }
 
     public function confirmPending(): void
@@ -42,7 +42,7 @@ class PagesComponent extends Component
 
         $publicId = $this->confirmPublicId;
         $this->reset('confirmPublicId');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'retire-page' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'retire-page' }))");
 
         $page = SitePage::query()->where('public_id', $publicId)->firstOrFail();
         $page->delete();

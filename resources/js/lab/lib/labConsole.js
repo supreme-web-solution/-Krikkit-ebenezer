@@ -25,7 +25,7 @@ function bootConsole() {
 
 export function labConsoleName() {
     const name = String(bootConsole().name || '').trim()
-    return name || 'Krikkit Lab'
+    return name || 'Supreme Lab'
 }
 
 export function labConsoleSlug() {

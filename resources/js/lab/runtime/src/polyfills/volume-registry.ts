@@ -1,4 +1,4 @@
-// Krikkit Lab — node:volume-registry polyfill.
+// Supreme Lab — node:volume-registry polyfill.
 
 
 import type { MemoryVolume } from "../memory-volume";

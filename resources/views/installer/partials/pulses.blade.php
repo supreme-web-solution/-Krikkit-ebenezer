@@ -38,10 +38,10 @@
         x-init="
             const packets = {{ Js::from($pulses) }};
             const sig = {{ Js::from($pulseKey) }};
-            if (window.__krikkitInstallerPulseSig === sig) {
+            if (window.__studioInstallerPulseSig === sig) {
                 return;
             }
-            window.__krikkitInstallerPulseSig = sig;
+            window.__studioInstallerPulseSig = sig;
             packets.forEach((packet) => {
                 window.dispatchEvent(new CustomEvent({{ Js::from(Pulse::EVENT) }}, { detail: packet }));
             });

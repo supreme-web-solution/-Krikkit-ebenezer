@@ -1,4 +1,4 @@
-// Krikkit Lab — SharedArrayBuffer-backed read-only VFS mirror.
+// Supreme Lab — SharedArrayBuffer-backed read-only VFS mirror.
 
 // SharedVFS — SharedArrayBuffer-backed VFS for synchronous cross-thread reads.
 //

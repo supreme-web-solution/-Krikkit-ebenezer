@@ -1,4 +1,4 @@
-// Krikkit Lab — node:crypto polyfill.
+// Supreme Lab — node:crypto polyfill.
 
 import { scrypt as nobleScrypt } from "@noble/hashes/scrypt";
 import { Buffer } from "./buffer";

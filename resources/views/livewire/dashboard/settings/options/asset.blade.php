@@ -8,14 +8,14 @@
 
 <div class="space-y-1.5">
     <div class="flex items-center justify-between gap-3">
-        <krikkit:field.label>{{ $label }}</krikkit:field.label>
+        <studio:field.label>{{ $label }}</studio:field.label>
         @if ($preview)
-            <krikkit:button type="button" variant="ghost" size="sm" wire:click="dropAsset('{{ $property }}')">
+            <studio:button type="button" variant="ghost" size="sm" wire:click="dropAsset('{{ $property }}')">
                 {{ __('dashboard.Remove') }}
-            </krikkit:button>
+            </studio:button>
         @endif
     </div>
-    <krikkit:fileUpload
+    <studio:fileUpload
         :accept="$accept"
         :label="__('dashboard.Drop files here or browse')"
         :caption="$hint ?? __('dashboard.PNG, JPG, SVG…')"
@@ -23,6 +23,6 @@
         wire:model="{{ $property }}"
     />
     @error($property)
-        <krikkit:field.error>{{ $message }}</krikkit:field.error>
+        <studio:field.error>{{ $message }}</studio:field.error>
     @enderror
 </div>

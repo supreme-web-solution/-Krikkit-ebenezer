@@ -1,4 +1,4 @@
-// Krikkit Lab — on-demand fs proxy for lean spawn snapshots.
+// Supreme Lab — on-demand fs proxy for lean spawn snapshots.
 
 // Synchronous fs proxy client for lean spawn mode. The process worker blocks
 // on a SAB + Atomics.wait round-trip to the main thread, which services the

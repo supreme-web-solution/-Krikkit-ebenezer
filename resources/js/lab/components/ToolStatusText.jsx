@@ -16,8 +16,8 @@ export function ToolStatusText({
             className={className || undefined}
             speed={1.5}
             delay={0}
-            color="var(--color-krikkit-muted)"
-            shineColor="var(--color-krikkit-fg-soft)"
+            color="var(--color-studio-muted)"
+            shineColor="var(--color-studio-fg-soft)"
             spread={75}
             direction="left"
             yoyo={false}

@@ -1,4 +1,4 @@
-// Krikkit Lab — per-process execution context (replaces module-level mutable state).
+// Supreme Lab — per-process execution context (replaces module-level mutable state).
 // Replaces module-level mutable state (the old `let _xxx` in child_process, fs, etc.).
 // One active context on main thread; each worker gets its own.
 

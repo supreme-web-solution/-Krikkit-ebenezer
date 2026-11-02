@@ -1,4 +1,4 @@
-// Krikkit Lab — node:readdirp polyfill.
+// Supreme Lab — node:readdirp polyfill.
 
 
 import type { MemoryVolume, FileStat } from "../memory-volume";

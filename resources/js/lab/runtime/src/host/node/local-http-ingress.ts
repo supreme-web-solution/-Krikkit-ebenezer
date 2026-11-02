@@ -1,4 +1,4 @@
-// Krikkit Lab — Node headless localhost HTTP ingress.
+// Supreme Lab — Node headless localhost HTTP ingress.
 
 import http from "node:http";
 import type { IncomingMessage, ServerResponse } from "node:http";

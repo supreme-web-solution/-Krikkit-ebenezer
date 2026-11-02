@@ -1,90 +1,90 @@
 <div class="space-y-8">
     <div class="flex flex-wrap items-end justify-between gap-3">
         <div class="min-w-0">
-            <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.Languages') }}</h1>
-            <p class="mt-0.5 text-xs text-krikkit-muted">{{ __('dashboard.Add locales, then translate existing UI phrases.') }}</p>
+            <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.Languages') }}</h1>
+            <p class="mt-0.5 text-xs text-studio-muted">{{ __('dashboard.Add locales, then translate existing UI phrases.') }}</p>
         </div>
         @allows('languages.compose')
-            <krikkit:button
+            <studio:button
                 href="{{ route('dashboard.languages.create') }}"
                 variant="ghost"
                 square
                 size="sm"
                 aria-label="{{ __('dashboard.New language') }}"
             >
-                <krikkit:icon name="plus" class="size-4" />
-            </krikkit:button>
+                <studio:icon name="plus" class="size-4" />
+            </studio:button>
         @endallows
     </div>
 
     @if ($languages->isEmpty())
-        <p class="text-sm text-krikkit-muted">{{ __('dashboard.No languages yet.') }}</p>
+        <p class="text-sm text-studio-muted">{{ __('dashboard.No languages yet.') }}</p>
     @else
-        <krikkit:table>
-            <krikkit:table.columns>
-                <krikkit:table.column>{{ __('dashboard.Language') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Code') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Status') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Phrases') }}</krikkit:table.column>
-                <krikkit:table.column align="right"></krikkit:table.column>
-            </krikkit:table.columns>
-            <krikkit:table.rows>
+        <studio:table>
+            <studio:table.columns>
+                <studio:table.column>{{ __('dashboard.Language') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Code') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Status') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Phrases') }}</studio:table.column>
+                <studio:table.column align="right"></studio:table.column>
+            </studio:table.columns>
+            <studio:table.rows>
                 @foreach ($languages as $language)
                     @php
                         $done = $language->code === $sourceLocale
                             ? $totalPhrases
                             : (int) ($filledCounts[$language->id] ?? 0);
                     @endphp
-                    <krikkit:table.row>
-                        <krikkit:table.cell>
-                            <p class="truncate text-xs font-medium text-krikkit-fg">{{ $language->name }}</p>
+                    <studio:table.row>
+                        <studio:table.cell>
+                            <p class="truncate text-xs font-medium text-studio-fg">{{ $language->name }}</p>
                             @if (filled($language->native_name) && $language->native_name !== $language->name)
-                                <p class="truncate text-[11px] text-krikkit-muted">{{ $language->native_name }}</p>
+                                <p class="truncate text-[11px] text-studio-muted">{{ $language->native_name }}</p>
                             @endif
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-muted">{{ $language->code }}</span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-muted">{{ $language->code }}</span>
+                        </studio:table.cell>
+                        <studio:table.cell>
                             <div class="flex flex-wrap items-center gap-1">
                                 @if ($language->is_default)
-                                    <krikkit:badge color="teal" size="xs">{{ __('dashboard.Default') }}</krikkit:badge>
+                                    <studio:badge color="teal" size="xs">{{ __('dashboard.Default') }}</studio:badge>
                                 @endif
                                 @if ($language->enabled)
-                                    <krikkit:badge size="xs">{{ __('dashboard.Enabled') }}</krikkit:badge>
+                                    <studio:badge size="xs">{{ __('dashboard.Enabled') }}</studio:badge>
                                 @else
-                                    <krikkit:badge size="xs">{{ __('dashboard.Disabled') }}</krikkit:badge>
+                                    <studio:badge size="xs">{{ __('dashboard.Disabled') }}</studio:badge>
                                 @endif
                             </div>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-muted">{{ $done }} / {{ $totalPhrases }}</span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell align="right">
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-muted">{{ $done }} / {{ $totalPhrases }}</span>
+                        </studio:table.cell>
+                        <studio:table.cell align="right">
                             <div class="inline-flex items-center gap-1">
                                 @allows('languages.revise')
-                                    <krikkit:button
+                                    <studio:button
                                         href="{{ route('dashboard.languages.translate', $language) }}"
                                         variant="ghost"
                                         square
                                         size="sm"
                                         aria-label="{{ __('dashboard.Translate') }}"
                                     >
-                                        <krikkit:icon name="language" class="size-4" />
-                                    </krikkit:button>
-                                    <krikkit:button
+                                        <studio:icon name="language" class="size-4" />
+                                    </studio:button>
+                                    <studio:button
                                         href="{{ route('dashboard.languages.edit', $language) }}"
                                         variant="ghost"
                                         square
                                         size="sm"
                                         aria-label="{{ __('dashboard.Edit') }}"
                                     >
-                                        <krikkit:icon name="pencil" class="size-4" />
-                                    </krikkit:button>
+                                        <studio:icon name="pencil" class="size-4" />
+                                    </studio:button>
                                 @endallows
                                 @allows('languages.retire')
                                     @unless ($language->is_default)
-                                        <krikkit:button
+                                        <studio:button
                                             type="button"
                                             variant="ghost"
                                             square
@@ -92,23 +92,23 @@
                                             wire:click="askRetire('{{ $language->public_id }}')"
                                             aria-label="{{ __('dashboard.Retire') }}"
                                         >
-                                            <krikkit:icon name="trash" class="size-4" />
-                                        </krikkit:button>
+                                            <studio:icon name="trash" class="size-4" />
+                                        </studio:button>
                                     @endunless
                                 @endallows
                             </div>
-                        </krikkit:table.cell>
-                    </krikkit:table.row>
+                        </studio:table.cell>
+                    </studio:table.row>
                 @endforeach
-            </krikkit:table.rows>
-        </krikkit:table>
+            </studio:table.rows>
+        </studio:table>
     @endif
 
-    <krikkit:confirm name="retire-language" :title="__('dashboard.Retire language')" :copy="__('dashboard.Retire this language?')">
+    <studio:confirm name="retire-language" :title="__('dashboard.Retire language')" :copy="__('dashboard.Retire this language?')">
         <x-slot:action>
-            <krikkit:button type="button" variant="danger" wire:click="confirmPending">
+            <studio:button type="button" variant="danger" wire:click="confirmPending">
                 {{ __('dashboard.Retire') }}
-            </krikkit:button>
+            </studio:button>
         </x-slot:action>
-    </krikkit:confirm>
+    </studio:confirm>
 </div>

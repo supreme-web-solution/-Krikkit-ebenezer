@@ -84,14 +84,14 @@ class ShowComponent extends Component
     {
         Gate::authorize('contacts.revise');
         $this->confirmPublicId = $this->contact->public_id;
-        $this->dispatch('krikkit-modal-open', 'remove-contact');
+        $this->dispatch('studio-modal-open', 'remove-contact');
     }
 
     public function confirmPending(): void
     {
         Gate::authorize('contacts.revise');
         $this->reset('confirmPublicId');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'remove-contact' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'remove-contact' }))");
         $this->contact->delete();
         Pulse::ok(__('dashboard.Contact removed.'));
         $this->redirect(route('dashboard.contacts.index'), navigate: true);

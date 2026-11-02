@@ -1,4 +1,4 @@
-// Krikkit Lab — FIFO task queue for worker scheduling.
+// Supreme Lab — FIFO task queue for worker scheduling.
 
 // TaskQueue — priority-sorted queue that dispatches tasks to the WorkerPool.
 

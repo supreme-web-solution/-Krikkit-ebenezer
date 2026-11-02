@@ -1,18 +1,18 @@
-# Krikkit — Full Documentation
+# Supreme — Full Documentation
 
-> Krikkit documentation by deep42.
+> Supreme documentation by deep42.
 
 # Introduction
 
-# Welcome to Krikkit
+# Welcome to Supreme
 
-Krikkit is an AI-assisted web project builder SaaS developed by **deep42**. This Laravel-based platform lets you run a product where users generate, preview, edit, and publish web projects through an integrated builder workspace—with billing and admin controls included.
+Supreme is an AI-assisted web project builder SaaS developed by **deep42**. This Laravel-based platform lets you run a product where users generate, preview, edit, and publish web projects through an integrated builder workspace—with billing and admin controls included.
 
-You purchased Krikkit on **CodeCanyon**; this documentation covers installation, configuration, and day-to-day operation of your copy.
+You purchased Supreme on **CodeCanyon**; this documentation covers installation, configuration, and day-to-day operation of your copy.
 
-## About Krikkit
+## About Supreme
 
-Krikkit is a complete AI builder SaaS that provides:
+Supreme is a complete AI builder SaaS that provides:
 
 - **AI-driven builder workflow** — Chat, edit, and iterate on projects with tool-assisted generation
 - **Workspace and preview** — File APIs, live preview publishing, and exportable build sessions
@@ -20,9 +20,9 @@ Krikkit is a complete AI builder SaaS that provides:
 - **Production-ready billing** — Stripe and PayPal integration with webhook support
 - **Operational admin** — Roles, permissions, and dashboard analytics for running the platform
 
-## What is Krikkit?
+## What is Supreme?
 
-Krikkit is a SaaS platform for AI-assisted web development. It enables:
+Supreme is a SaaS platform for AI-assisted web development. It enables:
 
 - **End users** to create projects, chat with the AI builder, edit files in a workspace, and publish previews
 - **Operators** to manage subscriptions, usage limits, and platform settings from the admin dashboard
@@ -32,7 +32,7 @@ Krikkit is a SaaS platform for AI-assisted web development. It enables:
 
 ## Technology Stack
 
-Krikkit is built with modern web technologies:
+Supreme is built with modern web technologies:
 
 - **PHP 8.3+** — Required runtime (some dependencies and extensions expect PHP 8.3+)
 - **Laravel 13** — Backend framework for APIs, auth, billing, and jobs
@@ -80,7 +80,7 @@ Krikkit is built with modern web technologies:
 
 ## About deep42
 
-**deep42** is a software development company specializing in high-quality Laravel and Livewire applications. Krikkit is one of our premium CodeCanyon products for entrepreneurs and developers who want to launch their own AI-powered website builder SaaS.
+**deep42** is a software development company specializing in high-quality Laravel and Livewire applications. Supreme is one of our premium CodeCanyon products for entrepreneurs and developers who want to launch their own AI-powered website builder SaaS.
 
 ## Getting Started
 
@@ -98,7 +98,7 @@ Need help? Open a request on the **[Deep42 Support Hub](https://hub.deep42.co/)*
 
 <Callout>
 
-**Welcome!** This guide helps you install **Krikkit** after purchasing on **CodeCanyon**. The recommended path is the built-in web installer at `/install`.
+**Welcome!** This guide helps you install **Supreme** after purchasing on **CodeCanyon**. The recommended path is the built-in web installer at `/install`.
 
 </Callout>
 
@@ -134,7 +134,7 @@ Before you begin, make sure your server meets these requirements:
 ### Step 1: Download from CodeCanyon
 
 1. Log in to your [CodeCanyon](https://codecanyon.net) account.
-2. Open **Downloads** and download the latest **Krikkit** package.
+2. Open **Downloads** and download the latest **Supreme** package.
 3. Extract the archive on your computer.
 4. Upload the project files to your server (document root or subdomain folder).
 
@@ -260,7 +260,7 @@ OPENAI_API_KEY=
 
 Other supported providers (optional): `XAI_API_KEY`, `DEEPSEEK_API_KEY`, `GROQ_API_KEY`, `MISTRAL_API_KEY`, `ZHIPUAI_API_KEY`, `GOOGLE_AI_API_KEY`.
 
-Krikkit’s Lab preview runtime ships in the package. Without a provider key, Lab chat cannot call a model — configure a key before testing generation.
+Supreme’s Lab preview runtime ships in the package. Without a provider key, Lab chat cannot call a model — configure a key before testing generation.
 
 ### Billing
 
@@ -271,12 +271,12 @@ Krikkit’s Lab preview runtime ships in the package. Without a provider key, La
 
 ### Background processes (production)
 
-Krikkit relies on queues and the scheduler for builds, billing, and maintenance.
+Supreme relies on queues and the scheduler for builds, billing, and maintenance.
 
 **Queue worker** (Supervisor example):
 
 ```ini
-[program:krikkit-worker]
+[program:studio-worker]
 process_name=%(program_name)s_%(process_num)02d
 command=php /path/to/artisan queue:work --sleep=3 --tries=3 --max-time=3600
 autostart=true
@@ -340,7 +340,7 @@ The web installer does **not** create demo buyers or fixed example.com accounts.
 ## Post-install checklist
 
 1. Run a queue worker: `php artisan queue:work --tries=3` (Supervisor recommended)
-2. Cron every minute: `* * * * * cd /path/to/krikkit && php artisan schedule:run >> /dev/null 2>&1`
+2. Cron every minute: `* * * * * cd /path/to/studio && php artisan schedule:run >> /dev/null 2>&1`
 3. Add at least one AI provider key (`ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / …)
 4. Set `APP_URL` to your public HTTPS URL
 5. Optional: bind license under **Settings → License**; configure GitHub, Supabase, Unsplash/Pixabay as needed
@@ -397,7 +397,7 @@ Each **project** is a Lab workspace backed by a database record and on-disk file
 
 1. Open Studio (`/`) or go to `/lab`
 2. Enter a brief describing the site you want
-3. Krikkit creates the project, seeds the site kit, and opens the Lab IDE
+3. Supreme creates the project, seeds the site kit, and opens the Lab IDE
 
 ## Project title
 
@@ -455,7 +455,7 @@ Configure [Packs](/docs/packs), [Payment Gateways](/docs/payment-gateways), and 
 
 # Lab Overview
 
-The **Lab** is Krikkit’s full AI studio. Users describe a product in chat; the agent edits a real workspace; they preview, inspect, refine, connect backends, and publish.
+The **Lab** is Supreme’s full AI studio. Users describe a product in chat; the agent edits a real workspace; they preview, inspect, refine, connect backends, and publish.
 
 **URLs**
 
@@ -578,11 +578,11 @@ The view toolbar switches:
 
 ### In-browser preview (default)
 
-Krikkit compiles the project in the browser with an **DeepThought browser runtime** runtime (virtual filesystem, npm resolution, Vite/Next shims). Users iterate without Docker. The page is served under cross-origin isolation so SharedArrayBuffer / WASM work.
+Supreme compiles the project in the browser with an **DeepThought browser runtime** runtime (virtual filesystem, npm resolution, Vite/Next shims). Users iterate without Docker. The page is served under cross-origin isolation so SharedArrayBuffer / WASM work.
 
 ### Server-side Vite preview (`/preview-dev`)
 
-For heavier apps, Krikkit can start a **server Vite** process per project and proxy it at:
+For heavier apps, Supreme can start a **server Vite** process per project and proxy it at:
 
 ```
 /preview-dev/{projectUuid}/
@@ -596,7 +596,7 @@ For heavier apps, Krikkit can start a **server Vite** process per project and pr
 | Logs | `GET …/dev-preview/logs` |
 
 **Requirements:** Node **20.19+**, npm **10+**, `proc_open` enabled.  
-**Config:** `KRIKKIT_DEV_PREVIEW_*`, port range default `15000–15999` (`config/krikkit.php` → `dev_preview`).
+**Config:** `Supreme_DEV_PREVIEW_*`, port range default `15000–15999` (`config/studio.php` → `dev_preview`).
 
 ### Address bar & navigation
 
@@ -660,7 +660,7 @@ Pending styles preview live; **Apply** sends them into the AI edit pipeline.
 | Bridge | Chat “open file” cards jump to the editor |
 
 **API:** list/read/write files, file index, snapshot, sync, artifact upload.  
-**Limits:** `KRIKKIT_WORKSPACE_MAX_FILE_SIZE`, `KRIKKIT_WORKSPACE_MAX_TOTAL_BYTES`, `KRIKKIT_ALLOW_MANIFEST_EDITS` (blocks `package.json` / lockfile edits by default).
+**Limits:** `Supreme_WORKSPACE_MAX_FILE_SIZE`, `Supreme_WORKSPACE_MAX_TOTAL_BYTES`, `Supreme_ALLOW_MANIFEST_EDITS` (blocks `package.json` / lockfile edits by default).
 
 ---
 
@@ -669,7 +669,7 @@ Pending styles preview live; **Apply** sends them into the AI edit pipeline.
 Bottom **Terminal** panel:
 
 - Run sandbox commands (`npm install`, `npm run build`, …) via `POST …/workspace/terminal/execute`
-- Timeout: `KRIKKIT_WORKSPACE_TERMINAL_TIMEOUT` (default 180s)
+- Timeout: `Supreme_WORKSPACE_TERMINAL_TIMEOUT` (default 180s)
 - Audience: `BUILDER_TERMINAL_AUDIENCE=owner|technical`
 - Multi-session tabs, interrupt, minimize
 - During **auto-fix**, raw logs can stay collapsed until expanded
@@ -691,11 +691,11 @@ When Supabase is connected (see [Integrations](/docs/lab-integrations)):
 
 - Build sessions: start / status / cancel under `…/builds`
 - After AI edits, the client can run build + **auto-fix** loops (background-fix stream)
-- Thumbnails: capture from preview → `POST …/workspace/thumbnail` (`KRIKKIT_THUMBNAILS_*`)
+- Thumbnails: capture from preview → `POST …/workspace/thumbnail` (`Supreme_THUMBNAILS_*`)
 
 ## Security notes
 
-- Manifest protection unless `KRIKKIT_ALLOW_MANIFEST_EDITS=true`
+- Manifest protection unless `Supreme_ALLOW_MANIFEST_EDITS=true`
 - Concurrent builds capped per user
 - Prefer isolated workers for multi-tenant production
 
@@ -730,7 +730,7 @@ If Supabase is not connected and the user asks for auth or tables, the agent req
 | Action | Where |
 |--------|--------|
 | Authorize account | Integrations / Import from GitHub |
-| Import repo | Creates a new Krikkit project from a branch |
+| Import repo | Creates a new Supreme project from a branch |
 | Link project | Connect an existing project to a repo |
 | Push / sync | Top bar Sync |
 | Open PR | Top bar Open PR / View PR |
@@ -773,7 +773,7 @@ Open **Publish** from the builder top bar (`PublishProjectModal`).
 
 | Mode | Behavior |
 |------|----------|
-| **Subdomain** | Deploy to `{sub}.{publish_root}` — root from Application URL / `KRIKKIT_PUBLISH_SUBDOMAIN_ROOT` |
+| **Subdomain** | Deploy to `{sub}.{publish_root}` — root from Application URL / `Supreme_PUBLISH_SUBDOMAIN_ROOT` |
 | **Custom domain** | Plan-gated; show CNAME instructions; verify DNS; attach host |
 
 **API:** `GET …/workspace/publish/options`, `POST …/workspace/publish`  
@@ -799,11 +799,11 @@ Download a successful build:
 GET /projects/{projectUuid}/builds/{buildUuid}/export
 ```
 
-Artifacts under `storage/app/exports` (retention: `KRIKKIT_EXPORT_RETENTION_DAYS`).
+Artifacts under `storage/app/exports` (retention: `Supreme_EXPORT_RETENTION_DAYS`).
 
 ## Thumbnails
 
-Preview capture uploads to `POST …/workspace/thumbnail` for project cards (`KRIKKIT_THUMBNAILS_*`).
+Preview capture uploads to `POST …/workspace/thumbnail` for project cards (`Supreme_THUMBNAILS_*`).
 
 ## Operator checklist
 
@@ -836,7 +836,7 @@ Overview table lists each provider, default model, and whether keys are configur
 
 Per provider you typically set: API key (encrypted), model, temperature, max output tokens, timeout, summarization tokens, plus a cost estimator where available.
 
-**Env counterparts:** `OPENAI_*`, `ANTHROPIC_*`, `DEEPSEEK_*`, `GROK_*`, `ZHIPU_*`, `GOOGLE_AI_*`, `KRIKKIT_AI_DEFAULT`.
+**Env counterparts:** `OPENAI_*`, `ANTHROPIC_*`, `DEEPSEEK_*`, `GROK_*`, `ZHIPU_*`, `GOOGLE_AI_*`, `Supreme_AI_DEFAULT`.
 
 Admin values override `.env` when saved.
 
@@ -878,7 +878,7 @@ After keys are saved, pick the platform default under [Lab Console](/docs/builde
 
 # Roles & Permissions
 
-Krikkit uses [Krikkit ability registry](https://github.com/spatie/laravel-permission) for fine-grained access control.
+Supreme uses [Supreme ability registry](https://github.com/spatie/laravel-permission) for fine-grained access control.
 
 **Location:** Dashboard → **Admin** → **Roles**  
 **URL:** `/dashboard/roles`  
@@ -954,7 +954,7 @@ Seeded examples: Free, Pro, Business, Enterprise (+ yearly variants). User billi
 - List balances and lifetime credited/debited
 - Edit a user: grant or debit amount with description
 - Transaction history per account
-- Chat metering uses `KRIKKIT_CREDITS_*` and package monthly allotments
+- Chat metering uses `Supreme_CREDITS_*` and package monthly allotments
 
 ---
 
@@ -1164,7 +1164,7 @@ Use these screens to audit AI spend, inspect stuck projects, and review failed t
 
 # Languages
 
-Krikkit supports multiple locales. Admins add languages and edit translation strings without deploying code.
+Supreme supports multiple locales. Admins add languages and edit translation strings without deploying code.
 
 **Location:** Dashboard → **Admin** → **Languages**  
 **URL:** `/dashboard/languages`  
@@ -1275,7 +1275,7 @@ Public marketing colors and hero mesh are edited under [Frontend Sections](/docs
 
 # Email (SMTP)
 
-Krikkit does not include an admin UI for SMTP. Configure mail in your **`.env`** file (or hosting panel environment variables).
+Supreme does not include an admin UI for SMTP. Configure mail in your **`.env`** file (or hosting panel environment variables).
 
 ## Required variables
 
@@ -1355,7 +1355,7 @@ Test by registering a new user on staging with a real inbox.
 | Allow model selection | Lets users pick a model in the builder composer |
 | Notification sounds | On/off + sound key (chime, bell, pop, soft, ping, piano, none) |
 
-Related limits live in `config/krikkit.php` / `KRIKKIT_*` env vars (chat rounds, credits, preview, terminal, screenshots).
+Related limits live in `config/studio.php` / `Supreme_*` env vars (chat rounds, credits, preview, terminal, screenshots).
 
 ---
 
@@ -1542,7 +1542,7 @@ Related: [API Integration](/docs/integration), [Lab Integrations](/docs/lab-inte
 
 # Build Assets
 
-Krikkit ships a Laravel backend plus a Vite bundle for the public site, dashboard, auth screens, and the Lab React app.
+Supreme ships a Laravel backend plus a Vite bundle for the public site, dashboard, auth screens, and the Lab React app.
 
 ## Production build
 
@@ -1586,7 +1586,7 @@ Copy `.env.example` to `.env` and set values for your host. The web installer wr
 ## Core
 
 ```env
-APP_NAME=Krikkit
+APP_NAME=Supreme
 APP_URL=https://yourdomain.com
 APP_ENV=production
 APP_DEBUG=false
@@ -1597,7 +1597,7 @@ APP_DEBUG=false
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_DATABASE=krikkit
+DB_DATABASE=studio
 DB_USERNAME=
 DB_PASSWORD=
 
@@ -1768,7 +1768,7 @@ Adjust pack grants under **Dashboard → Packs** or grant credits under **Dashbo
 
 ## Custom domain stuck on pending
 
-- Add TXT record: `_krikkit-lab.{host}` = `krikkit={token}` from the Lab publish panel
+- Add TXT record: `_studio-lab.{host}` = `studio={token}` from the Lab publish panel
 - CNAME custom host to your `APP_URL` host
 
 ## Artifact upload fails

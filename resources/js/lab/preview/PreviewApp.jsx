@@ -170,41 +170,41 @@ export function PreviewApp() {
     }, [])
 
     return (
-        <div className="flex h-dvh flex-col bg-krikkit-canvas">
-            <header className="flex h-12 shrink-0 items-center gap-2 border-b border-krikkit-line px-4">
+        <div className="flex h-dvh flex-col bg-studio-canvas">
+            <header className="flex h-12 shrink-0 items-center gap-2 border-b border-studio-line px-4">
                 <a
                     href={workspaceUrl}
-                    className="inline-flex h-5 items-center truncate text-sm font-semibold leading-none tracking-tight text-krikkit-fg hover:text-accent-content"
+                    className="inline-flex h-5 items-center truncate text-sm font-semibold leading-none tracking-tight text-studio-fg hover:text-accent-content"
                 >
-                    Krikkit
+                    Supreme
                 </a>
-                <span className="text-krikkit-subtle" aria-hidden>/</span>
-                <a href={workspaceUrl} className="inline-flex h-5 items-center gap-1.5 text-sm font-medium leading-none text-krikkit-fg hover:text-accent-content">
+                <span className="text-studio-subtle" aria-hidden>/</span>
+                <a href={workspaceUrl} className="inline-flex h-5 items-center gap-1.5 text-sm font-medium leading-none text-studio-fg hover:text-accent-content">
                     <LabGlyph />
                     Lab
                 </a>
-                <span className="text-krikkit-subtle" aria-hidden>/</span>
-                <span className="min-w-0 truncate text-sm text-krikkit-muted">{title}</span>
+                <span className="text-studio-subtle" aria-hidden>/</span>
+                <span className="min-w-0 truncate text-sm text-studio-muted">{title}</span>
                 <span className="ml-auto inline-flex items-center gap-2">
-                    <span className="rounded-full border border-krikkit-line px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-krikkit-subtle">
+                    <span className="rounded-full border border-studio-line px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-studio-subtle">
                         Private
                     </span>
                     <a
                         href={workspaceUrl}
-                        className="text-xs text-krikkit-muted transition-colors hover:text-krikkit-fg"
+                        className="text-xs text-studio-muted transition-colors hover:text-studio-fg"
                     >
                         Workspace
                     </a>
                 </span>
             </header>
 
-            <div className="relative min-h-0 flex-1 bg-krikkit-canvas">
+            <div className="relative min-h-0 flex-1 bg-studio-canvas">
                 {frameSrc ? (
                     <iframe
                         ref={iframeRef}
                         title={title}
                         className={[
-                            'h-full min-h-0 w-full border-0 bg-krikkit-surface',
+                            'h-full min-h-0 w-full border-0 bg-studio-surface',
                             frameReady ? '' : 'invisible',
                         ].join(' ')}
                         sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"
@@ -215,11 +215,11 @@ export function PreviewApp() {
                 ) : null}
 
                 {! frameSrc || ! frameReady ? (
-                    <div className="absolute inset-0 flex h-full flex-col items-center justify-center gap-3 bg-krikkit-canvas px-6 text-center">
-                        <p className="text-sm font-medium text-krikkit-fg">
+                    <div className="absolute inset-0 flex h-full flex-col items-center justify-center gap-3 bg-studio-canvas px-6 text-center">
+                        <p className="text-sm font-medium text-studio-fg">
                             {status === 'missing' ? 'Preview is unavailable.' : 'Waiting for the Lab workspace…'}
                         </p>
-                        <p className="max-w-sm text-sm text-krikkit-muted">
+                        <p className="max-w-sm text-sm text-studio-muted">
                             This preview is private. Keep the workspace tab open so the in-browser dev server can stream here.
                         </p>
                         <a
@@ -233,7 +233,7 @@ export function PreviewApp() {
 
                 {pinFlash ? (
                     <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-center px-4">
-                        <span className="rounded-full border border-krikkit-line bg-krikkit-surface px-3 py-1.5 text-[12px] text-krikkit-muted">
+                        <span className="rounded-full border border-studio-line bg-studio-surface px-3 py-1.5 text-[12px] text-studio-muted">
                             {pinFlash}
                         </span>
                     </div>

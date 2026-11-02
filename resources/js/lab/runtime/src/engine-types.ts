@@ -1,4 +1,4 @@
-/** Krikkit Lab script-engine shared types. */
+/** Supreme Lab script-engine shared types. */
 
 // shared types for the script engine and its execution modes
 

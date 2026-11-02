@@ -1,4 +1,4 @@
-// Krikkit Lab — node:fsevents polyfill (stub - macOS-only native module, no-op in browser).
+// Supreme Lab — node:fsevents polyfill (stub - macOS-only native module, no-op in browser).
 
 
 /* ------------------------------------------------------------------ */

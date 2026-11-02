@@ -42,13 +42,13 @@ class ShowComponent extends Component
     public function askRefund(): void
     {
         Gate::authorize('finance.revise');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'refund-invoice' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'refund-invoice' }))");
     }
 
     public function confirmPending(InvoiceRefundDesk $desk): void
     {
         Gate::authorize('finance.revise');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'refund-invoice' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'refund-invoice' }))");
 
         if (! $this->invoice->canRefund()) {
             $this->pulseFail(__('dashboard.This invoice cannot be refunded.'));

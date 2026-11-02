@@ -1,4 +1,4 @@
-// Krikkit Lab — dedicated Web Worker script sandbox
+// Supreme Lab — dedicated Web Worker script sandbox
 
 import { wrap, proxy, Remote } from "comlink";
 import type { MemoryVolume } from "./memory-volume";

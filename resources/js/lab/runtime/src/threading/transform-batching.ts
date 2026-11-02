@@ -1,4 +1,4 @@
-// Krikkit Lab — batches transform requests across workers.
+// Supreme Lab — batches transform requests across workers.
 
 import type { TransformBatchFile } from "./offload-types";
 

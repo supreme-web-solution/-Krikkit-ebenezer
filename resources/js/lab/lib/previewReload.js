@@ -2,7 +2,7 @@
  * Guest writes Vite cannot HMR — the preview iframe must remount.
  */
 
-export const PREVIEW_RESYNC_EVENT = 'krikkit-preview-resync'
+export const PREVIEW_RESYNC_EVENT = 'studio-preview-resync'
 
 export function guestWriteRestartsDev(path) {
     return /(?:^|\/)(?:package\.json|package-lock\.json|pnpm-lock\.yaml|yarn\.lock|vite\.config\.[cm]?[jt]s|postcss\.config\.[cm]?[jt]s|tailwind\.config\.[cm]?[jt]s|next\.config\.[cm]?[jt]s|index\.html)$/i.test(String(path || ''))

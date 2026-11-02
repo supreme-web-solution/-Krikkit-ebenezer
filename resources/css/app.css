@@ -2,7 +2,7 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
-@source '../views/krikkit/**/*.blade.php';
+@source '../views/studio/**/*.blade.php';
 @source '../views/components/**/*.blade.php';
 @source '../views/dashboard/**/*.blade.php';
 @source '../views/home/**/*.blade.php';
@@ -133,41 +133,41 @@
      * Light ladder:
      * canvas/sidebar/page = white · surface/card/table = stone-50 · soft = stone-100
      */
-    --color-krikkit-fg: var(--color-neutral-900);
-    --color-krikkit-fg-soft: var(--color-neutral-700);
-    --color-krikkit-muted: var(--color-neutral-500);
-    --color-krikkit-subtle: var(--color-neutral-400);
-    --color-krikkit-canvas: var(--color-white);
-    --color-krikkit-surface: var(--color-stone-50);
-    --color-krikkit-soft: var(--color-stone-100);
-    --color-krikkit-line: var(--color-stone-200);
-    --color-krikkit-fill: var(--color-neutral-900);
-    --color-krikkit-on-fill: var(--color-white);
+    --color-studio-fg: var(--color-neutral-900);
+    --color-studio-fg-soft: var(--color-neutral-700);
+    --color-studio-muted: var(--color-neutral-500);
+    --color-studio-subtle: var(--color-neutral-400);
+    --color-studio-canvas: var(--color-white);
+    --color-studio-surface: var(--color-stone-50);
+    --color-studio-soft: var(--color-stone-100);
+    --color-studio-line: var(--color-stone-200);
+    --color-studio-fill: var(--color-neutral-900);
+    --color-studio-on-fill: var(--color-white);
 
-    --color-krikkit-ink: var(--color-krikkit-fg);
-    --color-krikkit-accent: var(--color-accent);
-    --color-krikkit-accent-soft: var(--color-stone-100);
-    --color-krikkit-danger: #dc2626;
-    --color-krikkit-warn: #d97706;
-    --color-krikkit-ok: #16a34a;
+    --color-studio-ink: var(--color-studio-fg);
+    --color-studio-accent: var(--color-accent);
+    --color-studio-accent-soft: var(--color-stone-100);
+    --color-studio-danger: #dc2626;
+    --color-studio-warn: #d97706;
+    --color-studio-ok: #16a34a;
 
     /* Flux-style accent — neutral tracks base remap */
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
 
-    /* Streamdown / shadcn token aliases → Krikkit surfaces */
-    --color-background: var(--color-krikkit-canvas);
-    --color-foreground: var(--color-krikkit-fg);
-    --color-card: var(--color-krikkit-surface);
-    --color-card-foreground: var(--color-krikkit-fg);
-    --color-muted: var(--color-krikkit-soft);
-    --color-muted-foreground: var(--color-krikkit-muted);
-    --color-border: var(--color-krikkit-line);
-    --color-input: var(--color-krikkit-line);
-    --color-primary: var(--color-krikkit-fill);
-    --color-primary-foreground: var(--color-krikkit-on-fill);
-    --color-sidebar: var(--color-krikkit-canvas);
+    /* Streamdown / shadcn token aliases → Supreme surfaces */
+    --color-background: var(--color-studio-canvas);
+    --color-foreground: var(--color-studio-fg);
+    --color-card: var(--color-studio-surface);
+    --color-card-foreground: var(--color-studio-fg);
+    --color-muted: var(--color-studio-soft);
+    --color-muted-foreground: var(--color-studio-muted);
+    --color-border: var(--color-studio-line);
+    --color-input: var(--color-studio-line);
+    --color-primary: var(--color-studio-fill);
+    --color-primary-foreground: var(--color-studio-on-fill);
+    --color-sidebar: var(--color-studio-canvas);
 }
 
 @layer theme {
@@ -176,33 +176,33 @@
          * Dark ladder: canvas page · surface/card/inputs = neutral-900 (#1a1a1a)
          * Tracks --color-neutral-* so Theme Customizer base remap applies.
          */
-        --color-krikkit-fg: var(--color-neutral-50);
-        --color-krikkit-fg-soft: var(--color-neutral-300);
-        --color-krikkit-muted: var(--color-neutral-400);
-        --color-krikkit-subtle: var(--color-neutral-500);
-        --color-krikkit-canvas: var(--color-neutral-950);
-        --color-krikkit-surface: var(--color-neutral-900);
-        --color-krikkit-soft: var(--color-neutral-800);
-        --color-krikkit-line: var(--color-neutral-800);
-        --color-krikkit-fill: var(--color-white);
-        --color-krikkit-on-fill: var(--color-neutral-900);
-        --color-krikkit-accent-soft: var(--color-neutral-800);
+        --color-studio-fg: var(--color-neutral-50);
+        --color-studio-fg-soft: var(--color-neutral-300);
+        --color-studio-muted: var(--color-neutral-400);
+        --color-studio-subtle: var(--color-neutral-500);
+        --color-studio-canvas: var(--color-neutral-950);
+        --color-studio-surface: var(--color-neutral-900);
+        --color-studio-soft: var(--color-neutral-800);
+        --color-studio-line: var(--color-neutral-800);
+        --color-studio-fill: var(--color-white);
+        --color-studio-on-fill: var(--color-neutral-900);
+        --color-studio-accent-soft: var(--color-neutral-800);
 
         --color-accent: var(--color-white);
         --color-accent-content: var(--color-white);
         --color-accent-foreground: var(--color-neutral-900);
 
-        --color-background: var(--color-krikkit-canvas);
-        --color-foreground: var(--color-krikkit-fg);
-        --color-card: var(--color-krikkit-surface);
-        --color-card-foreground: var(--color-krikkit-fg);
-        --color-muted: var(--color-krikkit-soft);
-        --color-muted-foreground: var(--color-krikkit-muted);
-        --color-border: var(--color-krikkit-line);
-        --color-input: var(--color-krikkit-line);
-        --color-primary: var(--color-krikkit-fill);
-        --color-primary-foreground: var(--color-krikkit-on-fill);
-        --color-sidebar: var(--color-krikkit-canvas);
+        --color-background: var(--color-studio-canvas);
+        --color-foreground: var(--color-studio-fg);
+        --color-card: var(--color-studio-surface);
+        --color-card-foreground: var(--color-studio-fg);
+        --color-muted: var(--color-studio-soft);
+        --color-muted-foreground: var(--color-studio-muted);
+        --color-border: var(--color-studio-line);
+        --color-input: var(--color-studio-line);
+        --color-primary: var(--color-studio-fill);
+        --color-primary-foreground: var(--color-studio-on-fill);
+        --color-sidebar: var(--color-studio-canvas);
     }
 }
 
@@ -211,46 +211,46 @@
 }
 
 /* Range slider — Theme Customizer accent + surface tokens (matches progress). */
-.krikkit-slider {
+.studio-slider {
     accent-color: var(--color-accent);
 }
 
-.krikkit-slider::-webkit-slider-runnable-track {
+.studio-slider::-webkit-slider-runnable-track {
     height: 0.5rem;
     border-radius: 999px;
     background: linear-gradient(
         to right,
-        var(--color-accent) var(--krikkit-slider-fill, 0%),
-        var(--color-krikkit-soft) var(--krikkit-slider-fill, 0%)
+        var(--color-accent) var(--studio-slider-fill, 0%),
+        var(--color-studio-soft) var(--studio-slider-fill, 0%)
     );
 }
 
-.krikkit-slider::-webkit-slider-thumb {
+.studio-slider::-webkit-slider-thumb {
     appearance: none;
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
     border-radius: 999px;
     background: var(--color-accent);
-    border: 2px solid var(--color-krikkit-canvas);
+    border: 2px solid var(--color-studio-canvas);
 }
 
-.krikkit-slider::-moz-range-track {
+.studio-slider::-moz-range-track {
     height: 0.5rem;
     border-radius: 999px;
-    background: var(--color-krikkit-soft);
+    background: var(--color-studio-soft);
 }
 
-.krikkit-slider::-moz-range-progress {
+.studio-slider::-moz-range-progress {
     height: 0.5rem;
     border-radius: 999px;
     background: var(--color-accent);
 }
 
-.krikkit-slider::-moz-range-thumb {
+.studio-slider::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    border: 2px solid var(--color-krikkit-canvas);
+    border: 2px solid var(--color-studio-canvas);
     border-radius: 999px;
     background: var(--color-accent);
 }
@@ -269,13 +269,13 @@
 .lab-codemirror .cm-scroller,
 .lab-codemirror .cm-gutters,
 .lab-codemirror .cm-gutter {
-    background-color: var(--color-krikkit-canvas) !important;
+    background-color: var(--color-studio-canvas) !important;
 }
 
 .lab-codemirror .cm-gutters {
     border: none !important;
-    border-right: 1px solid var(--color-krikkit-line) !important;
-    color: var(--color-krikkit-subtle) !important;
+    border-right: 1px solid var(--color-studio-line) !important;
+    color: var(--color-studio-subtle) !important;
 }
 
 .lab-codemirror .cm-activeLine {
@@ -331,7 +331,7 @@
 
 /* Lab top chrome. */
 .lab-app-header {
-    background-color: var(--color-krikkit-canvas);
+    background-color: var(--color-studio-canvas);
 }
 
 .lab-layout-pane {
@@ -381,9 +381,9 @@
     white-space: normal;
 }
 
-/* Streamdown: keep Lab chat on Krikkit surfaces; no shadows. */
+/* Streamdown: keep Lab chat on Supreme surfaces; no shadows. */
 .lab-chat-md-host .lab-chat-md {
-    color: var(--color-krikkit-fg-soft);
+    color: var(--color-studio-fg-soft);
     font-size: 0.8125rem;
     line-height: 1.25rem;
 }
@@ -402,7 +402,7 @@
 }
 
 .lab-chat-md-host .lab-chat-md :is(h1, h2, h3, h4, strong) {
-    color: var(--color-krikkit-fg);
+    color: var(--color-studio-fg);
 }
 
 .lab-chat-md-host .lab-chat-md :is(.shadow-sm, .shadow-lg, [class*='shadow-']) {
@@ -418,9 +418,9 @@
     gap: 0 !important;
     overflow: hidden;
     border-radius: 0.75rem;
-    border: 1px solid var(--color-krikkit-line) !important;
-    background-color: var(--color-krikkit-surface) !important;
-    color: var(--color-krikkit-fg);
+    border: 1px solid var(--color-studio-line) !important;
+    background-color: var(--color-studio-surface) !important;
+    color: var(--color-studio-fg);
     box-shadow: none !important;
     padding: 0 !important;
 }
@@ -431,10 +431,10 @@
     height: 2.25rem !important;
     min-height: 2.25rem !important;
     align-items: center !important;
-    border-bottom: 1px solid var(--color-krikkit-line);
-    background-color: var(--color-krikkit-surface);
+    border-bottom: 1px solid var(--color-studio-line);
+    background-color: var(--color-studio-surface);
     padding: 0 6.5rem 0 0.75rem !important; /* room for 3 absolute action icons */
-    color: var(--color-krikkit-subtle) !important;
+    color: var(--color-studio-subtle) !important;
 }
 
 .lab-chat-md-host [data-streamdown='mermaid-block'] > div:first-child > span {
@@ -451,7 +451,7 @@
     content: 'Diagram';
     font-size: 11px;
     line-height: 1;
-    color: var(--color-krikkit-subtle);
+    color: var(--color-studio-subtle);
 }
 
 /* Sticky -mt-10 wrapper → pin into the header bar. */
@@ -501,14 +501,14 @@
     border: none !important;
     border-radius: 0.375rem !important;
     background: transparent !important;
-    color: var(--color-krikkit-muted) !important;
+    color: var(--color-studio-muted) !important;
     box-shadow: none !important;
     line-height: 0 !important;
 }
 
 .lab-chat-md-host [data-streamdown='mermaid-block-actions'] button:hover {
-    background-color: var(--color-krikkit-soft) !important;
-    color: var(--color-krikkit-fg) !important;
+    background-color: var(--color-studio-soft) !important;
+    color: var(--color-studio-fg) !important;
 }
 
 .lab-chat-md-host [data-streamdown='mermaid-block-actions'] button svg {
@@ -522,7 +522,7 @@
     margin: 0 !important;
     border: none !important;
     border-radius: 0 !important;
-    background-color: var(--color-krikkit-canvas) !important;
+    background-color: var(--color-studio-canvas) !important;
     padding: 1rem 0.75rem !important;
 }
 
@@ -542,8 +542,8 @@
 
 .lab-chat-md-host [data-streamdown='mermaid-block'] svg [id^='edgeLabel'] rect,
 .lab-chat-md-host [data-streamdown='mermaid-block'] svg .edgeLabel rect {
-    fill: var(--color-krikkit-surface) !important;
-    stroke: var(--color-krikkit-line) !important;
+    fill: var(--color-studio-surface) !important;
+    stroke: var(--color-studio-line) !important;
 }
 
 .lab-bubble-in {
@@ -714,14 +714,14 @@
 
 .lab-shiny-text {
     /* Fallback color first — overflow:hidden + background-clip:text can wipe the fill. */
-    color: var(--lab-shiny-color, var(--color-krikkit-muted));
+    color: var(--lab-shiny-color, var(--color-studio-muted));
     background-image: linear-gradient(
         var(--lab-shiny-spread, 75deg),
-        var(--lab-shiny-color, var(--color-krikkit-muted)) 0%,
-        var(--lab-shiny-color, var(--color-krikkit-muted)) 35%,
-        var(--lab-shiny-shine, var(--color-krikkit-fg)) 50%,
-        var(--lab-shiny-color, var(--color-krikkit-muted)) 65%,
-        var(--lab-shiny-color, var(--color-krikkit-muted)) 100%
+        var(--lab-shiny-color, var(--color-studio-muted)) 0%,
+        var(--lab-shiny-color, var(--color-studio-muted)) 35%,
+        var(--lab-shiny-shine, var(--color-studio-fg)) 50%,
+        var(--lab-shiny-color, var(--color-studio-muted)) 65%,
+        var(--lab-shiny-color, var(--color-studio-muted)) 100%
     );
     background-size: 200% auto;
     background-clip: text;
@@ -757,7 +757,7 @@
 
 .lab-think-caret {
     animation: lab-think-caret 0.9s steps(1) infinite;
-    color: var(--color-krikkit-subtle);
+    color: var(--color-studio-subtle);
 }
 
 /* Hover popover — overlays chat; no layout shift. */
@@ -910,7 +910,7 @@
 .lab-tree-branch {
     margin-left: calc(var(--lab-tree-pad-x) + (var(--lab-tree-twist) / 2));
     padding-left: calc((var(--lab-tree-twist) / 2) + var(--lab-tree-gap));
-    border-left: 1px solid var(--color-krikkit-line);
+    border-left: 1px solid var(--color-studio-line);
 }
 
 /* Preview chrome status — fade between messages, then quiet settle to dot. */
@@ -945,7 +945,7 @@
     opacity: 0;
 }
 
-.krikkit-home-dots {
+.studio-home-dots {
     background-image: radial-gradient(
         circle at 1px 1px,
         color-mix(in oklab, var(--color-accent) 28%, transparent) 1px,
@@ -954,7 +954,7 @@
     background-size: 22px 22px;
 }
 
-.krikkit-home-lines {
+.studio-home-lines {
     background-image: repeating-linear-gradient(
         90deg,
         color-mix(in oklab, var(--color-accent) 16%, transparent) 0,
@@ -964,7 +964,7 @@
     );
 }
 
-.krikkit-home-pinstripe {
+.studio-home-pinstripe {
     background-image: repeating-linear-gradient(
         90deg,
         color-mix(in oklab, var(--color-accent) 22%, transparent) 0,
@@ -974,7 +974,7 @@
     );
 }
 
-@keyframes krikkit-home-marquee {
+@keyframes studio-home-marquee {
     from {
         transform: translateX(0);
     }
@@ -984,21 +984,21 @@
     }
 }
 
-.krikkit-home-marquee {
-    animation: krikkit-home-marquee 42s linear infinite;
+.studio-home-marquee {
+    animation: studio-home-marquee 42s linear infinite;
 }
 
-.krikkit-home-marquee:hover {
+.studio-home-marquee:hover {
     animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .krikkit-home-marquee {
+    .studio-home-marquee {
         animation: none;
     }
 }
 
-.krikkit-home-fold {
+.studio-home-fold {
     display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
@@ -1007,18 +1007,18 @@
         opacity 220ms ease-out;
 }
 
-.krikkit-home-fold[data-open="1"] {
+.studio-home-fold[data-open="1"] {
     grid-template-rows: 1fr;
     opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .krikkit-home-fold {
+    .studio-home-fold {
         transition: none;
     }
 }
 
-@keyframes krikkit-walk-fill {
+@keyframes studio-walk-fill {
     from {
         transform: scaleX(0);
     }
@@ -1028,13 +1028,13 @@
     }
 }
 
-.krikkit-walk-progress {
+.studio-walk-progress {
     transform: scaleX(0);
-    animation: krikkit-walk-fill var(--walk-ms, 5s) linear forwards;
+    animation: studio-walk-fill var(--walk-ms, 5s) linear forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .krikkit-walk-progress {
+    .studio-walk-progress {
         animation: none;
         transform: scaleX(1);
     }
@@ -1078,28 +1078,28 @@
     background-color: rgb(161 161 170 / 0.85);
 }
 
-.krikkit-scroll-hover {
+.studio-scroll-hover {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
 }
 
-.krikkit-scroll-hover:hover {
+.studio-scroll-hover:hover {
     scrollbar-color: rgb(161 161 170 / 0.55) transparent;
 }
 
-.dark .krikkit-scroll-hover:hover {
+.dark .studio-scroll-hover:hover {
     scrollbar-color: rgb(113 113 122 / 0.65) transparent;
 }
 
-.krikkit-scroll-hover::-webkit-scrollbar-thumb {
+.studio-scroll-hover::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
 
-.krikkit-scroll-hover:hover::-webkit-scrollbar-thumb {
+.studio-scroll-hover:hover::-webkit-scrollbar-thumb {
     background-color: rgb(161 161 170 / 0.55);
 }
 
-.dark .krikkit-scroll-hover:hover::-webkit-scrollbar-thumb {
+.dark .studio-scroll-hover:hover::-webkit-scrollbar-thumb {
     background-color: rgb(113 113 122 / 0.65);
 }
 

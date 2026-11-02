@@ -54,7 +54,7 @@ export function previewLooksHollow(iframe) {
         }
         const root = doc.getElementById('root') || doc.getElementById('app')
         if (root && root.childElementCount === 0) return true
-        if (doc.documentElement?.getAttribute('data-krikkit-preview-boot') === '1') return false
+        if (doc.documentElement?.getAttribute('data-studio-preview-boot') === '1') return false
         const text = String(doc.body.innerText || '').replace(/\s+/g, ' ').trim()
         return doc.body.childElementCount <= 1 && text.length < 8
     } catch {
@@ -67,8 +67,8 @@ export function previewLooksBooting(iframe) {
     try {
         const doc = guestDocument(iframe)
         if (! doc) return false
-        if (doc.documentElement?.getAttribute('data-krikkit-preview-boot') === '1') return true
-        if (doc.body?.getAttribute('data-krikkit-preview-boot') === '1') return true
+        if (doc.documentElement?.getAttribute('data-studio-preview-boot') === '1') return true
+        if (doc.body?.getAttribute('data-studio-preview-boot') === '1') return true
         const title = String(doc.title || '')
         const text = String(doc.body?.innerText || '')
         return /Starting preview/i.test(title) || /dev server is booting/i.test(text)

@@ -2,13 +2,13 @@
  * Injected into DeepThought preview HTML (setPreviewScript).
  * Chrome navigation bridge, DOM inspect picker, and right-click context menu.
  */
-export const PREVIEW_CHROME_SOURCE = 'krikkit-preview-chrome'
+export const PREVIEW_CHROME_SOURCE = 'studio-preview-chrome'
 
 export const PREVIEW_CHROME_REV = 47
 
 export const PREVIEW_CHROME_SCRIPT = `(function(){
-  if (window.__krikkitPreviewChrome) return;
-  window.__krikkitPreviewChrome = true;
+  if (window.__studioPreviewChrome) return;
+  window.__studioPreviewChrome = true;
   var SRC = ${JSON.stringify(PREVIEW_CHROME_SOURCE)};
   var REV = ${PREVIEW_CHROME_REV};
 
@@ -143,7 +143,7 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
     if (box && label) return;
     var root = document.documentElement || document.body;
     box = document.createElement('div');
-    box.setAttribute('data-krikkit-inspect', 'box');
+    box.setAttribute('data-studio-inspect', 'box');
     box.style.cssText = [
       'position:fixed',
       'inset:auto',
@@ -157,7 +157,7 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
       'transition:opacity 140ms ease'
     ].join(';');
     label = document.createElement('div');
-    label.setAttribute('data-krikkit-inspect', 'label');
+    label.setAttribute('data-studio-inspect', 'label');
     label.style.cssText = [
       'position:fixed',
       'inset:auto',
@@ -182,7 +182,7 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
   }
 
   function isInspectChrome(el) {
-    return !!(el && el.getAttribute && el.getAttribute('data-krikkit-inspect'));
+    return !!(el && el.getAttribute && el.getAttribute('data-studio-inspect'));
   }
 
   function tagName(el) {
@@ -261,8 +261,8 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
 
   function uidOf(el) {
     if (!el) return 0;
-    if (!el.__krikkitInspectId) el.__krikkitInspectId = nextId++;
-    return el.__krikkitInspectId;
+    if (!el.__studioInspectId) el.__studioInspectId = nextId++;
+    return el.__studioInspectId;
   }
 
   function cssPath(el) {
@@ -911,8 +911,8 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
   }
 
   function coverPainted() {
-    if (document.documentElement.getAttribute('data-krikkit-preview-boot') === '1') return false;
-    if (document.body && document.body.getAttribute('data-krikkit-preview-boot') === '1') return false;
+    if (document.documentElement.getAttribute('data-studio-preview-boot') === '1') return false;
+    if (document.body && document.body.getAttribute('data-studio-preview-boot') === '1') return false;
     if (document.querySelector('vite-error-overlay')) return true;
     var scripts = document.querySelectorAll('script[src]');
     var i;
@@ -1149,7 +1149,7 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
     if (!el || !el.tagName) return true;
     if (COVER_SKIP[el.tagName]) return true;
     try {
-      if (el.getAttribute && el.getAttribute('data-krikkit-inspect')) return true;
+      if (el.getAttribute && el.getAttribute('data-studio-inspect')) return true;
     } catch (e) {}
     return false;
   }
@@ -1533,7 +1533,7 @@ export const PREVIEW_CHROME_SCRIPT = `(function(){
       foreignObjectRendering: false,
       imageTimeout: 2500,
       ignoreElements: function(el) {
-        try { return !!(el && el.getAttribute && el.getAttribute('data-krikkit-inspect')); } catch (e) { return false; }
+        try { return !!(el && el.getAttribute && el.getAttribute('data-studio-inspect')); } catch (e) { return false; }
       }
     });
   }
@@ -1778,9 +1778,9 @@ export function readInspectTheme() {
     }
     return {
         accent: read('--color-accent', '#14b8a6'),
-        surface: read('--color-krikkit-surface', '#0a0a0a'),
-        fg: read('--color-krikkit-fg', '#fafafa'),
-        line: read('--color-krikkit-line', 'rgba(255,255,255,0.12)'),
+        surface: read('--color-studio-surface', '#0a0a0a'),
+        fg: read('--color-studio-fg', '#fafafa'),
+        line: read('--color-studio-line', 'rgba(255,255,255,0.12)'),
     }
 }
 

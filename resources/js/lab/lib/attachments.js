@@ -34,7 +34,7 @@ const TONE_CLASSES = {
     rose: 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300',
     orange: 'bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300',
     lime: 'bg-lime-100 text-lime-800 dark:bg-lime-950 dark:text-lime-300',
-    slate: 'bg-krikkit-soft text-krikkit-fg-soft',
+    slate: 'bg-studio-soft text-studio-fg-soft',
     red: 'bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300',
     green: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300',
     cyan: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300',

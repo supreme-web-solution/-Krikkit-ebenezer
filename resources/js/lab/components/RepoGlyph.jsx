@@ -68,7 +68,7 @@ export function RepoGlyph({ kind = 'web', className = 'size-4' }) {
         : `#${glyph.hex}`
     return (
         <svg
-            className={`${className} shrink-0 ${kind === 'next' || kind === 'web' ? 'text-krikkit-fg' : ''}`}
+            className={`${className} shrink-0 ${kind === 'next' || kind === 'web' ? 'text-studio-fg' : ''}`}
             viewBox="0 0 24 24"
             aria-hidden="true"
             role="img"

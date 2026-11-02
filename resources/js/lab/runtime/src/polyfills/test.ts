@@ -1,4 +1,4 @@
-// Krikkit Lab — node:test polyfill.
+// Supreme Lab — node:test polyfill.
 
 export interface TestContext {
   name: string;

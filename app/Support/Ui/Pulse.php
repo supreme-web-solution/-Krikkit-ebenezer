@@ -6,9 +6,9 @@ use Illuminate\Support\Str;
 
 final class Pulse
 {
-    public const SESSION_KEY = '_krikkit.pulse';
+    public const SESSION_KEY = '_studio.pulse';
 
-    public const EVENT = 'krikkit-pulse';
+    public const EVENT = 'studio-pulse';
 
     /**
      * @return array{uid: string, copy: string, eyebrow: ?string, tone: string, linger: int}

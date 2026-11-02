@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cache;
  */
 final class DevTunnel
 {
-    public const ORIGIN_CACHE_KEY = 'krikkit.dev_tunnel.origin';
+    public const ORIGIN_CACHE_KEY = 'supreme.dev_tunnel.origin';
 
     public static function isPublicDevHost(?string $host): bool
     {
@@ -57,7 +57,7 @@ final class DevTunnel
             || str_starts_with($path, '/resources/')
             || str_starts_with($path, '/node_modules/')
             || str_starts_with($path, '/__vite')
-            || $path === '/__krikkit_lab_sw__.js'
+            || $path === '/__studio_lab_sw__.js'
             || $path === '/__deepthought_sw__.js';
     }
 }

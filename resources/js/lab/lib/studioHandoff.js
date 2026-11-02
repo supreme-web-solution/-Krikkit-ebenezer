@@ -1,4 +1,4 @@
-const DB_NAME = 'krikkit-studio-handoff'
+const DB_NAME = 'studio-studio-handoff'
 const STORE = 'payload'
 const KEY = 'pending'
 const DB_VERSION = 1

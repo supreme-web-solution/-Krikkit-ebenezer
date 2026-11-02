@@ -8,7 +8,7 @@
 >
     <div class="space-y-6">
         <div class="flex items-center gap-3">
-            <krikkit:button
+            <studio:button
                 href="{{ route('dashboard.roles.index') }}"
                 variant="ghost"
                 square
@@ -16,9 +16,9 @@
                 aria-label="{{ __('dashboard.Back') }}"
                 title="{{ __('dashboard.Back') }}"
             >
-                <krikkit:icon name="arrow-left" class="size-4" />
-            </krikkit:button>
-            <h1 class="text-2xl font-semibold tracking-tight text-krikkit-fg">
+                <studio:icon name="arrow-left" class="size-4" />
+            </studio:button>
+            <h1 class="text-2xl font-semibold tracking-tight text-studio-fg">
                 {{ __('dashboard.Edit') }} {{ $role->title }}
             </h1>
         </div>
@@ -34,9 +34,9 @@
             ])
 
             <div class="flex justify-end">
-                <krikkit:button type="submit" size="sm">
+                <studio:button type="submit" size="sm">
                     {{ __('dashboard.Save changes') }}
-                </krikkit:button>
+                </studio:button>
             </div>
         </form>
     </div>

@@ -121,13 +121,13 @@ class TwoFactorComponent extends Component
             return;
         }
 
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'disable-two-factor' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'disable-two-factor' }))");
     }
 
     public function confirmPending(): void
     {
         $this->authorizeDesk();
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'disable-two-factor' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'disable-two-factor' }))");
 
         if (! Hash::check($this->disablePassword, auth()->user()->password)) {
             $this->addError('disablePassword', __('dashboard.The provided password is incorrect.'));

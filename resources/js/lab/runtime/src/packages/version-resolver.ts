@@ -1,4 +1,4 @@
-// Krikkit Lab — semver parsing, range matching, and dependency resolution.
+// Supreme Lab — semver parsing, range matching, and dependency resolution.
 
 import { RegistryClient, VersionDetail } from "./registry-client";
 

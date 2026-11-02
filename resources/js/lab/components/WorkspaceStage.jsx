@@ -11,7 +11,7 @@ function PanelPlaceholder({ title, body }) {
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-content">
                 {title}
             </p>
-            <p className="max-w-sm text-sm text-krikkit-muted">{body}</p>
+            <p className="max-w-sm text-sm text-studio-muted">{body}</p>
         </div>
     )
 }

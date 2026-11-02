@@ -8,7 +8,7 @@ export function AttachmentChip({ attachment, onRemove, disabled = false, size = 
     return (
         <div
             className={[
-                'group relative shrink-0 overflow-hidden rounded-xl border border-krikkit-line bg-krikkit-soft',
+                'group relative shrink-0 overflow-hidden rounded-xl border border-studio-line bg-studio-soft',
                 dims,
             ].join(' ')}
         >
@@ -23,7 +23,7 @@ export function AttachmentChip({ attachment, onRemove, disabled = false, size = 
                     <div
                         className={[
                             'mt-0.5 flex h-7 w-7 items-center justify-center rounded-md text-[9px] font-semibold tracking-wide',
-                            attachment.toneClass || 'bg-krikkit-soft text-krikkit-fg-soft',
+                            attachment.toneClass || 'bg-studio-soft text-studio-fg-soft',
                         ].join(' ')}
                         title={attachment.label || 'FILE'}
                     >
@@ -31,13 +31,13 @@ export function AttachmentChip({ attachment, onRemove, disabled = false, size = 
                     </div>
 
                     <p
-                        className="w-full truncate px-0.5 text-center text-[10px] font-medium leading-tight text-krikkit-fg"
+                        className="w-full truncate px-0.5 text-center text-[10px] font-medium leading-tight text-studio-fg"
                         title={attachment.name}
                     >
                         {attachment.name}
                     </p>
 
-                    <p className="text-[9px] leading-none text-krikkit-muted">
+                    <p className="text-[9px] leading-none text-studio-muted">
                         {formatBytes(attachment.size)}
                     </p>
                 </div>
@@ -48,7 +48,7 @@ export function AttachmentChip({ attachment, onRemove, disabled = false, size = 
                     type="button"
                     onClick={() => onRemove(attachment.id)}
                     disabled={disabled}
-                    className="absolute top-1 right-1 inline-flex h-5 w-5 items-center justify-center rounded-md bg-krikkit-surface text-krikkit-fg opacity-100 transition hover:bg-krikkit-soft sm:opacity-0 sm:group-hover:opacity-100"
+                    className="absolute top-1 right-1 inline-flex h-5 w-5 items-center justify-center rounded-md bg-studio-surface text-studio-fg opacity-100 transition hover:bg-studio-soft sm:opacity-0 sm:group-hover:opacity-100"
                     aria-label={`Remove ${attachment.name}`}
                 >
                     <IconClose className="h-3 w-3" />

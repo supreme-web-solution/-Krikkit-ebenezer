@@ -21,12 +21,12 @@ export function CreditBalanceBadge({ inProject = false }) {
     if (credits.unlimited) {
         return (
             <div
-                className="flex h-5 shrink-0 items-center font-mono text-[11px] leading-none tabular-nums text-krikkit-muted"
+                className="flex h-5 shrink-0 items-center font-mono text-[11px] leading-none tabular-nums text-studio-muted"
                 title="Lab credits this month"
             >
                 Credits
                 <span
-                    className="ml-1 inline-flex h-5 items-center text-krikkit-fg"
+                    className="ml-1 inline-flex h-5 items-center text-studio-fg"
                     aria-label="Unlimited"
                 >
                     <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -54,13 +54,13 @@ export function CreditBalanceBadge({ inProject = false }) {
         <div
             className={[
                 'flex h-5 shrink-0 items-center font-mono text-[11px] leading-none tabular-nums',
-                depleted ? 'text-red-600 dark:text-red-400' : low ? 'text-amber-700 dark:text-amber-300' : 'text-krikkit-muted',
+                depleted ? 'text-red-600 dark:text-red-400' : low ? 'text-amber-700 dark:text-amber-300' : 'text-studio-muted',
             ].join(' ')}
             title="Lab credits this month"
         >
             Credits
             {' '}
-            <span className={depleted || low ? 'ml-1 font-medium' : 'ml-1 text-krikkit-fg'}>
+            <span className={depleted || low ? 'ml-1 font-medium' : 'ml-1 text-studio-fg'}>
                 {remaining.toLocaleString()}
                 {' / '}
                 {limit.toLocaleString()}

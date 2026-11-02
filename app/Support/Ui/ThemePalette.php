@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 final class ThemePalette
 {
-    public const MODE_COOKIE = 'krikkit-theme';
+    public const MODE_COOKIE = 'studio-theme';
 
     /**
      * @return list<array{id: string, label: string}>
@@ -153,8 +153,8 @@ final class ThemePalette
     }
 
     /**
-     * Plain browser CSS for <style id="krikkit-theme"> (NOT Tailwind @theme — browsers ignore that).
-     * Only base remap + accent. Semantic krikkit-* tokens live in app.css.
+     * Plain browser CSS for <style id="studio-theme"> (NOT Tailwind @theme — browsers ignore that).
+     * Only base remap + accent. Semantic studio-* tokens live in app.css.
      */
     public static function runtimeCss(string $accent = 'base', string $base = 'neutral'): string
     {

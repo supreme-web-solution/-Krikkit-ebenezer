@@ -4,7 +4,7 @@
 export function PreviewIdle() {
     return (
         <div
-            className="h-full min-h-0 bg-krikkit-canvas"
+            className="h-full min-h-0 bg-studio-canvas"
             aria-label="Preview"
         />
     )

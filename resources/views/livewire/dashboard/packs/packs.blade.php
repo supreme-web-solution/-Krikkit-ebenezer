@@ -1,11 +1,11 @@
 <div class="space-y-8">
     <div class="flex flex-wrap items-end justify-between gap-3">
         <div class="min-w-0">
-            <h1 class="text-lg font-semibold tracking-tight text-krikkit-fg">{{ __('dashboard.Packs') }}</h1>
-            <p class="mt-0.5 text-xs text-krikkit-muted">{{ __('dashboard.Create, lock, and tune workspace packs.') }}</p>
+            <h1 class="text-lg font-semibold tracking-tight text-studio-fg">{{ __('dashboard.Packs') }}</h1>
+            <p class="mt-0.5 text-xs text-studio-muted">{{ __('dashboard.Create, lock, and tune workspace packs.') }}</p>
         </div>
         @allows('packs.compose')
-            <krikkit:button
+            <studio:button
                 href="{{ route('dashboard.packs.create') }}"
                 variant="ghost"
                 square
@@ -13,65 +13,65 @@
                 aria-label="{{ __('dashboard.New pack') }}"
                 title="{{ __('dashboard.New pack') }}"
             >
-                <krikkit:icon name="plus" class="size-4" />
-            </krikkit:button>
+                <studio:icon name="plus" class="size-4" />
+            </studio:button>
         @endallows
     </div>
 
     @error('lock')
-        <krikkit:callout tone="danger">{{ $message }}</krikkit:callout>
+        <studio:callout tone="danger">{{ $message }}</studio:callout>
     @enderror
     @error('retire')
-        <krikkit:callout tone="danger">{{ $message }}</krikkit:callout>
+        <studio:callout tone="danger">{{ $message }}</studio:callout>
     @enderror
 
     @if ($packs->isEmpty())
-        <p class="text-sm text-krikkit-muted">{{ __('dashboard.No packs yet.') }}</p>
+        <p class="text-sm text-studio-muted">{{ __('dashboard.No packs yet.') }}</p>
     @else
-        <krikkit:table>
-            <krikkit:table.columns>
-                <krikkit:table.column>{{ __('dashboard.Pack') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Summary') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Pricing') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Holders') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Slug') }}</krikkit:table.column>
-                <krikkit:table.column>{{ __('dashboard.Status') }}</krikkit:table.column>
-                <krikkit:table.column align="right"></krikkit:table.column>
-            </krikkit:table.columns>
-            <krikkit:table.rows>
+        <studio:table>
+            <studio:table.columns>
+                <studio:table.column>{{ __('dashboard.Pack') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Summary') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Pricing') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Holders') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Slug') }}</studio:table.column>
+                <studio:table.column>{{ __('dashboard.Status') }}</studio:table.column>
+                <studio:table.column align="right"></studio:table.column>
+            </studio:table.columns>
+            <studio:table.rows>
                 @foreach ($packs as $pack)
-                    <krikkit:table.row>
-                        <krikkit:table.cell>
+                    <studio:table.row>
+                        <studio:table.cell>
                             <div class="flex min-w-0 items-center gap-2">
-                                <p class="truncate text-xs font-medium text-krikkit-fg">{{ $pack->title }}</p>
+                                <p class="truncate text-xs font-medium text-studio-fg">{{ $pack->title }}</p>
                                 @if ($pack->is_default)
-                                    <krikkit:badge size="xs">{{ __('dashboard.Default') }}</krikkit:badge>
+                                    <studio:badge size="xs">{{ __('dashboard.Default') }}</studio:badge>
                                 @endif
                             </div>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-fg-soft">{{ $pack->summary ?: '—' }}</span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="tabular-nums text-krikkit-muted">{{ $pack->priceLine() }}</span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-muted">{{ $pack->entitlements_count }}</span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
-                            <span class="text-krikkit-muted">{{ $pack->slug }}</span>
-                        </krikkit:table.cell>
-                        <krikkit:table.cell>
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-fg-soft">{{ $pack->summary ?: '—' }}</span>
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="tabular-nums text-studio-muted">{{ $pack->priceLine() }}</span>
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-muted">{{ $pack->entitlements_count }}</span>
+                        </studio:table.cell>
+                        <studio:table.cell>
+                            <span class="text-studio-muted">{{ $pack->slug }}</span>
+                        </studio:table.cell>
+                        <studio:table.cell>
                             @if ($pack->isLocked())
-                                <krikkit:badge color="red" size="xs">{{ __('dashboard.Locked') }}</krikkit:badge>
+                                <studio:badge color="red" size="xs">{{ __('dashboard.Locked') }}</studio:badge>
                             @else
-                                <krikkit:badge color="teal" size="xs">{{ __('dashboard.Active') }}</krikkit:badge>
+                                <studio:badge color="teal" size="xs">{{ __('dashboard.Active') }}</studio:badge>
                             @endif
-                        </krikkit:table.cell>
-                        <krikkit:table.cell align="right">
+                        </studio:table.cell>
+                        <studio:table.cell align="right">
                             <div class="inline-flex items-center gap-1">
                                 @allows('packs.revise')
-                                    <krikkit:button
+                                    <studio:button
                                         href="{{ route('dashboard.packs.edit', $pack) }}"
                                         variant="ghost"
                                         square
@@ -79,10 +79,10 @@
                                         aria-label="{{ __('dashboard.Edit') }}"
                                         title="{{ __('dashboard.Edit') }}"
                                     >
-                                        <krikkit:icon name="pencil" class="size-4" />
-                                    </krikkit:button>
+                                        <studio:icon name="pencil" class="size-4" />
+                                    </studio:button>
                                     @unless ($pack->is_default && $pack->is_active)
-                                        <krikkit:button
+                                        <studio:button
                                             type="button"
                                             variant="ghost"
                                             square
@@ -91,13 +91,13 @@
                                             aria-label="{{ $pack->isLocked() ? __('dashboard.Unlock') : __('dashboard.Lock') }}"
                                             title="{{ $pack->isLocked() ? __('dashboard.Unlock') : __('dashboard.Lock') }}"
                                         >
-                                            <krikkit:icon :name="$pack->isLocked() ? 'lock-open' : 'lock-closed'" class="size-4" />
-                                        </krikkit:button>
+                                            <studio:icon :name="$pack->isLocked() ? 'lock-open' : 'lock-closed'" class="size-4" />
+                                        </studio:button>
                                     @endunless
                                 @endallows
                                 @allows('packs.retire')
                                     @unless ($pack->isBuiltIn() || $pack->is_default)
-                                        <krikkit:button
+                                        <studio:button
                                             type="button"
                                             variant="ghost"
                                             square
@@ -106,27 +106,27 @@
                                             aria-label="{{ __('dashboard.Retire') }}"
                                             title="{{ __('dashboard.Retire') }}"
                                         >
-                                            <krikkit:icon name="trash" class="size-4" />
-                                        </krikkit:button>
+                                            <studio:icon name="trash" class="size-4" />
+                                        </studio:button>
                                     @endunless
                                 @endallows
                             </div>
-                        </krikkit:table.cell>
-                    </krikkit:table.row>
+                        </studio:table.cell>
+                    </studio:table.row>
                 @endforeach
-            </krikkit:table.rows>
-        </krikkit:table>
+            </studio:table.rows>
+        </studio:table>
     @endif
 
-    <krikkit:confirm
+    <studio:confirm
         name="pack-confirm"
         :title="$confirmAction === 'retire' ? __('dashboard.Retire pack') : __('dashboard.Lock pack')"
         :copy="$confirmAction === 'retire' ? __('dashboard.Retire this pack?') : __('dashboard.Lock this pack? Holders keep it; new assignments stop.')"
     >
         <x-slot:action>
-            <krikkit:button type="button" variant="danger" wire:click="confirmPending">
+            <studio:button type="button" variant="danger" wire:click="confirmPending">
                 {{ $confirmAction === 'retire' ? __('dashboard.Retire') : __('dashboard.Lock') }}
-            </krikkit:button>
+            </studio:button>
         </x-slot:action>
-    </krikkit:confirm>
+    </studio:confirm>
 </div>

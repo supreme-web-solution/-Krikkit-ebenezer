@@ -22,12 +22,12 @@ export interface HostWorker {
   onmessage: HostWorkerMessageHandler | null;
   onerror: HostWorkerErrorHandler | null;
   /** Set when the worker was created from an external URL (not embedded). */
-  __krikkitLabDirect?: boolean;
-  /** @deprecated Use __krikkitLabDirect */
+  __studioLabDirect?: boolean;
+  /** @deprecated Use __studioLabDirect */
   __deepthoughtDirect?: boolean;
   /** Blob / object URL to revoke when the worker is disposed (browser). */
-  __krikkitLabRevokeUrl?: string | null;
-  /** @deprecated Use __krikkitLabRevokeUrl */
+  __studioLabRevokeUrl?: string | null;
+  /** @deprecated Use __studioLabRevokeUrl */
   __deepthoughtRevokeUrl?: string | null;
 }
 

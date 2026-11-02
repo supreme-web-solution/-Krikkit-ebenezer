@@ -1,4 +1,4 @@
-// Krikkit Lab — node:quic polyfill (stub - not available in browser).
+// Supreme Lab — node:quic polyfill (stub - not available in browser).
 
 
 import { EventEmitter } from "./events";

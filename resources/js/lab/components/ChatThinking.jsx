@@ -142,14 +142,14 @@ export function ChatThinking({
                 aria-expanded={isOpen}
                 aria-controls={canExpand && isOpen ? panelId : undefined}
                 onClick={() => handleOpenChange(! isOpen)}
-                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-krikkit-muted transition-colors hover:text-krikkit-fg-soft"
+                className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit group text-studio-muted transition-colors hover:text-studio-fg-soft"
             >
                 <IconBrain />
                 <span className="inline-flex h-5 min-w-0 flex-none items-center overflow-hidden text-ellipsis whitespace-nowrap leading-5">
                     <ToolStatusText text={label} pending={isStreaming} />
                 </span>
                 {showLiveClock ? (
-                    <span className="font-mono text-[12px] text-krikkit-subtle tabular-nums">
+                    <span className="font-mono text-[12px] text-studio-subtle tabular-nums">
                         {formatLabElapsed(now - parseLabTimestamp(startedAt))}
                     </span>
                 ) : null}
@@ -161,10 +161,10 @@ export function ChatThinking({
                     ref={panelRef}
                     id={panelId}
                     data-state="open"
-                    className="lab-tool-collapse lab-think-content text-sm text-krikkit-muted outline-none"
+                    className="lab-tool-collapse lab-think-content text-sm text-studio-muted outline-none"
                 >
                     <div className="lab-tool-collapse__clip">
-                        <div className="lab-tool-collapse__body whitespace-pre-wrap break-normal [overflow-wrap:break-word] hyphens-none border-l border-krikkit-line pl-3 text-xs leading-relaxed text-krikkit-subtle">
+                        <div className="lab-tool-collapse__body whitespace-pre-wrap break-normal [overflow-wrap:break-word] hyphens-none border-l border-studio-line pl-3 text-xs leading-relaxed text-studio-subtle">
                             {content || (isStreaming ? '…' : '')}
                             <span
                                 className={[

@@ -7,10 +7,10 @@
         @csrf
         <x-form.input :label="__('messages.Email')" type="email" name="email" autocomplete="username" :placeholder="__('messages.you@example.com')" />
 
-        <krikkit:button type="submit" class="w-full">{{ __('messages.Email password reset link') }}</krikkit:button>
+        <studio:button type="submit" class="w-full">{{ __('messages.Email password reset link') }}</studio:button>
     </form>
 
-    <p class="mt-8 border-t border-krikkit-line pt-5 text-sm text-krikkit-muted">
-        <a href="{{ route('login') }}" class="font-medium text-krikkit-fg transition hover:text-accent-content">{{ __('messages.Back to login') }}</a>
+    <p class="mt-8 border-t border-studio-line pt-5 text-sm text-studio-muted">
+        <a href="{{ route('login') }}" class="font-medium text-studio-fg transition hover:text-accent-content">{{ __('messages.Back to login') }}</a>
     </p>
 </x-layouts.guest>

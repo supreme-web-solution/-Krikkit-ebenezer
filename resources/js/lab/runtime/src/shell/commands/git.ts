@@ -901,7 +901,7 @@ async function githubApi(
   const headers: Record<string, string> = {
     Accept: "application/vnd.github.v3+json",
     Authorization: `token ${token}`,
-    "User-Agent": "krikkit-lab-git",
+    "User-Agent": "studio-lab-git",
   };
   const requestBody = body ? JSON.stringify(body) : undefined;
   if (requestBody && requestBody.length > maxResponseBytes) {
@@ -2752,7 +2752,7 @@ async function gitPush(args: string[], ctx: ShellContext): Promise<ShellResult> 
 
   const commit = repo.readCommit(headHash);
   const commitBody: any = {
-    message: commit?.message ?? "Push from Krikkit Lab",
+    message: commit?.message ?? "Push from Supreme Lab",
     tree: treeResp.data.sha,
   };
   if (parentSha) commitBody.parents = [parentSha];

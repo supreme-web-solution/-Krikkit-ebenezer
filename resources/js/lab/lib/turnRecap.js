@@ -48,7 +48,7 @@ export function buildTurnRecapPrompt({ userText = '', paths = [], todos = [] } =
         .join('; ')
 
     return [
-        '[KRIKKIT_TURN_RECAP — not a new user request]',
+        '[SUPREME_TURN_RECAP — not a new user request]',
         'Workspace writes already landed. Do not call tools. Do not start another build.',
         'Reply in the user’s language, 2–4 short conversational sentences.',
         'Say what you built or changed and what they can try in Preview.',

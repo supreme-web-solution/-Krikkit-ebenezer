@@ -1,4 +1,4 @@
-// Krikkit Lab — node:assert polyfill.
+// Supreme Lab — node:assert polyfill.
 
 
 /* ------------------------------------------------------------------ */

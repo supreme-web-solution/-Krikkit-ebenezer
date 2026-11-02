@@ -38,7 +38,7 @@ final class SiteSettings
     {
         return [
             'general' => [
-                'name' => (string) config('app.name', 'Krikkit'),
+                'name' => (string) config('app.name', 'Supreme'),
                 'tagline' => '',
                 'url' => (string) config('app.url', ''),
                 'support_email' => '',
@@ -110,7 +110,7 @@ final class SiteSettings
             ],
             'mail' => [
                 'mailer' => (string) config('mail.default', 'log'),
-                'from_name' => (string) config('mail.from.name', config('app.name', 'Krikkit')),
+                'from_name' => (string) config('mail.from.name', config('app.name', 'Supreme')),
                 'from_address' => (string) config('mail.from.address', ''),
                 'reply_to' => '',
                 'host' => (string) config('mail.mailers.smtp.host', '127.0.0.1'),
@@ -169,7 +169,7 @@ final class SiteSettings
     {
         $name = trim((string) $this->value('general', 'name', ''));
 
-        return $name !== '' ? $name : (string) config('app.name', 'Krikkit');
+        return $name !== '' ? $name : (string) config('app.name', 'Supreme');
     }
 
     public function tagline(): string

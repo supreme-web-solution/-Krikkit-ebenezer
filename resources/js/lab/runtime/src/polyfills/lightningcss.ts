@@ -1,4 +1,4 @@
-// Krikkit Lab — node:lightningcss polyfill.
+// Supreme Lab — node:lightningcss polyfill.
 // primary path is the npm package with VFS-to-CDN fallback for the large .wasm (see fetch patch in ScriptEngine)
 
 import { CDN_LIGHTNINGCSS_WASM, cdnImport } from "../constants/cdn-urls";

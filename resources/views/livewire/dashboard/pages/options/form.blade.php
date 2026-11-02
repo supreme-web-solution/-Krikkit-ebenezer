@@ -1,44 +1,44 @@
 @props(['publicUrl' => null])
 
 <form wire:submit="save" class="space-y-8">
-    <krikkit:switch align="right" class="w-full justify-between" :label="__('dashboard.Publish this page')" wire:model="published" />
+    <studio:switch align="right" class="w-full justify-between" :label="__('dashboard.Publish this page')" wire:model="published" />
 
     @if ($publicUrl)
-        <p class="text-xs text-krikkit-muted">
+        <p class="text-xs text-studio-muted">
             {{ __('dashboard.Public URL') }}:
-            <a href="{{ $publicUrl }}" class="break-all text-krikkit-fg underline" target="_blank" rel="noreferrer">{{ $publicUrl }}</a>
+            <a href="{{ $publicUrl }}" class="break-all text-studio-fg underline" target="_blank" rel="noreferrer">{{ $publicUrl }}</a>
         </p>
     @endif
 
-    <krikkit:field :label="__('dashboard.Title')">
-        <krikkit:input size="md" wire:model.live="title" :placeholder="__('dashboard.Page title')" :invalid="$errors->has('title')" />
+    <studio:field :label="__('dashboard.Title')">
+        <studio:input size="md" wire:model.live="title" :placeholder="__('dashboard.Page title')" :invalid="$errors->has('title')" />
         @error('title')
-            <krikkit:field.error>{{ $message }}</krikkit:field.error>
+            <studio:field.error>{{ $message }}</studio:field.error>
         @enderror
-    </krikkit:field>
+    </studio:field>
 
-    <krikkit:field :label="__('dashboard.Slug')">
-        <krikkit:input size="md" wire:model="slug" :placeholder="__('dashboard.about-us')" :invalid="$errors->has('slug')" />
+    <studio:field :label="__('dashboard.Slug')">
+        <studio:input size="md" wire:model="slug" :placeholder="__('dashboard.about-us')" :invalid="$errors->has('slug')" />
         @error('slug')
-            <krikkit:field.error>{{ $message }}</krikkit:field.error>
+            <studio:field.error>{{ $message }}</studio:field.error>
         @enderror
-    </krikkit:field>
+    </studio:field>
 
-    <krikkit:field :label="__('dashboard.Body')">
-        <krikkit:editor
+    <studio:field :label="__('dashboard.Body')">
+        <studio:editor
             :value="$body"
             wire:model="body"
             :placeholder="__('dashboard.Write…')"
             :invalid="$errors->has('body')"
         />
         @error('body')
-            <krikkit:field.error>{{ $message }}</krikkit:field.error>
+            <studio:field.error>{{ $message }}</studio:field.error>
         @enderror
-    </krikkit:field>
+    </studio:field>
 
     <div class="flex justify-end">
-        <krikkit:button type="submit" wire:loading.attr="disabled">
+        <studio:button type="submit" wire:loading.attr="disabled">
             {{ __('dashboard.Save changes') }}
-        </krikkit:button>
+        </studio:button>
     </div>
 </form>

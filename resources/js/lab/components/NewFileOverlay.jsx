@@ -71,17 +71,17 @@ export function NewFileOverlay({
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="new-file-title"
-                className="relative w-full max-w-md overflow-hidden rounded-2xl border border-krikkit-line bg-krikkit-canvas p-5"
+                className="relative w-full max-w-md overflow-hidden rounded-2xl border border-studio-line bg-studio-canvas p-5"
                 onSubmit={(event) => {
                     event.preventDefault()
                     submit()
                 }}
             >
-                <h2 id="new-file-title" className="text-base font-semibold text-krikkit-fg">
+                <h2 id="new-file-title" className="text-base font-semibold text-studio-fg">
                     New file
                 </h2>
-                <p className="mt-1 text-sm text-krikkit-muted">
-                    Create a blank file under <span className="text-krikkit-fg">src/</span> or <span className="text-krikkit-fg">public/</span>.
+                <p className="mt-1 text-sm text-studio-muted">
+                    Create a blank file under <span className="text-studio-fg">src/</span> or <span className="text-studio-fg">public/</span>.
                 </p>
                 <input
                     ref={inputRef}
@@ -93,7 +93,7 @@ export function NewFileOverlay({
                     }}
                     spellCheck={false}
                     autoComplete="off"
-                    className="mt-4 h-10 w-full rounded-full border border-transparent bg-krikkit-surface px-4 font-mono text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle focus:border-krikkit-muted/40"
+                    className="mt-4 h-10 w-full rounded-full border border-transparent bg-studio-surface px-4 font-mono text-sm text-studio-fg outline-none placeholder:text-studio-subtle focus:border-studio-muted/40"
                     placeholder="src/untitled.tsx"
                 />
                 {error ? (
@@ -103,7 +103,7 @@ export function NewFileOverlay({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="rounded-lg px-3 py-2 text-sm text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg"
+                        className="rounded-lg px-3 py-2 text-sm text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg"
                     >
                         Cancel
                     </button>

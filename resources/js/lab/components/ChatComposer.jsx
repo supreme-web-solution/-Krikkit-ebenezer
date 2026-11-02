@@ -73,8 +73,8 @@ export function ChatComposer({
                 el.style.height = `${Math.min(el.scrollHeight, max)}px`
             }
         }
-        window.addEventListener('krikkit-lab-focus-composer', onFocus)
-        return () => window.removeEventListener('krikkit-lab-focus-composer', onFocus)
+        window.addEventListener('studio-lab-focus-composer', onFocus)
+        return () => window.removeEventListener('studio-lab-focus-composer', onFocus)
     }, [large, stacked])
 
     const submit = () => {
@@ -212,7 +212,7 @@ export function ChatComposer({
                     'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full p-0 transition',
                     inspecting
                         ? 'bg-accent text-accent-foreground'
-                        : 'text-krikkit-muted hover:bg-krikkit-soft hover:text-krikkit-fg',
+                        : 'text-studio-muted hover:bg-studio-soft hover:text-studio-fg',
                 ].join(' ')}
             >
                 <IconInspect className="block size-5" />
@@ -232,10 +232,10 @@ export function ChatComposer({
             <button
                 type="button"
                 onClick={() => onStop?.()}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-krikkit-soft p-0 text-krikkit-fg transition hover:bg-krikkit-surface"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-studio-soft p-0 text-studio-fg transition hover:bg-studio-surface"
                 aria-label="Stop generation"
             >
-                <span className="block h-3 w-3 rounded-[2px] bg-krikkit-fg" aria-hidden />
+                <span className="block h-3 w-3 rounded-[2px] bg-studio-fg" aria-hidden />
             </button>
         </LabTooltip>
     ) : (
@@ -258,10 +258,10 @@ export function ChatComposer({
             className={[
                 'transition',
                 docked
-                    ? 'rounded-2xl bg-krikkit-surface/90 px-2 py-2'
+                    ? 'rounded-2xl bg-studio-surface/90 px-2 py-2'
                     : stacked
-                        ? 'rounded-2xl bg-krikkit-surface p-2.5'
-                        : 'rounded-2xl bg-krikkit-surface p-3.5 sm:p-4',
+                        ? 'rounded-2xl bg-studio-surface p-2.5'
+                        : 'rounded-2xl bg-studio-surface p-3.5 sm:p-4',
             ].join(' ')}
         >
             {toolbar ? (
@@ -313,7 +313,7 @@ export function ChatComposer({
                         onPaste={onPaste}
                         disabled={disabled}
                         placeholder={placeholder}
-                        className="max-h-[120px] min-h-[36px] flex-1 resize-none bg-transparent py-2 text-sm leading-relaxed text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                        className="max-h-[120px] min-h-[36px] flex-1 resize-none bg-transparent py-2 text-sm leading-relaxed text-studio-fg outline-none placeholder:text-studio-subtle"
                     />
 
                     <div className="mb-0.5">{sendBtn}</div>
@@ -329,7 +329,7 @@ export function ChatComposer({
                         onPaste={onPaste}
                         disabled={disabled}
                         placeholder={placeholder}
-                        className="krikkit-scroll-hover max-h-[140px] min-h-[36px] w-full resize-none overflow-y-auto bg-transparent py-1 text-sm leading-relaxed text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                        className="studio-scroll-hover max-h-[140px] min-h-[36px] w-full resize-none overflow-y-auto bg-transparent py-1 text-sm leading-relaxed text-studio-fg outline-none placeholder:text-studio-subtle"
                     />
 
                     <div className="mt-1.5 flex items-center justify-between gap-3">
@@ -348,7 +348,7 @@ export function ChatComposer({
                         onPaste={onPaste}
                         disabled={disabled}
                         placeholder={placeholder}
-                        className="min-h-[72px] w-full resize-none bg-transparent text-sm leading-relaxed text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                        className="min-h-[72px] w-full resize-none bg-transparent text-sm leading-relaxed text-studio-fg outline-none placeholder:text-studio-subtle"
                     />
 
                     <div className="mt-2 flex items-center justify-between gap-3">

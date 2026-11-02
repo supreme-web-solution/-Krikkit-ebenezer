@@ -22,20 +22,20 @@ export function UnsavedCloseModal({
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="unsaved-close-title"
-                className="relative w-full max-w-md rounded-2xl border border-krikkit-line bg-krikkit-canvas p-5"
+                className="relative w-full max-w-md rounded-2xl border border-studio-line bg-studio-canvas p-5"
             >
-                <h2 id="unsaved-close-title" className="text-base font-semibold text-krikkit-fg">
+                <h2 id="unsaved-close-title" className="text-base font-semibold text-studio-fg">
                     Unsaved changes
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-krikkit-muted">
-                    <span className="font-medium text-krikkit-fg">{fileLabel}</span>
+                <p className="mt-2 text-sm leading-relaxed text-studio-muted">
+                    <span className="font-medium text-studio-fg">{fileLabel}</span>
                     {' '}has edits that aren’t saved yet. What should we do?
                 </p>
                 <div className="mt-5 flex flex-wrap justify-end gap-2">
                     <button
                         type="button"
                         onClick={onCancel}
-                        className="rounded-lg px-3 py-2 text-sm text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg"
+                        className="rounded-lg px-3 py-2 text-sm text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg"
                     >
                         Cancel
                     </button>

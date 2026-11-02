@@ -16,7 +16,7 @@ export function pinLabRuntimeHost() {
 
     pinPromise = (async () => {
         const factory =
-            globalThis.__KRIKKIT_LAB_CREATE_BROWSER_HOST__
+            globalThis.__SUPREME_LAB_CREATE_BROWSER_HOST__
             ?? globalThis.__DEEPTHOUGHT_CREATE_BROWSER_HOST__
         if (typeof factory === 'function') {
             const { setRuntimeHost } = await import('./labRuntimeEngine')

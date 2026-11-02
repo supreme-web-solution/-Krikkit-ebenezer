@@ -8,11 +8,11 @@ import { withLabHandoffQuery, workspaceWindowName } from './labUrl'
 const HANDOFF_TTL_MS = 120_000
 
 function channelName(uuid) {
-    return `krikkit-lab-preview:${String(uuid || '').trim()}`
+    return `studio-lab-preview:${String(uuid || '').trim()}`
 }
 
 function handoffKey(uuid) {
-    return `krikkit-lab-handoff:${String(uuid || '').trim()}`
+    return `studio-lab-handoff:${String(uuid || '').trim()}`
 }
 
 function storageKey(uuid) {

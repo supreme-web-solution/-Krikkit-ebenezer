@@ -118,12 +118,12 @@ final class LabPublishConfig
 
     public function txtName(string $host): string
     {
-        return '_krikkit-lab.'.$host;
+        return '_studio-lab.'.$host;
     }
 
     public function txtValue(string $token): string
     {
-        return 'krikkit='.$token;
+        return 'studio='.$token;
     }
 
     public function punycode(string $host): string

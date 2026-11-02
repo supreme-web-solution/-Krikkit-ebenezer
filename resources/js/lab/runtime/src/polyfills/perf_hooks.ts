@@ -1,4 +1,4 @@
-// Krikkit Lab — node:perf_hooks polyfill.
+// Supreme Lab — node:perf_hooks polyfill.
 
 export type MarkResourceTimingFn = (
   timingInfo?: unknown,

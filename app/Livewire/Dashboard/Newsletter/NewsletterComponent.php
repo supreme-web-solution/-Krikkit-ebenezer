@@ -49,7 +49,7 @@ class NewsletterComponent extends Component
     {
         Gate::authorize('settings.revise');
         $this->confirmPublicId = $publicId;
-        $this->dispatch('krikkit-modal-open', 'remove-subscriber');
+        $this->dispatch('studio-modal-open', 'remove-subscriber');
     }
 
     public function export(string $format, NewsletterListExport $exporter): StreamedResponse
@@ -66,7 +66,7 @@ class NewsletterComponent extends Component
         Gate::authorize('settings.revise');
         $id = $this->confirmPublicId;
         $this->reset('confirmPublicId');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'remove-subscriber' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'remove-subscriber' }))");
 
         if ($id === '') {
             return;

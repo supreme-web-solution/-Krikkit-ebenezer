@@ -6,7 +6,7 @@ import { MAX_SYSTEM_FIX_RETRIES } from './constants.js'
 import { syncPatchEngineBuffers } from './patchApply.js'
 
 /** Marker comment — agent / UI can detect temporary heal stubs. */
-export const VFS_STUB_MARKER = '@krikkit-vfs-stub'
+export const VFS_STUB_MARKER = '@studio-vfs-stub'
 
 /**
  * Collect every missing relative/absolute VFS path from compile/static errors.
@@ -117,7 +117,7 @@ export function buildModuleStubSource(path = '', opts = {}) {
     }
 
     if (lower.endsWith('.json')) {
-        return `${JSON.stringify({ __krikkitStub: true, path: normalized }, null, 2)}\n`
+        return `${JSON.stringify({ __studioStub: true, path: normalized }, null, 2)}\n`
     }
 
     if (lower.endsWith('.ts') && ! lower.endsWith('.tsx')) {

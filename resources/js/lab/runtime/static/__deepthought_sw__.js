@@ -170,10 +170,10 @@ function getSameOriginReferer(request) {
   }
 }
 
-// Krikkit registers this SW at / scope for Lab preview. Host app routes and
+// Supreme registers this SW at / scope for Lab preview. Host app routes and
 // their assets must never route to guest pods — preview pathClaims on "/" would
 // otherwise match /lab/* via ancestor walk and 503 host CSS/JS on normal reload.
-function isKrikkitHostPath(pathname) {
+function isSupremeHostPath(pathname) {
   if (!pathname || pathname.charAt(0) !== "/") return false;
   if (pathname === "/lab" || pathname.startsWith("/lab/")) return true;
   if (pathname === "/dashboard" || pathname.startsWith("/dashboard/")) {
@@ -191,7 +191,7 @@ function isKrikkitHostPath(pathname) {
   );
 }
 
-function isKrikkitHostAsset(pathname) {
+function isSupremeHostAsset(pathname) {
   if (!pathname || pathname.charAt(0) !== "/") return false;
   return (
     pathname.startsWith("/build/") ||
@@ -225,14 +225,14 @@ function resetHostPreviewRoutingState() {
 }
 
 function shouldPassthroughToHost(requestUrl, refUrl) {
-  if (isKrikkitHostPath(requestUrl.pathname)) return true;
-  if (isKrikkitHostAsset(requestUrl.pathname)) return true;
-  if (refUrl && isKrikkitHostPath(refUrl.pathname)) return true;
+  if (isSupremeHostPath(requestUrl.pathname)) return true;
+  if (isSupremeHostAsset(requestUrl.pathname)) return true;
+  if (refUrl && isSupremeHostPath(refUrl.pathname)) return true;
   return false;
 }
 
 function resolvePodForGuestAsset(clientId, refUrl) {
-  if (refUrl && isKrikkitHostPath(refUrl.pathname)) {
+  if (refUrl && isSupremeHostPath(refUrl.pathname)) {
     return null;
   }
   if (clientId && previewClients.has(clientId)) {
@@ -698,11 +698,11 @@ self.addEventListener("message", (event) => {
   // Lab host shell loaded — drop stale preview pathClaims (e.g. "/") before
   // Vite bundles fetch; otherwise normal navigation to /lab/*/workspace 503s
   // app.css/lab.jsx and the Blade skeleton never gets replaced by React.
-  if (data.type === "krikkit-host-active") {
+  if (data.type === "studio-host-active") {
     resetHostPreviewRoutingState();
     return;
   }
-  if (data.type === "krikkit-host-vite" && data.origin) {
+  if (data.type === "studio-host-vite" && data.origin) {
     try {
       hostViteOrigins.add(new URL(String(data.origin)).origin);
     } catch (e) {}
@@ -893,7 +893,7 @@ self.addEventListener("fetch", (event) => {
   // must reach isGuestFrameworkAsset / preview-client routing below.
   if (
     url.origin === self.location.origin &&
-    (isKrikkitHostPath(url.pathname) || isKrikkitHostAsset(url.pathname))
+    (isSupremeHostPath(url.pathname) || isSupremeHostAsset(url.pathname))
   ) {
     return;
   }
@@ -1025,7 +1025,7 @@ self.addEventListener("fetch", (event) => {
   //    top-level host clients pass through; any miss falls through to the host.
   if (!isNavigation) {
     const refererPod =
-      refUrl && !isKrikkitHostPath(refUrl.pathname)
+      refUrl && !isSupremeHostPath(refUrl.pathname)
         ? lookupPodForClaimedPath(refUrl.pathname)
         : null;
     const mayResolveViaClient = !refUrl && clientId && pathClaims.size > 0;
@@ -1104,8 +1104,8 @@ function getWsShimScript(instanceId, serverPort) {
   const portLiteral = Number.isFinite(serverPort) ? Number(serverPort) : 0;
   return `<script>
 (function() {
-  if (window.__krikkitLabWsShim || window.__deepthoughtWsShim) return;
-  window.__krikkitLabWsShim = true;
+  if (window.__studioLabWsShim || window.__deepthoughtWsShim) return;
+  window.__studioLabWsShim = true;
   window.__deepthoughtWsShim = true;
   var NativeWS = window.WebSocket;
   var bc = new BroadcastChannel("deepthought-ws");
@@ -1292,8 +1292,8 @@ function getNavTimingPatchScript(bodyBytes) {
   const size = Number.isFinite(bodyBytes) && bodyBytes > 0 ? Math.floor(bodyBytes) : 1;
   return `<script>
 (function() {
-  if (window.__krikkitLabNavTiming || window.__deepthoughtNavTiming) return;
-  window.__krikkitLabNavTiming = true;
+  if (window.__studioLabNavTiming || window.__deepthoughtNavTiming) return;
+  window.__studioLabNavTiming = true;
   window.__deepthoughtNavTiming = true;
   var bodySize = ${size};
   try {
@@ -1340,8 +1340,8 @@ function getLocationPatchScript(instanceId, serverPort) {
   });
   return `<script>
 (function() {
-  if (window.__krikkitLabLocPatch || window.__deepthoughtLocPatch) return;
-  window.__krikkitLabLocPatch = true;
+  if (window.__studioLabLocPatch || window.__deepthoughtLocPatch) return;
+  window.__studioLabLocPatch = true;
   window.__deepthoughtLocPatch = true;
 
   var POD = ${podLiteral};
@@ -1486,14 +1486,14 @@ function getLocationPatchScript(instanceId, serverPort) {
   function adoptStylesheet(href) {
     href = rewriteAssetUrl(String(href || ''));
     if (!href || href.indexOf('/_next/') < 0) return;
-    if (document.querySelector('style[data-krikkit-css="' + href.replace(/"/g, '') + '"]')) return;
+    if (document.querySelector('style[data-studio-css="' + href.replace(/"/g, '') + '"]')) return;
     fetch(href, { credentials: 'same-origin' }).then(function(r) {
       if (!r.ok) return null;
       return r.text();
     }).then(function(css) {
       if (!css || /<html[\\s>]/i.test(css.slice(0, 256))) return;
       var s = document.createElement('style');
-      s.setAttribute('data-krikkit-css', href);
+      s.setAttribute('data-studio-css', href);
       s.textContent = css;
       document.head.appendChild(s);
     }).catch(function() {});
@@ -1739,14 +1739,14 @@ function isTransientNoServer(data) {
 
 function bootingPage() {
   const html = `<!DOCTYPE html>
-<html lang="en" data-krikkit-preview-boot="1">
+<html lang="en" data-studio-preview-boot="1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="2">
 <title></title>
 </head>
-<body data-krikkit-preview-boot="1"></body>
+<body data-studio-preview-boot="1"></body>
 </html>`;
   return new Response(html, {
     status: 503,
@@ -1941,7 +1941,7 @@ async function proxyToVirtualServer(request, instanceId, serverPort, path, origi
       const inspectorScript = previewInspectorScripts.get(instanceId);
       if (inspectorScript) {
         const safeInspector = String(inspectorScript).replace(/<\/script/gi, "<\\/script");
-        injection += `<script>window.__krikkitLabInspectConfig=${JSON.stringify({ instanceId, port: serverPort })};window.__deepthoughtInspectConfig=${JSON.stringify({ instanceId, port: serverPort })};<` + `/script><script>${safeInspector}<` + `/script>`;
+        injection += `<script>window.__studioLabInspectConfig=${JSON.stringify({ instanceId, port: serverPort })};window.__deepthoughtInspectConfig=${JSON.stringify({ instanceId, port: serverPort })};<` + `/script><script>${safeInspector}<` + `/script>`;
       }
       const previewScript = previewScripts.get(instanceId);
       if (previewScript) {

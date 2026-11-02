@@ -11,7 +11,7 @@ class WorkspaceProbeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: __('dashboard.Krikkit test email'),
+            subject: __('dashboard.Supreme test email'),
         );
     }
 

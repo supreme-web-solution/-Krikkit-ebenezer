@@ -1,4 +1,4 @@
-// Krikkit Lab — worker offload message types.
+// Supreme Lab — worker offload message types.
 
 // types for the worker offloading system — all must be structured-clone safe (postMessage)
 

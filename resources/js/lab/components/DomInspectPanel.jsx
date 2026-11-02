@@ -23,12 +23,12 @@ import {
     X,
 } from 'lucide-react'
 
-const FIELD = 'flex min-w-0 flex-1 items-center gap-1 rounded-md bg-krikkit-fg/[0.06] px-1.5 py-[5px] hover:bg-krikkit-fg/[0.09] focus-within:bg-krikkit-fg/[0.09]'
+const FIELD = 'flex min-w-0 flex-1 items-center gap-1 rounded-md bg-studio-fg/[0.06] px-1.5 py-[5px] hover:bg-studio-fg/[0.09] focus-within:bg-studio-fg/[0.09]'
 
 function Section({ title, children }) {
     return (
-        <section className="border-b border-krikkit-fg/[0.08]">
-            <p className="px-3 pt-2.5 text-[11px] font-medium text-krikkit-fg">{title}</p>
+        <section className="border-b border-studio-fg/[0.08]">
+            <p className="px-3 pt-2.5 text-[11px] font-medium text-studio-fg">{title}</p>
             <div className="flex flex-col gap-1.5 px-3 py-2.5">{children}</div>
         </section>
     )
@@ -166,7 +166,7 @@ function ScrubField({
     return (
         <label className={FIELD}>
             <span
-                className="inline-flex shrink-0 cursor-ew-resize items-center text-krikkit-muted hover:text-krikkit-fg"
+                className="inline-flex shrink-0 cursor-ew-resize items-center text-studio-muted hover:text-studio-fg"
                 title={title || `Drag to change ${label || 'value'}`}
                 onPointerDown={onPointerDown}
                 onPointerMove={onPointerMove}
@@ -176,7 +176,7 @@ function ScrubField({
                 <Icon className="size-3.5" strokeWidth={1.75} />
             </span>
             {label ? (
-                <span className="shrink-0 text-[10px] font-medium text-krikkit-subtle">{label}</span>
+                <span className="shrink-0 text-[10px] font-medium text-studio-subtle">{label}</span>
             ) : null}
             <input
                 type="text"
@@ -186,10 +186,10 @@ function ScrubField({
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') e.currentTarget.blur()
                 }}
-                className="min-w-0 flex-1 bg-transparent text-[11px] text-krikkit-fg outline-none"
+                className="min-w-0 flex-1 bg-transparent text-[11px] text-studio-fg outline-none"
             />
             {suffix ? (
-                <span className="shrink-0 text-[10px] text-krikkit-subtle">{suffix}</span>
+                <span className="shrink-0 text-[10px] text-studio-subtle">{suffix}</span>
             ) : null}
         </label>
     )
@@ -201,7 +201,7 @@ function SelectField({ value, options, onChange }) {
             <select
                 value={value ?? ''}
                 onChange={(e) => onChange?.(e.target.value)}
-                className="min-w-0 flex-1 appearance-none bg-transparent text-[11px] text-krikkit-fg outline-none"
+                className="min-w-0 flex-1 appearance-none bg-transparent text-[11px] text-studio-fg outline-none"
             >
                 {options.map((opt) => (
                     <option key={opt.value} value={opt.value}>
@@ -222,10 +222,10 @@ function IconBtn({ title, active = false, onClick, children }) {
             aria-pressed={active}
             onClick={onClick}
             className={[
-                'inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-krikkit-muted',
+                'inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-studio-muted',
                 active
-                    ? 'bg-krikkit-fg/[0.08] text-krikkit-fg'
-                    : 'hover:bg-krikkit-fg/[0.06] hover:text-krikkit-fg',
+                    ? 'bg-studio-fg/[0.08] text-studio-fg'
+                    : 'hover:bg-studio-fg/[0.06] hover:text-studio-fg',
             ].join(' ')}
         >
             {children}
@@ -249,7 +249,7 @@ function ColorRow({ value, onChange }) {
                 type="text"
                 value={display}
                 onChange={(e) => onChange?.(e.target.value)}
-                className="min-w-0 flex-1 bg-transparent font-mono text-[10px] text-krikkit-fg outline-none"
+                className="min-w-0 flex-1 bg-transparent font-mono text-[10px] text-studio-fg outline-none"
             />
         </label>
     )
@@ -329,17 +329,17 @@ export function DomInspectPanel({ element = null, onClose = null, onApply = null
 
     return (
         <aside
-            className="flex h-full w-[272px] shrink-0 flex-col border-l border-krikkit-line bg-krikkit-canvas"
+            className="flex h-full w-[272px] shrink-0 flex-col border-l border-studio-line bg-studio-canvas"
             aria-label="Inspect"
         >
-            <div className="flex h-10 shrink-0 items-center gap-2 border-b border-krikkit-line bg-krikkit-canvas px-3">
-                <p className="min-w-0 flex-1 truncate text-xs font-medium text-krikkit-fg" title={element.path}>
+            <div className="flex h-10 shrink-0 items-center gap-2 border-b border-studio-line bg-studio-canvas px-3">
+                <p className="min-w-0 flex-1 truncate text-xs font-medium text-studio-fg" title={element.path}>
                     {tagLabel(element)}
                 </p>
                 <button
                     type="button"
                     onClick={onClose}
-                    className="inline-flex h-6 w-6 items-center justify-center text-krikkit-muted transition hover:text-krikkit-fg"
+                    className="inline-flex h-6 w-6 items-center justify-center text-studio-muted transition hover:text-studio-fg"
                     aria-label="Close inspect"
                     title="Close"
                 >
@@ -347,7 +347,7 @@ export function DomInspectPanel({ element = null, onClose = null, onApply = null
                 </button>
             </div>
 
-            <div className="krikkit-scroll-hover min-h-0 flex-1 overflow-y-auto overscroll-contain">
+            <div className="studio-scroll-hover min-h-0 flex-1 overflow-y-auto overscroll-contain">
                 <Section title="Position">
                     <Row>
                         <ScrubField icon={MoveHorizontal} label="X" value={draft.x} onChange={(v) => setStyle('x', v)} onCommit={commit} />
@@ -395,7 +395,7 @@ export function DomInspectPanel({ element = null, onClose = null, onApply = null
                                 <IconBtn title="Justify end" active={draft.justifyContent === 'flex-end'} onClick={() => setStyle('justifyContent', 'flex-end', { immediate: true })}>
                                     <AlignHorizontalJustifyEnd className={icon} strokeWidth={1.75} />
                                 </IconBtn>
-                                <span className="mx-0.5 h-4 w-px bg-krikkit-fg/[0.08]" aria-hidden />
+                                <span className="mx-0.5 h-4 w-px bg-studio-fg/[0.08]" aria-hidden />
                                 <IconBtn title="Align start" active={draft.alignItems === 'flex-start'} onClick={() => setStyle('alignItems', 'flex-start', { immediate: true })}>
                                     <AlignVerticalJustifyStart className={icon} strokeWidth={1.75} />
                                 </IconBtn>
@@ -478,7 +478,7 @@ export function DomInspectPanel({ element = null, onClose = null, onApply = null
                 </Section>
 
                 <Section title="Spacing">
-                    <p className="text-[10px] text-krikkit-subtle">Padding</p>
+                    <p className="text-[10px] text-studio-subtle">Padding</p>
                     <Row>
                         <ScrubField icon={MoveVertical} label="T" value={draft.paddingT} onChange={(v) => setStyle('paddingT', v)} onCommit={commit} min={0} />
                         <ScrubField icon={MoveHorizontal} label="R" value={draft.paddingR} onChange={(v) => setStyle('paddingR', v)} onCommit={commit} min={0} />
@@ -487,7 +487,7 @@ export function DomInspectPanel({ element = null, onClose = null, onApply = null
                         <ScrubField icon={MoveVertical} label="B" value={draft.paddingB} onChange={(v) => setStyle('paddingB', v)} onCommit={commit} min={0} />
                         <ScrubField icon={MoveHorizontal} label="L" value={draft.paddingL} onChange={(v) => setStyle('paddingL', v)} onCommit={commit} min={0} />
                     </Row>
-                    <p className="mt-1 text-[10px] text-krikkit-subtle">Margin</p>
+                    <p className="mt-1 text-[10px] text-studio-subtle">Margin</p>
                     <Row>
                         <ScrubField icon={MoveVertical} label="T" value={draft.marginT} onChange={(v) => setStyle('marginT', v)} onCommit={commit} />
                         <ScrubField icon={MoveHorizontal} label="R" value={draft.marginR} onChange={(v) => setStyle('marginR', v)} onCommit={commit} />

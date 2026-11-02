@@ -1,4 +1,4 @@
-// Krikkit Lab — node:diagnostics_channel polyfill (stub - minimal diagnostics_channel for compatibility).
+// Supreme Lab — node:diagnostics_channel polyfill (stub - minimal diagnostics_channel for compatibility).
 
 
 export interface DiagChannel {

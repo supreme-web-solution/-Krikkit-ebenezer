@@ -1,12 +1,12 @@
-# Welcome to Krikkit
+# Welcome to Supreme
 
-Krikkit is an AI-assisted web project builder SaaS developed by **deep42**. This Laravel-based platform lets you run a product where users generate, preview, edit, and publish web projects through an integrated builder workspace—with billing and admin controls included.
+Supreme is an AI-assisted web project builder SaaS developed by **deep42**. This Laravel-based platform lets you run a product where users generate, preview, edit, and publish web projects through an integrated builder workspace—with billing and admin controls included.
 
-You purchased Krikkit on **CodeCanyon**; this documentation covers installation, configuration, and day-to-day operation of your copy.
+You purchased Supreme on **CodeCanyon**; this documentation covers installation, configuration, and day-to-day operation of your copy.
 
-## About Krikkit
+## About Supreme
 
-Krikkit is a complete AI builder SaaS that provides:
+Supreme is a complete AI builder SaaS that provides:
 
 - **AI-driven builder workflow** — Chat, edit, and iterate on projects with tool-assisted generation
 - **Workspace and preview** — File APIs, live preview publishing, and exportable build sessions
@@ -14,9 +14,9 @@ Krikkit is a complete AI builder SaaS that provides:
 - **Production-ready billing** — Stripe and PayPal integration with webhook support
 - **Operational admin** — Roles, permissions, and dashboard analytics for running the platform
 
-## What is Krikkit?
+## What is Supreme?
 
-Krikkit is a SaaS platform for AI-assisted web development. It enables:
+Supreme is a SaaS platform for AI-assisted web development. It enables:
 
 - **End users** to create projects, chat with the AI builder, edit files in a workspace, and publish previews
 - **Operators** to manage subscriptions, usage limits, and platform settings from the admin dashboard
@@ -26,7 +26,7 @@ Krikkit is a SaaS platform for AI-assisted web development. It enables:
 
 ## Technology Stack
 
-Krikkit is built with modern web technologies:
+Supreme is built with modern web technologies:
 
 - **PHP 8.3+** — Required runtime (some dependencies and extensions expect PHP 8.3+)
 - **Laravel 13** — Backend framework for APIs, auth, billing, and jobs
@@ -74,7 +74,7 @@ Krikkit is built with modern web technologies:
 
 ## About deep42
 
-**deep42** is a software development company specializing in high-quality Laravel and Livewire applications. Krikkit is one of our premium CodeCanyon products for entrepreneurs and developers who want to launch their own AI-powered website builder SaaS.
+**deep42** is a software development company specializing in high-quality Laravel and Livewire applications. Supreme is one of our premium CodeCanyon products for entrepreneurs and developers who want to launch their own AI-powered website builder SaaS.
 
 ## Getting Started
 

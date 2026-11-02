@@ -32,7 +32,7 @@ final class LabPublishArtifactDeployer
             throw new RuntimeException(__('dashboard.ZIP support is required to publish Lab sites.'));
         }
 
-        $extractRoot = sys_get_temp_dir().DIRECTORY_SEPARATOR.'krikkit-pub-'.bin2hex(random_bytes(8));
+        $extractRoot = sys_get_temp_dir().DIRECTORY_SEPARATOR.'studio-pub-'.bin2hex(random_bytes(8));
         File::ensureDirectoryExists($extractRoot);
 
         $zip = new ZipArchive;

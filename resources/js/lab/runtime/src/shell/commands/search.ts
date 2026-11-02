@@ -1,4 +1,4 @@
-// Krikkit Lab — find/grep/which builtins.
+// Supreme Lab — find/grep/which builtins.
 
 import type { BuiltinFn } from "../shell-types";
 import type { MemoryVolume } from "../../memory-volume";

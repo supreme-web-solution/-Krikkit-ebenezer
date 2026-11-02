@@ -1,4 +1,4 @@
-// Krikkit Lab — browser bundler for node_modules (esbuild-wasm).
+// Supreme Lab — browser bundler for node_modules (esbuild-wasm).
 // Uses esbuild-wasm. React-family packages are kept external (shared via import map).
 
 import {

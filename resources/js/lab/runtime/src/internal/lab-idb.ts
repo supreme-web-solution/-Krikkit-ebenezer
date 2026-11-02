@@ -1,5 +1,5 @@
 /**
- * IndexedDB migration helpers — read legacy DeepThought DBs once, write to Krikkit Lab names.
+ * IndexedDB migration helpers — read legacy DeepThought DBs once, write to Supreme Lab names.
  */
 
 import { LAB_IDB_MIGRATION_PREFIX } from "./lab-keys";

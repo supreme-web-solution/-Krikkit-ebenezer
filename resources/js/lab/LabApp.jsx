@@ -698,7 +698,7 @@ export function LabApp({ initialProject = null, initialWorkspace = false } = {})
         if (! text) return
         chat.setDraft(text)
         try {
-            window.dispatchEvent(new CustomEvent('krikkit-lab-focus-composer'))
+            window.dispatchEvent(new CustomEvent('studio-lab-focus-composer'))
         } catch {
             /* ignore */
         }
@@ -727,7 +727,7 @@ export function LabApp({ initialProject = null, initialWorkspace = false } = {})
         }
         window.setTimeout(() => {
             try {
-                window.dispatchEvent(new CustomEvent('krikkit-lab-focus-composer'))
+                window.dispatchEvent(new CustomEvent('studio-lab-focus-composer'))
             } catch {
                 /* ignore */
             }
@@ -778,14 +778,14 @@ export function LabApp({ initialProject = null, initialWorkspace = false } = {})
     useEffect(() => {
         if (! inspectedElement) return
         try {
-            window.__krikkitLastInspected = inspectedElement
+            window.__studioLastInspected = inspectedElement
         } catch {
             /* ignore */
         }
     }, [inspectedElement])
 
     return (
-        <div className="flex h-dvh flex-col overflow-hidden bg-krikkit-canvas">
+        <div className="flex h-dvh flex-col overflow-hidden bg-studio-canvas">
             <LabHeader
                 building={building}
                 railW={rail.railW}

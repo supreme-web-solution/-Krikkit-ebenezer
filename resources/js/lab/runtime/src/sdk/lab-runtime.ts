@@ -36,8 +36,8 @@ import {
 import { LabFSClient } from "./lab-fs-client";
 import { SyncChannelController } from "../threading/sync-channel";
 import { MemoryHandler } from "../memory-handler";
-// Browser default host is registered by `@krikkit/deepthought` (src/index.ts).
-// Headless installs its host via `@krikkit/deepthought/headless` before boot.
+// Browser default host is registered by `@studio/deepthought` (src/index.ts).
+// Headless installs its host via `@studio/deepthought/headless` before boot.
 import { ensureRuntimeHost } from "../host/runtime-host";
 import type { HttpIngress } from "../host/types";
 import type { CompletedResponse } from "../polyfills/http";

@@ -1,4 +1,4 @@
-// Krikkit Lab — node:trace_events polyfill (stub - not available in browser).
+// Supreme Lab — node:trace_events polyfill (stub - not available in browser).
 
 
 /* ------------------------------------------------------------------ */

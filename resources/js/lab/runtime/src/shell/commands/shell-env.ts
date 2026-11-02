@@ -1,4 +1,4 @@
-// Krikkit Lab — env/export/unset/which builtins.
+// Supreme Lab — env/export/unset/which builtins.
 
 import type { BuiltinFn, ShellContext } from "../shell-types";
 import {

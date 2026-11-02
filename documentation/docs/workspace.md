@@ -16,11 +16,11 @@ The view toolbar switches:
 
 ### In-browser preview (default)
 
-Krikkit compiles the project in the browser with an **DeepThought browser runtime** runtime (virtual filesystem, npm resolution, Vite/Next shims). Users iterate without Docker. The page is served under cross-origin isolation so SharedArrayBuffer / WASM work.
+Supreme compiles the project in the browser with an **DeepThought browser runtime** runtime (virtual filesystem, npm resolution, Vite/Next shims). Users iterate without Docker. The page is served under cross-origin isolation so SharedArrayBuffer / WASM work.
 
 ### Server-side Vite preview (`/preview-dev`)
 
-For heavier apps, Krikkit can start a **server Vite** process per project and proxy it at:
+For heavier apps, Supreme can start a **server Vite** process per project and proxy it at:
 
 ```
 /preview-dev/{projectUuid}/
@@ -34,7 +34,7 @@ For heavier apps, Krikkit can start a **server Vite** process per project and pr
 | Logs | `GET …/dev-preview/logs` |
 
 **Requirements:** Node **20.19+**, npm **10+**, `proc_open` enabled.  
-**Config:** `KRIKKIT_DEV_PREVIEW_*`, port range default `15000–15999` (`config/krikkit.php` → `dev_preview`).
+**Config:** `SUPREME_DEV_PREVIEW_*`, port range default `15000–15999` (`config/studio.php` → `dev_preview`).
 
 ### Address bar & navigation
 
@@ -98,7 +98,7 @@ Pending styles preview live; **Apply** sends them into the AI edit pipeline.
 | Bridge | Chat “open file” cards jump to the editor |
 
 **API:** list/read/write files, file index, snapshot, sync, artifact upload.  
-**Limits:** `KRIKKIT_WORKSPACE_MAX_FILE_SIZE`, `KRIKKIT_WORKSPACE_MAX_TOTAL_BYTES`, `KRIKKIT_ALLOW_MANIFEST_EDITS` (blocks `package.json` / lockfile edits by default).
+**Limits:** `SUPREME_WORKSPACE_MAX_FILE_SIZE`, `SUPREME_WORKSPACE_MAX_TOTAL_BYTES`, `SUPREME_ALLOW_MANIFEST_EDITS` (blocks `package.json` / lockfile edits by default).
 
 ---
 
@@ -107,7 +107,7 @@ Pending styles preview live; **Apply** sends them into the AI edit pipeline.
 Bottom **Terminal** panel:
 
 - Run sandbox commands (`npm install`, `npm run build`, …) via `POST …/workspace/terminal/execute`
-- Timeout: `KRIKKIT_WORKSPACE_TERMINAL_TIMEOUT` (default 180s)
+- Timeout: `SUPREME_WORKSPACE_TERMINAL_TIMEOUT` (default 180s)
 - Audience: `BUILDER_TERMINAL_AUDIENCE=owner|technical`
 - Multi-session tabs, interrupt, minimize
 - During **auto-fix**, raw logs can stay collapsed until expanded
@@ -129,11 +129,11 @@ When Supabase is connected (see [Integrations](/docs/lab-integrations)):
 
 - Build sessions: start / status / cancel under `…/builds`
 - After AI edits, the client can run build + **auto-fix** loops (background-fix stream)
-- Thumbnails: capture from preview → `POST …/workspace/thumbnail` (`KRIKKIT_THUMBNAILS_*`)
+- Thumbnails: capture from preview → `POST …/workspace/thumbnail` (`SUPREME_THUMBNAILS_*`)
 
 ## Security notes
 
-- Manifest protection unless `KRIKKIT_ALLOW_MANIFEST_EDITS=true`
+- Manifest protection unless `SUPREME_ALLOW_MANIFEST_EDITS=true`
 - Concurrent builds capped per user
 - Prefer isolated workers for multi-tenant production
 

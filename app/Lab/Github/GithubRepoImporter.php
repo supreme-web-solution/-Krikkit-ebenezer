@@ -352,7 +352,7 @@ final class GithubRepoImporter
             throw new RuntimeException(__('dashboard.ZIP support is required to import from GitHub.'));
         }
 
-        $target = sys_get_temp_dir().DIRECTORY_SEPARATOR.'krikkit-gh-'.bin2hex(random_bytes(8));
+        $target = sys_get_temp_dir().DIRECTORY_SEPARATOR.'studio-gh-'.bin2hex(random_bytes(8));
         File::ensureDirectoryExists($target);
 
         $zip = new ZipArchive;

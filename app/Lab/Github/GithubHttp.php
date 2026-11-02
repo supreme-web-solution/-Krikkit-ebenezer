@@ -17,7 +17,7 @@ final class GithubHttp
             ->accept('application/vnd.github+json')
             ->withHeaders([
                 'X-GitHub-Api-Version' => '2022-11-28',
-                'User-Agent' => config('lab.github.user_agent', 'Krikkit-Lab'),
+                'User-Agent' => config('lab.github.user_agent', 'Supreme-Lab'),
             ]);
 
         if (filled($token)) {
@@ -36,7 +36,7 @@ final class GithubHttp
             ->withHeaders([
                 'Accept' => 'application/vnd.github+json',
                 'X-GitHub-Api-Version' => '2022-11-28',
-                'User-Agent' => config('lab.github.user_agent', 'Krikkit-Lab'),
+                'User-Agent' => config('lab.github.user_agent', 'Supreme-Lab'),
             ])
             ->withOptions(['allow_redirects' => true]);
 

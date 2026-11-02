@@ -1,4 +1,4 @@
-// Krikkit Lab — package-manager shared types.
+// Supreme Lab — package-manager shared types.
 
 // Shared types for package manager commands (npm, pnpm, yarn, bun).
 // Each PM file is a factory that receives these deps from child_process.ts.

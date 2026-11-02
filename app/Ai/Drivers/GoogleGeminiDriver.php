@@ -141,7 +141,7 @@ final class GoogleGeminiDriver implements StreamableChatDriver
         if ($dynamic !== '') {
             $contents[] = [
                 'role' => 'user',
-                'parts' => [['text' => "[Krikkit turn context — not visible chat]\n{$dynamic}"]],
+                'parts' => [['text' => "[Supreme turn context — not visible chat]\n{$dynamic}"]],
             ];
             $contents[] = [
                 'role' => 'model',

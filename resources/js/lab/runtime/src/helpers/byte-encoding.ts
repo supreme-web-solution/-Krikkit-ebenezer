@@ -1,4 +1,4 @@
-// Krikkit Lab byte/string encoding helpers.
+// Supreme Lab byte/string encoding helpers.
 
 // Chunked to avoid blowing the call stack on large buffers
 const CHUNK_BYTES = 8192;

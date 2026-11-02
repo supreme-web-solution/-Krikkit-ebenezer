@@ -58,12 +58,12 @@ function LabSwitch({ checked, onChange, label, disabled = false }) {
             onClick={() => onChange?.(! checked)}
             className={[
                 'relative h-6 w-10 shrink-0 rounded-full transition disabled:opacity-40',
-                checked ? 'bg-accent' : 'bg-krikkit-soft',
+                checked ? 'bg-accent' : 'bg-studio-soft',
             ].join(' ')}
         >
             <span
                 className={[
-                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-krikkit-canvas transition',
+                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-studio-canvas transition',
                     checked ? 'translate-x-4' : '',
                 ].join(' ')}
             />
@@ -76,9 +76,9 @@ function ConfirmSheet({ open, title, copy, dangerLabel, onCancel, onConfirm, bus
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <button type="button" className="absolute inset-0 bg-black/40" aria-label="Dismiss" onClick={onCancel} />
-            <div role="dialog" aria-modal="true" className="relative w-full max-w-md rounded-2xl border border-krikkit-line bg-krikkit-canvas p-5">
-                <h3 className="text-base font-semibold text-krikkit-fg">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-krikkit-muted">{copy}</p>
+            <div role="dialog" aria-modal="true" className="relative w-full max-w-md rounded-2xl border border-studio-line bg-studio-canvas p-5">
+                <h3 className="text-base font-semibold text-studio-fg">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-studio-muted">{copy}</p>
                 <div className="mt-5 flex justify-end gap-2">
                     <button type="button" onClick={onCancel} className={`inline-flex h-10 items-center rounded-full px-4 text-sm font-medium ${LAB_BTN_OUTLINE}`}>
                         Cancel
@@ -99,24 +99,24 @@ function ConfirmSheet({ open, title, copy, dangerLabel, onCancel, onConfirm, bus
 
 function CatalogTable({ rows = [] }) {
     if (rows.length === 0) {
-        return <p className="mt-8 text-sm text-krikkit-muted">Nothing here yet.</p>
+        return <p className="mt-8 text-sm text-studio-muted">Nothing here yet.</p>
     }
     const columns = Object.keys(rows[0] || {})
     return (
-        <div className="mt-8 overflow-x-auto rounded-xl border border-krikkit-line">
+        <div className="mt-8 overflow-x-auto rounded-xl border border-studio-line">
             <table className="min-w-full text-left text-xs">
-                <thead className="border-b border-krikkit-line bg-krikkit-soft/40">
+                <thead className="border-b border-studio-line bg-studio-soft/40">
                     <tr>
                         {columns.map((col) => (
-                            <th key={col} className="whitespace-nowrap px-3 py-2 font-medium text-krikkit-fg">{col}</th>
+                            <th key={col} className="whitespace-nowrap px-3 py-2 font-medium text-studio-fg">{col}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
                     {rows.map((row, index) => (
-                        <tr key={index} className="border-b border-krikkit-line last:border-b-0">
+                        <tr key={index} className="border-b border-studio-line last:border-b-0">
                             {columns.map((col) => (
-                                <td key={col} className="max-w-[18rem] truncate px-3 py-2 text-krikkit-muted" title={cellValue(row[col])}>
+                                <td key={col} className="max-w-[18rem] truncate px-3 py-2 text-studio-muted" title={cellValue(row[col])}>
                                     {cellValue(row[col])}
                                 </td>
                             ))}
@@ -137,12 +137,12 @@ function SignupChart({ series = [] }) {
                     <div
                         key={row.day}
                         title={`${row.label}: ${row.count}`}
-                        className="min-w-0 flex-1 rounded-t-sm bg-krikkit-muted/70"
+                        className="min-w-0 flex-1 rounded-t-sm bg-studio-muted/70"
                         style={{ height: `${Math.max(4, (Number(row.count) / max) * 100)}%` }}
                     />
                 ))}
             </div>
-            <div className="mt-2 flex justify-between text-[10px] text-krikkit-subtle">
+            <div className="mt-2 flex justify-between text-[10px] text-studio-subtle">
                 <span>{series[0]?.label || ''}</span>
                 <span>{series[series.length - 1]?.label || ''}</span>
             </div>
@@ -398,7 +398,7 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
         if (status === null && loading) {
             return (
                 <div className="px-6 py-8 sm:px-8">
-                    <p className="text-sm text-krikkit-muted">Loading Supabase…</p>
+                    <p className="text-sm text-studio-muted">Loading Supabase…</p>
                 </div>
             )
         }
@@ -406,8 +406,8 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
         if (! ready) {
             return (
                 <div className="px-6 py-8 sm:px-8">
-                    <h2 className="text-2xl font-semibold tracking-tight text-krikkit-fg">Supabase</h2>
-                    <p className="mt-2 max-w-xl text-sm text-krikkit-muted">
+                    <h2 className="text-2xl font-semibold tracking-tight text-studio-fg">Supabase</h2>
+                    <p className="mt-2 max-w-xl text-sm text-studio-muted">
                         Connect an existing Supabase project to manage tables, auth, and users from Lab.
                     </p>
                     {onConnect ? (
@@ -428,19 +428,19 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                 <div className="px-6 py-8 sm:px-8">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                         <div>
-                            <h2 className="text-2xl font-semibold tracking-tight text-krikkit-fg">Tables</h2>
-                            <p className="mt-2 max-w-xl text-sm text-krikkit-muted">
+                            <h2 className="text-2xl font-semibold tracking-tight text-studio-fg">Tables</h2>
+                            <p className="mt-2 max-w-xl text-sm text-studio-muted">
                                 View and manage database tables and records. Ask Lab to create or modify tables.
                             </p>
                         </div>
-                        <button type="button" onClick={() => void refreshSurvey(true)} className="text-xs font-medium text-krikkit-muted transition hover:text-krikkit-fg">
+                        <button type="button" onClick={() => void refreshSurvey(true)} className="text-xs font-medium text-studio-muted transition hover:text-studio-fg">
                             Refresh
                         </button>
                     </div>
                     {loading ? (
-                        <p className="mt-10 text-sm text-krikkit-muted">Loading tables…</p>
+                        <p className="mt-10 text-sm text-studio-muted">Loading tables…</p>
                     ) : tables.length === 0 ? (
-                        <p className="mt-10 text-sm text-krikkit-muted">You don&apos;t have any tables yet.</p>
+                        <p className="mt-10 text-sm text-studio-muted">You don&apos;t have any tables yet.</p>
                     ) : (
                         <div className="mt-8 flex min-h-0 flex-col gap-6 lg:flex-row">
                             <ul className="w-full shrink-0 lg:w-52">
@@ -453,11 +453,11 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                                                 onClick={() => setActiveTable(row.name)}
                                                 className={[
                                                     'flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition',
-                                                    on ? 'bg-krikkit-soft font-medium text-krikkit-fg' : 'text-krikkit-muted hover:bg-krikkit-soft/70 hover:text-krikkit-fg',
+                                                    on ? 'bg-studio-soft font-medium text-studio-fg' : 'text-studio-muted hover:bg-studio-soft/70 hover:text-studio-fg',
                                                 ].join(' ')}
                                             >
                                                 <span className="truncate">{row.name}</span>
-                                                <span className="ml-2 shrink-0 text-[11px] text-krikkit-subtle">
+                                                <span className="ml-2 shrink-0 text-[11px] text-studio-subtle">
                                                     {Array.isArray(row.columns) ? row.columns.length : 0}
                                                 </span>
                                             </button>
@@ -466,33 +466,33 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                                 })}
                             </ul>
                             <div className="min-w-0 flex-1">
-                                <p className="text-sm font-medium text-krikkit-fg">{activeTable}</p>
+                                <p className="text-sm font-medium text-studio-fg">{activeTable}</p>
                                 {schema?.columns?.length ? (
-                                    <p className="mt-1 text-xs text-krikkit-muted">
+                                    <p className="mt-1 text-xs text-studio-muted">
                                         {schema.columns.map((col) => `${col.name} (${col.type})`).join(' · ')}
                                     </p>
                                 ) : null}
                                 {rowsError ? (
                                     <p className="mt-4 text-sm text-red-500">{rowsError}</p>
                                 ) : rowsLoading ? (
-                                    <p className="mt-4 text-sm text-krikkit-muted">Loading records…</p>
+                                    <p className="mt-4 text-sm text-studio-muted">Loading records…</p>
                                 ) : rows.length === 0 ? (
-                                    <p className="mt-4 text-sm text-krikkit-muted">No records in this table.</p>
+                                    <p className="mt-4 text-sm text-studio-muted">No records in this table.</p>
                                 ) : (
-                                    <div className="mt-4 overflow-x-auto rounded-xl border border-krikkit-line">
+                                    <div className="mt-4 overflow-x-auto rounded-xl border border-studio-line">
                                         <table className="min-w-full text-left text-xs">
-                                            <thead className="border-b border-krikkit-line bg-krikkit-soft/40">
+                                            <thead className="border-b border-studio-line bg-studio-soft/40">
                                                 <tr>
                                                     {columns.map((col) => (
-                                                        <th key={col} className="whitespace-nowrap px-3 py-2 font-medium text-krikkit-fg">{col}</th>
+                                                        <th key={col} className="whitespace-nowrap px-3 py-2 font-medium text-studio-fg">{col}</th>
                                                     ))}
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {rows.map((row, index) => (
-                                                    <tr key={index} className="border-b border-krikkit-line last:border-b-0">
+                                                    <tr key={index} className="border-b border-studio-line last:border-b-0">
                                                         {columns.map((col) => (
-                                                            <td key={col} className="max-w-[14rem] truncate px-3 py-2 text-krikkit-muted" title={cellValue(row[col])}>
+                                                            <td key={col} className="max-w-[14rem] truncate px-3 py-2 text-studio-muted" title={cellValue(row[col])}>
                                                                 {cellValue(row[col])}
                                                             </td>
                                                         ))}
@@ -512,43 +512,43 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
         if (section === 'authentication') {
             return (
                 <div className="px-6 py-8 sm:px-8">
-                    <h2 className="text-2xl font-semibold tracking-tight text-krikkit-fg">Authentication</h2>
-                    <p className="mt-2 max-w-xl text-sm text-krikkit-muted">
+                    <h2 className="text-2xl font-semibold tracking-tight text-studio-fg">Authentication</h2>
+                    <p className="mt-2 max-w-xl text-sm text-studio-muted">
                         Control how users sign up and sign in to your app.
                     </p>
-                    <div className="mt-8 max-w-xl divide-y divide-krikkit-line border-y border-krikkit-line">
+                    <div className="mt-8 max-w-xl divide-y divide-studio-line border-y border-studio-line">
                         <div className="flex items-start justify-between gap-4 py-5">
                             <div>
-                                <p className="text-sm font-medium text-krikkit-fg">Allow new users to sign up</p>
-                                <p className="mt-1 text-[13px] text-krikkit-muted">If this is turned off, new users can&apos;t sign up for your app.</p>
+                                <p className="text-sm font-medium text-studio-fg">Allow new users to sign up</p>
+                                <p className="mt-1 text-[13px] text-studio-muted">If this is turned off, new users can&apos;t sign up for your app.</p>
                             </div>
                             <LabSwitch checked={Boolean(auth?.allow_signup)} disabled={authBusy || ! auth} label="Allow sign up" onChange={(on) => void patchAuth('allow_signup', on)} />
                         </div>
                         <div className="flex items-start justify-between gap-4 py-5">
                             <div>
-                                <p className="text-sm font-medium text-krikkit-fg">Allow Anonymous Sign-ins</p>
-                                <p className="mt-1 text-[13px] text-krikkit-muted">Let users sign in to your app without creating an account.</p>
+                                <p className="text-sm font-medium text-studio-fg">Allow Anonymous Sign-ins</p>
+                                <p className="mt-1 text-[13px] text-studio-muted">Let users sign in to your app without creating an account.</p>
                             </div>
                             <LabSwitch checked={Boolean(auth?.allow_anonymous)} disabled={authBusy || ! auth} label="Allow anonymous" onChange={(on) => void patchAuth('allow_anonymous', on)} />
                         </div>
                     </div>
-                    <h3 className="mt-10 text-sm font-semibold text-krikkit-fg">Sign-in methods</h3>
-                    <p className="mt-1 text-[13px] text-krikkit-muted">Configure how users authenticate to your app.</p>
-                    <div className="mt-4 max-w-xl divide-y divide-krikkit-line rounded-xl border border-krikkit-line">
+                    <h3 className="mt-10 text-sm font-semibold text-studio-fg">Sign-in methods</h3>
+                    <p className="mt-1 text-[13px] text-studio-muted">Configure how users authenticate to your app.</p>
+                    <div className="mt-4 max-w-xl divide-y divide-studio-line rounded-xl border border-studio-line">
                         <div className="flex items-center justify-between gap-4 px-4 py-4">
                             <div>
-                                <p className="text-sm font-medium text-krikkit-fg">Email</p>
-                                <p className="mt-0.5 text-[13px] text-krikkit-muted">Sign in with email and password</p>
+                                <p className="text-sm font-medium text-studio-fg">Email</p>
+                                <p className="mt-0.5 text-[13px] text-studio-muted">Sign in with email and password</p>
                             </div>
-                            <span className="text-xs font-medium text-krikkit-muted">{auth?.email_password ? 'Enabled' : 'Disabled'}</span>
+                            <span className="text-xs font-medium text-studio-muted">{auth?.email_password ? 'Enabled' : 'Disabled'}</span>
                             <LabSwitch checked={Boolean(auth?.email_password)} disabled={authBusy || ! auth} label="Email sign-in" onChange={(on) => void patchAuth('email_password', on)} />
                         </div>
                         <div className="flex items-center justify-between gap-4 px-4 py-4">
                             <div>
-                                <p className="text-sm font-medium text-krikkit-fg">Google</p>
-                                <p className="mt-0.5 text-[13px] text-krikkit-muted">Sign in with Google</p>
+                                <p className="text-sm font-medium text-studio-fg">Google</p>
+                                <p className="mt-0.5 text-[13px] text-studio-muted">Sign in with Google</p>
                             </div>
-                            <span className="text-xs font-medium text-krikkit-muted">{auth?.google ? 'Enabled' : 'Disabled'}</span>
+                            <span className="text-xs font-medium text-studio-muted">{auth?.google ? 'Enabled' : 'Disabled'}</span>
                             <LabSwitch checked={Boolean(auth?.google)} disabled={authBusy || ! auth} label="Google sign-in" onChange={(on) => void patchAuth('google', on)} />
                         </div>
                     </div>
@@ -561,8 +561,8 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                 <div className="px-6 py-8 sm:px-8">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                         <div>
-                            <h2 className="text-2xl font-semibold tracking-tight text-krikkit-fg">User Management</h2>
-                            <p className="mt-2 max-w-xl text-sm text-krikkit-muted">
+                            <h2 className="text-2xl font-semibold tracking-tight text-studio-fg">User Management</h2>
+                            <p className="mt-2 max-w-xl text-sm text-studio-muted">
                                 Track authenticated users who sign up and sign in to your app.
                             </p>
                         </div>
@@ -576,24 +576,24 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                     </div>
                     <SignupChart series={series} />
                     <div className="mt-8">
-                        <p className="text-sm font-medium text-krikkit-fg">Recent users</p>
+                        <p className="text-sm font-medium text-studio-fg">Recent users</p>
                         <input
                             type="search"
                             value={userQuery}
                             onChange={(event) => setUserQuery(event.target.value)}
                             placeholder="Search by email or id"
-                            className="mt-3 h-10 w-full max-w-md rounded-full border border-krikkit-line bg-transparent px-4 text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                            className="mt-3 h-10 w-full max-w-md rounded-full border border-studio-line bg-transparent px-4 text-sm text-studio-fg outline-none placeholder:text-studio-subtle"
                         />
                         {users.length === 0 ? (
-                            <p className="mt-6 text-sm text-krikkit-muted">
+                            <p className="mt-6 text-sm text-studio-muted">
                                 No authenticated users yet. Users will appear here when they sign up for your app.
                             </p>
                         ) : (
-                            <ul className="mt-4 divide-y divide-krikkit-line rounded-xl border border-krikkit-line">
+                            <ul className="mt-4 divide-y divide-studio-line rounded-xl border border-studio-line">
                                 {users.map((row) => (
                                     <li key={row.id} className="flex items-center justify-between gap-3 px-4 py-3 text-sm">
-                                        <span className="min-w-0 truncate text-krikkit-fg">{row.email || row.id}</span>
-                                        <span className="shrink-0 text-xs text-krikkit-subtle">{row.created_at ? String(row.created_at).slice(0, 10) : ''}</span>
+                                        <span className="min-w-0 truncate text-studio-fg">{row.email || row.id}</span>
+                                        <span className="shrink-0 text-xs text-studio-subtle">{row.created_at ? String(row.created_at).slice(0, 10) : ''}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -606,16 +606,16 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
         if (section === 'manage') {
             return (
                 <div className="px-6 py-8 sm:px-8">
-                    <h2 className="text-2xl font-semibold tracking-tight text-krikkit-fg">Manage database</h2>
-                    <p className="mt-2 max-w-xl text-sm text-krikkit-muted">
+                    <h2 className="text-2xl font-semibold tracking-tight text-studio-fg">Manage database</h2>
+                    <p className="mt-2 max-w-xl text-sm text-studio-muted">
                         Connections and ownership. Connect an existing Supabase project or switch the one Lab is using.
                     </p>
                     <div className="mt-8 max-w-xl space-y-8">
                         <div>
-                            <p className="text-xs font-medium uppercase tracking-wide text-krikkit-subtle">Supabase project</p>
-                            <p className="mt-1 text-sm font-medium text-krikkit-fg">{status.project_name || status.project_ref}</p>
-                            <p className="mt-0.5 text-xs text-krikkit-muted">{status.host}</p>
-                            <p className="mt-3 text-sm text-krikkit-muted">Connect to a different Supabase project to manage your data.</p>
+                            <p className="text-xs font-medium uppercase tracking-wide text-studio-subtle">Supabase project</p>
+                            <p className="mt-1 text-sm font-medium text-studio-fg">{status.project_name || status.project_ref}</p>
+                            <p className="mt-0.5 text-xs text-studio-muted">{status.host}</p>
+                            <p className="mt-3 text-sm text-studio-muted">Connect to a different Supabase project to manage your data.</p>
                             <div className="mt-4 flex flex-wrap gap-2">
                                 <a
                                     href={dashboardUrl}
@@ -634,9 +634,9 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                                 </button>
                             </div>
                         </div>
-                        <div className="border-t border-krikkit-line pt-8">
-                            <p className="text-sm font-medium text-krikkit-fg">Restart database</p>
-                            <p className="mt-1 text-sm text-krikkit-muted">
+                        <div className="border-t border-studio-line pt-8">
+                            <p className="text-sm font-medium text-studio-fg">Restart database</p>
+                            <p className="mt-1 text-sm text-studio-muted">
                                 Restart the Postgres service for this project to recover from transient connection issues.
                             </p>
                             <button
@@ -647,9 +647,9 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                                 Restart
                             </button>
                         </div>
-                        <div className="border-t border-krikkit-line pt-8">
-                            <p className="text-sm font-medium text-krikkit-fg">Disconnect database</p>
-                            <p className="mt-1 text-sm text-krikkit-muted">
+                        <div className="border-t border-studio-line pt-8">
+                            <p className="text-sm font-medium text-studio-fg">Disconnect database</p>
+                            <p className="mt-1 text-sm text-studio-muted">
                                 Disconnect your Lab project from the Supabase project.
                             </p>
                             <button
@@ -669,11 +669,11 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
             const intro = CATALOG_INTRO[section] || [section, '']
             return (
                 <div className="px-6 py-8 sm:px-8">
-                    <h2 className="text-2xl font-semibold tracking-tight text-krikkit-fg">{intro[0]}</h2>
-                    <p className="mt-2 max-w-xl text-sm text-krikkit-muted">{intro[1]}</p>
+                    <h2 className="text-2xl font-semibold tracking-tight text-studio-fg">{intro[0]}</h2>
+                    <p className="mt-2 max-w-xl text-sm text-studio-muted">{intro[1]}</p>
                     {catalogError ? <p className="mt-4 text-sm text-red-500">{catalogError}</p> : null}
                     {catalogLoading ? (
-                        <p className="mt-8 text-sm text-krikkit-muted">Loading…</p>
+                        <p className="mt-8 text-sm text-studio-muted">Loading…</p>
                     ) : (
                         <CatalogTable rows={catalogRows} />
                     )}
@@ -685,10 +685,10 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
     })()
 
     return (
-        <div className="flex h-full min-h-0 bg-krikkit-canvas">
+        <div className="flex h-full min-h-0 bg-studio-canvas">
             {ready ? (
-            <aside className="flex w-52 shrink-0 flex-col border-r border-krikkit-line">
-                <nav className="krikkit-scroll-hover min-h-0 flex-1 overflow-y-auto py-2">
+            <aside className="flex w-52 shrink-0 flex-col border-r border-studio-line">
+                <nav className="studio-scroll-hover min-h-0 flex-1 overflow-y-auto py-2">
                     {SECTIONS.map((item) => {
                         const on = section === item.id
                         return (
@@ -698,7 +698,7 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                                 onClick={() => setSection(item.id)}
                                 className={[
                                     'flex w-full px-4 py-2 text-left text-sm transition',
-                                    on ? 'bg-krikkit-soft font-medium text-krikkit-fg' : 'text-krikkit-muted hover:bg-krikkit-soft/70 hover:text-krikkit-fg',
+                                    on ? 'bg-studio-soft font-medium text-studio-fg' : 'text-studio-muted hover:bg-studio-soft/70 hover:text-studio-fg',
                                 ].join(' ')}
                             >
                                 {item.label}
@@ -706,13 +706,13 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                         )
                     })}
                 </nav>
-                <div className="border-t border-krikkit-line p-2">
+                <div className="border-t border-studio-line p-2">
                     <button
                         type="button"
                         onClick={() => setSection('manage')}
                         className={[
                             'flex w-full rounded-lg px-3 py-2 text-left text-sm transition',
-                            section === 'manage' ? 'bg-krikkit-soft font-medium text-krikkit-fg' : 'text-krikkit-muted hover:bg-krikkit-soft/70 hover:text-krikkit-fg',
+                            section === 'manage' ? 'bg-studio-soft font-medium text-studio-fg' : 'text-studio-muted hover:bg-studio-soft/70 hover:text-studio-fg',
                         ].join(' ')}
                     >
                         Manage
@@ -721,7 +721,7 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
             </aside>
             ) : null}
 
-            <div className="krikkit-scroll-hover min-w-0 flex-1 overflow-y-auto">
+            <div className="studio-scroll-hover min-w-0 flex-1 overflow-y-auto">
                 {error ? <p className="px-6 pt-4 text-sm text-red-500">{error}</p> : null}
                 {pane}
             </div>
@@ -739,15 +739,15 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
             {addOpen ? (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     <button type="button" className="absolute inset-0 bg-black/40" aria-label="Dismiss" onClick={() => setAddOpen(false)} />
-                    <div role="dialog" aria-modal="true" className="relative w-full max-w-md rounded-2xl border border-krikkit-line bg-krikkit-canvas p-5">
-                        <h3 className="text-base font-semibold text-krikkit-fg">Add user</h3>
-                        <div className="mt-4 flex gap-1 rounded-full bg-krikkit-soft p-1 text-xs">
+                    <div role="dialog" aria-modal="true" className="relative w-full max-w-md rounded-2xl border border-studio-line bg-studio-canvas p-5">
+                        <h3 className="text-base font-semibold text-studio-fg">Add user</h3>
+                        <div className="mt-4 flex gap-1 rounded-full bg-studio-soft p-1 text-xs">
                             {['invite', 'create'].map((id) => (
                                 <button
                                     key={id}
                                     type="button"
                                     onClick={() => setAddMode(id)}
-                                    className={['flex-1 rounded-full px-3 py-1.5 font-medium', addMode === id ? 'bg-krikkit-canvas text-krikkit-fg' : 'text-krikkit-muted'].join(' ')}
+                                    className={['flex-1 rounded-full px-3 py-1.5 font-medium', addMode === id ? 'bg-studio-canvas text-studio-fg' : 'text-studio-muted'].join(' ')}
                                 >
                                     {id === 'invite' ? 'Send invitation' : 'Create user'}
                                 </button>
@@ -758,7 +758,7 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                             value={addEmail}
                             onChange={(event) => setAddEmail(event.target.value)}
                             placeholder="name@company.com"
-                            className="mt-4 h-10 w-full rounded-full border border-krikkit-line bg-transparent px-4 text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                            className="mt-4 h-10 w-full rounded-full border border-studio-line bg-transparent px-4 text-sm text-studio-fg outline-none placeholder:text-studio-subtle"
                         />
                         {addMode === 'create' ? (
                             <input
@@ -766,10 +766,10 @@ export function DatastoreDesk({ onConnect = null, onChangeProject = null }) {
                                 value={addPassword}
                                 onChange={(event) => setAddPassword(event.target.value)}
                                 placeholder="Temporary password"
-                                className="mt-2 h-10 w-full rounded-full border border-krikkit-line bg-transparent px-4 text-sm text-krikkit-fg outline-none placeholder:text-krikkit-subtle"
+                                className="mt-2 h-10 w-full rounded-full border border-studio-line bg-transparent px-4 text-sm text-studio-fg outline-none placeholder:text-studio-subtle"
                             />
                         ) : (
-                            <p className="mt-2 text-xs text-krikkit-muted">They get an email to finish signing up.</p>
+                            <p className="mt-2 text-xs text-studio-muted">They get an email to finish signing up.</p>
                         )}
                         <div className="mt-5 flex justify-end gap-2">
                             <button type="button" onClick={() => setAddOpen(false)} className={`inline-flex h-10 items-center rounded-full px-4 text-sm font-medium ${LAB_BTN_OUTLINE}`}>

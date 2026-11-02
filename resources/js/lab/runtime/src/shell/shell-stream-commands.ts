@@ -1,4 +1,4 @@
-// Krikkit Lab — grep/awk/sed-style stream builtins.
+// Supreme Lab — grep/awk/sed-style stream builtins.
 
 import type { MemoryVolume } from "../memory-volume";
 import { regexSafetyError, resolvePath, yieldToEventLoop } from "./shell-helpers";

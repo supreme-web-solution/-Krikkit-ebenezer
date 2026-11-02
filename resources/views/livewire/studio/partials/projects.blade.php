@@ -23,14 +23,14 @@
             @endif
             <div id="{{ $shelf['id'] }}" class="scroll-mt-8">
                 <div class="flex items-center justify-between gap-3">
-                    <h2 class="text-sm font-semibold text-krikkit-fg">{{ $shelf['title'] }}</h2>
+                    <h2 class="text-sm font-semibold text-studio-fg">{{ $shelf['title'] }}</h2>
                     @if (empty($paginateShelves))
                         <a
                             href="{{ route('projects') }}#{{ $shelf['id'] }}"
-                            class="inline-flex items-center gap-0.5 text-xs font-medium text-krikkit-muted transition hover:text-krikkit-fg"
+                            class="inline-flex items-center gap-0.5 text-xs font-medium text-studio-muted transition hover:text-studio-fg"
                         >
                             {{ __('studio.See all') }}
-                            <krikkit:icon name="chevron-right" class="size-3.5 shrink-0" />
+                            <studio:icon name="chevron-right" class="size-3.5 shrink-0" />
                         </a>
                     @endif
                 </div>
@@ -70,7 +70,7 @@
                         <span
                             wire:loading
                             wire:target="{{ $moreMethod }}"
-                            class="inline-flex items-center justify-center text-krikkit-muted"
+                            class="inline-flex items-center justify-center text-studio-muted"
                             role="status"
                             aria-live="polite"
                         >

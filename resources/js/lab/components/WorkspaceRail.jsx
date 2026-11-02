@@ -88,7 +88,7 @@ export function WorkspaceRail({
                         className={[
                             'lab-layout-pane min-h-0 overflow-hidden',
                             composeMode === 'draft'
-                                ? 'w-72 max-w-[18rem] flex-[0_0_18rem] border-l border-krikkit-line/80 opacity-100 sm:flex-[0_0_18rem]'
+                                ? 'w-72 max-w-[18rem] flex-[0_0_18rem] border-l border-studio-line/80 opacity-100 sm:flex-[0_0_18rem]'
                                 : workspaceView.panel === 'files'
                                     ? 'flex-[1_1_0%] opacity-100'
                                     : 'pointer-events-none flex-[0_0_0%] opacity-0',

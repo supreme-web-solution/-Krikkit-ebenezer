@@ -1,4 +1,4 @@
-// Krikkit Lab — syncs canonical MemoryVolume with worker VFS clones
+// Supreme Lab — syncs canonical MemoryVolume with worker VFS clones
 // creates snapshots for init, applies worker writes, broadcasts changes
 
 import type { MemoryVolume } from "../memory-volume";

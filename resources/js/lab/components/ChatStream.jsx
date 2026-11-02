@@ -15,11 +15,11 @@ function FollowLatestButton({ visible, onClick }) {
                     aria-label="Follow latest"
                     className={[
                         'pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full',
-                        'bg-krikkit-surface text-krikkit-fg',
-                        'transition-colors hover:bg-krikkit-soft',
+                        'bg-studio-surface text-studio-fg',
+                        'transition-colors hover:bg-studio-soft',
                     ].join(' ')}
                 >
-                    <svg className="h-4 w-4 text-krikkit-muted" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <svg className="h-4 w-4 text-studio-muted" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path
                             d="M12 5v14M6 13l6 6 6-6"
                             stroke="currentColor"
@@ -69,7 +69,7 @@ export function ChatStream({
                 ref={laneRef}
                 className={[
                     'lab-layout-pane h-full min-h-0 min-w-0',
-                    live || building ? 'krikkit-scroll-hover overflow-y-auto' : 'overflow-hidden',
+                    live || building ? 'studio-scroll-hover overflow-y-auto' : 'overflow-hidden',
                 ].join(' ')}
             >
                 {live && (

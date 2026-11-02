@@ -14,12 +14,12 @@ function LabSwitch({ checked, onChange, label }) {
             onClick={() => onChange?.(! checked)}
             className={[
                 'relative h-6 w-10 shrink-0 rounded-full transition',
-                checked ? 'bg-accent' : 'bg-krikkit-soft',
+                checked ? 'bg-accent' : 'bg-studio-soft',
             ].join(' ')}
         >
             <span
                 className={[
-                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-krikkit-canvas transition',
+                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-studio-canvas transition',
                     checked ? 'translate-x-4' : '',
                 ].join(' ')}
             />
@@ -29,10 +29,10 @@ function LabSwitch({ checked, onChange, label }) {
 
 function SettingsRow({ title, description, children }) {
     return (
-        <div className="flex items-start justify-between gap-4 border-b border-krikkit-line py-4 last:border-b-0">
+        <div className="flex items-start justify-between gap-4 border-b border-studio-line py-4 last:border-b-0">
             <div className="min-w-0">
-                <p className="text-sm font-medium text-krikkit-fg">{title}</p>
-                <p className="mt-0.5 text-[13px] leading-relaxed text-krikkit-muted">{description}</p>
+                <p className="text-sm font-medium text-studio-fg">{title}</p>
+                <p className="mt-0.5 text-[13px] leading-relaxed text-studio-muted">{description}</p>
             </div>
             <div className="shrink-0 pt-0.5">
                 {children}
@@ -51,14 +51,14 @@ export function AppSettingsPanel({
     const entitlement = readLabEntitlement()
     const customDomainAllowed = featureAllowed(entitlement, 'custom_domain')
     return (
-        <div className="flex h-full min-h-0 flex-col bg-krikkit-canvas">
-            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-krikkit-line bg-krikkit-canvas px-3">
-                <p className="min-w-0 truncate text-xs font-medium text-krikkit-fg">
+        <div className="flex h-full min-h-0 flex-col bg-studio-canvas">
+            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-studio-line bg-studio-canvas px-3">
+                <p className="min-w-0 truncate text-xs font-medium text-studio-fg">
                     App settings
                 </p>
             </div>
 
-            <div className="krikkit-scroll-hover min-h-0 flex-1 overflow-y-auto px-4 py-2 sm:px-6">
+            <div className="studio-scroll-hover min-h-0 flex-1 overflow-y-auto px-4 py-2 sm:px-6">
                 <div className="mx-auto w-full max-w-xl">
                     <SettingsRow
                         title="Auto save"
@@ -77,7 +77,7 @@ export function AppSettingsPanel({
                             ? 'Use Publish to pick the slug on the app domain.'
                             : 'Without this, Lab assigns a random 12-character address.'}
                     >
-                        <span className="text-xs font-medium text-krikkit-muted">
+                        <span className="text-xs font-medium text-studio-muted">
                             {featureAllowed(entitlement, 'custom_subdomain') ? 'Included' : 'Locked'}
                         </span>
                     </SettingsRow>
@@ -91,45 +91,45 @@ export function AppSettingsPanel({
                         {featureAllowed(entitlement, 'github_import') ? (
                             <button
                                 type="button"
-                                className="rounded-full border border-krikkit-line px-3 py-1.5 text-xs font-medium text-krikkit-fg transition hover:bg-krikkit-soft"
+                                className="rounded-full border border-studio-line px-3 py-1.5 text-xs font-medium text-studio-fg transition hover:bg-studio-soft"
                                 onClick={() => window.dispatchEvent(new CustomEvent('lab-github-open'))}
                             >
                                 Manage
                             </button>
                         ) : (
-                            <span className="text-xs font-medium text-krikkit-muted">Locked</span>
+                            <span className="text-xs font-medium text-studio-muted">Locked</span>
                         )}
                     </SettingsRow>
 
                     <div className="py-4">
-                        <p className="text-sm font-medium text-krikkit-fg">Shortcuts</p>
-                        <p className="mt-0.5 text-[13px] text-krikkit-muted">
+                        <p className="text-sm font-medium text-studio-fg">Shortcuts</p>
+                        <p className="mt-0.5 text-[13px] text-studio-muted">
                             Same actions as the + menu on the tab strip.
                         </p>
-                        <ul className="mt-3 space-y-1.5 text-[13px] text-krikkit-muted">
+                        <ul className="mt-3 space-y-1.5 text-[13px] text-studio-muted">
                             <li className="flex justify-between gap-4">
                                 <span>Files</span>
-                                <span className="tabular-nums text-krikkit-subtle">{MOD}⇧E</span>
+                                <span className="tabular-nums text-studio-subtle">{MOD}⇧E</span>
                             </li>
                             <li className="flex justify-between gap-4">
                                 <span>Console</span>
-                                <span className="tabular-nums text-krikkit-subtle">{MOD}`</span>
+                                <span className="tabular-nums text-studio-subtle">{MOD}`</span>
                             </li>
                             <li className="flex justify-between gap-4">
                                 <span>New file</span>
-                                <span className="tabular-nums text-krikkit-subtle">{MOD}N</span>
+                                <span className="tabular-nums text-studio-subtle">{MOD}N</span>
                             </li>
                             <li className="flex justify-between gap-4">
                                 <span>Find file</span>
-                                <span className="tabular-nums text-krikkit-subtle">{MOD}P</span>
+                                <span className="tabular-nums text-studio-subtle">{MOD}P</span>
                             </li>
                             <li className="flex justify-between gap-4">
                                 <span>Recently opened</span>
-                                <span className="tabular-nums text-krikkit-subtle">{MOD}E</span>
+                                <span className="tabular-nums text-studio-subtle">{MOD}E</span>
                             </li>
                             <li className="flex justify-between gap-4">
                                 <span>App settings</span>
-                                <span className="tabular-nums text-krikkit-subtle">{MOD},</span>
+                                <span className="tabular-nums text-studio-subtle">{MOD},</span>
                             </li>
                         </ul>
                     </div>

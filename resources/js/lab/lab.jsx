@@ -1,13 +1,13 @@
 import { createRoot } from 'react-dom/client'
-import { applyKrikkitTheme, readKrikkitTheme } from '../krikkit-theme'
+import { applyStudioTheme, readStudioTheme } from '../studio-theme'
 import { LabApp } from './LabApp'
 import { bootDeskPulse } from './lib/deskPulse'
 import { workspaceWindowName } from './lib/labUrl'
 
-applyKrikkitTheme()
-window.krikkitTheme = {
-    apply: applyKrikkitTheme,
-    read: readKrikkitTheme,
+applyStudioTheme()
+window.studioTheme = {
+    apply: applyStudioTheme,
+    read: readStudioTheme,
 }
 
 function readJsonScript(id) {
@@ -34,10 +34,10 @@ if (rootEl) {
     }
 
     /** @type {import('react-dom/client').Root|null} */
-    let root = window.__krikkitLabRoot ?? null
+    let root = window.__studioLabRoot ?? null
     if (!root) {
         root = createRoot(rootEl)
-        window.__krikkitLabRoot = root
+        window.__studioLabRoot = root
     }
 
     root.render(

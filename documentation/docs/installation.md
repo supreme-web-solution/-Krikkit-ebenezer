@@ -1,6 +1,6 @@
 <Callout>
 
-**Welcome!** This guide helps you install **Krikkit** after purchasing on **CodeCanyon**. The recommended path is the built-in web installer at `/install`.
+**Welcome!** This guide helps you install **Supreme** after purchasing on **CodeCanyon**. The recommended path is the built-in web installer at `/install`.
 
 </Callout>
 
@@ -36,7 +36,7 @@ Before you begin, make sure your server meets these requirements:
 ### Step 1: Download from CodeCanyon
 
 1. Log in to your [CodeCanyon](https://codecanyon.net) account.
-2. Open **Downloads** and download the latest **Krikkit** package.
+2. Open **Downloads** and download the latest **Supreme** package.
 3. Extract the archive on your computer.
 4. Upload the project files to your server (document root or subdomain folder).
 
@@ -160,7 +160,7 @@ OPENAI_API_KEY=
 
 Other supported providers (optional): `XAI_API_KEY`, `DEEPSEEK_API_KEY`, `GROQ_API_KEY`, `MISTRAL_API_KEY`, `ZHIPUAI_API_KEY`, `GOOGLE_AI_API_KEY`.
 
-Krikkit’s Lab preview runtime ships in the package. Without a provider key, Lab chat cannot call a model — configure a key before testing generation.
+Supreme’s Lab preview runtime ships in the package. Without a provider key, Lab chat cannot call a model — configure a key before testing generation.
 
 ### Billing
 
@@ -171,12 +171,12 @@ Krikkit’s Lab preview runtime ships in the package. Without a provider key, La
 
 ### Background processes (production)
 
-Krikkit relies on queues and the scheduler for builds, billing, and maintenance.
+Supreme relies on queues and the scheduler for builds, billing, and maintenance.
 
 **Queue worker** (Supervisor example):
 
 ```ini
-[program:krikkit-worker]
+[program:studio-worker]
 process_name=%(program_name)s_%(process_num)02d
 command=php /path/to/artisan queue:work --sleep=3 --tries=3 --max-time=3600
 autostart=true
@@ -240,7 +240,7 @@ The web installer does **not** create demo buyers or fixed example.com accounts.
 ## Post-install checklist
 
 1. Run a queue worker: `php artisan queue:work --tries=3` (Supervisor recommended)
-2. Cron every minute: `* * * * * cd /path/to/krikkit && php artisan schedule:run >> /dev/null 2>&1`
+2. Cron every minute: `* * * * * cd /path/to/studio && php artisan schedule:run >> /dev/null 2>&1`
 3. Add at least one AI provider key (`ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / …)
 4. Set `APP_URL` to your public HTTPS URL
 5. Optional: configure GitHub, Supabase, Unsplash/Pixabay as needed

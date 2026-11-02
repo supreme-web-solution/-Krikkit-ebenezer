@@ -1,6 +1,6 @@
 # Roles & Permissions
 
-Krikkit uses [Krikkit ability registry](https://github.com/spatie/laravel-permission) for fine-grained access control.
+Supreme uses [Supreme ability registry](https://github.com/spatie/laravel-permission) for fine-grained access control.
 
 **Location:** Dashboard → **Admin** → **Roles**  
 **URL:** `/dashboard/roles`  

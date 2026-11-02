@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "krikkit/krikkit",
+    "name": "supreme/site-builder",
     "type": "project",
     "description": "Self-hosted AI website builder with Lab workspace, billing, CMS, and admin dashboard.",
-    "keywords": ["laravel", "livewire", "ai", "website-builder", "saas", "krikkit"],
+    "keywords": ["laravel", "livewire", "ai", "website-builder", "saas", "studio"],
     "license": "proprietary",
     "require": {
         "php": "^8.3",

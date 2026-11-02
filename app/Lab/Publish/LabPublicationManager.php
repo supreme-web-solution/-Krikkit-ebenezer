@@ -314,7 +314,7 @@ final class LabPublicationManager
             'scheme' => $this->config->scheme(),
             'cname_target' => $this->config->cnameTarget(),
             'a_record' => $this->config->serverIp(),
-            'txt_host' => '_krikkit-lab',
+            'txt_host' => '_studio-lab',
             'txt_name' => $this->config->txtName($host),
             'txt_value' => $this->config->txtValue($publication->verify_token),
             'custom_subdomain_allowed' => $this->entitlements->allows($user, EntitlementCatalog::CUSTOM_SUBDOMAIN),

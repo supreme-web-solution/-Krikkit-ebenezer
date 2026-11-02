@@ -1,4 +1,4 @@
-const AUTO_SAVE_KEY = 'krikkit.lab.autoSave'
+const AUTO_SAVE_KEY = 'studio.lab.autoSave'
 
 /**
  * Bottom-right save tray — only when there are unsaved edits AND auto-save is off.
@@ -17,7 +17,7 @@ export function SaveTray({
 
     return (
         <div className="pointer-events-none fixed right-4 bottom-4 z-[70] flex max-w-sm flex-col items-end gap-2">
-            <div className="pointer-events-auto flex items-center gap-1 rounded-xl bg-krikkit-surface p-1.5">
+            <div className="pointer-events-auto flex items-center gap-1 rounded-xl bg-studio-surface p-1.5">
                 <button
                     type="button"
                     onClick={onSave}
@@ -30,7 +30,7 @@ export function SaveTray({
                     type="button"
                     onClick={onToggleAutoSave}
                     aria-pressed={autoSave}
-                    className="rounded-lg px-3 py-1.5 text-xs font-medium text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg"
+                    className="rounded-lg px-3 py-1.5 text-xs font-medium text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg"
                 >
                     Auto save
                 </button>
@@ -38,12 +38,12 @@ export function SaveTray({
                     type="button"
                     onClick={onDontSave}
                     disabled={saving}
-                    className="rounded-lg px-3 py-1.5 text-xs font-medium text-krikkit-muted transition hover:bg-krikkit-soft hover:text-krikkit-fg disabled:cursor-not-allowed disabled:opacity-40"
+                    className="rounded-lg px-3 py-1.5 text-xs font-medium text-studio-muted transition hover:bg-studio-soft hover:text-studio-fg disabled:cursor-not-allowed disabled:opacity-40"
                 >
                     Don’t save
                 </button>
             </div>
-            <p className="pointer-events-none text-[11px] text-krikkit-subtle">
+            <p className="pointer-events-none text-[11px] text-studio-subtle">
                 Unsaved changes · Ctrl+S to save
             </p>
         </div>

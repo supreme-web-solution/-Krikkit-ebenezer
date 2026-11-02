@@ -539,23 +539,23 @@ export function WorkspaceTabs({
                 className={[
                     'relative inline-flex h-8 shrink-0 items-center gap-1.5 px-2.5 text-xs font-medium transition',
                     previewOn
-                        ? 'text-krikkit-fg'
-                        : 'text-krikkit-muted hover:text-krikkit-fg',
+                        ? 'text-studio-fg'
+                        : 'text-studio-muted hover:text-studio-fg',
                 ].join(' ')}
                 aria-pressed={previewOn}
             >
                 <IconMonitor className="h-3.5 w-3.5" />
                 Preview
                 {previewOn ? (
-                    <span className="absolute inset-x-2 bottom-0 h-px bg-krikkit-fg" aria-hidden />
+                    <span className="absolute inset-x-2 bottom-0 h-px bg-studio-fg" aria-hidden />
                 ) : null}
             </button>
 
-            <span className="mx-1 hidden h-3.5 w-px shrink-0 bg-krikkit-line sm:block" aria-hidden />
+            <span className="mx-1 hidden h-3.5 w-px shrink-0 bg-studio-line sm:block" aria-hidden />
 
             <div
                 ref={tabsScrollRef}
-                className="krikkit-scroll-hover flex h-full min-w-0 flex-1 items-center gap-0.5 overflow-x-auto overflow-y-hidden"
+                className="studio-scroll-hover flex h-full min-w-0 flex-1 items-center gap-0.5 overflow-x-auto overflow-y-hidden"
             >
                 {tabs.map((tab) => {
                     const active = tab.id === activeId && ! previewOn
@@ -566,7 +566,7 @@ export function WorkspaceTabs({
                             key={tab.id}
                             className={[
                                 'group relative inline-flex h-8 max-w-[11rem] shrink-0 items-stretch text-xs transition',
-                                active ? 'text-krikkit-fg' : 'text-krikkit-muted hover:text-krikkit-fg-soft',
+                                active ? 'text-studio-fg' : 'text-studio-muted hover:text-studio-fg-soft',
                                 dirty && ! active ? 'text-accent-content' : '',
                             ].join(' ')}
                             title={dirty ? `${tab.label} · unsaved` : tab.label}
@@ -594,7 +594,7 @@ export function WorkspaceTabs({
                                         'h-3.5 w-3.5 shrink-0',
                                         dirty
                                             ? 'text-accent-content'
-                                            : active ? 'text-krikkit-fg' : 'text-krikkit-muted',
+                                            : active ? 'text-studio-fg' : 'text-studio-muted',
                                     ].join(' ')}
                                 />
                                 <span className={[
@@ -614,7 +614,7 @@ export function WorkspaceTabs({
                                         requestCloseTab(tab)
                                     }}
                                     className={[
-                                        'relative mr-1 inline-flex h-4 w-4 shrink-0 items-center justify-center self-center rounded text-krikkit-subtle transition hover:bg-krikkit-soft hover:text-krikkit-fg focus-visible:opacity-100',
+                                        'relative mr-1 inline-flex h-4 w-4 shrink-0 items-center justify-center self-center rounded text-studio-subtle transition hover:bg-studio-soft hover:text-studio-fg focus-visible:opacity-100',
                                         dirty
                                             ? 'opacity-100'
                                             : 'opacity-0 group-hover:opacity-100 focus-visible:opacity-100',
@@ -640,7 +640,7 @@ export function WorkspaceTabs({
                                 </button>
                             )}
                             {active ? (
-                                <span className="absolute inset-x-2 bottom-0 h-px bg-krikkit-fg" aria-hidden />
+                                <span className="absolute inset-x-2 bottom-0 h-px bg-studio-fg" aria-hidden />
                             ) : null}
                         </div>
                     )
@@ -655,10 +655,10 @@ export function WorkspaceTabs({
                         aria-expanded={menuOpen}
                         aria-haspopup="menu"
                         className={[
-                            'inline-flex h-6 w-6 items-center justify-center text-krikkit-muted transition',
+                            'inline-flex h-6 w-6 items-center justify-center text-studio-muted transition',
                             menuOpen
-                                ? 'text-krikkit-fg'
-                                : 'hover:text-krikkit-fg',
+                                ? 'text-studio-fg'
+                                : 'hover:text-studio-fg',
                         ].join(' ')}
                     >
                         <IconPlus className="h-3.5 w-3.5" />
@@ -677,12 +677,12 @@ export function WorkspaceTabs({
                             role="menu"
                             aria-label="Workspace actions"
                             style={{ top: menuPos.top, left: menuPos.left }}
-                            className="fixed z-50 w-64 overflow-hidden rounded-xl border border-krikkit-line bg-krikkit-surface p-1.5"
+                            className="fixed z-50 w-64 overflow-hidden rounded-xl border border-studio-line bg-studio-surface p-1.5"
                         >
                             {plusMenuGroups(PLUS_MENU).map((group, index) => (
                                 <div key={group.id}>
                                     {index > 0 ? (
-                                        <div className="mx-1.5 my-1 h-px bg-krikkit-line" role="separator" />
+                                        <div className="mx-1.5 my-1 h-px bg-studio-line" role="separator" />
                                     ) : null}
                                     {group.items.map((entry) => (
                                         <button
@@ -690,17 +690,17 @@ export function WorkspaceTabs({
                                             type="button"
                                             role="menuitem"
                                             onClick={() => onMenuSelect(entry.id)}
-                                            className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left transition hover:bg-krikkit-soft"
+                                            className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left transition hover:bg-studio-soft"
                                         >
                                             <MenuIcon
                                                 name={entry.icon}
-                                                className="h-3.5 w-3.5 shrink-0 text-krikkit-muted"
+                                                className="h-3.5 w-3.5 shrink-0 text-studio-muted"
                                             />
-                                            <span className="min-w-0 flex-1 truncate text-[13px] text-krikkit-fg">
+                                            <span className="min-w-0 flex-1 truncate text-[13px] text-studio-fg">
                                                 {entry.label}
                                             </span>
                                             {entry.shortcut ? (
-                                                <span className="shrink-0 text-[10px] tabular-nums text-krikkit-subtle">
+                                                <span className="shrink-0 text-[10px] tabular-nums text-studio-subtle">
                                                     {entry.shortcut}
                                                 </span>
                                             ) : null}

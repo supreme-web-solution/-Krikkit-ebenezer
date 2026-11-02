@@ -1,4 +1,4 @@
-// Krikkit Lab — node:repl polyfill.
+// Supreme Lab — node:repl polyfill.
 
 
 import { EventEmitter } from "./events";

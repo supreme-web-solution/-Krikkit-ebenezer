@@ -5,11 +5,11 @@ function DiffRow({ row, path }) {
         const n = Math.max(0, Number(row.count) || 0)
         return (
             <div className="flex items-center gap-3 px-2 py-2">
-                <span className="h-px flex-1 bg-krikkit-line" aria-hidden />
-                <span className="shrink-0 text-[11px] font-normal tabular-nums text-krikkit-subtle">
+                <span className="h-px flex-1 bg-studio-line" aria-hidden />
+                <span className="shrink-0 text-[11px] font-normal tabular-nums text-studio-subtle">
                     {n} unmodified line{n === 1 ? '' : 's'}
                 </span>
-                <span className="h-px flex-1 bg-krikkit-line" aria-hidden />
+                <span className="h-px flex-1 bg-studio-line" aria-hidden />
             </div>
         )
     }
@@ -27,7 +27,7 @@ function DiffRow({ row, path }) {
                 isAdd ? 'lab-write-row--add' : '',
             ].join(' ')}
         >
-            <span className="select-none pr-1.5 text-right tabular-nums text-krikkit-subtle/80">
+            <span className="select-none pr-1.5 text-right tabular-nums text-studio-subtle/80">
                 {lineNo}
             </span>
             <span
@@ -52,7 +52,7 @@ function DiffRow({ row, path }) {
 export function DiffPanel({ path = '', rows = [], label = 'Diff' }) {
     return (
         <div
-            className="lab-write-diff bg-krikkit-soft border border-krikkit-line krikkit-scroll-hover max-h-64 overflow-auto rounded-xl py-1"
+            className="lab-write-diff bg-studio-soft border border-studio-line studio-scroll-hover max-h-64 overflow-auto rounded-xl py-1"
             role="table"
             aria-label={label}
         >

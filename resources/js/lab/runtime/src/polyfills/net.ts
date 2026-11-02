@@ -1,4 +1,4 @@
-// Krikkit Lab — node:net polyfill.
+// Supreme Lab — node:net polyfill.
 
 import { EventEmitter, type EventHandler } from "./events";
 import { Duplex } from "./stream";

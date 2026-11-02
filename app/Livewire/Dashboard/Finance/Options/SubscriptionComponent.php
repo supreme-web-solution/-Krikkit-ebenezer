@@ -65,14 +65,14 @@ class SubscriptionComponent extends Component
     {
         Gate::authorize('finance.revise');
         $this->confirmAction = 'cancel';
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'finance-subscription' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'finance-subscription' }))");
     }
 
     public function askExtend(): void
     {
         Gate::authorize('finance.revise');
         $this->confirmAction = 'extend';
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-open', { detail: 'finance-subscription' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-open', { detail: 'finance-subscription' }))");
     }
 
     public function confirmPending(SubscriptionDesk $desk): void
@@ -81,7 +81,7 @@ class SubscriptionComponent extends Component
 
         $action = $this->confirmAction;
         $this->reset('confirmAction');
-        $this->js("window.dispatchEvent(new CustomEvent('krikkit-modal-close', { detail: 'finance-subscription' }))");
+        $this->js("window.dispatchEvent(new CustomEvent('studio-modal-close', { detail: 'finance-subscription' }))");
 
         if ($action === 'cancel') {
             $desk->cancel($this->entitlement);

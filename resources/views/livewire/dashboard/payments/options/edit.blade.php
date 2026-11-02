@@ -1,6 +1,6 @@
 <div class="space-y-6">
     <div class="flex items-center gap-3">
-        <krikkit:button
+        <studio:button
             href="{{ route('dashboard.payments.index') }}"
             variant="ghost"
             square
@@ -8,9 +8,9 @@
             aria-label="{{ __('dashboard.Back') }}"
             title="{{ __('dashboard.Back') }}"
         >
-            <krikkit:icon name="arrow-left" class="size-4" />
-        </krikkit:button>
-        <h1 class="text-2xl font-semibold tracking-tight text-krikkit-fg">{{ $definition['title'] }}</h1>
+            <studio:icon name="arrow-left" class="size-4" />
+        </studio:button>
+        <h1 class="text-2xl font-semibold tracking-tight text-studio-fg">{{ $definition['title'] }}</h1>
     </div>
 
     <form wire:submit="save" class="mx-auto max-w-2xl space-y-6" autocomplete="off">
@@ -20,14 +20,14 @@
         </div>
 
         @if ($row['unreadable'] ?? false)
-            <krikkit:callout tone="warning">
-                <krikkit:callout.heading>{{ __('dashboard.Saved key cannot be read') }}</krikkit:callout.heading>
-                <krikkit:callout.text>{{ __('dashboard.The saved secret can no longer be read. Paste it again to restore this provider.') }}</krikkit:callout.text>
-            </krikkit:callout>
+            <studio:callout tone="warning">
+                <studio:callout.heading>{{ __('dashboard.Saved key cannot be read') }}</studio:callout.heading>
+                <studio:callout.text>{{ __('dashboard.The saved secret can no longer be read. Paste it again to restore this provider.') }}</studio:callout.text>
+            </studio:callout>
         @endif
 
-        <krikkit:field :label="__('dashboard.'.$definition['public_label'])">
-            <krikkit:input
+        <studio:field :label="__('dashboard.'.$definition['public_label'])">
+            <studio:input
                 type="text"
                 wire:model="publicKey"
                 autocomplete="off"
@@ -39,13 +39,13 @@
                 x-on:focus="$el.removeAttribute('readonly')"
                 :placeholder="$row['has_public'] ? __('dashboard.•••• keep current') : __('dashboard.'.$definition['public_label'])"
             />
-        </krikkit:field>
+        </studio:field>
         @if ($row['has_public'])
-            <krikkit:checkbox :label="__('dashboard.Clear stored public key')" wire:model="clearPublic" />
+            <studio:checkbox :label="__('dashboard.Clear stored public key')" wire:model="clearPublic" />
         @endif
 
-        <krikkit:field :label="__('dashboard.'.$definition['secret_label'])">
-            <krikkit:input
+        <studio:field :label="__('dashboard.'.$definition['secret_label'])">
+            <studio:input
                 type="password"
                 wire:model="secretKey"
                 autocomplete="new-password"
@@ -55,13 +55,13 @@
                 x-on:focus="$el.removeAttribute('readonly')"
                 :placeholder="$row['has_secret'] ? __('dashboard.•••• keep current') : __('dashboard.'.$definition['secret_label'])"
             />
-        </krikkit:field>
+        </studio:field>
         @if ($row['has_secret'])
-            <krikkit:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
+            <studio:checkbox :label="__('dashboard.Clear stored secret')" wire:model="clearSecret" />
         @endif
 
-        <krikkit:field :label="__('dashboard.'.$definition['webhook_label'])">
-            <krikkit:input
+        <studio:field :label="__('dashboard.'.$definition['webhook_label'])">
+            <studio:input
                 type="password"
                 wire:model="webhookSecret"
                 autocomplete="new-password"
@@ -71,9 +71,9 @@
                 x-on:focus="$el.removeAttribute('readonly')"
                 :placeholder="$row['has_webhook'] ? __('dashboard.•••• keep current') : __('dashboard.'.$definition['webhook_label'])"
             />
-        </krikkit:field>
+        </studio:field>
         @if ($row['has_webhook'])
-            <krikkit:checkbox :label="__('dashboard.Clear stored webhook secret')" wire:model="clearWebhook" />
+            <studio:checkbox :label="__('dashboard.Clear stored webhook secret')" wire:model="clearWebhook" />
         @endif
 
         <div
@@ -90,30 +90,30 @@
                 },
             }"
         >
-            <p class="text-xs font-medium text-krikkit-fg-soft">{{ __('dashboard.Webhook URL') }}</p>
+            <p class="text-xs font-medium text-studio-fg-soft">{{ __('dashboard.Webhook URL') }}</p>
             <div class="flex min-w-0 items-center gap-2">
-                <span class="min-w-0 truncate text-xs text-krikkit-muted">{{ $row['webhook_url'] }}</span>
+                <span class="min-w-0 truncate text-xs text-studio-muted">{{ $row['webhook_url'] }}</span>
                 <button
                     type="button"
-                    class="shrink-0 text-xs font-medium text-krikkit-muted transition hover:text-krikkit-fg"
+                    class="shrink-0 text-xs font-medium text-studio-muted transition hover:text-studio-fg"
                     x-on:click="copy()"
                     x-bind:aria-label="copied ? @js(__('dashboard.Copied')) : @js(__('dashboard.Copy'))"
                 >
                     <span x-text="copied ? @js(__('dashboard.Copied')) : @js(__('dashboard.Copy'))"></span>
                 </button>
             </div>
-            <p class="text-xs text-krikkit-muted">{{ __('dashboard.Paste this URL into the provider webhook settings.') }}</p>
+            <p class="text-xs text-studio-muted">{{ __('dashboard.Paste this URL into the provider webhook settings.') }}</p>
         </div>
 
-        <div class="grid grid-cols-2 gap-6 border-t border-krikkit-line pt-4">
-            <krikkit:switch align="right" class="w-full justify-between" :label="__('dashboard.Enabled')" wire:model="enabled" />
-            <krikkit:switch align="right" class="w-full justify-between" :label="__('dashboard.Live mode')" wire:model="live" />
+        <div class="grid grid-cols-2 gap-6 border-t border-studio-line pt-4">
+            <studio:switch align="right" class="w-full justify-between" :label="__('dashboard.Enabled')" wire:model="enabled" />
+            <studio:switch align="right" class="w-full justify-between" :label="__('dashboard.Live mode')" wire:model="live" />
         </div>
 
         <div class="flex justify-end">
-            <krikkit:button type="submit" wire:loading.attr="disabled">
+            <studio:button type="submit" wire:loading.attr="disabled">
                 {{ __('dashboard.Save changes') }}
-            </krikkit:button>
+            </studio:button>
         </div>
     </form>
 </div>

@@ -14,9 +14,9 @@
             (function () {
                 if (!('serviceWorker' in navigator)) return;
                 var VER = '29';
-                var SW = '/__krikkit_lab_sw__.js?v=host-vite-5173-29';
+                var SW = '/__studio_lab_sw__.js?v=host-vite-5173-29';
                 var post = function (sw) {
-                    try { sw.postMessage({ type: 'krikkit-host-active' }) } catch (e) {}
+                    try { sw.postMessage({ type: 'studio-host-active' }) } catch (e) {}
                 }
                 if (navigator.serviceWorker.controller) post(navigator.serviceWorker.controller)
                 navigator.serviceWorker.register(SW, { scope: '/' }).then(function (reg) {
@@ -26,8 +26,8 @@
                     installing.addEventListener('statechange', function () {
                         if (this.state !== 'activated') return
                         try {
-                            if (sessionStorage.getItem('krikkit-sw') === VER) return
-                            sessionStorage.setItem('krikkit-sw', VER)
+                            if (sessionStorage.getItem('studio-sw') === VER) return
+                            sessionStorage.setItem('studio-sw', VER)
                         } catch (e) {}
                         location.reload()
                     })
@@ -48,7 +48,7 @@
                 } catch (e) {}
                 var post = function (sw) {
                     try {
-                        if (origin) sw.postMessage({ type: 'krikkit-host-vite', origin: origin })
+                        if (origin) sw.postMessage({ type: 'studio-host-vite', origin: origin })
                     } catch (e) {}
                 }
                 if (navigator.serviceWorker.controller) post(navigator.serviceWorker.controller)
@@ -59,7 +59,7 @@
         </script>
         <x-layouts.partials.themeStyle />
     </head>
-    <body class="min-h-screen bg-krikkit-canvas font-sans text-krikkit-fg antialiased">
+    <body class="min-h-screen bg-studio-canvas font-sans text-studio-fg antialiased">
         {{-- JSON in a script tag (not a data-* attribute) so large tool chrome survives F5. --}}
         <script type="application/json" id="lab-bootstrap">@json($project)</script>
         <script type="application/json" id="lab-workspace">@json((bool) ($workspace ?? false))</script>
@@ -126,14 +126,14 @@
         <script type="application/json" id="lab-config">@json($labConfig)</script>
         <div id="lab-root">
             {{-- Mirrors empty LabApp shell; React replaces #lab-root on mount. --}}
-            <div class="relative flex h-dvh flex-col overflow-hidden bg-krikkit-canvas" role="status" aria-label="{{ __('dashboard.Loading…') }}">
-                <header class="lab-app-header flex h-14 shrink-0 items-stretch overflow-hidden border-b border-krikkit-line bg-krikkit-canvas">
+            <div class="relative flex h-dvh flex-col overflow-hidden bg-studio-canvas" role="status" aria-label="{{ __('dashboard.Loading…') }}">
+                <header class="lab-app-header flex h-14 shrink-0 items-stretch overflow-hidden border-b border-studio-line bg-studio-canvas">
                     <div class="flex w-full min-w-0 flex-[1_1_0%] items-center px-4 sm:px-6">
-                        <span class="truncate text-sm font-semibold tracking-tight text-krikkit-fg">Krikkit</span>
-                        <span class="mx-2 shrink-0 text-krikkit-subtle" aria-hidden>/</span>
-                        <span class="shrink-0 text-sm font-medium text-krikkit-fg">Lab</span>
+                        <span class="truncate text-sm font-semibold tracking-tight text-studio-fg">Supreme</span>
+                        <span class="mx-2 shrink-0 text-studio-subtle" aria-hidden>/</span>
+                        <span class="shrink-0 text-sm font-medium text-studio-fg">Lab</span>
                         <div class="ml-auto flex shrink-0 items-center gap-3 pl-3">
-                            <span class="inline-flex h-8 w-8 animate-pulse rounded-lg bg-krikkit-soft" aria-hidden></span>
+                            <span class="inline-flex h-8 w-8 animate-pulse rounded-lg bg-studio-soft" aria-hidden></span>
                         </div>
                     </div>
                 </header>
@@ -145,22 +145,22 @@
                         {{-- EmptyLabHero --}}
                         <div class="mx-auto mb-8 w-full max-w-2xl px-4 sm:px-6">
                             <div class="flex flex-col items-center text-center">
-                                <span class="mb-3 h-3 w-8 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
-                                <span class="mb-3 h-9 w-[17rem] max-w-full animate-pulse rounded-lg bg-krikkit-soft sm:h-10 sm:w-[22rem]" aria-hidden></span>
-                                <span class="mx-auto h-4 w-full max-w-md animate-pulse rounded-md bg-krikkit-soft" aria-hidden></span>
-                                <span class="mx-auto mt-2 h-4 w-4/5 max-w-sm animate-pulse rounded-md bg-krikkit-soft" aria-hidden></span>
+                                <span class="mb-3 h-3 w-8 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
+                                <span class="mb-3 h-9 w-[17rem] max-w-full animate-pulse rounded-lg bg-studio-soft sm:h-10 sm:w-[22rem]" aria-hidden></span>
+                                <span class="mx-auto h-4 w-full max-w-md animate-pulse rounded-md bg-studio-soft" aria-hidden></span>
+                                <span class="mx-auto mt-2 h-4 w-4/5 max-w-sm animate-pulse rounded-md bg-studio-soft" aria-hidden></span>
                             </div>
                         </div>
 
                         {{-- ChatComposer (large / empty) --}}
                         <div class="relative mx-auto w-full min-w-0 max-w-2xl shrink-0 px-4 sm:px-6">
-                            <div class="rounded-2xl bg-krikkit-surface p-3.5 sm:p-4">
+                            <div class="rounded-2xl bg-studio-surface p-3.5 sm:p-4">
                                 <div class="min-h-[72px] w-full">
-                                    <span class="mt-1 block h-3.5 w-3/4 max-w-md animate-pulse rounded-md bg-krikkit-soft" aria-hidden></span>
+                                    <span class="mt-1 block h-3.5 w-3/4 max-w-md animate-pulse rounded-md bg-studio-soft" aria-hidden></span>
                                 </div>
                                 <div class="mt-2 flex items-center justify-between gap-3">
-                                    <span class="inline-flex h-9 w-9 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
-                                    <span class="inline-flex h-9 w-9 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
+                                    <span class="inline-flex h-9 w-9 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
+                                    <span class="inline-flex h-9 w-9 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
                                 </div>
                             </div>
                         </div>
@@ -169,23 +169,23 @@
                         <div class="mx-auto mt-6 w-full max-w-2xl px-4 sm:px-6">
                             <div class="flex w-full justify-center">
                                 <div class="flex w-max max-w-full flex-nowrap items-center gap-2 overflow-hidden">
-                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-krikkit-line px-3.5">
-                                        <span class="size-3.5 animate-pulse rounded bg-krikkit-soft" aria-hidden></span>
-                                        <span class="h-2.5 w-14 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
+                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-studio-line px-3.5">
+                                        <span class="size-3.5 animate-pulse rounded bg-studio-soft" aria-hidden></span>
+                                        <span class="h-2.5 w-14 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
                                     </span>
-                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-krikkit-line px-3.5">
-                                        <span class="size-3.5 animate-pulse rounded bg-krikkit-soft" aria-hidden></span>
-                                        <span class="h-2.5 w-16 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
+                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-studio-line px-3.5">
+                                        <span class="size-3.5 animate-pulse rounded bg-studio-soft" aria-hidden></span>
+                                        <span class="h-2.5 w-16 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
                                     </span>
-                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-krikkit-line px-3.5">
-                                        <span class="size-3.5 animate-pulse rounded bg-krikkit-soft" aria-hidden></span>
-                                        <span class="h-2.5 w-12 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
+                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-studio-line px-3.5">
+                                        <span class="size-3.5 animate-pulse rounded bg-studio-soft" aria-hidden></span>
+                                        <span class="h-2.5 w-12 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
                                     </span>
-                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-krikkit-line px-3.5">
-                                        <span class="size-3.5 animate-pulse rounded bg-krikkit-soft" aria-hidden></span>
-                                        <span class="h-2.5 w-14 animate-pulse rounded-full bg-krikkit-soft" aria-hidden></span>
+                                    <span class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-studio-line px-3.5">
+                                        <span class="size-3.5 animate-pulse rounded bg-studio-soft" aria-hidden></span>
+                                        <span class="h-2.5 w-14 animate-pulse rounded-full bg-studio-soft" aria-hidden></span>
                                     </span>
-                                    <span class="inline-flex h-8 w-8 shrink-0 animate-pulse rounded-full border border-krikkit-line bg-krikkit-soft" aria-hidden></span>
+                                    <span class="inline-flex h-8 w-8 shrink-0 animate-pulse rounded-full border border-studio-line bg-studio-soft" aria-hidden></span>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
  * Integration tests for the brotli compression polyfill.
  *
  * Reproduces the exact scenarios from:
- *   https://github.com/krikkit/deepthought/issues/17
+ *   https://github.com/studio/deepthought/issues/17
  *
  * These tests import the zlib polyfill directly (the same module that
  * ScriptEngine exposes as `require('zlib')`) and exercise the sync / async

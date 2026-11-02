@@ -1,4 +1,4 @@
-// Krikkit Lab fs ReadStream/WriteStream constructor types. These are old-style function constructors
+// Supreme Lab fs ReadStream/WriteStream constructor types. These are old-style function constructors
 // (not classes) because graceful-fs uses .apply(this, arguments) which breaks classes.
 
 /* ---- ReadableState ---- */

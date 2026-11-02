@@ -24,7 +24,7 @@ export function LookupVisualsCard({
             aria-label={label}
             data-lab-chrome="lookup-visuals"
         >
-            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 items-center justify-start gap-1.5 text-[13px] font-normal leading-5 text-krikkit-muted">
+            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 items-center justify-start gap-1.5 text-[13px] font-normal leading-5 text-studio-muted">
                 <IconImage />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight">
                     <ToolStatusText text={label} pending={pending} />

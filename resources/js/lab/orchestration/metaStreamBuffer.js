@@ -1,14 +1,14 @@
 import { createBackgroundFrameLoop, isDocumentHidden } from '../lib/backgroundFrame.js'
 
 /**
- * Stream-safe KRIKKIT_META filter.
+ * Stream-safe STUDIO_META filter.
  * Holds back chunks that might be mid-tag so the UI never paints raw meta.
  * Emits a discrete proposal signal when a complete meta block is detected.
  *
  * Ready for SSE/Reverb: feed `push(chunk)`; listen for `{ type: 'proposal' }`.
  */
 
-const META_OPEN = '<<<KRIKKIT_META'
+const META_OPEN = '<<<STUDIO_META'
 const HOLD_TAIL = META_OPEN.length - 1
 
 /**
@@ -44,13 +44,13 @@ export function createMetaStreamBuffer(hooks = {}) {
 
         while (pending.length) {
             if (inMeta) {
-                const endA = pending.search(/KRIKKIT_META/)
+                const endA = pending.search(/STUDIO_META/)
                 const endB = pending.indexOf('>>>')
                 let end = -1
                 let endLen = 0
                 if (endA >= 0 && (endB < 0 || endA <= endB)) {
                     end = endA
-                    endLen = 'KRIKKIT_META'.length
+                    endLen = 'STUDIO_META'.length
                 } else if (endB >= 0) {
                     end = endB
                     endLen = 3
@@ -137,15 +137,15 @@ function scrubCompleteMetaArtifacts(text) {
     let propose = false
     let out = String(text || '')
 
-    out = out.replace(/<<<KRIKKIT_META\s*[\s\S]*?(?:KRIKKIT_META|>>>)/giu, (block) => {
-        const body = block.replace(/^<<<KRIKKIT_META/i, '').replace(/(?:KRIKKIT_META|>>>)\s*$/i, '')
+    out = out.replace(/<<<STUDIO_META\s*[\s\S]*?(?:STUDIO_META|>>>)/giu, (block) => {
+        const body = block.replace(/^<<<STUDIO_META/i, '').replace(/(?:STUDIO_META|>>>)\s*$/i, '')
         if (payloadIsTrue(body)) propose = true
         return ''
     })
 
     // Truncated / unclosed meta at end of the string — drop, never leak.
-    out = out.replace(/<<<KRIKKIT_META\b[\s\S]*$/giu, (block) => {
-        const body = block.replace(/^<<<KRIKKIT_META/i, '')
+    out = out.replace(/<<<STUDIO_META\b[\s\S]*$/giu, (block) => {
+        const body = block.replace(/^<<<STUDIO_META/i, '')
         if (payloadIsTrue(body)) propose = true
         return ''
     })
@@ -166,7 +166,7 @@ function scrubCompleteMetaArtifacts(text) {
         return object
     })
 
-    out = out.replace(/<!--\s*krikkit:propose_workspace\s*=\s*(?:true|false|1|0|"true"|"false")\s*-->/giu, (comment) => {
+    out = out.replace(/<!--\s*studio:propose_workspace\s*=\s*(?:true|false|1|0|"true"|"false")\s*-->/giu, (comment) => {
         if (/=\s*(?:true|1|"true")/i.test(comment)) propose = true
         return ''
     })

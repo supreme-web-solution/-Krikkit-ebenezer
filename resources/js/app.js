@@ -1,7 +1,7 @@
 import { bootAsciiHexdump } from './home/asciiHexdump'
-import { registerKrikkitDate } from './krikkit-date'
-import { registerKrikkitInk } from './krikkit-ink'
-import { applyKrikkitTheme, readKrikkitTheme } from './krikkit-theme'
+import { registerStudioDate } from './studio-date'
+import { registerStudioInk } from './studio-ink'
+import { applyStudioTheme, readStudioTheme } from './studio-theme'
 import { registerStudioComposer } from './studio/composer'
 
 let studioHero = null
@@ -19,16 +19,16 @@ function bootStudioHero() {
     })
 }
 
-applyKrikkitTheme()
-document.addEventListener('livewire:navigated', () => applyKrikkitTheme())
+applyStudioTheme()
+document.addEventListener('livewire:navigated', () => applyStudioTheme())
 document.addEventListener('DOMContentLoaded', () => bootAsciiHexdump())
 document.addEventListener('livewire:navigated', () => bootAsciiHexdump())
 document.addEventListener('DOMContentLoaded', () => bootStudioHero())
 document.addEventListener('livewire:navigated', () => bootStudioHero())
 
-window.krikkitTheme = {
-    apply: applyKrikkitTheme,
-    read: readKrikkitTheme,
+window.studioTheme = {
+    apply: applyStudioTheme,
+    read: readStudioTheme,
 }
 
 function destinationUrl(detail) {
@@ -73,11 +73,11 @@ document.addEventListener('livewire:navigate', (event) => {
 })
 
 document.addEventListener('alpine:init', () => {
-    registerKrikkitDate(Alpine)
-    registerKrikkitInk(Alpine)
+    registerStudioDate(Alpine)
+    registerStudioInk(Alpine)
     registerStudioComposer(Alpine)
 
-    Alpine.data('krikkitHomePlatform', () => ({
+    Alpine.data('studioHomePlatform', () => ({
         active: 0,
         observer: null,
 
@@ -127,7 +127,7 @@ document.addEventListener('alpine:init', () => {
         },
     }))
 
-    Alpine.data('krikkitPageLoad', () => ({
+    Alpine.data('studioPageLoad', () => ({
         loading: false,
         minHeight: null,
 

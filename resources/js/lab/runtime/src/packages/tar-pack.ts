@@ -1,4 +1,4 @@
-// Krikkit Lab — minimal ustar tar builder for npm pack.
+// Supreme Lab — minimal ustar tar builder for npm pack.
 
 import pako from "pako";
 

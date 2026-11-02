@@ -23,7 +23,7 @@ If Supabase is not connected and the user asks for auth or tables, the agent req
 | Action | Where |
 |--------|--------|
 | Authorize account | Integrations / Import from GitHub |
-| Import repo | Creates a new Krikkit project from a branch |
+| Import repo | Creates a new Supreme project from a branch |
 | Link project | Connect an existing project to a repo |
 | Push / sync | Top bar Sync |
 | Open PR | Top bar Open PR / View PR |

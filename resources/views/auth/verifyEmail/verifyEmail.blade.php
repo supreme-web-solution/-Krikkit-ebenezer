@@ -5,11 +5,11 @@
 
     <form method="POST" action="{{ route('verification.send') }}" class="space-y-5">
         @csrf
-        <krikkit:button type="submit" class="w-full">{{ __('messages.Resend verification email') }}</krikkit:button>
+        <studio:button type="submit" class="w-full">{{ __('messages.Resend verification email') }}</studio:button>
     </form>
 
-    <form method="POST" action="{{ route('logout') }}" class="mt-8 border-t border-krikkit-line pt-5">
+    <form method="POST" action="{{ route('logout') }}" class="mt-8 border-t border-studio-line pt-5">
         @csrf
-        <krikkit:button type="submit" variant="ghost" class="w-full">{{ __('messages.Log out') }}</krikkit:button>
+        <studio:button type="submit" variant="ghost" class="w-full">{{ __('messages.Log out') }}</studio:button>
     </form>
 </x-layouts.guest>

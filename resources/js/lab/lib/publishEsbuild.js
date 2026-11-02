@@ -191,9 +191,9 @@ export async function writeEsbuildPublishScript(pod, plan) {
         '}',
         '',
         // Keep the synthetic entry beside the real entry (/src/...) so `./App.jsx`
-        // still resolves. Writing it at `/.__krikkit_publish_entry__.jsx` left
+        // still resolves. Writing it at `/.__studio_publish_entry__.jsx` left
         // `import "./App.jsx"` in the shipped bundle and 404'd on the live host.
-        "const JS_ENTRY = `${dirname(ENTRY)}/.__krikkit_publish_entry__.jsx`",
+        "const JS_ENTRY = `${dirname(ENTRY)}/.__studio_publish_entry__.jsx`",
         'const entrySource = readFileSync(ENTRY, "utf8")',
         "const strippedEntry = entrySource.replace(/^\\s*import\\s+['\"][^'\"]+\\.css['\"]\\s*;?\\s*$/gm, '')",
         'writeFileSync(JS_ENTRY, strippedEntry)',
@@ -252,7 +252,7 @@ export async function writeEsbuildPublishScript(pod, plan) {
         '',
     ].join('\n')
 
-    await pod.fs.writeFile('/.__krikkit_esbuild_publish__.mjs', script)
+    await pod.fs.writeFile('/.__studio_esbuild_publish__.mjs', script)
 }
 
 /**

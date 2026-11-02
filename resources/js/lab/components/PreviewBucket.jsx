@@ -99,18 +99,18 @@ function ChipCard({ chip, phase }) {
     return (
         <div
             className={[
-                'lab-bucket-chip pointer-events-none absolute flex w-[min(15rem,70%)] origin-bottom items-center gap-2 rounded-full border border-krikkit-line bg-krikkit-surface p-2',
+                'lab-bucket-chip pointer-events-none absolute flex w-[min(15rem,70%)] origin-bottom items-center gap-2 rounded-full border border-studio-line bg-studio-surface p-2',
                 phase === 'out' ? 'lab-bucket-chip--out' : 'lab-bucket-chip--in',
             ].join(' ')}
         >
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-krikkit-soft text-accent-content">
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-studio-soft text-accent-content">
                 <Icon className="size-4" strokeWidth={1.75} aria-hidden />
             </span>
             <span className="min-w-0 pr-2">
-                <span className="block truncate text-[13px] font-medium leading-tight text-krikkit-fg">
+                <span className="block truncate text-[13px] font-medium leading-tight text-studio-fg">
                     {chip.title}
                 </span>
-                <span className="mt-0.5 block truncate text-[11px] leading-tight text-krikkit-muted">
+                <span className="mt-0.5 block truncate text-[11px] leading-tight text-studio-muted">
                     {chip.description}
                 </span>
             </span>
@@ -160,30 +160,30 @@ export function PreviewBucket({ activity = 'preview' }) {
                 >
                     <path
                         d="M512.766 79.16H147.766C136.453 79.16 130.796 79.16 127.281 82.677C123.766 86.192 123.766 91.849 123.766 103.162V327.159C123.766 338.473 123.766 344.13 127.281 347.645C130.796 351.159 136.453 351.159 147.766 351.159H512.766C524.08 351.159 529.737 351.159 533.252 347.645C536.766 344.13 536.766 338.473 536.766 327.159V103.159C536.766 91.846 536.766 86.189 533.252 82.674C529.737 79.159 524.08 79.159 512.766 79.16Z"
-                        className="fill-krikkit-surface stroke-krikkit-line"
+                        className="fill-studio-surface stroke-studio-line"
                         strokeWidth="1"
                     />
                     <path
                         d="M535.59 78.743 487.973 42.878 558.738 13.952C562.902 12.249 564.984 11.398 567.143 11.56C569.301 11.721 571.233 12.872 575.098 15.175L590.22 24.183C603.923 32.347 610.775 36.429 610.372 42.078C609.97 47.727 602.609 50.796 587.887 56.935L535.59 78.743Z"
-                        className="fill-krikkit-soft/70 stroke-krikkit-line"
+                        className="fill-studio-soft/70 stroke-studio-line"
                         strokeWidth="0.8"
                     />
                     <path
                         d="M123.116 79.115 171.548 42.878 97.272 12.516C94.831 11.519 93.61 11.02 92.345 11.114C91.079 11.209 89.947 11.884 87.681 13.233L56.155 32.015C48.183 36.764 44.197 39.139 44.421 42.438C44.644 45.737 48.913 47.553 57.452 51.185L123.116 79.115Z"
-                        className="fill-krikkit-soft/70 stroke-krikkit-line"
+                        className="fill-studio-soft/70 stroke-studio-line"
                         strokeWidth="0.8"
                     />
                     <path
                         d="M487.973 42.877 171.548 42.878 123.116 79.114 535.59 78.742 487.973 42.877Z"
-                        className="fill-krikkit-muted/25"
+                        className="fill-studio-muted/25"
                     />
                     <path
                         d="M171.548 78.909V42.877L123.116 79.114 171.548 78.909Z"
-                        className="fill-krikkit-fg/10"
+                        className="fill-studio-fg/10"
                     />
                     <path
                         d="M487.973 78.909V42.877L536.404 79.114 487.973 78.909Z"
-                        className="fill-krikkit-fg/10"
+                        className="fill-studio-fg/10"
                     />
                 </svg>
 
@@ -198,7 +198,7 @@ export function PreviewBucket({ activity = 'preview' }) {
                 </div>
 
                 <div
-                    className="pointer-events-none absolute inset-0 z-[19] bg-krikkit-canvas/20"
+                    className="pointer-events-none absolute inset-0 z-[19] bg-studio-canvas/20"
                     style={{
                         clipPath: 'polygon(18.8% 22.5%, 81.8% 22.5%, 89.8% 54.4%, 10.2% 54.4%)',
                         backdropFilter: 'blur(22px)',
@@ -214,11 +214,11 @@ export function PreviewBucket({ activity = 'preview' }) {
                 >
                     <path
                         d="M512.766 79.16H147.766C136.453 79.16 130.796 79.16 127.281 82.677C123.766 86.192 123.766 91.849 123.766 103.162V327.159C123.766 338.473 123.766 344.13 127.281 347.645C130.796 351.159 136.453 351.159 147.766 351.159H512.766C524.08 351.159 529.737 351.159 533.252 347.645C536.766 344.13 536.766 338.473 536.766 327.159V103.159C536.766 91.846 536.766 86.189 533.252 82.674C529.737 79.159 524.08 79.159 512.766 79.16Z"
-                        className="fill-krikkit-surface"
+                        className="fill-studio-surface"
                     />
                     <path
                         d="M74.601 164.033 123.116 79.114 535.59 78.742 581.532 164.469C588.006 176.55 591.243 182.59 588.568 187.06C585.892 191.529 579.039 191.529 565.333 191.529H90.559C76.476 191.529 69.434 191.529 66.778 186.953C64.122 182.376 67.615 176.262 74.601 164.033Z"
-                        className="fill-krikkit-canvas/55 stroke-krikkit-line"
+                        className="fill-studio-canvas/55 stroke-studio-line"
                         strokeWidth="1"
                     />
                 </svg>

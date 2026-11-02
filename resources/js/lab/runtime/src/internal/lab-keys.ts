@@ -1,5 +1,5 @@
 /**
- * Krikkit Lab internal symbol migration (Phase 4).
+ * Supreme Lab internal symbol migration (Phase 4).
  * New producers write both keys; consumers dual-read until legacy keys are removed.
  */
 
@@ -10,7 +10,7 @@ type Dict = Record<string, unknown>;
 // ---- Global browser host factory ----
 
 export const LEGACY_GLOBAL_BROWSER_HOST_FACTORY = "__DEEPTHOUGHT_CREATE_BROWSER_HOST__";
-export const LAB_GLOBAL_BROWSER_HOST_FACTORY = "__KRIKKIT_LAB_CREATE_BROWSER_HOST__";
+export const LAB_GLOBAL_BROWSER_HOST_FACTORY = "__SUPREME_LAB_CREATE_BROWSER_HOST__";
 
 export function readGlobalBrowserHostFactory(): (() => unknown) | null {
   const g = globalThis as Dict;
@@ -41,22 +41,22 @@ export function publishGlobalBrowserHostFactory(
 // ---- Worker lifecycle messages ----
 
 export const LEGACY_WORKER_WASI_INIT = "__deepthought_wasi_init__";
-export const LAB_WORKER_WASI_INIT = "__krikkit_lab_wasi_init__";
+export const LAB_WORKER_WASI_INIT = "__studio_lab_wasi_init__";
 
 export const LEGACY_WORKER_BROKER_READY = "__deepthought_broker_ready__";
-export const LAB_WORKER_BROKER_READY = "__krikkit_lab_broker_ready__";
+export const LAB_WORKER_BROKER_READY = "__studio_lab_broker_ready__";
 
 export const LEGACY_WORKER_ERROR = "__deepthought_worker_error__";
-export const LAB_WORKER_ERROR = "__krikkit_lab_worker_error__";
+export const LAB_WORKER_ERROR = "__studio_lab_worker_error__";
 
 export const LEGACY_WORKER_EXIT = "__deepthought_worker_exit__";
-export const LAB_WORKER_EXIT = "__krikkit_lab_worker_exit__";
+export const LAB_WORKER_EXIT = "__studio_lab_worker_exit__";
 
 export const LEGACY_WORKER_DATA_GLOBAL = "__deepthoughtWorkerData";
-export const LAB_WORKER_DATA_GLOBAL = "__krikkitLabWorkerData";
+export const LAB_WORKER_DATA_GLOBAL = "__studioLabWorkerData";
 
 export const LEGACY_THREAD_ID_TOKEN = "__DEEPTHOUGHT_THREAD_ID__";
-export const LAB_THREAD_ID_TOKEN = "__KRIKKIT_LAB_THREAD_ID__";
+export const LAB_THREAD_ID_TOKEN = "__SUPREME_LAB_THREAD_ID__";
 
 export function isWorkerWasiInit(data: unknown): boolean {
   if (!data || typeof data !== "object") return false;
@@ -160,10 +160,10 @@ export function publishGlobalWorkerData(data: unknown): void {
 // ---- Host worker metadata ----
 
 export const LEGACY_HOST_WORKER_DIRECT = "__deepthoughtDirect";
-export const LAB_HOST_WORKER_DIRECT = "__krikkitLabDirect";
+export const LAB_HOST_WORKER_DIRECT = "__studioLabDirect";
 
 export const LEGACY_HOST_WORKER_REVOKE_URL = "__deepthoughtRevokeUrl";
-export const LAB_HOST_WORKER_REVOKE_URL = "__krikkitLabRevokeUrl";
+export const LAB_HOST_WORKER_REVOKE_URL = "__studioLabRevokeUrl";
 
 export function markHostWorkerDirect(worker: HostWorker, direct = true): void {
   const w = worker as unknown as Dict;
@@ -193,13 +193,13 @@ export function getHostWorkerRevokeUrl(worker: HostWorker): string {
 // ---- Runtime globals (volume, esbuild) ----
 
 export const LEGACY_VOLUME_GLOBAL = "__deepthoughtVolume";
-export const LAB_VOLUME_GLOBAL = "__krikkitLabVolume";
+export const LAB_VOLUME_GLOBAL = "__studioLabVolume";
 
 export const LEGACY_ESBUILD_PROMISE_GLOBAL = "__deepthoughtEsbuild";
-export const LAB_ESBUILD_PROMISE_GLOBAL = "__krikkitLabEsbuild";
+export const LAB_ESBUILD_PROMISE_GLOBAL = "__studioLabEsbuild";
 
 export const LEGACY_ESBUILD_READY_GLOBAL = "__deepthoughtEsbuildReady";
-export const LAB_ESBUILD_READY_GLOBAL = "__krikkitLabEsbuildReady";
+export const LAB_ESBUILD_READY_GLOBAL = "__studioLabEsbuildReady";
 
 export function readGlobalVolume(): unknown {
   const g = globalThis as Dict;
@@ -215,13 +215,13 @@ export function publishGlobalVolume(volume: unknown): void {
 // ---- Preview inspector wire protocol ----
 
 export const LEGACY_INSPECT_FLAG = "__deepthoughtInspect";
-export const LAB_INSPECT_FLAG = "__krikkitLabInspect";
+export const LAB_INSPECT_FLAG = "__studioLabInspect";
 
 export const LEGACY_INSPECT_CONFIG_GLOBAL = "__deepthoughtInspectConfig";
-export const LAB_INSPECT_CONFIG_GLOBAL = "__krikkitLabInspectConfig";
+export const LAB_INSPECT_CONFIG_GLOBAL = "__studioLabInspectConfig";
 
 export const LEGACY_INSPECT_AGENT_GLOBAL = "__deepthoughtInspectAgent";
-export const LAB_INSPECT_AGENT_GLOBAL = "__krikkitLabInspectAgent";
+export const LAB_INSPECT_AGENT_GLOBAL = "__studioLabInspectAgent";
 
 export function isInspectWireMessage(data: unknown): boolean {
   if (!data || typeof data !== "object") return false;
@@ -242,7 +242,7 @@ export function inspectWireEnvelope(
 // ---- Shell history paths ----
 
 export const LEGACY_SHELL_HISTORY_BASENAME = ".deepthought_history";
-export const LAB_SHELL_HISTORY_BASENAME = ".krikkit-lab_history";
+export const LAB_SHELL_HISTORY_BASENAME = ".studio-lab_history";
 
 export function shellHistoryPaths(home: string): string[] {
   return [
@@ -257,13 +257,13 @@ export function primaryShellHistoryPath(home: string): string {
 
 // ---- Service worker URLs (Phase 5) ----
 
-export const LAB_SW_PATH = "/__krikkit_lab_sw__.js";
+export const LAB_SW_PATH = "/__studio_lab_sw__.js";
 export const LEGACY_SW_PATH = "/__deepthought_sw__.js";
 
 /** Primary Lab service worker script URL path. */
 export const DEFAULT_SW_PATH = LAB_SW_PATH;
 
-export const LAB_SW_FILENAME = "__krikkit_lab_sw__.js";
+export const LAB_SW_FILENAME = "__studio_lab_sw__.js";
 export const LEGACY_SW_FILENAME = "__deepthought_sw__.js";
 
 export function isLabServiceWorkerPath(path: string): boolean {
@@ -277,13 +277,13 @@ export function labServiceWorkerPaths(): string[] {
 
 // ---- IndexedDB names (Phase 5) ----
 
-export const LAB_SNAPSHOT_DB = "krikkit-lab-snapshots";
+export const LAB_SNAPSHOT_DB = "studio-lab-snapshots";
 export const LEGACY_SNAPSHOT_DB = "deepthought-snapshots";
 
-export const LAB_WASM_MODULE_DB = "krikkit-lab-wasm-modules";
+export const LAB_WASM_MODULE_DB = "studio-lab-wasm-modules";
 export const LEGACY_WASM_MODULE_DB = "deepthought-wasm-modules";
 
-export const LAB_TARBALL_DB = "krikkit-lab-tarballs";
+export const LAB_TARBALL_DB = "studio-lab-tarballs";
 export const LEGACY_TARBALL_DB = "deepthought-tarballs";
 
-export const LAB_IDB_MIGRATION_PREFIX = "krikkit-lab-idb-migration-v1:";
+export const LAB_IDB_MIGRATION_PREFIX = "studio-lab-idb-migration-v1:";

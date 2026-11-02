@@ -182,7 +182,7 @@ export function useLabChat({
         setEditTargets((cur) => upsertEditTarget(cur, target))
         if (opts.focus === false) return
         try {
-            window.dispatchEvent(new CustomEvent('krikkit-lab-focus-composer'))
+            window.dispatchEvent(new CustomEvent('studio-lab-focus-composer'))
         } catch {
             /* ignore */
         }

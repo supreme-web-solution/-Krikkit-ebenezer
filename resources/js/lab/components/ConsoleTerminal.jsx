@@ -16,10 +16,10 @@ function readCssVar(name, fallback) {
 }
 
 function buildTheme() {
-    const canvas = readCssVar('--color-krikkit-canvas', '#0a0a0a')
-    const fg = readCssVar('--color-krikkit-fg', '#fafafa')
-    const muted = readCssVar('--color-krikkit-muted', '#a1a1aa')
-    const soft = readCssVar('--color-krikkit-soft', '#18181b')
+    const canvas = readCssVar('--color-studio-canvas', '#0a0a0a')
+    const fg = readCssVar('--color-studio-fg', '#fafafa')
+    const muted = readCssVar('--color-studio-muted', '#a1a1aa')
+    const soft = readCssVar('--color-studio-soft', '#18181b')
     const accent = readCssVar('--color-accent', '#14b8a6')
 
     return {
@@ -272,7 +272,7 @@ export function ConsoleTerminal({
                     fitAddon.fit()
                     term.writeln(`\x1b[33m${labConsoleLine('shell_unavailable')}\x1b[0m`)
                     term.writeln(`\x1b[90m${err?.message || err}\x1b[0m`)
-                    term.writeln('Retry after hard refresh; ensure /__krikkit_lab_sw__.js is served.')
+                    term.writeln('Retry after hard refresh; ensure /__studio_lab_sw__.js is served.')
                     term.write(labConsolePrompt())
                     xtermRef.current = term
                     fitRef.current = fitAddon
@@ -409,10 +409,10 @@ export function ConsoleTerminal({
     }, [active, status, focusNonce])
 
     return (
-        <div className="flex h-full min-h-0 flex-col bg-krikkit-canvas">
-            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-krikkit-line bg-krikkit-canvas px-3">
-                <p className="min-w-0 truncate text-xs font-medium text-krikkit-fg">Console</p>
-                <span className="shrink-0 text-[11px] tabular-nums text-krikkit-subtle">
+        <div className="flex h-full min-h-0 flex-col bg-studio-canvas">
+            <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-studio-line bg-studio-canvas px-3">
+                <p className="min-w-0 truncate text-xs font-medium text-studio-fg">Console</p>
+                <span className="shrink-0 text-[11px] tabular-nums text-studio-subtle">
                     {status === 'ready' && !error
                         ? (autostart ? 'connected' : 'shell')
                         : status === 'error'
@@ -425,7 +425,7 @@ export function ConsoleTerminal({
 
             {status === 'error' ? (
                 <div className="flex flex-1 items-center justify-center px-6 text-center">
-                    <p className="max-w-sm text-sm text-krikkit-muted">
+                    <p className="max-w-sm text-sm text-studio-muted">
                         Couldn’t start the terminal.
                         {error ? ` ${error}` : ''}
                     </p>

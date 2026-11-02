@@ -1,4 +1,4 @@
-// Krikkit Lab — blocking execSync/spawnSync via SharedArrayBuffer + Atomics
+// Supreme Lab — blocking execSync/spawnSync via SharedArrayBuffer + Atomics
 // worker allocates a slot, posts spawn-sync, blocks on Atomics.wait()
 // main thread runs the child, writes result to the slot, calls Atomics.notify()
 

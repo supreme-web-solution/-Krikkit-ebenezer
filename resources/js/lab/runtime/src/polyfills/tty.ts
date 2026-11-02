@@ -1,4 +1,4 @@
-// Krikkit Lab — node:tty polyfill.
+// Supreme Lab — node:tty polyfill.
 
 
 // always false in browser

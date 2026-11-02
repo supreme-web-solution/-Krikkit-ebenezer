@@ -7,7 +7,7 @@
 
 ## Custom domain stuck on pending
 
-- Add TXT record: `_krikkit-lab.{host}` = `krikkit={token}` from the Lab publish panel
+- Add TXT record: `_studio-lab.{host}` = `studio={token}` from the Lab publish panel
 - CNAME custom host to your `APP_URL` host
 
 ## Artifact upload fails

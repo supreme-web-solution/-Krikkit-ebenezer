@@ -64,10 +64,10 @@ describe("preflight: DeepThoughtSWSetupError", () => {
     expect(caught).toBeInstanceOf(DeepThoughtSWSetupError);
     const err = caught as DeepThoughtSWSetupError;
     expect(err.details.status).toBe(404);
-    expect(err.details.swUrl).toBe("/__krikkit_lab_sw__.js");
+    expect(err.details.swUrl).toBe("/__studio_lab_sw__.js");
     expect(err.details.framework).toBe("generic");
     // toString() should include the actionable hint.
-    expect(err.toString()).toMatch(/@krikkit\/deepthought\/server|public\//);
+    expect(err.toString()).toMatch(/@studio\/deepthought\/server|public\//);
   });
 
   it("throws when Content-Type is HTML (SPA fallback)", async () => {
@@ -124,13 +124,13 @@ describe("preflight: DeepThoughtSWSetupError", () => {
 
   it("DeepThoughtSWSetupError.toString() renders HTTP status and hint", () => {
     const err = new DeepThoughtSWSetupError("test", {
-      swUrl: "/__krikkit_lab_sw__.js",
+      swUrl: "/__studio_lab_sw__.js",
       status: 404,
       framework: "vite",
     });
     const s = err.toString();
     expect(s).toMatch(/DeepThoughtSWSetupError/);
     expect(s).toMatch(/404/);
-    expect(s).toMatch(/@krikkit\/deepthought\/vite/);
+    expect(s).toMatch(/@studio\/deepthought\/vite/);
   });
 });

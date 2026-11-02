@@ -1,4 +1,4 @@
-// Krikkit Lab — node:sea polyfill (stub - not available in browser).
+// Supreme Lab — node:sea polyfill (stub - not available in browser).
 
 
 /* ------------------------------------------------------------------ */

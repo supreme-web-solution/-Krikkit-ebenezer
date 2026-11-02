@@ -795,10 +795,10 @@ export function useVfsWorkspace({ projectUuid, projectTitle, building }) {
                 setPreviewReloadPending(false)
             }, 0)
         }
-        window.addEventListener('krikkit-lab-runtime-listen', onListen)
+        window.addEventListener('studio-lab-runtime-listen', onListen)
         window.addEventListener(PREVIEW_RESYNC_EVENT, onResync)
         return () => {
-            window.removeEventListener('krikkit-lab-runtime-listen', onListen)
+            window.removeEventListener('studio-lab-runtime-listen', onListen)
             window.removeEventListener(PREVIEW_RESYNC_EVENT, onResync)
         }
     }, [])

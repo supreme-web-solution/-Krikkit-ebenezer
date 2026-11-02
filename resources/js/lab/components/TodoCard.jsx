@@ -35,20 +35,20 @@ export function TodoCard({
             aria-label={label}
             data-lab-chrome="todos"
         >
-            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit text-krikkit-muted">
+            <div className="inline-flex w-full max-w-full min-h-5 min-w-0 appearance-none items-center justify-start gap-1.5 border-0 bg-transparent p-0 m-0 text-left text-[13px] font-normal leading-5 text-inherit text-studio-muted">
                 <IconCheck />
                 <span className="inline-flex min-h-3.5 min-w-0 flex-1 items-center overflow-hidden text-ellipsis whitespace-nowrap leading-tight">
                     <ToolStatusText text={label} pending={pending && done < total} />
                 </span>
                 {total > 0 && (
-                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-krikkit-subtle tabular-nums">
+                    <span className="inline-flex shrink-0 items-center gap-1 leading-tight text-studio-subtle tabular-nums">
                         {done}/{total}
                     </span>
                 )}
             </div>
 
             {total > 0 && (
-                <ul className="mt-1.5 space-y-0.5 border-l border-krikkit-line pl-3">
+                <ul className="mt-1.5 space-y-0.5 border-l border-studio-line pl-3">
                     {itemsSafe.map((item) => {
                         const isDone = item.status === 'done'
                         const isActive = item.status === 'active'
@@ -58,10 +58,10 @@ export function TodoCard({
                                 key={item.id}
                                 className={[
                                     'flex items-center gap-2 text-[12px] leading-5',
-                                    isDone ? 'text-krikkit-subtle line-through' : '',
-                                    isActive ? 'text-krikkit-fg' : '',
+                                    isDone ? 'text-studio-subtle line-through' : '',
+                                    isActive ? 'text-studio-fg' : '',
                                     isError ? 'text-red-500' : '',
-                                    ! isDone && ! isActive && ! isError ? 'text-krikkit-muted' : '',
+                                    ! isDone && ! isActive && ! isError ? 'text-studio-muted' : '',
                                 ].join(' ')}
                             >
                                 <span
@@ -71,7 +71,7 @@ export function TodoCard({
                                             ? 'border-emerald-500/60 bg-emerald-500/15 text-emerald-500'
                                             : isError
                                                 ? 'border-red-500/60 bg-red-500/10 text-red-500'
-                                                : 'border-krikkit-line text-transparent',
+                                                : 'border-studio-line text-transparent',
                                     ].join(' ')}
                                     aria-hidden
                                 >

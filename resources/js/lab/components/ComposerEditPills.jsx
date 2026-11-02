@@ -44,13 +44,13 @@ export function ComposerEditPills({
                             'inline-flex max-w-full items-center',
                             bubble
                                 ? 'h-5 max-w-[10rem] gap-1 rounded-md bg-accent-foreground/12 px-1.5 text-[10px] leading-none text-accent-foreground'
-                                : 'h-6 max-w-[12rem] gap-1.5 rounded-md border border-krikkit-line bg-krikkit-soft pl-1.5 pr-1 text-[11px] leading-none text-krikkit-fg',
+                                : 'h-6 max-w-[12rem] gap-1.5 rounded-md border border-studio-line bg-studio-soft pl-1.5 pr-1 text-[11px] leading-none text-studio-fg',
                         ].join(' ')}
                     >
                         <Icon
                             className={[
                                 'block size-2.5 shrink-0',
-                                bubble ? 'opacity-70' : 'text-krikkit-muted',
+                                bubble ? 'opacity-70' : 'text-studio-muted',
                             ].join(' ')}
                             strokeWidth={2}
                             aria-hidden
@@ -61,7 +61,7 @@ export function ComposerEditPills({
                                 type="button"
                                 disabled={disabled}
                                 onClick={() => onRemove(target.id)}
-                                className="inline-flex size-4 shrink-0 items-center justify-center rounded text-krikkit-subtle transition-colors hover:text-krikkit-fg disabled:opacity-40"
+                                className="inline-flex size-4 shrink-0 items-center justify-center rounded text-studio-subtle transition-colors hover:text-studio-fg disabled:opacity-40"
                                 aria-label={`Remove ${label}`}
                             >
                                 <IconClose className="size-2.5" />

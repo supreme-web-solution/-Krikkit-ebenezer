@@ -1,4 +1,4 @@
-// Krikkit Lab cache-key digest (DJB2).
+// Supreme Lab cache-key digest (DJB2).
 
 // DJB2 hash for cache keys
 export function quickDigest(input: string): string {
