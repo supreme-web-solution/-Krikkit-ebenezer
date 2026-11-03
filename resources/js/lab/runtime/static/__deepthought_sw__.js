@@ -225,6 +225,10 @@ function resetHostPreviewRoutingState() {
 }
 
 function shouldPassthroughToHost(requestUrl, refUrl) {
+  // A <link rel="stylesheet"> from the preview often carries the Lab page
+  // (/lab/…) as its referer. Sending /src/index.css to Laravel 404s the
+  // stylesheet while the HTML still paints, so the built site looks blank.
+  if (isGuestFrameworkAsset(requestUrl.pathname)) return false;
   if (isSupremeHostPath(requestUrl.pathname)) return true;
   if (isSupremeHostAsset(requestUrl.pathname)) return true;
   if (refUrl && isSupremeHostPath(refUrl.pathname)) return true;
@@ -232,13 +236,13 @@ function shouldPassthroughToHost(requestUrl, refUrl) {
 }
 
 function resolvePodForGuestAsset(clientId, refUrl) {
-  if (refUrl && isSupremeHostPath(refUrl.pathname)) {
-    return null;
-  }
+  // A Lab-page referer is not a reason to drop the request. Parser CSS and
+  // Vite's /src/index.css often arrive with referer /lab/… and no preview
+  // client yet; returning null here 404s the stylesheet on Laravel.
   if (clientId && previewClients.has(clientId)) {
     return previewClients.get(clientId);
   }
-  if (refUrl) {
+  if (refUrl && !isSupremeHostPath(refUrl.pathname)) {
     const hit =
       matchPreviewOrVirtualPath(refUrl.pathname, "preview") ||
       matchPreviewOrVirtualPath(refUrl.pathname, "virtual");
@@ -1485,7 +1489,11 @@ function getLocationPatchScript(instanceId, serverPort) {
   // CSS through the preview prefix and inject <style> — same end state as Vite.
   function adoptStylesheet(href) {
     href = rewriteAssetUrl(String(href || ''));
-    if (!href || href.indexOf('/_next/') < 0) return;
+    if (!href) return;
+    // Next extracts CSS under /_next/. Vite's Tailwind entry is /src/index.css
+    // (often rewritten onto /__preview__/…/src/). Recover both, or the page
+    // paints as unstyled HTML.
+    if (href.indexOf('/_next/') < 0 && href.indexOf('/src/') < 0 && href.indexOf('.css') < 0) return;
     if (document.querySelector('style[data-studio-css="' + href.replace(/"/g, '') + '"]')) return;
     fetch(href, { credentials: 'same-origin' }).then(function(r) {
       if (!r.ok) return null;

@@ -13,7 +13,7 @@
         <script type="text/javascript">
             (function () {
                 if (!('serviceWorker' in navigator)) return;
-                var SW = '/__studio_lab_sw__.js?v=host-vite-5173-29';
+                var SW = '/__studio_lab_sw__.js?v=host-vite-5173-30';
                 navigator.serviceWorker.register(SW, { scope: '/' }).catch(function () {});
             })();
         </script>

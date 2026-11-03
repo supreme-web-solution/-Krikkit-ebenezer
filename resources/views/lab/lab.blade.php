@@ -13,8 +13,8 @@
         <script type="text/javascript">
             (function () {
                 if (!('serviceWorker' in navigator)) return;
-                var VER = '29';
-                var SW = '/__studio_lab_sw__.js?v=host-vite-5173-29';
+                var VER = '30';
+                var SW = '/__studio_lab_sw__.js?v=host-vite-5173-30';
                 var post = function (sw) {
                     try { sw.postMessage({ type: 'studio-host-active' }) } catch (e) {}
                 }

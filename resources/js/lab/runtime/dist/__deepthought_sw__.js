@@ -225,6 +225,7 @@ function resetHostPreviewRoutingState() {
 }
 
 function shouldPassthroughToHost(requestUrl, refUrl) {
+  if (isGuestFrameworkAsset(requestUrl.pathname)) return false;
   if (isKrikkitHostPath(requestUrl.pathname)) return true;
   if (isKrikkitHostAsset(requestUrl.pathname)) return true;
   if (refUrl && isKrikkitHostPath(refUrl.pathname)) return true;
@@ -232,13 +233,10 @@ function shouldPassthroughToHost(requestUrl, refUrl) {
 }
 
 function resolvePodForGuestAsset(clientId, refUrl) {
-  if (refUrl && isKrikkitHostPath(refUrl.pathname)) {
-    return null;
-  }
   if (clientId && previewClients.has(clientId)) {
     return previewClients.get(clientId);
   }
-  if (refUrl) {
+  if (refUrl && !isKrikkitHostPath(refUrl.pathname)) {
     const hit =
       matchPreviewOrVirtualPath(refUrl.pathname, "preview") ||
       matchPreviewOrVirtualPath(refUrl.pathname, "virtual");
@@ -1484,7 +1482,8 @@ function getLocationPatchScript(instanceId, serverPort) {
   // CSS through the preview prefix and inject <style> — same end state as Vite.
   function adoptStylesheet(href) {
     href = rewriteAssetUrl(String(href || ''));
-    if (!href || href.indexOf('/_next/') < 0) return;
+    if (!href) return;
+    if (href.indexOf('/_next/') < 0 && href.indexOf('/src/') < 0 && href.indexOf('.css') < 0) return;
     if (document.querySelector('style[data-krikkit-css="' + href.replace(/"/g, '') + '"]')) return;
     fetch(href, { credentials: 'same-origin' }).then(function(r) {
       if (!r.ok) return null;

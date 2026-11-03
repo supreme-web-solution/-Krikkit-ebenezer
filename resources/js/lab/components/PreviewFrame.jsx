@@ -31,7 +31,7 @@ import { guestHref, labPreviewHref } from '../lib/labPreviewUrl'
 import { dispatchPreviewGuestError, isIgnorableGuestRuntimeError } from '../lib/previewGuestErrors'
 import { clearConsoleErrors } from '../lib/labErrors'
 import { discoverGuestRoutes, guestRouteKnown, guestRoutesAsPages } from '../lib/previewRoutes'
-import { previewLooksBooting, previewLooksHollow, previewLooksLive, previewLooksRefused, previewLooksViteGuest } from '../lib/previewProbe'
+import { previewLooksBooting, previewLooksLive, previewLooksRefused } from '../lib/previewProbe'
 import { usePreviewCover } from '../hooks/usePreviewCover'
 import { makeEditTarget } from '../lib/previewEditTargets'
 import {
@@ -634,15 +634,20 @@ export function PreviewFrame({
 
     const onIframeLoad = useCallback(() => {
         const iframe = iframeRef.current
-        if (previewLooksBooting(iframe) || ! previewLooksLive(iframe)) {
+        if (previewLooksBooting(iframe)) {
             setFrameReady(false)
-            if (previewLooksRefused(iframe) && refusedRetryRef.current < 12) {
-                refusedRetryRef.current += 1
-                setFrameBlocked(true)
-                window.setTimeout(() => remountAt(pathRef.current), 280 * refusedRetryRef.current)
-            }
             return
         }
+        if (previewLooksRefused(iframe) && refusedRetryRef.current < 12) {
+            refusedRetryRef.current += 1
+            setFrameBlocked(true)
+            setFrameReady(false)
+            window.setTimeout(() => remountAt(pathRef.current), 280 * refusedRetryRef.current)
+            return
+        }
+        // A loaded guest that the probe still calls hollow (or whose document
+        // we cannot read) used to stay under the warming cover forever, so a
+        // finished build looked like it never appeared.
         markFrameReady()
         if (inspectingRef.current) {
             postToPreview(iframe, {
@@ -701,8 +706,7 @@ export function PreviewFrame({
         if (! showIframe || ! frameReady) return undefined
         const id = window.setInterval(() => {
             const iframe = iframeRef.current
-            if (previewLooksBooting(iframe) || previewLooksHollow(iframe)) {
-                if (previewLooksViteGuest(iframe)) return
+            if (previewLooksBooting(iframe)) {
                 setFrameReady(false)
                 setGuestPainted(false)
                 return

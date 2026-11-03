@@ -17,7 +17,7 @@ import { normalizeVfsPath } from './vfs'
 
 export { guestWriteNeedsReload, guestWriteRestartsDev, looksLikeVitePageReload, PREVIEW_RESYNC_EVENT } from './previewReload'
 
-const SW_URL = '/__studio_lab_sw__.js?v=host-vite-5173-29'
+const SW_URL = '/__studio_lab_sw__.js?v=host-vite-5173-30'
 const SW_MIGRATION_KEY = 'studio-lab-sw-migration-v1'
 // Bump when public/__worker__.js polyfills change (avoids sticky Worker caches).
 const WORKER_URL = '/__worker__.js?v=histfile-dev-null-1'
@@ -692,7 +692,11 @@ export async function retouchGuestStyles(touchedPaths = []) {
     for (const [path, data] of guestSyncedContent.entries()) {
         if (! /\.css$/i.test(path) || SKIP_SYNC_RE.test(path)) continue
         try {
-            await pod.fs.writeFile(path, data)
+            // Identical bytes are a no-op for the Vite watcher, so Tailwind
+            // never rescans the JSX this turn just wrote. A trailing comment
+            // changes the file without changing the design tokens.
+            const bust = `${String(data).replace(/\n\/\* krikkit-scan \d+ \*\/\s*$/, '')}\n/* krikkit-scan ${Date.now()} */\n`
+            await pod.fs.writeFile(path, bust)
         } catch {
             /* stylesheet retouch is best-effort */
         }

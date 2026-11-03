@@ -803,6 +803,17 @@ export function useVfsWorkspace({ projectUuid, projectTitle, building }) {
         }
     }, [])
 
+    // A missed Vite resync used to leave the preview iframe invisible after
+    // the files were already written.
+    useEffect(() => {
+        if (! previewReloadPending) return undefined
+        const id = window.setTimeout(() => {
+            pendingPreviewReloadRef.current = false
+            setPreviewReloadPending(false)
+        }, 8000)
+        return () => window.clearTimeout(id)
+    }, [previewReloadPending])
+
     return {
         workspaceView,
         composeMode,
