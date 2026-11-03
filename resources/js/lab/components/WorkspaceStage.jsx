@@ -63,40 +63,21 @@ export function WorkspaceStage({
     useEffect(() => {
         if (! projectUuid) return undefined
         let stopped = false
-        let hungSince = 0
 
         const tick = () => {
             if (stopped || isAiStreaming) return
-            if (resolveGuestListenPort()) {
-                hungSince = 0
-                return
-            }
+            if (resolveGuestListenPort()) return
             const files = vfsRef.current?.getContents?.() || {}
             const hasPackage = Object.keys(files).some((path) => (
                 path.replace(/^\/+/, '') === 'package.json' && String(files[path] || '').trim()
             ))
             if (! hasPackage) return
-            void import('../lib/labAutostart').then(async (mod) => {
+            void import('../lib/labAutostart').then((mod) => {
                 if (stopped || resolveGuestListenPort()) return
-                const result = await mod.runLabAutostart({
+                return mod.runLabAutostart({
                     projectKey: projectUuid,
                     getFiles: () => vfsRef.current?.getContents?.() || {},
                 })
-                if (stopped || resolveGuestListenPort()) return
-                if (result?.reason !== 'already-running') {
-                    hungSince = 0
-                    return
-                }
-                const now = Date.now()
-                if (! hungSince) hungSince = now
-                else if (now - hungSince > 20_000) {
-                    hungSince = 0
-                    mod.resetLabAutostart?.()
-                    void mod.runLabAutostart({
-                        projectKey: projectUuid,
-                        getFiles: () => vfsRef.current?.getContents?.() || {},
-                    })
-                }
             })
         }
 
@@ -127,7 +108,6 @@ export function WorkspaceStage({
                         className={active
                             ? 'h-full min-h-0'
                             : 'pointer-events-none absolute inset-0 -z-10 h-full min-h-0 overflow-hidden opacity-0'}
-                        aria-hidden={! active}
                     >
                         <ConsoleTerminal
                             sessionId={id}

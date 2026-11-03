@@ -395,6 +395,22 @@ export function ConsoleTerminal({
     }, [sessionLog, status, focusNonce, active])
 
     useEffect(() => {
+        if (active || status !== 'ready') return undefined
+        const blur = () => {
+            try {
+                const term = xtermRef.current || termApiRef.current?.xterm
+                term?.blur?.()
+                term?.textarea?.blur?.()
+            } catch {
+                /* ignore */
+            }
+        }
+        blur()
+        const id = requestAnimationFrame(blur)
+        return () => cancelAnimationFrame(id)
+    }, [active, status])
+
+    useEffect(() => {
         if (!active || status !== 'ready') return
         const id = requestAnimationFrame(() => {
             refitTerminal(termApiRef.current || terminalsBySession.get(sessionId)?.terminal, fitRef.current)

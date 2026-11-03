@@ -9,10 +9,12 @@ import {
     looksLikeViteReady,
     looksLikeViteRestart,
     noteGuestDevActivity,
+    resolveGuestListenPort,
     schedulePreviewResync,
     syncLabVfsToGuest,
     vfsContentsToFiles,
 } from './labRuntime'
+import { resetCompiledPreview, serveCompiledPreview } from './labPreviewFallback'
 import { trackGuestBuildOutput } from './guestBuildErrors'
 import { labConsoleLine, labConsoleName } from './labConsole'
 import { seedGuestNativeWasm } from './labNativeWasm'
@@ -34,6 +36,60 @@ let autostartAbort = null
 let runningDevProc = null
 /** @type {{ write?: Function, writeln?: Function, showPrompt?: Function }|null} */
 let outputTerminal = null
+/** Project whose preview is the compiled fallback (Vite never listened). */
+let compiledPreviewKey = null
+/** Project that already has a listen-or-compile watch armed. */
+let compiledArmKey = null
+
+/**
+ * Vite often never reaches http.Server.listen (oxide / native config loader
+ * wait forever). After a short grace period, bundle on the main thread and
+ * publish that URL so the cover and the private preview tab can render.
+ *
+ * @param {string} projectKey
+ */
+function armCompiledPreview(projectKey) {
+    if (! projectKey || compiledArmKey === projectKey || compiledPreviewKey === projectKey) return
+    compiledArmKey = projectKey
+    const token = projectKey
+    void (async () => {
+        try {
+            const started = Date.now()
+            while (Date.now() - started < 15_000) {
+                if (compiledArmKey !== token) return
+                if (resolveGuestListenPort()) return
+                await sleep(400)
+            }
+            if (compiledArmKey !== token || resolveGuestListenPort()) return
+            try {
+                runningDevProc?.kill?.()
+            } catch {
+                /* hung dev process */
+            }
+            runningDevProc = null
+            const pod = getLabRuntime()
+            if (! pod) {
+                compiledArmKey = null
+                return
+            }
+            termLine(outputTerminal, `\x1b[36m${labConsoleLine('auto_start', { command: 'compiled preview' })}\x1b[0m`)
+            const result = await serveCompiledPreview(pod)
+            if (compiledArmKey !== token) return
+            compiledPreviewKey = projectKey
+            if (result.ok) {
+                publishLabPhase('dev-running', { reason: 'compiled-preview' })
+                return
+            }
+            termLine(outputTerminal, labConsoleLine('failed', { error: result.error || 'compiled preview failed' }), true)
+            publishLabPhase('error', { message: result.error || 'Compiled preview failed.' })
+        } catch (err) {
+            if (compiledArmKey === token) compiledPreviewKey = projectKey
+            const message = err?.message || String(err)
+            termLine(outputTerminal, labConsoleLine('failed', { error: message }), true)
+            publishLabPhase('error', { message })
+        }
+    })()
+}
 
 export const LAB_RUNTIME_PHASE = 'studio-lab-phase'
 
@@ -486,30 +542,19 @@ export async function runLabAutostart(opts) {
     const projectKey = String(opts.projectKey || '')
     if (!projectKey) return { ok: false, reason: 'no-project' }
 
+    if (compiledPreviewKey === projectKey) {
+        if (opts.terminal) setDeepThoughtAutostartTerminal(opts.terminal)
+        if (resolveGuestListenPort()) {
+            publishLabPhase('dev-running', { reason: 'compiled-preview' })
+        }
+        return { ok: Boolean(resolveGuestListenPort()), reason: 'compiled-preview' }
+    }
+
     if (lastAutostartKey === projectKey && runningDevProc) {
         if (opts.terminal) setDeepThoughtAutostartTerminal(opts.terminal)
-        const livePod = getLabRuntime()
-        let restart = false
-        if (livePod) {
-            try {
-                const seeded = await seedGuestNativeWasm(livePod)
-                if (seeded > 0) {
-                    restart = true
-                    publishLabPhase('dev', { reason: 'wasm-seed' })
-                    try { runningDevProc.kill?.() } catch { /* ignore */ }
-                    runningDevProc = null
-                    lastAutostartKey = null
-                }
-            } catch {
-                /* keep the running preview */
-            }
-        }
-        if (!restart) {
-            // PreviewFrame may have missed the original dev-running event, or a
-            // later warm boot event left chrome stuck on "Starting preview…".
-            publishLabPhase('dev-running', { reason: 'already-running' })
-            return { ok: true, reason: 'already-running' }
-        }
+        publishLabPhase('dev-running', { reason: 'already-running' })
+        armCompiledPreview(projectKey)
+        return { ok: true, reason: 'already-running' }
     }
 
     if (busyAutostartKey === projectKey) {
@@ -687,7 +732,10 @@ export async function runLabAutostart(opts) {
         }
 
         try {
-            const seeded = await seedGuestNativeWasm(pod)
+            const seeded = await Promise.race([
+                seedGuestNativeWasm(pod),
+                sleep(8_000).then(() => 0),
+            ])
             if (seeded > 0) {
                 termLine(terminal, `\x1b[90m${labConsoleLine('wasm_ready')}\x1b[0m`)
             }
@@ -747,6 +795,7 @@ export async function runLabAutostart(opts) {
         })
         runningDevProc = proc
         clearBusy()
+        armCompiledPreview(projectKey)
 
         let ignorePageReloadUntil = 0
         proc.on?.('output', (text) => {
@@ -980,6 +1029,9 @@ export function resetLabAutostart() {
     lastAutostartKey = null
     busyAutostartKey = null
     outputTerminal = null
+    compiledPreviewKey = null
+    compiledArmKey = null
+    resetCompiledPreview()
     try {
         runningDevProc?.kill?.()
     } catch {

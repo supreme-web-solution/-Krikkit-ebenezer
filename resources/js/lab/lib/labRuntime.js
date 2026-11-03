@@ -531,7 +531,8 @@ export function ensureLabSession(opts = {}) {
 
         const files = vfsContentsToFiles(opts.files)
         const workdir = opts.workdir || '/'
-        const pod = await LabRuntime.boot({
+        const pod = await Promise.race([
+            LabRuntime.boot({
             files,
             workdir,
             // Bare `cd` / `~` follow $HOME. Engine default is /home/user (empty mock).
@@ -549,7 +550,11 @@ export function ensureLabSession(opts = {}) {
             onServerReady: (port, url) => {
                 signalGuestListening(port, url)
             },
-        })
+        }),
+            new Promise((_, reject) => {
+                setTimeout(() => reject(new Error('Lab runtime took too long to start. Reload the workspace.')), 25_000)
+            }),
+        ])
 
         engine = pod
         for (const stale of [

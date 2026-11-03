@@ -244,8 +244,10 @@ export async function readCompilerParentVersions(pod) {
  */
 async function fetchCdnBytes(url, opts = {}) {
     if (typeof fetch !== 'function') return null
+    const ctrl = typeof AbortController === 'function' ? new AbortController() : null
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), 8_000) : null
     try {
-        const resp = await fetch(url)
+        const resp = await fetch(url, ctrl ? { signal: ctrl.signal } : undefined)
         if (!resp.ok) return null
         const buf = new Uint8Array(await resp.arrayBuffer())
         if (buf.byteLength < (opts.wasm ? MIN_WASM_BYTES : MIN_GLUE_BYTES)) return null
@@ -255,6 +257,8 @@ async function fetchCdnBytes(url, opts = {}) {
         return buf
     } catch {
         return null
+    } finally {
+        if (timer) clearTimeout(timer)
     }
 }
 

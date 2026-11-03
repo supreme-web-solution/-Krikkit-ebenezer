@@ -297,10 +297,13 @@ export class LabRuntime {
       const stopCacheOpen = performanceTracker.start("boot.snapshotCache");
       try {
         if (host.openSnapshotCache) {
-          snapshotCache = await host.openSnapshotCache({
-            packageStore: opts.packageStore,
-            enableSnapshotCache: opts.enableSnapshotCache,
-          });
+          snapshotCache = await Promise.race([
+            host.openSnapshotCache({
+              packageStore: opts.packageStore,
+              enableSnapshotCache: opts.enableSnapshotCache,
+            }),
+            new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000)),
+          ]);
           if (snapshotCache) {
             performanceTracker.increment(
               host.kind === "node" ? "storage.fs" : "storage.indexedDb",
@@ -362,7 +365,10 @@ export class LabRuntime {
 
     // Prefer same-origin /__worker__.js (or opts.workerUrl) before first spawn.
     // Must await — otherwise next/npm start races onto the embedded blob.
-    await ProcessManager.probeExternalWorkerBundle(opts.workerUrl).catch(() => {});
+    await Promise.race([
+      ProcessManager.probeExternalWorkerBundle(opts.workerUrl).catch(() => {}),
+      new Promise<void>((resolve) => setTimeout(resolve, 4000)),
+    ]);
 
     if (opts.files) {
       for (const [path, content] of Object.entries(opts.files)) {

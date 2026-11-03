@@ -102,8 +102,10 @@ export function createBrowserHost(): RuntimeHost {
           }
           if (!/^https?:/.test(url)) return null;
         }
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 4000);
         try {
-          const resp = await fetch(url, { method: "HEAD" });
+          const resp = await fetch(url, { method: "HEAD", signal: ctrl.signal });
           if (!resp.ok) return null;
           const contentType = resp.headers.get("content-type") || "";
           if (contentType && !/javascript|ecmascript/i.test(contentType)) {
@@ -113,6 +115,8 @@ export function createBrowserHost(): RuntimeHost {
           return url;
         } catch {
           return null;
+        } finally {
+          clearTimeout(timer);
         }
       })();
       return workerProbePromise;
