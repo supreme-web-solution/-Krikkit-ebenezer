@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Access\AbilityRegistry;
 use App\Entitlement\EntitlementGate;
 use App\Installer\EnsureInstallerAppKey;
+use App\Installer\InstalledState;
 use App\Models\User;
 use App\Support\Seo\PageSeo;
 use App\Support\Site\SiteSettings;
@@ -22,11 +23,19 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Throwable;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        $this->app->singleton(InstallationStateManager::class, InstalledState::class);
+
+        // Before any package boots and opens a database session.
+        $this->app->booting(function (): void {
+            $this->keepInstallerOnFileStores();
+        });
+
         EnsureStoragePaths::bootstrap();
 
         EnsureInstallerAppKey::hydrate();
@@ -116,12 +125,9 @@ class AppServiceProvider extends ServiceProvider
             // Treat unknown install state as "still installing".
         }
 
-        // Database session/cache tables do not exist until migrations finish.
-        // Keep the wizard on file stores even if .env already says database.
-        config([
-            'session.driver' => 'file',
-            'cache.default' => 'file',
-        ]);
+        // Database session/cache/jobs tables do not exist until the wizard
+        // migrates. Stay on file stores even if .env already says database.
+        InstalledState::useFileStores();
     }
 
     private function ensurePublicStorageLink(): void
@@ -130,7 +136,20 @@ class AppServiceProvider extends ServiceProvider
             return;
         }
 
-        PublicDiskLink::ensure();
+        try {
+            if (! $this->app->make(InstallationStateManager::class)->isInstalled()) {
+                return;
+            }
+        } catch (Throwable) {
+            return;
+        }
+
+        try {
+            PublicDiskLink::ensure();
+        } catch (Throwable) {
+            // Shared hosts often disable symlink(). The installer retries this
+            // after migrations; a failure here must not hide /install.
+        }
     }
 
     private function bindInstallerToWebStack(): void

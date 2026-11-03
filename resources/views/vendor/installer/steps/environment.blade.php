@@ -23,12 +23,13 @@
     @if(($state['connection'] ?? 'mysql') !== 'sqlite')
     <div>
         <label class="form-label">{{ __('installer::installer.environment_host') }}</label>
-        <input type="text" wire:model.live="state.host" class="form-input" placeholder="127.0.0.1">
+        <input type="text" wire:model.live="state.host" class="form-input" placeholder="localhost">
     </div>
     <div>
         <label class="form-label">{{ __('installer::installer.environment_port') }}</label>
         <input type="text" wire:model.live="state.port" class="form-input" placeholder="3306">
     </div>
+    <p class="form-hint col-span-full">On cPanel, set the host to <code>localhost</code>. Create the empty database in MySQL Databases first, then continue. The installer creates the tables.</p>
     @endif
 
     <div class="col-span-full">

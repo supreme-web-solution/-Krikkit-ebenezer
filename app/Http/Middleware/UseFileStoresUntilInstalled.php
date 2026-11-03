@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Installer\InstalledState;
 use Closure;
 use Deep42\Hitchhiker\Contracts\InstallationStateManager;
 use Illuminate\Http\Request;
@@ -19,12 +20,9 @@ final class UseFileStoresUntilInstalled
     public function handle(Request $request, Closure $next): Response
     {
         if (! $this->installState->isInstalled()) {
-            // Migrations create sessions/cache tables. Keep the wizard on file
-            // stores until the install lock exists — even if .env already says database.
-            config([
-                'session.driver' => 'file',
-                'cache.default' => 'file',
-            ]);
+            // Migrations create sessions/cache/jobs tables. Keep the wizard off
+            // the database even if .env already says SESSION_DRIVER=database.
+            InstalledState::useFileStores();
         }
 
         return $next($request);

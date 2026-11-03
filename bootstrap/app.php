@@ -8,9 +8,11 @@ use App\Http\Middleware\EnsureEntitlement;
 use App\Http\Middleware\ProxyViteDevServer;
 use App\Http\Middleware\ServeLabPublication;
 use App\Http\Middleware\UseFileStoresUntilInstalled;
+use App\Installer\InstalledState;
 use App\Models\User;
 use App\Support\Auth\LoginRedirect;
 use App\Support\Ui\ThemePalette;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -44,6 +46,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(prepend: [
             UseFileStoresUntilInstalled::class,
         ]);
+        $middleware->prependToPriorityList(
+            \Illuminate\Session\Middleware\StartSession::class,
+            UseFileStoresUntilInstalled::class,
+        );
         $middleware->web(append: [
             ApplySiteLocale::class,
             ApplyPageSeo::class,
@@ -69,6 +75,23 @@ return Application::configure(basePath: dirname(__DIR__))
             fn (Request $request) => $request->is('api/*')
                 || ($request->is('lab/*') && $request->expectsJson()),
         );
+
+        $exceptions->render(function (QueryException $e, Request $request) {
+            if (! InstalledState::isMissingInstallTable($e)) {
+                return null;
+            }
+
+            $state = app(\Deep42\Hitchhiker\Contracts\InstallationStateManager::class);
+            if ($state instanceof InstalledState) {
+                $state->forgetReadyStamp();
+            }
+
+            if ($request->is('install', 'install/*') || str_starts_with($request->path(), 'livewire')) {
+                return null;
+            }
+
+            return redirect('/install');
+        });
 
         $exceptions->render(function (EntitlementDeniedException $e, Request $request) {
             $payload = $e->toArray();

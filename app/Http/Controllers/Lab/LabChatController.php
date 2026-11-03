@@ -183,11 +183,7 @@ class LabChatController extends Controller
         } catch (Throwable $e) {
             report($e);
 
-            $message = config('app.debug')
-                ? $e->getMessage()
-                : 'Chat request failed.';
-
-            return response()->json(['message' => $message], 500);
+            return response()->json(['message' => self::visibleFailure($e)], 500);
         }
 
         return response()->json($this->presentTurn(
@@ -203,6 +199,19 @@ class LabChatController extends Controller
             stage: $stage,
             productName: $productName,
         ));
+    }
+
+    private static function visibleFailure(Throwable $e): string
+    {
+        $detail = trim(preg_replace('/\s+/', ' ', $e->getMessage()) ?? '');
+        $detail = preg_replace('/sk-ant-[A-Za-z0-9_\-]+/', '[key]', $detail) ?? $detail;
+        $detail = preg_replace('/sk-[A-Za-z0-9_\-]+/', '[key]', $detail) ?? $detail;
+
+        if ($detail === '') {
+            return class_basename($e);
+        }
+
+        return mb_substr($detail, 0, 300);
     }
 
     private static function wantsStream(LabChatRequest $request): bool
@@ -317,7 +326,7 @@ class LabChatController extends Controller
             } catch (Throwable $e) {
                 report($e);
                 self::emitSse('error', [
-                    'message' => config('app.debug') ? $e->getMessage() : 'Chat request failed.',
+                    'message' => self::visibleFailure($e),
                     'status' => 500,
                 ]);
 
