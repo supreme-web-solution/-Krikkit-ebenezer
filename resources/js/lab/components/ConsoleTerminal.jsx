@@ -294,6 +294,7 @@ export function ConsoleTerminal({
                     resizeObserver.observe(host)
                     setStatus('ready')
                     setError(err?.message || String(err))
+                    if (autostart) kickAutostart(termApiRef.current)
                 } catch (err2) {
                     setStatus('error')
                     setError(err2?.message || err?.message || 'Failed to start terminal')

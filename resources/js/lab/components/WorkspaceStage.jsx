@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { resolveGuestListenPort } from '../lib/labRuntime'
 import { AppSettingsPanel } from './AppSettingsPanel'
 import { ConsoleTerminal, disposeConsoleSession } from './ConsoleTerminal'
 import { DatastoreDesk } from './DatastoreDesk'
@@ -52,6 +53,61 @@ export function WorkspaceStage({
     thinkingLive = false,
 }) {
     const consoleIdsRef = useRef(consoleIds)
+    const vfsRef = useRef(vfs)
+    vfsRef.current = vfs
+
+    // The dev server used to start only after the Console terminal attached.
+    // Preview is the default tab, and Console is display:none, so that attach
+    // often never happens. The files are written and the cover stays on
+    // "Dev server warming up" because nothing is listening.
+    useEffect(() => {
+        if (! projectUuid) return undefined
+        let stopped = false
+        let hungSince = 0
+
+        const tick = () => {
+            if (stopped || isAiStreaming) return
+            if (resolveGuestListenPort()) {
+                hungSince = 0
+                return
+            }
+            const files = vfsRef.current?.getContents?.() || {}
+            const hasPackage = Object.keys(files).some((path) => (
+                path.replace(/^\/+/, '') === 'package.json' && String(files[path] || '').trim()
+            ))
+            if (! hasPackage) return
+            void import('../lib/labAutostart').then(async (mod) => {
+                if (stopped || resolveGuestListenPort()) return
+                const result = await mod.runLabAutostart({
+                    projectKey: projectUuid,
+                    getFiles: () => vfsRef.current?.getContents?.() || {},
+                })
+                if (stopped || resolveGuestListenPort()) return
+                if (result?.reason !== 'already-running') {
+                    hungSince = 0
+                    return
+                }
+                const now = Date.now()
+                if (! hungSince) hungSince = now
+                else if (now - hungSince > 20_000) {
+                    hungSince = 0
+                    mod.resetLabAutostart?.()
+                    void mod.runLabAutostart({
+                        projectKey: projectUuid,
+                        getFiles: () => vfsRef.current?.getContents?.() || {},
+                    })
+                }
+            })
+        }
+
+        tick()
+        const id = window.setInterval(tick, 4000)
+        return () => {
+            stopped = true
+            window.clearInterval(id)
+        }
+    }, [projectUuid, isAiStreaming])
+
     useEffect(() => {
         const prev = consoleIdsRef.current
         consoleIdsRef.current = consoleIds
@@ -68,7 +124,9 @@ export function WorkspaceStage({
                 return (
                     <div
                         key={id}
-                        className={active ? 'h-full min-h-0' : 'hidden'}
+                        className={active
+                            ? 'h-full min-h-0'
+                            : 'pointer-events-none absolute inset-0 -z-10 h-full min-h-0 overflow-hidden opacity-0'}
                         aria-hidden={! active}
                     >
                         <ConsoleTerminal
