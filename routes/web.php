@@ -95,7 +95,7 @@ Route::post('/newsletter', [SubscribeController::class, 'store'])
 Route::post('/webhooks/stripe', StripeWebhookController::class)->name('webhooks.stripe');
 Route::post('/webhooks/paypal', PaypalWebhookController::class)->name('webhooks.paypal');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/settings', \App\Livewire\Settings\General\GeneralComponent::class)->name('settings.index');
     Route::get('/settings/profile', \App\Livewire\Settings\Profile\ProfileComponent::class)->name('settings.profile');
     Route::get('/settings/password', \App\Livewire\Settings\Profile\Options\PasswordComponent::class)->name('settings.password');
@@ -115,7 +115,7 @@ Route::get('/lab/oauth/supabase/return', [LabSupabaseOAuthController::class, 're
     ->middleware('throttle:60,1')
     ->name('lab.oauth.supabase.return');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/lab', LabController::class)->name('lab');
     Route::get('/lab/models', LabModelsController::class)->name('lab.models');
     Route::post('/lab/chat', LabChatController::class)->middleware('throttle:30,1')->name('lab.chat');

@@ -55,7 +55,7 @@ use App\Livewire\Dashboard\Users\UsersComponent;
 use App\Models\Invoice;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified', 'ability:dashboard.access,404'])->group(function () {
+Route::middleware(['auth', 'ability:dashboard.access,404'])->group(function () {
     Route::get('/', DashboardController::class)->name('home');
     Route::redirect('billing', '/dashboard/packs')->name('billing');
 

@@ -5,10 +5,7 @@ namespace App\Models;
 use App\Entitlement\EntitlementGate;
 use App\Entitlement\PlanAssigner;
 use App\Enums\UserStatus;
-use App\Notifications\ConfirmEmailAddress;
 use Database\Factories\UserFactory;
-use Illuminate\Auth\MustVerifyEmail;
-use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,16 +33,20 @@ use Illuminate\Support\Str;
     'preferences',
 ])]
 #[Hidden(['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes'])]
-class User extends Authenticatable implements MustVerifyEmailContract
+class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, MustVerifyEmail, Notifiable;
+    use HasFactory, Notifiable;
 
     protected static function booted(): void
     {
         static::creating(function (User $user): void {
             if (blank($user->public_id)) {
                 $user->public_id = (string) Str::ulid();
+            }
+
+            if ($user->email_verified_at === null) {
+                $user->email_verified_at = now();
             }
         });
 
@@ -63,9 +64,14 @@ class User extends Authenticatable implements MustVerifyEmailContract
         return 'public_id';
     }
 
+    public function hasVerifiedEmail(): bool
+    {
+        return true;
+    }
+
     public function sendEmailVerificationNotification(): void
     {
-        $this->notify(new ConfirmEmailAddress);
+        // Email verification is disabled.
     }
 
     protected function casts(): array

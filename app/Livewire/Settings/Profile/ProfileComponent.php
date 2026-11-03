@@ -66,7 +66,6 @@ class ProfileComponent extends Component
 
         $user = auth()->user();
         $validated = $this->validate($this->rules($user));
-        $emailChanged = $user->email !== $validated['email'];
 
         $payload = [
             'username' => $validated['username'],
@@ -89,15 +88,7 @@ class ProfileComponent extends Component
             $payload['avatar_path'] = $this->avatar->store('avatars', 'public');
         }
 
-        if ($emailChanged) {
-            $payload['email_verified_at'] = null;
-        }
-
         $user->forceFill($payload)->save();
-
-        if ($emailChanged) {
-            $user->sendEmailVerificationNotification();
-        }
 
         $this->fillFromUser($user->fresh());
         $this->pulseOk(__('dashboard.Profile saved.'));
